@@ -7,7 +7,7 @@ spring:
   datasource:
     # JDBC
     driverClassName: org.h2.Driver # JDBC Driver class name.
-    url: jdbc:h2:mem:testDb;DB_CLOSE_ON_EXIT=FALSE # connection url
+    url: jdbc:h2:mem:testDb;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH # connection url
     username: sa
     password:
   h2:
