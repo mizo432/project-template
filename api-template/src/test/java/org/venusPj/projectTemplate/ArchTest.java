@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class ArchTest {
 
     private static String ROOT = "org.venusPj.projectTemplate";
-    private static String SHARED = "org.venusPj.projectTemplate.shaerd";
+    private static String SHARED = "org.venusPj.projectTemplate.shared";
     private static String MODULES = "org.venusPj.projectTemplate.modules";
     JavaClasses CLASSES = new ClassFileImporter()
         .withImportOption(Predefined.DO_NOT_INCLUDE_TESTS)
@@ -26,7 +26,7 @@ public class ArchTest {
             .dependOnClassesThat(new DescribedPredicate<>("moduleパッケージに別モジュールパッケージの依存が存在するか") {
                 @Override
                 public boolean apply(JavaClass javaClass) {
-                    // ...
+                    // ここに設定を制約を書く
                     return false;
                 }
             })
