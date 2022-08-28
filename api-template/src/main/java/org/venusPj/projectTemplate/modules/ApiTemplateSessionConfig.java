@@ -16,7 +16,7 @@ import org.springframework.session.web.http.CookieSerializer;
 import org.springframework.session.web.http.DefaultCookieSerializer;
 
 @Configuration
-public class PrpjectTemplateSessionConfig {
+public class ApiTemplateSessionConfig {
 
     private ObjectMapper objectMapper() {
 
@@ -33,7 +33,7 @@ public class PrpjectTemplateSessionConfig {
 
     }
 
-    public PrpjectTemplateSessionConfig() {
+    public ApiTemplateSessionConfig() {
     }
 
     @Bean

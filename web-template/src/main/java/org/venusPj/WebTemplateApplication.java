@@ -1,4 +1,4 @@
-package com.lissajous.taxiDispatcher.modules;
+package org.venusPj;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 @SpringBootApplication
 @EnableRedisHttpSession
 @EnableCaching
-public class PrpjectTemplateApplication {
+public class WebTemplateApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TaxiDispatcherApplication.class, args);
-    }
+        SpringApplication.run(WebTemplateApplication.class, args);
 
+    }
 }

@@ -25,7 +25,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
  * BackboneSharedApplication向けキャッシュ設定
  */
 @Configuration
-class TaxiDispatcherRedisCacheConfig {
+class ApiTemplateRedisCacheConfig {
 
     private ObjectMapper objectMapper() {
         Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
