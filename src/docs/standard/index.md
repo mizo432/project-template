@@ -10,7 +10,7 @@
 
 ## 実装
 ### コーディング規約
-### [コミットコメント](./git commit comment/aConventional Commits.md)
+### [コミットコメント](./git commit comment/conventional Commits.md)
 ### [コードレビュー](./review/index.md)
 #### [レビューイ向けガイド](./review/reviewee.md)
 #### [レビュワー向け](./review/reviewer.md)
