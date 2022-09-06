@@ -1,8 +1,8 @@
 server:
   port: 8081
   application:
-    name: ウェブテンプレート
-  
+    name: Webテンプレート
+  contextPath: /web
 spring:
   datasource:
     # JDBC
