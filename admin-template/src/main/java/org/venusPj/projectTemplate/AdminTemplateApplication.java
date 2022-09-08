@@ -1,13 +1,14 @@
 package org.venusPj.projectTemplate;
 
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WebTemplateApplication {
+@EnableAdminServer
+public class AdminTemplateApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebTemplateApplication.class, args);
-
+        SpringApplication.run(AdminTemplateApplication.class, args);
     }
 }

@@ -1,3 +1,4 @@
 rootProject.name = 'project-template'
 include 'api-template'
 include 'web-template'
+include 'admin-template'

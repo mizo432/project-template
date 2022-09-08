@@ -1,4 +1,4 @@
 /**
  * プロジェクトルートパッケージ
  */
-package com.lissajous.taxiDispatcher;
+package org.venusPj.projectTemplate;
