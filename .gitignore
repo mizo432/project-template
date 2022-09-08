@@ -19,3 +19,5 @@ gradle-app.setting
 /api-template/build
 /web-template/build/
 /web-template/build
+/api-template/out/
+/api-template/out
