@@ -21,3 +21,7 @@ gradle-app.setting
 /web-template/build
 /api-template/out/
 /api-template/out
+/admin-template/build
+/admin-template/build/
+/admin-template/out
+/admin-template/out/
