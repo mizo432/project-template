@@ -19,6 +19,8 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-server', version: '2.7.4'
+    implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.7.4'
+
 }
 
 tasks.named('test') {

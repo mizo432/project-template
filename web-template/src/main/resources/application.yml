@@ -1,8 +1,7 @@
 server:
   port: 8081
-  application:
-    name: Webテンプレート
-  contextPath: /web
+  context-path: /web
+
 spring:
   datasource:
     # JDBC
@@ -22,6 +21,11 @@ spring:
     auto-commit: true #default auto-commit behavior.
     connection-test-query: select 1
     leakDetectionThreshold: 120000 # 開発時は設定するが検証機、本番期では設定しない
+  thymeleaf:
+    mode: HTML
+    # htmlファイルをキャッシュするか？本番ではtrueに設定すること
+    cache: false
+
   session:
     store-type: REDIS
     redis:
@@ -31,3 +35,22 @@ spring:
     host: "localhost"
     port: 6379
     database: 1
+  application:
+    name: webテンプレート # アプリケーション名
+  boot:
+    admin:
+      client:
+        url: http://localhost:8082/admin
+        instance:
+          prefer-ip: true
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false

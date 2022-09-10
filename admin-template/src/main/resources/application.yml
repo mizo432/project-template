@@ -1,6 +1,26 @@
 server:
   port: 8082
+  servlet:
+    context-path: /admin
+
+spring:
   application:
-    name: APIプロジェクトテンプレート
-  contextPath: /admin
+    name: adminテンプレート # アプリケーション名
+  boot:
+    admin:
+      client:
+        url: http://localhost:8082/admin
+        instance:
+          prefer-ip: true
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false
 
