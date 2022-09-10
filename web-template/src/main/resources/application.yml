@@ -1,6 +1,7 @@
 server:
   port: 8081
-  context-path: /web
+  servlet:
+    context-path: /web
 
 spring:
   datasource:
@@ -25,7 +26,8 @@ spring:
     mode: HTML
     # htmlファイルをキャッシュするか？本番ではtrueに設定すること
     cache: false
-
+  profiles:
+    active: develop
   session:
     store-type: REDIS
     redis:

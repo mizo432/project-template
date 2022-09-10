@@ -39,6 +39,12 @@ spring:
         url: http://localhost:8082/admin
         instance:
           prefer-ip: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    time-zone: Asia/Tokyo
+  profiles:
+    active: develop
+
 
 management:
   endpoint:
