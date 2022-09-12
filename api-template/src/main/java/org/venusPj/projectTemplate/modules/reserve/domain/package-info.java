@@ -1,1 +1,4 @@
-package com.lissajous.taxiDispatcher.modules.reserve.domain;
+/**
+ * 予約ドメインのモデルを確認する
+ */
+package org.venusPj.projectTemplate.modules.reserve.domain;
