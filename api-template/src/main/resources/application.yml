@@ -44,6 +44,10 @@ spring:
     time-zone: Asia/Tokyo
   profiles:
     active: develop
+  devtools:
+    restart:
+      exclude: static/**, public/**
+      additional-exclude: java/**, test/**
 
 
 management:

@@ -25,3 +25,5 @@ gradle-app.setting
 /admin-template/build/
 /admin-template/out
 /admin-template/out/
+/web-template/out
+/web-template/out/

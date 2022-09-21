@@ -45,6 +45,10 @@ spring:
         url: http://localhost:8082/admin
         instance:
           prefer-ip: true
+  devtools:
+    restart:
+      exclude: static/**, public/**
+      additional-exclude: java/**, test/**
 
 management:
   endpoint:

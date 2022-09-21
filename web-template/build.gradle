@@ -21,7 +21,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    implementation "org.springframework.boot:spring-boot-starter-jetty"
     implementation 'org.flywaydb:flyway-core'
     implementation 'org.springframework.session:spring-session-data-redis'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
@@ -34,9 +37,18 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '0.23.1'
     implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.7.4'
-// https://mvnrepository.com/artifact/org.jetbrains/annotations
     implementation group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
 
+    // thymeleaf
+    implementation "org.thymeleaf.extras:thymeleaf-extras-springsecurity5"
+
+    // apache POI
+    implementation 'org.apache.poi:poi:5.2.2'
+    implementation 'org.apache.poi:poi-ooxml:5.2.2'
+
+    // jasper reports
+    implementation 'net.sf.jasperreports:jasperreports:6.20.0'
+    implementation "com.lowagie:itext:2.1.7.js5"
 }
 
 tasks.named('test') {
