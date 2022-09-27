@@ -12,10 +12,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.session.web.http.CookieSerializer;
 import org.springframework.session.web.http.DefaultCookieSerializer;
 
 @Configuration
+@EnableRedisHttpSession
 public class ApiTemplateSessionConfig {
 
     private ObjectMapper objectMapper() {

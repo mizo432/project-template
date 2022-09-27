@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.learning.valueObject.step1;
+package org.venusPj.projectTemplate.learning.valueObject.field.step1;
 
 public class SourceClass {
 

@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.learning.valueObject.step2;
+package org.venusPj.projectTemplate.learning.valueObject.field.step2;
 
 public class Quantity {
 

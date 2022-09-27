@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.time.Duration;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -25,6 +26,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
  * BackboneSharedApplication向けキャッシュ設定
  */
 @Configuration
+@EnableCaching
 class ApiTemplateRedisCacheConfig {
 
     private ObjectMapper objectMapper() {

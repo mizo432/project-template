@@ -39,6 +39,9 @@ dependencies {
     implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.7.4'
     implementation group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
 
+    // modelmapper
+    implementation 'org.modelmapper:modelmapper:3.1.0'
+
     // thymeleaf
     implementation "org.thymeleaf.extras:thymeleaf-extras-springsecurity5"
 
@@ -47,8 +50,13 @@ dependencies {
     implementation 'org.apache.poi:poi-ooxml:5.2.2'
 
     // jasper reports
-    implementation 'net.sf.jasperreports:jasperreports:6.20.0'
-    implementation "com.lowagie:itext:2.1.7.js5"
+    implementation('net.sf.jasperreports:jasperreports:6.20.0') {
+        exclude module: "itext"
+        exclude module: "commons-collections"
+
+    }
+    implementation 'com.lowagie:itext:4.2.2'
+
 }
 
 tasks.named('test') {

@@ -3,6 +3,7 @@ package org.venusPj.projectTemplate.learning.valueObject.step2;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import org.venusPj.projectTemplate.learning.valueObject.field.step2.SourceClass;
 
 class SourceClassTest {
 

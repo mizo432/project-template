@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test;
 
 public class ArchTest {
 
-    private static String ROOT = "org.venusPj.projectTemplate";
-    private static String SHARED = "org.venusPj.projectTemplate.shared";
-    private static String MODULES = "org.venusPj.projectTemplate.modules";
+    private static final String ROOT = "org.venusPj.projectTemplate";
+    private static final String SHARED = "org.venusPj.projectTemplate.shared";
+    private static final String MODULES = "org.venusPj.projectTemplate.modules";
     JavaClasses CLASSES = new ClassFileImporter()
         .withImportOption(Predefined.DO_NOT_INCLUDE_TESTS)
         .importPackages(ROOT);
