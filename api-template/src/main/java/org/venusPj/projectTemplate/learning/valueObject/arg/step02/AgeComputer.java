@@ -6,19 +6,19 @@ import org.jetbrains.annotations.NotNull;
 public class AgeComputer {
 
     /**
-     * ���N��������Ώ۔N�������_�̔N������߂�
+     * 生年月日から対象年月日時点の年齢を求める
      * <pre>
-     * 1. [���ݔN�[���܂�N]�ɂ���ƂȂ�N����v�Z����B
-     * 2. ���N�a�������}���Ă��邩�𔻒f����B
-     * �@�@      2.1. [���݌� < �a����]�ł���ΔN����|�P����B
-     * �@�@      2.2. [���݌� = �a����]�ł͂��邪[���ݓ� < �a����]�ł���ΔN��|�P����B
+     * 1. [現在年ー生まれ年]により基準となる年齢を計算する。
+     * 2. 今年誕生日を迎えているかを判断する。
+     * 　　      2.1. [現在月 < 誕生月]であれば年齢を－１する。
+     * 　　      2.2. [現在月 = 誕生月]ではあるが[現在日 < 誕生日]であれば年齢－１する。
      *
      * </pre>
      *
-     * @param birthDate  ���N����
-     * @param targetDate �Ώ۔N����
-     * @return �N��
-     * @throws IllegalArgumentException �Ώ۔N���������N�����ȑO�̏ꍇ�ɃX���[���܂��B
+     * @param birthDate  生年月日
+     * @param targetDate 対象年月日
+     * @return 年齢
+     * @throws IllegalArgumentException 対象年月日が生年月日以前の場合にスローします。
      */
     public int computeAge(@NotNull LocalDate birthDate, @NotNull LocalDate targetDate)
         throws IllegalArgumentException {

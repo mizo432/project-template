@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
-import org.venusPj.projectTemplate.learning.valueObject.arg.step01.AgeComputer;
 
 class AgeComputerTest {
 

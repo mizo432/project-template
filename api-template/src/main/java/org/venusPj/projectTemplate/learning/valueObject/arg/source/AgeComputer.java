@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.learning.valueObject.arg.step01;
+package org.venusPj.projectTemplate.learning.valueObject.arg.source;
 
 import java.time.LocalDate;
 import org.jetbrains.annotations.NotNull;
@@ -22,16 +22,15 @@ public class AgeComputer {
      */
     public int computeAge(@NotNull LocalDate birthDate, @NotNull LocalDate targetDate)
         throws IllegalArgumentException {
-        BirthDate wBirthDate = BirthDate.of(birthDate);
-        if (wBirthDate.asLocalDate().isAfter(targetDate)) {
+        if (birthDate.isAfter(targetDate)) {
             throw new IllegalArgumentException("対象年月日が生年月日以前のため年齢を求められません");
         }
-        int baseAge = targetDate.getYear() - wBirthDate.asLocalDate().getYear();
-        if (targetDate.getMonthValue() < wBirthDate.asLocalDate().getMonthValue()) {
+        int baseAge = targetDate.getYear() - birthDate.getYear();
+        if (targetDate.getMonthValue() < birthDate.getMonthValue()) {
             return baseAge - 1;
         }
-        if (targetDate.getMonth().equals(wBirthDate.asLocalDate().getMonth()) &&
-            (targetDate.getDayOfMonth() < wBirthDate.asLocalDate().getDayOfMonth())) {
+        if (targetDate.getMonth().equals(birthDate.getMonth()) &&
+            (targetDate.getDayOfMonth() < birthDate.getDayOfMonth())) {
             return baseAge - 1;
         }
 
