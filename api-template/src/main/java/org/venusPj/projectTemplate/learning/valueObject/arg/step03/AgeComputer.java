@@ -2,6 +2,7 @@ package org.venusPj.projectTemplate.learning.valueObject.arg.step03;
 
 import java.time.LocalDate;
 import org.jetbrains.annotations.NotNull;
+import org.venusPj.precondition.object.ObjectPrecondition;
 
 public class AgeComputer {
 
@@ -22,38 +23,16 @@ public class AgeComputer {
      */
     public int computeAge(@NotNull LocalDate birthDate, @NotNull LocalDate targetDate)
         throws IllegalArgumentException {
-        if (targetDate == null) {
-            throw new IllegalArgumentException("対象年月日が指定されていません");
-        }
-        if (birthDate == null) {
-            throw new IllegalArgumentException("生年月日が指定されていません");
-        }
+        ObjectPrecondition.checkNotNull(targetDate, () ->
+            new IllegalArgumentException("対象年月日が指定されていません"));
+        ObjectPrecondition.checkNotNull(birthDate, () ->
+            new IllegalArgumentException("生年月日が指定されていません"));
+
         BirthDate wBirthDate = BirthDate.of(birthDate);
-        return computeAge2(wBirthDate, targetDate);
+        TargetDate targetDate1 = TargetDate.of(targetDate);
+
+        return wBirthDate.computeAge2(targetDate1);
 
     }
-
-    public int computeAge2(@NotNull BirthDate birthDate, @NotNull LocalDate targetDate) {
-        if (targetDate == null) {
-            throw new IllegalArgumentException("対象年月日が指定されていません");
-        }
-        if (birthDate == null) {
-            throw new IllegalArgumentException("生年月日が指定されていません");
-        }
-        if (birthDate.asLocalDate().isAfter(targetDate)) {
-            throw new IllegalArgumentException("対象年月日が生年月日以前のため年齢を求められません");
-        }
-        int baseAge = targetDate.getYear() - birthDate.asLocalDate().getYear();
-        if (targetDate.getMonthValue() < birthDate.asLocalDate().getMonthValue()) {
-            return baseAge - 1;
-        }
-        if (targetDate.getMonth().equals(birthDate.asLocalDate().getMonth()) &&
-            (targetDate.getDayOfMonth() < birthDate.asLocalDate().getDayOfMonth())) {
-            return baseAge - 1;
-        }
-
-        return baseAge;
-    }
-
 
 }

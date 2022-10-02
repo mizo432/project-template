@@ -1,5 +1,7 @@
 package org.venusPj.projectTemplate.learning.valueObject.arg.step02;
 
+import static org.venusPj.precondition.object.ObjectPrecondition.checkNotNull;
+
 import java.time.LocalDate;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -17,9 +19,8 @@ public class BirthDate {
 
     @NotNull
     public static BirthDate of(@NotNull LocalDate birthDate) {
-        if (birthDate == null) {
-            throw new IllegalArgumentException("生年月日は必須です");
-        }
+        checkNotNull(birthDate,
+            () -> new IllegalArgumentException("生年月日は必須です"));
         return new BirthDate(birthDate);
     }
 
