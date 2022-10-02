@@ -22,6 +22,13 @@ public class AgeComputer {
      */
     public int computeAge(@NotNull LocalDate birthDate, @NotNull LocalDate targetDate)
         throws IllegalArgumentException {
+        if (targetDate == null) {
+            throw new IllegalArgumentException("対象年月日が指定されていません");
+        }
+        if (birthDate == null) {
+            throw new IllegalArgumentException("生年月日が指定されていません");
+        }
+
         BirthDate wBirthDate = BirthDate.of(birthDate);
         if (wBirthDate.asLocalDate().isAfter(targetDate)) {
             throw new IllegalArgumentException("対象年月日が生年月日以前のため年齢を求められません");
