@@ -2,6 +2,7 @@ package org.venusPj.projectTemplate.learning.valueObject.arg.step01;
 
 import java.time.LocalDate;
 import org.jetbrains.annotations.NotNull;
+import org.venusPj.precondition.object.ObjectPrecondition;
 
 public class AgeComputer {
 
@@ -22,6 +23,11 @@ public class AgeComputer {
      */
     public int computeAge(@NotNull LocalDate birthDate, @NotNull LocalDate targetDate)
         throws IllegalArgumentException {
+        ObjectPrecondition.checkNotNull(birthDate, () ->
+            new IllegalArgumentException("生年月日が指定されていません"));
+        ObjectPrecondition.checkNotNull(targetDate, () ->
+            new IllegalArgumentException("対象日付が指定されていません"));
+
         BirthDate wBirthDate = BirthDate.of(birthDate);
         if (wBirthDate.asLocalDate().isAfter(targetDate)) {
             throw new IllegalArgumentException("対象年月日が生年月日以前のため年齢を求められません");

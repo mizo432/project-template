@@ -1,7 +1,8 @@
-package org.venusPj.projectTemplate.learning.valueObject.arg.source;
+package org.venusPj.projectTemplate.learning.valueObject.arg.step03;
 
 import java.time.LocalDate;
 import org.jetbrains.annotations.NotNull;
+import org.venusPj.precondition.object.ObjectPrecondition;
 
 public class AgeComputer {
 
@@ -22,28 +23,16 @@ public class AgeComputer {
      */
     public int computeAge(@NotNull LocalDate birthDate, @NotNull LocalDate targetDate)
         throws IllegalArgumentException {
-        if (targetDate == null) {
-            throw new IllegalArgumentException("対象年月日が指定されていません");
-        }
-        if (birthDate == null) {
-            throw new IllegalArgumentException("生年月日が指定されていません");
-        }
+        ObjectPrecondition.checkNotNull(targetDate, () ->
+            new IllegalArgumentException("対象年月日が指定されていません"));
+        ObjectPrecondition.checkNotNull(birthDate, () ->
+            new IllegalArgumentException("生年月日が指定されていません"));
 
-        if (birthDate.isAfter(targetDate)) {
-            throw new IllegalArgumentException("対象年月日が生年月日以前のため年齢を求められません");
-        }
-        int baseAge = targetDate.getYear() - birthDate.getYear();
-        if (targetDate.getMonthValue() < birthDate.getMonthValue()) {
-            return baseAge - 1;
-        }
-        if (targetDate.getMonth().equals(birthDate.getMonth()) &&
-            (targetDate.getDayOfMonth() < birthDate.getDayOfMonth())) {
-            return baseAge - 1;
-        }
+        BirthDate wBirthDate = BirthDate.of(birthDate);
+        TargetDate targetDate1 = TargetDate.of(targetDate);
 
-        return baseAge;
+        return wBirthDate.computeAge2(targetDate1);
 
     }
-
 
 }

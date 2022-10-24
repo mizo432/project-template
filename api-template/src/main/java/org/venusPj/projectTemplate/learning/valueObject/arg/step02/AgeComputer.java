@@ -2,6 +2,7 @@ package org.venusPj.projectTemplate.learning.valueObject.arg.step02;
 
 import java.time.LocalDate;
 import org.jetbrains.annotations.NotNull;
+import org.venusPj.precondition.object.ObjectPrecondition;
 
 public class AgeComputer {
 
@@ -22,21 +23,35 @@ public class AgeComputer {
      */
     public int computeAge(@NotNull LocalDate birthDate, @NotNull LocalDate targetDate)
         throws IllegalArgumentException {
+        ObjectPrecondition.checkNotNull(birthDate, () ->
+            new IllegalArgumentException("生年月日が指定されていません"));
+        ObjectPrecondition.checkNotNull(targetDate, () ->
+            new IllegalArgumentException("対象日付が指定されていません"));
+        
         BirthDate wBirthDate = BirthDate.of(birthDate);
-        if (wBirthDate.asLocalDate().isAfter(targetDate)) {
-            throw new IllegalArgumentException("�Ώ۔N���������N�����ȑO�̂��ߔN������߂��܂���");
+        return computeAge2(wBirthDate, targetDate);
+
+    }
+
+    int computeAge2(@NotNull BirthDate birthDate, @NotNull LocalDate targetDate) {
+        ObjectPrecondition.checkNotNull(birthDate, () ->
+            new IllegalArgumentException("生年月日が指定されていません"));
+        ObjectPrecondition.checkNotNull(targetDate, () ->
+            new IllegalArgumentException("対象日付が指定されていません"));
+
+        if (birthDate.asLocalDate().isAfter(targetDate)) {
+            throw new IllegalArgumentException("対象年月日が生年月日以前のため年齢を求められません");
         }
-        int baseAge = targetDate.getYear() - wBirthDate.asLocalDate().getYear();
-        if (targetDate.getMonthValue() < wBirthDate.asLocalDate().getMonthValue()) {
+        int baseAge = targetDate.getYear() - birthDate.asLocalDate().getYear();
+        if (targetDate.getMonthValue() < birthDate.asLocalDate().getMonthValue()) {
             return baseAge - 1;
         }
-        if (targetDate.getMonth().equals(wBirthDate.asLocalDate().getMonth()) &&
-            (targetDate.getDayOfMonth() < wBirthDate.asLocalDate().getDayOfMonth())) {
+        if (targetDate.getMonth().equals(birthDate.asLocalDate().getMonth()) &&
+            (targetDate.getDayOfMonth() < birthDate.asLocalDate().getDayOfMonth())) {
             return baseAge - 1;
         }
 
         return baseAge;
-
     }
 
 

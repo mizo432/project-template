@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.learning.valueObject.arg.step03;
+package org.venusPj.projectTemplate.learning.valueObject.arg.step04;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -18,7 +18,9 @@ class BirthDateTest {
         LocalDate birthDate = null;
 
         // Act and Assert
-        assertThrows(IllegalArgumentException.class, () -> BirthDate.of(birthDate));
+        assertThrows(IllegalArgumentException.class,
+            () -> BirthDate.of(
+                birthDate));
     }
 
     /**
@@ -29,7 +31,8 @@ class BirthDateTest {
         // Arrange
         long epochDay = 1L;
         LocalDate ofEpochDayResult = LocalDate.ofEpochDay(epochDay);
-        BirthDate ofResult = BirthDate.of(ofEpochDayResult);
+        BirthDate ofResult = BirthDate.of(
+            ofEpochDayResult);
 
         // Act
         LocalDate actualAsLocalDateResult = ofResult.asLocalDate();

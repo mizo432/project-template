@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.learning.valueObject.arg.step03;
+package org.venusPj.projectTemplate.learning.valueObject.arg.step04;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
