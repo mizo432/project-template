@@ -1,0 +1,19 @@
+#VersionDef
+version: '3'
+
+#ServiceDef
+services:
+  artifactory:
+    image: docker.bintray.io/jfrog/artifactory-oss:latest
+    container_name: artifactory-on-premises
+    ports:
+      - 8081:8081 #
+      - 8082:8082 # web画面ぽい
+    volumes:
+      - ./jfrog/artifactory:/var/opt/jfrog/artifactory
+    restart: always
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 32000
+        hard: 40000
