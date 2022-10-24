@@ -30,23 +30,23 @@ public class BirthDate {
     }
 
     int computeBaseAge(@NotNull TargetDate targetDate) {
-        return targetDate.asLocalDate().getYear() - asLocalDate().getYear();
+        return targetDate.getYear() - value.getYear();
     }
 
     boolean isBeforeDayOfMonth(@NotNull TargetDate targetDate) {
-        return targetDate.asLocalDate().getDayOfMonth() < asLocalDate().getDayOfMonth();
+        return targetDate.getDayOfMonth() < value.getDayOfMonth();
     }
 
     boolean isSameMonth(@NotNull TargetDate targetDate) {
-        return targetDate.asLocalDate().getMonth().equals(asLocalDate().getMonth());
+        return targetDate.getMonth().equals(value.getMonth());
     }
 
     boolean isBeforeMonth(@NotNull TargetDate targetDate) {
-        return targetDate.asLocalDate().getMonthValue() < asLocalDate().getMonthValue();
+        return targetDate.getMonth().getValue() < value.getMonth().getValue();
     }
 
     boolean isAfter(@NotNull TargetDate targetDate) {
-        return asLocalDate().isAfter(targetDate.asLocalDate());
+        return value.isAfter(targetDate.asLocalDate());
     }
 
     public int computeAge(@NotNull TargetDate targetDate) {

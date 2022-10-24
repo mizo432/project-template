@@ -1,6 +1,7 @@
 package org.venusPj.projectTemplate.learning.valueObject.arg.step04;
 
 import java.time.LocalDate;
+import java.time.Month;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -21,9 +22,21 @@ public class TargetDate {
         return new TargetDate(targetDate);
     }
 
+    Month getMonth() {
+        return value.getMonth();
+    }
+
+    int getYear() {
+        return value.getYear();
+    }
+
     @Nullable
     public LocalDate asLocalDate() {
         return value;
     }
 
+    int getDayOfMonth() {
+        return value.getDayOfMonth();
+
+    }
 }

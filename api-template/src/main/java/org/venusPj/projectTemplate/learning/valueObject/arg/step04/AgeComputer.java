@@ -31,7 +31,7 @@ public class AgeComputer {
         BirthDate wBirthDate = BirthDate.of(birthDate);
         TargetDate targetDate1 = TargetDate.of(targetDate);
 
-        return wBirthDate.computeAge2(targetDate1);
+        return wBirthDate.computeAge(targetDate1);
 
     }
 
