@@ -26,6 +26,13 @@ spring:
     mode: HTML
     # htmlファイルをキャッシュするか？本番ではtrueに設定すること
     cache: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    time-zone: Asia/Tokyo
+    visibility:
+      field: any
+      getter: none
+      setter: none
   profiles:
     active: develop
   session:

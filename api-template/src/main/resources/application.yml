@@ -42,6 +42,10 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss.SSS
     time-zone: Asia/Tokyo
+    visibility:
+      field: any
+      getter: none
+      setter: none
   profiles:
     active: develop
   devtools:
