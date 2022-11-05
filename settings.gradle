@@ -3,5 +3,3 @@ include 'api-template'
 include 'web-template'
 include 'admin-template'
 include 'precondition'
-include 'primitive'
-
