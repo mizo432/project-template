@@ -13,6 +13,7 @@ import org.venusPj.projectTemplate.shared.value.DateTimeValue;
 @ToString
 public class WhenNoticed implements DateTimeValue<WhenNoticed> {
 
+    private static final WhenNoticed EMPTY = new WhenNoticed(null);
     private final LocalDateTime value;
 
     public static WhenNoticed reconstruct(LocalDateTime value) {
@@ -23,5 +24,9 @@ public class WhenNoticed implements DateTimeValue<WhenNoticed> {
     public static WhenNoticed now() {
         return new WhenNoticed(LocalDateTime.now());
 
+    }
+
+    public static WhenNoticed empty() {
+        return EMPTY;
     }
 }

@@ -1,8 +1,10 @@
 package org.venusPj.projectTemplate.modules.tenant.domain.tenant;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -78,6 +80,23 @@ class TenantIdTest {
 
     }
 
+
+    /**
+     * Method under test: {@link TenantId#newInstance()}
+     */
+    @Test
+    @Disabled("TODO: Complete this test")
+    void testNewInstance() {
+        TenantId actualNewInstanceResult = TenantId.newInstance();
+
+        System.out.println(actualNewInstanceResult);
+        System.out.println(TenantId.newInstance());
+        System.out.println(TenantId.newInstance());
+
+        // Assert
+        assertFalse(actualNewInstanceResult.isEmpty());
+
+    }
 
     /**
      * Methods under test:

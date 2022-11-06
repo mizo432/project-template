@@ -1,4 +1,4 @@
-package com.lissajous.taxiDispatcher;
+package org.venusPj.projectTemplate;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 

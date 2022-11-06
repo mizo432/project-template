@@ -31,4 +31,7 @@ public class AuditInfo {
 
     }
 
+    public static AuditInfo empty() {
+        return new AuditInfo(WhenNoticed.empty(), WhoNoticed.empty());
+    }
 }

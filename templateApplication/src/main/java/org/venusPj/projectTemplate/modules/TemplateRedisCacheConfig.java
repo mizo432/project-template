@@ -1,4 +1,4 @@
-package com.lissajous.taxiDispatcher.modules;
+package org.venusPj.projectTemplate.modules;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;

@@ -7,4 +7,4 @@
  *     クエリーサービスのインターフェイスに出てくるオブジェクトもここに配置します。
  * </pre>
  */
-package org.venusPj.projectTemplate.modules.productOwner.usecase.query;
+package org.venusPj.projectTemplate.modules.resource.usecase.query;

@@ -4,6 +4,8 @@ server:
 #    context-path: /api
 
 spring:
+  thymeleaf:
+    cache: false
   datasource:
     # JDBC
     driverClassName: org.h2.Driver # JDBC Driver class name.
@@ -39,6 +41,7 @@ spring:
         url: http://localhost:8082/admin
         instance:
           prefer-ip: true
+          service-base-url: http://localhost:8080
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss.SSS
     time-zone: Asia/Tokyo
@@ -52,9 +55,9 @@ spring:
     restart:
       exclude: static/**, public/**
       additional-exclude: java/**, test/**
-  logging:
-    file:
-      name: ./logs/application.log
+logging:
+  file:
+    name: ../build/logs/application.log
 
 
 management:

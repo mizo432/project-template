@@ -4,4 +4,6 @@ public interface StringValue<T> {
 
     String getValue();
 
+    String asString();
+
 }
