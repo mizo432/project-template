@@ -52,6 +52,9 @@ spring:
     restart:
       exclude: static/**, public/**
       additional-exclude: java/**, test/**
+  logging:
+    file:
+      name: ./logs/application.log
 
 
 management:

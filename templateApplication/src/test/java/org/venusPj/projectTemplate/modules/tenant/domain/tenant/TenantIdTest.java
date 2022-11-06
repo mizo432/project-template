@@ -34,7 +34,7 @@ class TenantIdTest {
             String value = null;
 
             // Act and Assert
-            assertThrows(IllegalArgumentException.class, () -> TenantId.of(value));
+            assertThrows(NullPointerException.class, () -> TenantId.of(value));
         }
 
     }

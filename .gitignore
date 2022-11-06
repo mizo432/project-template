@@ -15,9 +15,8 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 /.idea/
 /.idea
-/admin-template/build
 /admin-template/build/
-/admin-template/out
 /admin-template/out/
 /templateApplication/build/
 /templateApplication/out/
+/templateApplication/logs/

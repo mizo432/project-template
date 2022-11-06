@@ -4,11 +4,17 @@ import static org.venusPj.projectTemplate.shared.primitive.object.Objects2.isNul
 
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
+import org.venusPj.projectTemplate.shared.primitive.object.Objects2;
+import org.venusPj.projectTemplate.shared.primitive.string.Strings2;
 
-public class ObjectPrecondition {
+public class ObjectPreconditions {
 
     public static <T> void checkNotNull(@NotNull T reference, @NotNull String label) {
-        if (isNull(label)) {
+        if (Objects2.isNull(label)) {
+            throw new IllegalArgumentException("引数のlabelは必須ですが指定されていません");
+
+        }
+        if (Strings2.isEmpty(label)) {
             throw new IllegalArgumentException("引数のlabelは必須ですが指定されていません");
         }
         checkNotNull(reference, () -> new NullPointerException(label + "は必須です"));

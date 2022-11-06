@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-class ObjectPreconditionTest {
+class ObjectPreconditionsTest {
 
     @Nested
     class checkNotNull {
@@ -15,7 +15,7 @@ class ObjectPreconditionTest {
         class withLabel {
 
             /**
-             * Method under test: {@link ObjectPrecondition#checkNotNull(Object, String)}
+             * Method under test: {@link ObjectPreconditions#checkNotNull(Object, String)}
              */
             @Test
             void testCheckNotNull() {
@@ -25,11 +25,11 @@ class ObjectPreconditionTest {
 
                 // Act and Assert
                 assertThrows(IllegalArgumentException.class,
-                    () -> ObjectPrecondition.checkNotNull(reference, label));
+                    () -> ObjectPreconditions.checkNotNull(reference, label));
             }
 
             /**
-             * Method under test: {@link ObjectPrecondition#checkNotNull(Object, String)}
+             * Method under test: {@link ObjectPreconditions#checkNotNull(Object, String)}
              */
             @Test
             void testCheckNotNull2() {
@@ -39,7 +39,7 @@ class ObjectPreconditionTest {
 
                 // Act and Assert
                 assertThrows(IllegalArgumentException.class,
-                    () -> ObjectPrecondition.checkNotNull(reference, label));
+                    () -> ObjectPreconditions.checkNotNull(reference, label));
             }
 
         }
@@ -48,7 +48,7 @@ class ObjectPreconditionTest {
         class withSupplier {
 
             /**
-             * Method under test: {@link ObjectPrecondition#checkNotNull(Object, Supplier)}
+             * Method under test: {@link ObjectPreconditions#checkNotNull(Object, Supplier)}
              */
             @Test
             void testCheckNotNull3() {
@@ -58,11 +58,11 @@ class ObjectPreconditionTest {
 
                 // Act and Assert
                 assertThrows(IllegalArgumentException.class,
-                    () -> ObjectPrecondition.checkNotNull(reference, exceptionSupplier));
+                    () -> ObjectPreconditions.checkNotNull(reference, exceptionSupplier));
             }
 
             /**
-             * Method under test: {@link ObjectPrecondition#checkNotNull(Object, Supplier)}
+             * Method under test: {@link ObjectPreconditions#checkNotNull(Object, Supplier)}
              */
             @Test
             void testCheckNotNull4() {
@@ -72,7 +72,7 @@ class ObjectPreconditionTest {
 
                 // Act and Assert
                 assertThrows(IllegalArgumentException.class,
-                    () -> ObjectPrecondition.checkNotNull(reference, exceptionSupplier));
+                    () -> ObjectPreconditions.checkNotNull(reference, exceptionSupplier));
             }
 
         }
@@ -84,7 +84,7 @@ class ObjectPreconditionTest {
     class checkArgument {
 
         /**
-         * Method under test: {@link ObjectPrecondition#checkArgument(boolean)}
+         * Method under test: {@link ObjectPreconditions#checkArgument(boolean)}
          */
         @Test
         void testCheckArgument() {
@@ -92,14 +92,15 @@ class ObjectPreconditionTest {
             boolean b = false;
 
             // Act and Assert
-            assertThrows(IllegalArgumentException.class, () -> ObjectPrecondition.checkArgument(b));
+            assertThrows(IllegalArgumentException.class,
+                () -> ObjectPreconditions.checkArgument(b));
         }
 
         @Nested
         class withSupplier {
 
             /**
-             * Method under test: {@link ObjectPrecondition#checkArgument(boolean, Supplier)}
+             * Method under test: {@link ObjectPreconditions#checkArgument(boolean, Supplier)}
              */
             @Test
             void testCheckArgument2() {
@@ -109,7 +110,7 @@ class ObjectPreconditionTest {
 
                 // Act and Assert
                 assertThrows(IllegalArgumentException.class,
-                    () -> ObjectPrecondition.checkArgument(b, exceptionSupplier));
+                    () -> ObjectPreconditions.checkArgument(b, exceptionSupplier));
             }
 
         }
@@ -121,7 +122,7 @@ class ObjectPreconditionTest {
     class checkState {
 
         /**
-         * Method under test: {@link ObjectPrecondition#checkState(boolean)}
+         * Method under test: {@link ObjectPreconditions#checkState(boolean)}
          */
         @Test
         void testCheckState() {
@@ -129,14 +130,14 @@ class ObjectPreconditionTest {
             boolean b = false;
 
             // Act and Assert
-            assertThrows(IllegalStateException.class, () -> ObjectPrecondition.checkState(b));
+            assertThrows(IllegalStateException.class, () -> ObjectPreconditions.checkState(b));
         }
 
         @Nested
         class withSupplier {
 
             /**
-             * Method under test: {@link ObjectPrecondition#checkState(boolean, Supplier)}
+             * Method under test: {@link ObjectPreconditions#checkState(boolean, Supplier)}
              */
             @Test
             void testCheckState2() {
@@ -146,7 +147,7 @@ class ObjectPreconditionTest {
 
                 // Act and Assert
                 assertThrows(IllegalArgumentException.class,
-                    () -> ObjectPrecondition.checkState(b, exceptionSupplier));
+                    () -> ObjectPreconditions.checkState(b, exceptionSupplier));
             }
 
         }

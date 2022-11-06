@@ -1,0 +1,15 @@
+<configuration>
+
+    <springProfile name="develop,test">
+        <include resource="logback-local.xml"/>
+    </springProfile>
+
+    <springProfile name="masterStaging">
+        <include resource="logback-staging.xml"/>
+    </springProfile>
+
+    <springProfile name="production">
+        <include resource="logback-production.xml"/>
+    </springProfile>
+
+</configuration>
