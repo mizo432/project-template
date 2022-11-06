@@ -1,5 +1,3 @@
 rootProject.name = 'project-template'
-include 'api-template'
-include 'web-template'
+include 'templateApplication'
 include 'admin-template'
-include 'precondition'
