@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.modules.resource.presentation.web;
+package org.venusPj.projectTemplate.modules.resource.presentation.web.products;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
