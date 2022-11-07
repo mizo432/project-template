@@ -22,6 +22,10 @@ public class CharSequences {
         return cs == null ? null : cs.subSequence(start, cs.length());
     }
 
+    static int indexOf(CharSequence cs, int searchChar) {
+        return indexOf(cs, searchChar, 0);
+    }
+
     static int indexOf(CharSequence cs, int searchChar, int start) {
         if (cs instanceof String) {
             return ((String) cs).indexOf(searchChar, start);
@@ -53,6 +57,11 @@ public class CharSequences {
 
             return -1;
         }
+    }
+
+    static int indexOf(CharSequence cs, CharSequence searchChar) {
+        return indexOf(cs, searchChar, 0);
+
     }
 
     static int indexOf(CharSequence cs, CharSequence searchChar, int start) {

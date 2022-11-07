@@ -11,6 +11,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.venusPj.projectTemplate.shared.primitive.object.Objects2;
 
 /**
  * 文字列関連ユーティリティ
@@ -626,66 +627,31 @@ public final class Strings2 {
                 int start = 0;
                 boolean match = false;
                 boolean lastMatch = false;
-                if (separatorChars != null) {
-                    if (separatorChars.length() == 1) {
-                        char sep = separatorChars.charAt(0);
-
-                    }
-                    label87:
+                label87:
+                while (true) {
                     while (true) {
-                        while (true) {
-                            if (i >= len) {
-                                break label87;
-                            }
-
-                            if (separatorChars.indexOf(str.charAt(i)) >= 0) {
-                                if (match || preserveAllTokens) {
-                                    lastMatch = true;
-                                    if (sizePlus1++ == max) {
-                                        i = len;
-                                        lastMatch = false;
-                                    }
-
-                                    list.add(str.substring(start, i));
-                                    match = false;
-                                }
-
-                                ++i;
-                                start = i;
-                            } else {
-                                lastMatch = false;
-                                match = true;
-                                ++i;
-                            }
+                        if (i >= len) {
+                            break label87;
                         }
-                    }
-                } else {
-                    label103:
-                    while (true) {
-                        while (true) {
-                            if (i >= len) {
-                                break label103;
-                            }
 
-                            if (Character.isWhitespace(str.charAt(i))) {
-                                if (match || preserveAllTokens) {
-                                    lastMatch = true;
-                                    if (sizePlus1++ == max) {
-                                        i = len;
-                                        lastMatch = false;
-                                    }
-
-                                    list.add(str.substring(start, i));
-                                    match = false;
+                        if (separatorChars.indexOf(str.charAt(i)) >= 0) {
+                            if (match || preserveAllTokens) {
+                                lastMatch = true;
+                                if (sizePlus1++ == max) {
+                                    i = len;
+                                    lastMatch = false;
                                 }
 
-                                ++i;
-                                start = i;
-                            } else {
-                                lastMatch = false;
-                                match = true;
-                                ++i;
+                                list.add(str.substring(start, i));
+                                match = false;
                             }
+
+                            ++i;
+                            start = i;
+                        } else {
+                            lastMatch = false;
+                            match = true;
+                            ++i;
                         }
                     }
                 }
@@ -694,7 +660,7 @@ public final class Strings2 {
                     list.add(str.substring(start, i));
                 }
 
-                return list.toArray(new String[0]);
+                return list.toArray(EMPTY_STRING_ARRAY);
             }
         }
     }
@@ -723,7 +689,7 @@ public final class Strings2 {
     }
 
     public static int indexOf(CharSequence seq, int searchChar) {
-        return CharSequences.isEmpty(seq) ? -1 : CharSequences.indexOf(seq, searchChar, 0);
+        return CharSequences.isEmpty(seq) ? -1 : CharSequences.indexOf(seq, searchChar);
     }
 
     public static int indexOfSilently(CharSequence seq, int searchChar, int startPos) {
@@ -731,7 +697,7 @@ public final class Strings2 {
     }
 
     public static int indexOfSilently(CharSequence seq, CharSequence searchSeq) {
-        return seq != null && searchSeq != null ? CharSequences.indexOf(seq, searchSeq, 0) : -1;
+        return seq != null && searchSeq != null ? CharSequences.indexOf(seq, searchSeq) : -1;
     }
 
     public static int indexOfSilently(CharSequence seq, CharSequence searchSeq, int startPos) {
@@ -1099,8 +1065,12 @@ public final class Strings2 {
 
     public static String collectionToDelimitedString(@Nullable Collection<?> coll, String delim,
         String prefix, String suffix) {
+        if (isNull(coll)) {
+            return EMPTY;
+        }
+
         if (coll.isEmpty()) {
-            return "";
+            return EMPTY;
         } else {
             int totalLength = coll.size() * (prefix.length() + suffix.length())
                 + (coll.size() - 1) * delim.length();
@@ -1123,6 +1093,11 @@ public final class Strings2 {
 
             return sb.toString();
         }
+    }
+
+    private static boolean isNull(Collection<?> reference) {
+        return Objects2.isNull(reference);
+
     }
 
     public static String collectionToCommaDelimitedString(@Nullable Collection<?> coll) {
@@ -1337,14 +1312,14 @@ public final class Strings2 {
      * @param str2 第二引数
      * @return 一致している場合はtrueを返す
      */
-    public static boolean equals(String str1, String str2) {
-        if (str1 == null && str2 == null) {
+    public static boolean equals(@Nullable String str1, @Nullable String str2) {
+        if (isNull(str1) && isNull(str2)) {
             return true;
         }
-        if (str1 == null) {
+        if (isNull(str1)) {
             return false;
         }
-        if (str2 == null) {
+        if (isNull(str2)) {
             return false;
         }
         return str1.equals(str2);

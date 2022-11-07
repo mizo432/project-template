@@ -32,6 +32,12 @@ public class Product extends AbstractEntity<ProductId, Product> {
 
     }
 
+    public static Product create(Product product) {
+        return new Product(ProductId.newInstance(), AuditInfo.empty(), product.getName(),
+            product.getStoryCodePrefix());
+
+    }
+
     @Override
     public boolean sameValueAs(Product other) {
         return super.sameValueAs(other)

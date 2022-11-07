@@ -1,8 +1,19 @@
 plugins {
     id 'org.springframework.boot' version '2.7.3'
     id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+    id 'net.researchgate.release' version '2.8.1'
     id 'java'
+    id 'idea'
+    id "com.github.ben-manes.versions" version '0.42.0'
+    id 'se.patrikerdes.use-latest-versions' version '0.2.18'
+    id "com.github.spotbugs" version "5.0.8"
+    id 'jacoco'
 }
+
+apply plugin: 'idea'
+apply plugin: 'com.github.spotbugs'
+apply plugin: 'jacoco'
+apply plugin: 'com.github.ben-manes.versions'
 
 springBoot {
     buildInfo()
@@ -13,6 +24,12 @@ bootJar {
 jar {
     enabled = false
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+idea {
+    module {
+        outputDir file('build/classes/main')
+        testOutputDir file('build/classes/test')
+    }
 }
 
 configurations {
@@ -55,6 +72,89 @@ dependencies {
 
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+spotbugs {
+    toolVersion.set('4.4.2')
+    excludeFilter.set(file("$rootProject.projectDir/src/config/spotbugs/excludeFilter.xml"))
+    ignoreFailures.set(true)
+    maxHeapSize.set('2048m')
+    spotbugsTest.enabled = false
+    showStackTraces = false
 }
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+
+}
+
+test {
+    // 失敗しても後続の処理を継続させる
+    ignoreFailures = true
+    useJUnitPlatform {
+        includeTags 'SMALL'
+        excludeTags('MEDIUM', 'LARGE')
+    }
+    reports {
+        junitXml.required = true
+    }
+}
+
+task testMedium(type: Test) {
+    ignoreFailures = false
+    maxHeapSize("3g")
+    useJUnitPlatform {
+        includeTags('MEDIUM')
+        excludeTags('SMALL', 'LARGE')
+    }
+    reports {
+        junitXml.required = true
+    }
+}
+task testLarge(type: Test) {
+    ignoreFailures = false
+    useJUnitPlatform {
+        includeTags('LARGE')
+        excludeTags('SMALL', 'MEDIUM')
+    }
+    reports {
+        junitXml.required = true
+    }
+}
+task testReport(type: TestReport) {
+    reportOn subprojects.tasks.test.binResultsDir
+    fileTree(dir: it, exclude: ['**/*Test.class', '**/**test/*.class'])
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.required = true
+    }
+    afterEvaluate {
+        classDirectories.from(
+                files(classDirectories.files.collect {
+                    fileTree(dir: it, exclude: ['**/*Test.class', '**/**test/*.class'])
+                }))
+    }
+}
+
+dependencyUpdates {
+    // checkForGradleUpdate = true
+    // reject all non stable versions
+    rejectVersionIf {
+        isNonStable(it.candidate.version)
+    }
+
+}
+
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA', 'JRE11'].any { it -> version.toUpperCase().contains(it) }
+    def unstableKeyword = ['PREVIEW', 'ALPHA', 'M', 'BETA', 'RC', 'RC-1'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return ((!stableKeyword) && (!(version ==~ regex))) || (unstableKeyword)
+} as Object
+
