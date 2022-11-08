@@ -3,7 +3,7 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> <!-- (1) -->
         <encoder>
             <pattern>
-                <![CDATA[date:%d{yyyy-MM-dd HH:mm:ss.SSS}\tthread:%thread\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-48logger{48}\tmessage:%msg%n]]></pattern> <!-- (2) -->
+                <![CDATA[date:%d{yyyy-MM-dd HH:mm:ss}\tthread:%thread\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-48logger{48}\tmessage:%replace(%msg){'(\r\n|\r|\n)','$1  '}%n%replace(%replace(%xEx){'(\r\n|\r|\n)','$1  '}){'  $',''}%nopex]]></pattern> <!-- (2) -->
         </encoder>
     </appender>
 
@@ -13,7 +13,7 @@
         <encoder>
             <charset>UTF-8</charset> <!-- (7) -->
             <pattern>
-                <![CDATA[date:::%d{yyyy-MM-dd HH:mm:ss.SSS}\tthread:::%thread\tX-Track:::%X{X-Track}\tlevel:::%-5level\tlogger:::%-48logger{48}\tmessage:::%msg\t%n]]></pattern>
+                <![CDATA[date:%d{yyyy-MM-dd HH:mm:ss}\tthread:%thread\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-48logger{48}\tmessage:%replace(%msg){'(\r\n|\r|\n)','$1  '}%n%replace(%replace(%xEx){'(\r\n|\r|\n)','$1  '}){'  $',''}%nopex]]></pattern>
         </encoder>
     </appender>
 
@@ -29,7 +29,21 @@
     <logger name="org.springframework.web.servlet">
         <level value="info"/>
     </logger>
-
+    <logger name="org.terasoluna.gfw">
+        <level value="info"/>
+    </logger>
+    <logger name="org.terasoluna.gfw.web.logging.TraceLoggingInterceptor">
+        <level value="trace"/>
+    </logger>
+    <logger name="org.terasoluna.gfw.common.exception.ExceptionLogger">
+        <level value="info"/>
+    </logger>
+    <!--
+        <logger name="org.terasoluna.gfw.common.exception.ExceptionLogger.Monitoring" additivity="false">&lt;!&ndash; (10) &ndash;&gt;
+            <level value="error" />
+            <appender-ref ref="MONITORING_LOG_FILE" />
+        </logger>
+    -->
     <root level="warn"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
         <appender-ref ref="APPLICATION_LOG_FILE"/>

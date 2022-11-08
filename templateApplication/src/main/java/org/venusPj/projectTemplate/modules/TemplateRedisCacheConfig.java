@@ -1,6 +1,13 @@
 package org.venusPj.projectTemplate.modules;
 
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper.DefaultTyping;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.ser.FilterProvider;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.time.Duration;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
@@ -14,6 +21,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext.SerializationPair;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 /**
  * BackboneSharedApplication向けキャッシュ設定
@@ -22,7 +30,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableCaching
 class TemplateRedisCacheConfig {
 
-/*
     private ObjectMapper objectMapper() {
         Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
 
@@ -33,14 +40,15 @@ class TemplateRedisCacheConfig {
         resultMapper.setSerializationInclusion(Include.NON_NULL);
         resultMapper.activateDefaultTyping(resultMapper.getPolymorphicTypeValidator(),
             DefaultTyping.NON_FINAL, As.PROPERTY);
+        resultMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
 
         return resultMapper;
 
     }
-*/
 
     @Bean
-    public RedisCacheConfiguration cacheConfiguration(ObjectMapper objectMapper) {
+    public RedisCacheConfiguration cacheConfiguration() {
+        ObjectMapper objectMapper = objectMapper();
         return RedisCacheConfiguration.defaultCacheConfig()
             .entryTtl(Duration.ofMinutes(60))
             .disableCachingNullValues()

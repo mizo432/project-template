@@ -55,10 +55,14 @@ spring:
     restart:
       exclude: static/**, public/**
       additional-exclude: java/**, test/**
+  security:
+    user:
+      name: user
+      password: user
+
 logging:
   file:
     name: ../build/logs/application.log
-
 
 management:
   endpoint:

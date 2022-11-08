@@ -3,6 +3,7 @@ package org.venusPj.projectTemplate.modules.resource.domain.product;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import org.venusPj.projectTemplate.modules.resource.domain.product.attribute.ProductAttribute;
 import org.venusPj.projectTemplate.shared.entity.AbstractEntity;
 import org.venusPj.projectTemplate.shared.entity.AuditInfo;
 
@@ -11,38 +12,28 @@ import org.venusPj.projectTemplate.shared.entity.AuditInfo;
 @ToString(callSuper = true)
 public class Product extends AbstractEntity<ProductId, Product> {
 
-    private final ProductName name;
+    private final ProductAttribute attribute;
 
-    private final StoryCodePrefix storyCodePrefix;
-
-    protected Product(ProductId id, AuditInfo auditInfo, ProductName name,
-        StoryCodePrefix storyCodePrefix) {
+    protected Product(ProductId id, AuditInfo auditInfo, ProductAttribute attribute) {
         super(id, auditInfo);
-        this.name = name;
-        this.storyCodePrefix = storyCodePrefix;
-    }
-
-    public static Product create(String name, String storyCodePrefix) {
-        return create(ProductName.of(name), StoryCodePrefix.of(storyCodePrefix));
+        this.attribute = attribute;
 
     }
 
-    public static Product create(ProductName name, StoryCodePrefix storyCodePrefix) {
-        return new Product(ProductId.newInstance(), AuditInfo.empty(), name, storyCodePrefix);
+    public static Product create(ProductAttribute attribute) {
+        return new Product(ProductId.newInstance(), AuditInfo.empty(), attribute);
 
     }
 
     public static Product create(Product product) {
-        return new Product(ProductId.newInstance(), AuditInfo.empty(), product.getName(),
-            product.getStoryCodePrefix());
+        return new Product(ProductId.newInstance(), AuditInfo.empty(), product.attribute);
 
     }
 
     @Override
     public boolean sameValueAs(Product other) {
         return super.sameValueAs(other)
-            && name.equals(other.name)
-            && storyCodePrefix.equals(other.storyCodePrefix);
+            && attribute.equals(other.attribute);
 
     }
 

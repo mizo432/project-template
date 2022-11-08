@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.modules.resource.domain.product;
+package org.venusPj.projectTemplate.modules.resource.domain.product.attribute;
 
 import static org.venusPj.projectTemplate.shared.precondition.string.StringPreconditions.checkNotEmpty;
 

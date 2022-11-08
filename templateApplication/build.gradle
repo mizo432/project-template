@@ -60,6 +60,7 @@ dependencies {
     implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.7.4'
     implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '2.7.5'
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
+    implementation group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-web', version: '5.7.1.SP1.RELEASE'
 
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
