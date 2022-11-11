@@ -17,6 +17,7 @@ class CollectionPreconditionsTest {
      * Method under test: {@link CollectionPreconditions#checkNotEmpty(Collection, Supplier)}
      */
     @Test
+    @SuppressWarnings("unchecked")
     void testCheckNotEmpty3() {
 
         ArrayList<Object> objectList = new ArrayList<>();
@@ -30,6 +31,7 @@ class CollectionPreconditionsTest {
      * Method under test: {@link CollectionPreconditions#checkNotEmpty(Collection, Supplier)}
      */
     @Test
+    @SuppressWarnings("unchecked")
     void testCheckNotEmpty4() {
         ArrayList<Object> referenceCollection = new ArrayList<>();
         Supplier<RuntimeException> supplier = (Supplier<RuntimeException>) mock(Supplier.class);

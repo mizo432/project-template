@@ -6,6 +6,7 @@ server:
 spring:
   thymeleaf:
     cache: false
+    mode: HTML
   datasource:
     # JDBC
     driverClassName: org.h2.Driver # JDBC Driver class name.
@@ -59,6 +60,7 @@ spring:
     user:
       name: user
       password: user
+
 
 logging:
   file:
