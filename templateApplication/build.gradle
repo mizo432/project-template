@@ -8,6 +8,7 @@ plugins {
     id 'se.patrikerdes.use-latest-versions' version '0.2.18'
     id "com.github.spotbugs" version "5.0.8"
     id 'jacoco'
+    id 'org.liquibase.gradle' version '2.0.4'
 }
 
 apply plugin: 'idea'
@@ -52,9 +53,10 @@ dependencies {
     implementation 'org.springframework.session:spring-session-data-redis'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.h2database:h2'
     runtimeOnly 'org.postgresql:postgresql'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '0.23.1'
     implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.7.4'
@@ -62,7 +64,9 @@ dependencies {
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
     implementation group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-web', version: '5.7.1.SP1.RELEASE'
 
-
+    implementation "org.liquibase:liquibase-core"
+    liquibaseRuntime 'info.picocli:picocli:4.6.1'
+    implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
 
     // modelmapper
@@ -142,6 +146,12 @@ jacocoTestReport {
                 }))
     }
 }
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA', 'JRE11'].any { it -> version.toUpperCase().contains(it) }
+    def unstableKeyword = ['PREVIEW', 'ALPHA', 'M', 'BETA', 'RC', 'RC-1'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return ((!stableKeyword) && (!(version ==~ regex))) || (unstableKeyword)
+} as Object
 
 dependencyUpdates {
     // checkForGradleUpdate = true
@@ -152,10 +162,5 @@ dependencyUpdates {
 
 }
 
-def isNonStable = { String version ->
-    def stableKeyword = ['RELEASE', 'FINAL', 'GA', 'JRE11'].any { it -> version.toUpperCase().contains(it) }
-    def unstableKeyword = ['PREVIEW', 'ALPHA', 'M', 'BETA', 'RC', 'RC-1'].any { it -> version.toUpperCase().contains(it) }
-    def regex = /^[0-9,.v-]+(-r)?$/
-    return ((!stableKeyword) && (!(version ==~ regex))) || (unstableKeyword)
-} as Object
+
 

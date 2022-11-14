@@ -1,0 +1,5 @@
+databaseChangeLog:
+  #  空の場合の実行エラー防止のためのダミーログ
+  - changeSet:
+      id: 0
+      author: Kenichi Mizoguchi
