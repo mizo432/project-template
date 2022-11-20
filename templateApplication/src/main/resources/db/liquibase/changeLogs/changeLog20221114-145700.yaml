@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: '1'
+      author: Kenichi Mizoguchi
+      changes:
+        - sql:
+            sql: CREATE SCHEMA resource;
+  - changeSet:
+      id: '2'
+      author: Kenichi Mizoguchi
+      sql: CREATE TABLE IF NOT EXISTS resource.Actor (actorId VARCHAR(26) NOT NULL, name VARCHAR(255) NOT NULL, projectId VARCHAR(26) NOT NULL, CONSTRAINT PK_Actor PRIMARY KEY (actorId));
+  - changeSet:
+      id: '3'
+      author: Kenichi Mizoguchi
+      sql: CREATE INDEX FK01_ACTOR ON resource.Actor (projectId);
