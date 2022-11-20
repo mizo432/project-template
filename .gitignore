@@ -17,3 +17,6 @@ gradle-app.setting
 /templateApplication/build/
 /templateApplication/logs/
 /logs/
+/src/env/axon-server/data/*
+/src/env/axon-server/events/*
+/src/env/axon-server/config/*
