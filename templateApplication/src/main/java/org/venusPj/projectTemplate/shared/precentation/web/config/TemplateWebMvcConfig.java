@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.shared.precentation.config;
+package org.venusPj.projectTemplate.shared.precentation.web.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
