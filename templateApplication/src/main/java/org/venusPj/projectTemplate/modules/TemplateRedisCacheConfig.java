@@ -72,9 +72,6 @@ class TemplateRedisCacheConfig {
             .withCacheConfiguration("actorCache",
                 RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofHours(24)))
             // productCacheという名称のキャッシュに対し、有効期限を設定する
-            .withCacheConfiguration("productCache",
-                RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofHours(24)))
-            // productCacheという名称のキャッシュに対し、有効期限を設定する
             .withCacheConfiguration("projectCache",
                 RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofHours(24)))
         ;
