@@ -19,7 +19,16 @@ public class LocalDates {
             StringPreconditions.checkAllCharactersAreDigits(string,
                 () -> new IllegalArgumentException(
                     "引数に10進数の数字以外の文字が含まれています。引数:" + string));
+            if (Strings2.length(string) == 1) {
+                // 月内の日にちを1桁で渡した場合
+                return LocalDate.parse(
+                    DateProvider.currentYearMonth().format(DateTimeFormatter.ofPattern("yyyyMM"))
+                        + Strings2.padStart(string, 2, '0'),
+                    DateTimeFormatter.ofPattern("yyyyMMdd").withResolverStyle(
+                        ResolverStyle.LENIENT));
+            }
             if (Strings2.length(string) == 2) {
+                // 月内の日にちを2桁で渡した場合
                 return LocalDate.parse(
                     DateProvider.currentYearMonth().format(DateTimeFormatter.ofPattern("yyyyMM"))
                         + string,
@@ -27,20 +36,24 @@ public class LocalDates {
                         ResolverStyle.LENIENT));
             }
             if (Strings2.length(string) == 4) {
+                // 月日を4桁で渡した場合
                 return LocalDate.parse(
                     DateProvider.currentYear().format(DateTimeFormatter.ofPattern("yyyy")) + string,
                     DateTimeFormatter.ofPattern("yyyyMMdd").withResolverStyle(
                         ResolverStyle.LENIENT));
             }
             if (Strings2.length(string) == 8) {
+                // 年月日を6桁で渡した場合
                 return LocalDate.parse(string,
                     DateTimeFormatter.ofPattern("yyyyMMdd").withResolverStyle(
                         ResolverStyle.LENIENT));
             }
         }
         if (Strings2.length(string) == 10) {
-            return LocalDate.parse(string, DateTimeFormatter.ISO_LOCAL_DATE.withResolverStyle(
-                ResolverStyle.LENIENT));
+            // 年月日を10桁（スラッシュ区切りまたはハイフン区切り）で渡した場合
+            return LocalDate.parse(Strings2.replace(string, "/", "-"),
+                DateTimeFormatter.ISO_LOCAL_DATE.withResolverStyle(
+                    ResolverStyle.LENIENT));
         }
 
         throw new IllegalArgumentException("引数は10桁または8桁,4桁,あるいは2桁でなければなりません 引数:" + string);
