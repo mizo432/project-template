@@ -15,6 +15,8 @@ apply plugin: 'idea'
 apply plugin: 'com.github.spotbugs'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'com.github.spotbugs'
+
 
 springBoot {
     buildInfo()
@@ -84,6 +86,14 @@ spotbugs {
     maxHeapSize.set('2048m')
     spotbugsTest.enabled = false
     showStackTraces = false
+}
+spotbugsMain {
+    reports {
+        xml {
+            required = true
+            outputLocation = file("$buildDir/reports/spotbugs/main.xml")
+        }
+    }
 }
 
 tasks.withType(JavaCompile) {

@@ -26,6 +26,13 @@ public class Name implements StringValue<Name> {
 
     }
 
+    public static Name reconstruct(String value) {
+        if (isEmpty(value))
+            return EMPTY;
+        return new Name(value);
+
+    }
+
     @Override
     public String asString() {
         return value;

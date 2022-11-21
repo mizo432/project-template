@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate;
+package org.venusPj.projectTemplate.shared.precentation.web;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
