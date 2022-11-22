@@ -21,3 +21,4 @@ gradle-app.setting
 /src/env/axon-server/events/*
 /src/env/axon-server/config/*
 /src/env/jenkins/jenkins_home/*
+/src/env/redis/data/*

@@ -16,7 +16,8 @@
     <hr>
     <h2>Save Employee</h2>
 
-    <form action="#" th:action="@{/employee/saveEmployee}" th:object="${employee}" method="POST">
+    <form action="#" th:action="@{/employee/saveEmployee}" th:object="${employee}"
+          method="POST">
 
         <input type="text" th:field="*{id}" placeholder="Employee Id"
                class="form-control mb-4 col-4">
@@ -28,7 +29,8 @@
 
         <input type="text" th:field="*{email}" placeholder="Employee Email"
                class="form-control mb-4 col-4">
-
+        <input type="hidden" name="${f:h(_csrf.parameterName)}"
+               value="${f:h(_csrf.token)}"/>
         <button type="submit" class="btn btn-info col-2"> Save Employee</button>
     </form>
 

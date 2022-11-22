@@ -1,6 +1,5 @@
 package org.venusPj.projectTemplate.modules;
 
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectMapper.DefaultTyping;
@@ -40,7 +39,7 @@ public class TemplateSessionConfig {
 
         ObjectMapper resultMapper = builder.filters(filters).build();
         resultMapper.registerModule(new JavaTimeModule());
-        resultMapper.setSerializationInclusion(Include.NON_NULL);
+        // resultMapper.setSerializationInclusion(Include.NON_NULL);
         resultMapper.activateDefaultTyping(resultMapper.getPolymorphicTypeValidator(),
             DefaultTyping.NON_FINAL, As.PROPERTY);
         resultMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);

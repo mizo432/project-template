@@ -73,7 +73,10 @@ spring:
 logging:
   file:
     name: ../build/logs/application.log
-
+keel:
+  transaction:
+    token:
+      enabled=false
 management:
   endpoint:
     health:

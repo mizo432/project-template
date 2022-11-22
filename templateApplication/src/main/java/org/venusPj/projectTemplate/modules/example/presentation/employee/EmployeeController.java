@@ -1,5 +1,7 @@
 package org.venusPj.projectTemplate.modules.example.presentation.employee;
 
+import jp.fintan.keel.spring.web.token.transaction.TransactionTokenCheck;
+import jp.fintan.keel.spring.web.token.transaction.TransactionTokenType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.terasoluna.gfw.web.token.transaction.TransactionTokenCheck;
 import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.EmployeeService;
 
@@ -31,7 +32,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/showNewEmployeeForm")
-    @TransactionTokenCheck
+    @TransactionTokenCheck(type = TransactionTokenType.BEGIN)
     public String showNewEmployeeForm(Model model) {
         // create model attribute to bind form data
         Employee employee = new Employee();
@@ -40,7 +41,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/saveEmployee")
-    @TransactionTokenCheck
+    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
     public String saveEmployee(@ModelAttribute("employee") Employee employee) {
         // save employee to database
         employeeService.saveEmployee(employee);
@@ -48,7 +49,6 @@ public class EmployeeController {
     }
 
     @GetMapping("/showFormForUpdate/{id}")
-    @TransactionTokenCheck
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 
         // get employee from the service
@@ -60,11 +60,12 @@ public class EmployeeController {
     }
 
     @GetMapping("/deleteEmployee/{id}")
-    @TransactionTokenCheck
+    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
     public String deleteEmployee(@PathVariable(value = "id") long id) {
 
         // call delete employee method
         this.employeeService.deleteEmployeeById(id);
         return "redirect:/employee/";
     }
+
 }

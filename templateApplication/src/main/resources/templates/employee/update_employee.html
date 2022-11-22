@@ -27,6 +27,8 @@
         <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+        <input type="hidden" name="${f:h(_csrf.parameterName)}"
+               value="${f:h(_csrf.token)}"/>
 
         <button type="submit" class="btn btn-info col-2"> Update Employee</button>
     </form>
