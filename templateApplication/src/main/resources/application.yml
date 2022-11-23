@@ -53,7 +53,9 @@ spring:
     active: develop
   devtools:
     restart:
+      # 再起動のトリガーから除外するファイルを指定する
       exclude: static/**, public/**
+      # 再起動のトリガーから除外するファイルを追加で指定する
       additional-exclude: java/**, test/**
   security:
     user:
