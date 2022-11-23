@@ -1,7 +1,5 @@
 package org.venusPj.projectTemplate.modules.example.presentation.employee;
 
-import jp.fintan.keel.spring.web.token.transaction.TransactionTokenCheck;
-import jp.fintan.keel.spring.web.token.transaction.TransactionTokenType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +12,7 @@ import org.venusPj.projectTemplate.modules.example.usecase.employee.EmployeeServ
 
 @Controller
 @RequestMapping(path = "/employee")
-@TransactionTokenCheck("admin/employee")
+// @TransactionTokenCheck("admin/employee")
 public class EmployeeController {
 
     private final EmployeeService employeeService;
@@ -32,7 +30,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/showNewEmployeeForm")
-    @TransactionTokenCheck(type = TransactionTokenType.BEGIN)
+//    @TransactionTokenCheck(type = TransactionTokenType.BEGIN)
     public String showNewEmployeeForm(Model model) {
         // create model attribute to bind form data
         Employee employee = new Employee();
@@ -41,7 +39,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/saveEmployee")
-    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
+//    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
     public String saveEmployee(@ModelAttribute("employee") Employee employee) {
         // save employee to database
         employeeService.saveEmployee(employee);
@@ -60,7 +58,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/deleteEmployee/{id}")
-    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
+//    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
     public String deleteEmployee(@PathVariable(value = "id") long id) {
 
         // call delete employee method

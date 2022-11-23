@@ -27,7 +27,7 @@ spring:
   session:
     store-type: REDIS
     redis:
-      namespace: apiSession # Namespace for keys used to store session.
+      namespace: spring:session # Namespace for keys used to store session.
       flush-mode: on_save # Session flush mode.
   redis:
     host: "localhost"
@@ -70,6 +70,7 @@ logging:
 keel:
   transaction:
     token:
+      # トランザクショントークンが有効か
       enabled=false
 management:
   endpoint:
