@@ -15,14 +15,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/sample
     username: user
     password: password
-    # JDBC
-  #    driverClassName: org.h2.Driver # JDBC Driver class name.
-  #    url: jdbc:h2:mem:testDb;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH # connection url
-  #    username: sa
-  #    password:
-  #  h2:
-  #    console:
-  #      enabled: true
   hikari:
     connection-timeout: 20000 #maximum number of milliseconds that a client will wait for a connection
     minimum-idle: 25 #minimum number of idle connections maintained by HikariCP in a connection pool

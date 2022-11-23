@@ -1,13 +1,6 @@
 package org.venusPj.projectTemplate.modules;
 
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectMapper.DefaultTyping;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.ser.FilterProvider;
-import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.time.Duration;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
@@ -21,7 +14,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext.SerializationPair;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.venusPj.projectTemplate.shared.cache.CacheObjectMapperResolver;
 
 /**
  * BackboneSharedApplication向けキャッシュ設定
@@ -30,19 +23,10 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 @EnableCaching
 class TemplateRedisCacheConfig {
 
+    private final static CacheObjectMapperResolver cacheObjectMapperResolver = new CacheObjectMapperResolver();
+
     private ObjectMapper objectMapper() {
-        Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
-
-        FilterProvider filters = new SimpleFilterProvider();
-
-        ObjectMapper resultMapper = builder.filters(filters).build();
-        resultMapper.registerModule(new JavaTimeModule());
-        resultMapper.setSerializationInclusion(Include.NON_NULL);
-        resultMapper.activateDefaultTyping(resultMapper.getPolymorphicTypeValidator(),
-            DefaultTyping.NON_FINAL, As.PROPERTY);
-        resultMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
-
-        return resultMapper;
+        return cacheObjectMapperResolver.objectMapper();
 
     }
 
