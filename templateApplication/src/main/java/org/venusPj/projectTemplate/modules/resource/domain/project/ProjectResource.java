@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.modules.resource.domain.product;
+package org.venusPj.projectTemplate.modules.resource.domain.project;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,20 +10,20 @@ import org.venusPj.projectTemplate.shared.entity.id.Id;
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public abstract class ProductResource<I extends Id<I>, E extends ProductResource<I, E>> extends
+public abstract class ProjectResource<I extends Id<I>, E extends ProjectResource<I, E>> extends
     AbstractEntity<I, E> {
 
-    private final ProductId productId;
+    private final ProjectId projectId;
 
 
-    protected ProductResource(I id, AuditInfo auditInfo, ProductId productId) {
+    protected ProjectResource(I id, AuditInfo auditInfo, ProjectId projectId) {
         super(id, auditInfo);
-        this.productId = productId;
+        this.projectId = projectId;
     }
 
     @Override
     protected boolean sameValueAs(E other) {
         return super.sameValueAs(other) &&
-            productId.equals(other.getProductId());
+            projectId.equals(other.getProjectId());
     }
 }

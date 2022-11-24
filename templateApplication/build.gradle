@@ -66,7 +66,6 @@ dependencies {
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
     implementation group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-web', version: '5.7.1.SP1.RELEASE'
 
-    implementation "org.liquibase:liquibase-core"
     liquibaseRuntime 'info.picocli:picocli:4.6.1'
     implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'

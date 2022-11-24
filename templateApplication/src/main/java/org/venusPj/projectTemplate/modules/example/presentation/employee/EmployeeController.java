@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
+import org.venusPj.projectTemplate.modules.example.domain.employee.EmployeeId;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.EmployeeService;
 
 @Controller
@@ -47,19 +48,19 @@ public class EmployeeController {
     }
 
     @GetMapping("/showFormForUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
-
+    public String showFormForUpdate(@PathVariable(value = "id") String id, Model model) {
+        EmployeeId employeeId = EmployeeId.of(id);
         // get employee from the service
-        Employee employee = employeeService.getEmployeeById(id);
+        Employee employee = employeeService.getEmployeeById(employeeId);
 
         // set employee as a model attribute to pre-populate the form
         model.addAttribute("employee", employee);
-        return "/employee/update_employee";
+        return "employee/update_employee";
     }
 
     @GetMapping("/deleteEmployee/{id}")
 //    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
-    public String deleteEmployee(@PathVariable(value = "id") long id) {
+    public String deleteEmployee(@PathVariable(value = "id") EmployeeId id) {
 
         // call delete employee method
         this.employeeService.deleteEmployeeById(id);

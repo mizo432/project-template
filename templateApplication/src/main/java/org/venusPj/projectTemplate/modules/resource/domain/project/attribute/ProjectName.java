@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.modules.resource.domain.product.attribute;
+package org.venusPj.projectTemplate.modules.resource.domain.project.attribute;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -11,7 +11,7 @@ import org.venusPj.projectTemplate.shared.value.StringValue;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class ProductName implements StringValue<ProductName> {
+public class ProjectName implements StringValue<ProjectName> {
 
     private final String value;
 
@@ -21,14 +21,14 @@ public class ProductName implements StringValue<ProductName> {
         return value;
     }
 
-    public static ProductName of(String value) {
+    public static ProjectName of(String value) {
         StringPreconditions.checkNotEmpty(value, "プロダクト名");
-        return new ProductName(value);
+        return new ProjectName(value);
 
     }
 
-    public static ProductName reconstruct(String value) {
-        return new ProductName(value);
+    public static ProjectName reconstruct(String value) {
+        return new ProjectName(value);
 
 
     }

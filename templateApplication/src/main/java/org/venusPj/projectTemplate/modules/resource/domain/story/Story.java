@@ -5,8 +5,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
-import org.venusPj.projectTemplate.modules.resource.domain.product.ProductId;
-import org.venusPj.projectTemplate.modules.resource.domain.product.ProductResource;
+import org.venusPj.projectTemplate.modules.resource.domain.project.ProjectId;
+import org.venusPj.projectTemplate.modules.resource.domain.project.ProjectResource;
 import org.venusPj.projectTemplate.modules.resource.domain.story.attribute.StoryAttribute;
 import org.venusPj.projectTemplate.shared.entity.AuditInfo;
 import org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions;
@@ -14,18 +14,18 @@ import org.venusPj.projectTemplate.shared.precondition.object.ObjectPrecondition
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class Story extends ProductResource<StoryId, Story> {
+public class Story extends ProjectResource<StoryId, Story> {
 
     private final StoryAttribute attribute;
 
-    private Story(StoryId id, AuditInfo auditInfo, ProductId productId, StoryAttribute attribute) {
-        super(id, auditInfo, productId);
+    private Story(StoryId id, AuditInfo auditInfo, ProjectId projectId, StoryAttribute attribute) {
+        super(id, auditInfo, projectId);
         this.attribute = attribute;
 
     }
 
-    public static Story create(ProductId productId, StoryAttribute attribute) {
-        return new Story(StoryId.newInstance(), AuditInfo.empty(), productId, attribute);
+    public static Story create(ProjectId projectId, StoryAttribute attribute) {
+        return new Story(StoryId.newInstance(), AuditInfo.empty(), projectId, attribute);
 
     }
 
@@ -33,15 +33,15 @@ public class Story extends ProductResource<StoryId, Story> {
         String productId, @NotNull StoryAttribute attribute) {
         ObjectPreconditions.checkNotNull(attribute, "attribute");
         return new Story(StoryId.reconstruct(storyId),
-            AuditInfo.reconstruct(whenNoticed, whoNoticed), ProductId.reconstruct(productId),
+            AuditInfo.reconstruct(whenNoticed, whoNoticed), ProjectId.reconstruct(productId),
             attribute);
 
     }
 
-    public static Story reconstruct(StoryId storyId, AuditInfo auditInfo, ProductId productId,
+    public static Story reconstruct(StoryId storyId, AuditInfo auditInfo, ProjectId projectId,
         @NotNull StoryAttribute attribute) {
         ObjectPreconditions.checkNotNull(attribute, "attribute");
-        return new Story(storyId, auditInfo, productId, attribute);
+        return new Story(storyId, auditInfo, projectId, attribute);
 
     }
 

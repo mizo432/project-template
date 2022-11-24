@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-import org.venusPj.projectTemplate.modules.resource.domain.product.Product;
+import org.venusPj.projectTemplate.modules.resource.domain.project.Project;
 import org.venusPj.projectTemplate.modules.resource.usecase.command.RegisterProductCommand;
 
 @RestController
@@ -24,18 +24,18 @@ public class ProductsRestController {
     }
 
     @GetMapping("v1.0/products")
-    Product[] getAll() {
-        return new Product[]{};
+    Project[] getAll() {
+        return new Project[]{};
 
     }
 
     @PostMapping("v1.0/products")
-    ResponseEntity<Product> post(@RequestBody Product product, UriComponentsBuilder uriBuilder) {
-        Product createdProduct = registerProductCommand.register(product);
+    ResponseEntity<Project> post(@RequestBody Project project, UriComponentsBuilder uriBuilder) {
+        Project createdProject = registerProductCommand.register(project);
 
         // Locationで設定するURLを作成する
         URI location = uriBuilder.path("api/v1.0/products/{id}")    // c
-            .buildAndExpand(createdProduct.getId().asString())    // d
+            .buildAndExpand(createdProject.getId().asString())    // d
             .toUri();
 
         // レスポンスのHTTPヘッダー
@@ -44,6 +44,6 @@ public class ProductsRestController {
 
         // レスポンス情報を作成
         return new ResponseEntity<>(
-            createdProduct, headers, HttpStatus.CREATED);
+            createdProject, headers, HttpStatus.CREATED);
     }
 }

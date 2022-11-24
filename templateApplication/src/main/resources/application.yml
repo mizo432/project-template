@@ -61,8 +61,6 @@ spring:
     user:
       name: user
       password: user
-  liquibase:
-    change-log: classpath:db/liquibase/changelog.yaml
 
 logging:
   file:

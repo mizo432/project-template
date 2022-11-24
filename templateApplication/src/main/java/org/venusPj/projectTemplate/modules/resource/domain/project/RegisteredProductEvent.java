@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.modules.resource.domain.product;
+package org.venusPj.projectTemplate.modules.resource.domain.project;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,10 +11,10 @@ import org.springframework.context.ApplicationEvent;
 public class RegisteredProductEvent extends
     ApplicationEvent {
 
-    private final Product product;
+    private final Project project;
 
-    public RegisteredProductEvent(Object source, Product product) {
+    public RegisteredProductEvent(Object source, Project project) {
         super(source);
-        this.product = product;
+        this.project = project;
     }
 }

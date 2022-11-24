@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.modules.resource.domain.product;
+package org.venusPj.projectTemplate.modules.resource.domain.project;
 
 import de.huxhorn.sulky.ulid.ULID;
 import lombok.AllArgsConstructor;
@@ -11,17 +11,17 @@ import org.venusPj.projectTemplate.shared.entity.id.Id;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class ProductId extends Id<ProductId> {
+public class ProjectId extends Id<ProjectId> {
 
     private final String value;
 
-    public static ProductId newInstance() {
-        return new ProductId(new ULID().nextValue().toString());
+    public static ProjectId newInstance() {
+        return new ProjectId(new ULID().nextValue().toString());
 
     }
 
-    public static ProductId reconstruct(String value) {
-        return new ProductId(value);
+    public static ProjectId reconstruct(String value) {
+        return new ProjectId(value);
     }
 
 

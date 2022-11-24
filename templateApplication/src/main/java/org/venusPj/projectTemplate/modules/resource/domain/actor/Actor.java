@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
 import org.venusPj.projectTemplate.modules.resource.domain.actor.attribute.ActorAttribute;
-import org.venusPj.projectTemplate.modules.resource.domain.product.ProductId;
+import org.venusPj.projectTemplate.modules.resource.domain.project.ProjectId;
 import org.venusPj.projectTemplate.shared.entity.AbstractEntity;
 import org.venusPj.projectTemplate.shared.entity.AuditInfo;
 import org.venusPj.projectTemplate.shared.responsibility.layer.Layer;
@@ -20,13 +20,13 @@ import org.venusPj.projectTemplate.shared.responsibility.model.ModelType;
 @Model(value = ModelType.PARTY_ROLE)
 public class Actor extends AbstractEntity<ActorId, Actor> {
 
-    private final ProductId productId;
+    private final ProjectId projectId;
     private final ActorAttribute attribute;
 
-    private Actor(ActorId id, ProductId productId, AuditInfo auditInfo,
+    private Actor(ActorId id, ProjectId projectId, AuditInfo auditInfo,
         ActorAttribute attribute) {
         super(id, auditInfo);
-        this.productId = productId;
+        this.projectId = projectId;
         this.attribute = attribute;
 
     }
@@ -34,13 +34,13 @@ public class Actor extends AbstractEntity<ActorId, Actor> {
     @Override
     public boolean sameValueAs(Actor other) {
         return super.sameValueAs(other) &&
-            productId.equals(other.productId) &&
+            projectId.equals(other.projectId) &&
             attribute.equals(other.attribute);
     }
 
-    public static Actor reconstruct(@NotNull ActorId id, @NotNull ProductId productId,
+    public static Actor reconstruct(@NotNull ActorId id, @NotNull ProjectId projectId,
         @NotNull AuditInfo auditInfo, @NotNull ActorAttribute attribute) {
-        return new Actor(id, productId, auditInfo, attribute);
+        return new Actor(id, projectId, auditInfo, attribute);
 
     }
 

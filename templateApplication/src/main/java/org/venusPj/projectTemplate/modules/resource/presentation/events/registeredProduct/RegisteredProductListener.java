@@ -3,8 +3,8 @@ package org.venusPj.projectTemplate.modules.resource.presentation.events.registe
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
-import org.venusPj.projectTemplate.modules.resource.domain.product.Product;
-import org.venusPj.projectTemplate.modules.resource.domain.product.RegisteredProductEvent;
+import org.venusPj.projectTemplate.modules.resource.domain.project.Project;
+import org.venusPj.projectTemplate.modules.resource.domain.project.RegisteredProductEvent;
 
 @Component
 @Slf4j
@@ -12,8 +12,8 @@ public class RegisteredProductListener implements ApplicationListener<Registered
 
     @Override
     public void onApplicationEvent(RegisteredProductEvent event) {
-        Product product = event.getProduct();
-        log.debug("regstered " + product);
+        Project project = event.getProject();
+        log.debug("regstered " + project);
 
     }
 

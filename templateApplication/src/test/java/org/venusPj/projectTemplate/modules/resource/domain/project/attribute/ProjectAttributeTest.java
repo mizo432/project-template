@@ -1,37 +1,37 @@
-package org.venusPj.projectTemplate.modules.resource.domain.product.attribute;
+package org.venusPj.projectTemplate.modules.resource.domain.project.attribute;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 import org.junit.jupiter.api.Test;
 
-class ProductAttributeTest {
+class ProjectAttributeTest {
 
     /**
      * Method under test:
-     * {@link ProductAttribute#create(ProductName, ProductCode, StoryCodePrefix)}
+     * {@link ProjectAttribute#create(ProjectName, ProjectCode, StoryCodePrefix)}
      */
     @Test
     void testCreate() {
         // Arrange
         String value = "42";
-        ProductName ofResult = ProductName.of(value);
+        ProjectName ofResult = ProjectName.of(value);
         String value1 = "42";
-        ProductCode ofResult1 = ProductCode.of(value1);
+        ProjectCode ofResult1 = ProjectCode.of(value1);
         String value2 = "42";
         StoryCodePrefix ofResult2 = StoryCodePrefix.of(value2);
 
         // Act
-        ProductAttribute actualCreateResult = ProductAttribute.create(ofResult, ofResult1,
+        ProjectAttribute actualCreateResult = ProjectAttribute.create(ofResult, ofResult1,
             ofResult2);
 
         System.out.println(actualCreateResult);
 
         // Assert
-        ProductCode actualCode = actualCreateResult.getCode();
+        ProjectCode actualCode = actualCreateResult.getCode();
         assertSame(ofResult1, actualCode);
         StoryCodePrefix actualStoryCodePrefix = actualCreateResult.getStoryCodePrefix();
         assertSame(ofResult2, actualStoryCodePrefix);
-        ProductName actualName = actualCreateResult.getName();
+        ProjectName actualName = actualCreateResult.getName();
         assertSame(ofResult, actualName);
     }
 }

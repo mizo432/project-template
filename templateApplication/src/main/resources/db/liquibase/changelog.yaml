@@ -1,6 +1,0 @@
-databaseChangeLog:
-  - includeAll:
-      path: changeLogs
-  - includeAll:
-      path: data
-
