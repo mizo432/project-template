@@ -11,8 +11,8 @@ public class TemplateSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.requestMatcher(EndpointRequest.toAnyEndpoint());
-        http.authorizeRequests((requests) -> requests.anyRequest().permitAll());
+        http.securityMatcher(EndpointRequest.toAnyEndpoint());
+        http.authorizeHttpRequests((requests) -> requests.anyRequest().permitAll());
         return http.build();
     }
 }

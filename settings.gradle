@@ -1,3 +1,4 @@
 rootProject.name = 'project-template'
 include 'templateApplication'
 include 'admin-template'
+include 'authorization-server'

@@ -1,0 +1,33 @@
+server:
+  port: 9000
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.security.oauth2: INFO
+  #    org.springframework.boot.autoconfigure: DEBUG
+  file:
+    name: ./build/logs/application.log
+spring:
+  application:
+    name: 認可サーバーアプリケーション # アプリケーション名
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:8082/admin
+#        instance:
+#          prefer-ip: true
+#          service-base-url: http://localhost:9000
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false
