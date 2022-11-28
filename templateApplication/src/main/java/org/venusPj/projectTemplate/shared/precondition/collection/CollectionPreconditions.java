@@ -1,7 +1,12 @@
 package org.venusPj.projectTemplate.shared.precondition.collection;
 
+import static org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull;
+import static org.venusPj.projectTemplate.shared.primitive.object.Objects2.isNull;
+
+import com.google.common.collect.Range;
 import java.util.Collection;
 import java.util.function.Supplier;
+import org.jetbrains.annotations.NotNull;
 import org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions;
 
 public class CollectionPreconditions {
@@ -39,6 +44,63 @@ public class CollectionPreconditions {
     public static <T> void checkNotEmpty(Collection<T> referenceCollection) {
         checkNotEmpty(referenceCollection,
             () -> new IllegalArgumentException("参照コレクションの要素が空です。参照コレクションに要素を設定してください。"));
+
+    }
+
+    /**
+     * コレクションの全ての要素が存在するかをチェックする
+     *
+     * @param referenceCollection コレクション
+     * @param <T>                 コレクションの要素の型
+     * @throws IllegalArgumentException 空でない場合にスローされます。
+     */
+    public static <T> void checkAllItemPresent(@NotNull Collection<T> referenceCollection) {
+        checkAllItemPresent(referenceCollection, () -> {
+            return new IllegalArgumentException(
+                "referenceCollectionの要素は全て存在しなければいけませんがnullが含まれています");
+        });
+
+    }
+
+    /**
+     * コレクションの全ての要素が存在するかをチェックする
+     *
+     * @param referenceCollection      コレクション
+     * @param runtimeExceptionSupplier nullの要素があった場合にスローする例外のサプライヤー
+     * @param <T>                      コレクションの要素の型
+     */
+    public static <T> void checkAllItemPresent(@NotNull Collection<T> referenceCollection,
+        Supplier<RuntimeException> runtimeExceptionSupplier) {
+        checkNotNull(referenceCollection, "referenceArray");
+        checkNotNull(runtimeExceptionSupplier, "runtimeExceptionSupplier");
+
+        for (T t : referenceCollection) {
+            if (isNull(t)) {
+                throw runtimeExceptionSupplier.get();
+            }
+
+        }
+
+    }
+
+    public static <T> void checkSize(@NotNull Collection<T> referenceCollection,
+        @NotNull Range<Integer> sizeRange) {
+        checkSize(referenceCollection, sizeRange, () -> new IllegalArgumentException(
+            "referenceCollectionはサイズが" + sizeRange.toString()
+                + "でなければなりませんが条件に合致ません　referenceCollection.size():"
+                + referenceCollection.size()));
+
+    }
+
+    public static <T> void checkSize(@NotNull Collection<T> referenceCollection,
+        @NotNull Range<Integer> sizeRange,
+        @NotNull Supplier<RuntimeException> runtimeExceptionSupplier) {
+        checkNotNull(referenceCollection, "referenceCollection");
+        checkNotNull(sizeRange, "sizeRange");
+        checkNotNull(sizeRange, "runtimeExceptionSupplier");
+        if (sizeRange.contains(referenceCollection.size())) {
+            throw runtimeExceptionSupplier.get();
+        }
 
     }
 
