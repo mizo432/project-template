@@ -6,9 +6,14 @@ public enum Emotion {
     NATURAL("何も感じない"),
     CAN_TOLERATE_IT("我慢できる"),
     DISLIKE_IT("気に入らない");
-    private String displayName;
+    private final String displayName;
 
     Emotion(String displayName) {
         this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+        
     }
 }
