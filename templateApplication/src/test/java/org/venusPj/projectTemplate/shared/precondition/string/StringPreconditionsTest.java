@@ -2,11 +2,57 @@ package org.venusPj.projectTemplate.shared.precondition.string;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.google.common.collect.Range;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.venusPj.projectTemplate.shared.primitive.string.Strings2;
+import org.venusPj.projectTemplate.shared.test.TestSize;
 
+@Tag(TestSize.SMALL)
 public class StringPreconditionsTest {
+
+    /**
+     * Method under test: {@link StringPreconditions#checkLength(String, Range)}
+     */
+    @Test
+    void testCheckLength() {
+        // Arrange
+        String reference = "Reference";
+        Range<Integer> sizeRange = Range.all();
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class,
+            () -> StringPreconditions.checkLength(reference, sizeRange));
+    }
+
+    /**
+     * Method under test: {@link StringPreconditions#checkLength(String, Range)}
+     */
+    @Test
+    void testCheckLength2() {
+        // Arrange
+        String reference = null;
+        Range<Integer> sizeRange = Range.all();
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class,
+            () -> StringPreconditions.checkLength(reference, sizeRange));
+    }
+
+    /**
+     * Method under test: {@link StringPreconditions#checkLength(String, Range)}
+     */
+    @Test
+    void testCheckLength3() {
+        // Arrange
+        String reference = "Reference";
+        Range<Integer> sizeRange = null;
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class,
+            () -> StringPreconditions.checkLength(reference, sizeRange));
+    }
 
     /**
      * Method under test: {@link StringPreconditions#checkNotEmpty(String, String)}

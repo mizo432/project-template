@@ -1,11 +1,12 @@
 package org.venusPj.projectTemplate.shared.precondition.string;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull;
 import static org.venusPj.projectTemplate.shared.primitive.string.Strings2.isDigit;
 
+import com.google.common.collect.Range;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
-import org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions;
 import org.venusPj.projectTemplate.shared.primitive.string.Strings2;
 
 public class StringPreconditions {
@@ -16,7 +17,7 @@ public class StringPreconditions {
                 "引数のlabelが空白です。引数のlabelに空白は許容されません。");
         }
 
-        ObjectPreconditions.checkNotNull(reference, label);
+        checkNotNull(reference, label);
         if (Strings2.isEmpty(reference)) {
             throw new IllegalArgumentException(
                 label + "が空白です。" + label + "に空白は許容されません。");
@@ -38,5 +39,27 @@ public class StringPreconditions {
         }
 
     }
+
+    public static void checkLength(@NotNull String reference,
+        @NotNull Range<Integer> sizeRange) {
+        checkLength(reference, sizeRange, () -> new IllegalArgumentException(
+            "referenceはサイズが" + sizeRange.toString()
+                + "でなければなりませんが条件に合致ません　reference.length():"
+                + reference.length()));
+
+    }
+
+    public static void checkLength(@NotNull String reference,
+        @NotNull Range<Integer> sizeRange,
+        @NotNull Supplier<RuntimeException> runtimeExceptionSupplier) {
+        checkNotNull(reference, "reference");
+        checkNotNull(sizeRange, "sizeRange");
+        checkNotNull(sizeRange, "runtimeExceptionSupplier");
+        if (sizeRange.contains(reference.length())) {
+            throw runtimeExceptionSupplier.get();
+        }
+
+    }
+
 
 }
