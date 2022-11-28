@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.terasoluna.gfw.common.message.ResultMessage;
+import org.terasoluna.gfw.common.message.ResultMessages;
 import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
 import org.venusPj.projectTemplate.modules.example.domain.employee.EmployeeId;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.EmployeeService;
+import org.venusPj.projectTemplate.shared.primitive.string.Strings2;
 
 @Controller
 @RequestMapping(path = "/employee")
@@ -24,7 +27,7 @@ public class EmployeeController {
     }
 
     // display list of employees
-    @GetMapping("/")
+    @GetMapping
     public String viewHomePage(Model model) {
         model.addAttribute("listEmployees", employeeService.getAllEmployees());
         return "/employee/index";
@@ -42,6 +45,11 @@ public class EmployeeController {
     @PostMapping("/saveEmployee")
 //    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
     public String saveEmployee(@ModelAttribute("employee") Employee employee) {
+        if (Strings2.isEmpty(employee.getFirstName())) {
+            ResultMessages resultMessages = ResultMessages.error()
+                .add(ResultMessage.fromCode("EAB0001"));
+            throw new EntityNotFoundException(resultMessages);
+        }
         // save employee to database
         employeeService.saveEmployee(employee);
         return "redirect:/employee/";

@@ -64,7 +64,7 @@ spring:
 
 logging:
   file:
-    name: ../build/logs/application.log
+    name: ./build/logs/application.log
 keel:
   transaction:
     token:

@@ -1,5 +1,5 @@
 <included>
-    <property name="LOG_DIR" value="../build/logs"/>
+    <property name="LOG_DIR" value="./build/logs"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> <!-- (1) -->
         <encoder>
             <pattern>
@@ -8,7 +8,7 @@
     </appender>
 
     <appender name="APPLICATION_LOG_FILE"
-        class="ch.qos.logback.core.FileAppender"> <!-- (3) -->
+      class="ch.qos.logback.core.FileAppender"> <!-- (3) -->
         <file>${LOG_DIR}/application.log</file> <!-- (4) -->
         <encoder>
             <charset>UTF-8</charset> <!-- (7) -->
