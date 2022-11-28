@@ -1,7 +1,10 @@
 server:
   port: 8080
-#  servlet:
-#    context-path: /api
+  #  servlet:
+  #    context-path: /api
+  compression:
+    enabled: true
+    mime-types: text/html,text/css,application/javascript,application/json
 
 spring:
   main:
@@ -42,6 +45,7 @@ spring:
         instance:
           prefer-ip: true
           service-base-url: http://localhost:8080
+
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss.SSS
     time-zone: Asia/Tokyo

@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.modules.example.presentation.employee;
+package org.venusPj.projectTemplate.modules.example.usecase.employee;
 
 import org.terasoluna.gfw.common.exception.BusinessException;
 import org.terasoluna.gfw.common.message.ResultMessages;
