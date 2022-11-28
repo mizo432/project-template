@@ -4,7 +4,6 @@ import static org.venusPj.projectTemplate.shared.precondition.object.ObjectPreco
 
 import org.jetbrains.annotations.NotNull;
 import org.venusPj.projectTemplate.shared.value.ValueNotFoundException;
-import org.venusPj.projectTemplate.shared.value.description.Description;
 
 public enum StoryState {
     SUGGESTED(1, "sandbox", Description.of("検討中、業務的価値を検討中")),

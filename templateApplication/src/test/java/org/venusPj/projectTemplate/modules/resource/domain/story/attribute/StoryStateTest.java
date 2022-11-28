@@ -3,11 +3,12 @@ package org.venusPj.projectTemplate.modules.resource.domain.story.attribute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.venusPj.projectTemplate.shared.test.TestSize;
 import org.venusPj.projectTemplate.shared.value.ValueNotFoundException;
-import org.venusPj.projectTemplate.shared.value.description.Description;
 
+@Tag(TestSize.SMALL)
 class StoryStateTest {
 
     /**
@@ -68,29 +69,6 @@ class StoryStateTest {
 
         // Act and Assert
         assertThrows(ValueNotFoundException.class, () -> StoryState.valueOfStateId(stateId));
-    }
-
-    /**
-     * Method under test: {@link StoryState#valueOfStateId(Integer)}
-     */
-    @Test
-    @Disabled("TODO: Complete this test")
-    void testValueOfStateId2() {
-        // TODO: Complete this test.
-        //   Reason: R013 No inputs found that don't throw a trivial exception.
-        //   Diffblue Cover tried to run the arrange/act section, but the method under
-        //   test threw
-        //   java.lang.IllegalArgumentException: Argument for @NotNull parameter 'reference' of org/venusPj/projectTemplate/shared/precondition/object/ObjectPreconditions.checkNotNull must not be null
-        //       at org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions.$$$reportNull$$$0(ObjectPreconditions.java)
-        //       at org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull(ObjectPreconditions.java)
-        //       at org.venusPj.projectTemplate.modules.resource.domain.story.attribute.StoryState.valueOfStateId(StoryState.java:21)
-        //   See https://diff.blue/R013 to resolve this issue.
-
-        // Arrange
-        Integer stateId = null;
-
-        // Act
-        StoryState.valueOfStateId(stateId);
     }
 
     /**
