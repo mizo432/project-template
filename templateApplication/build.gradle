@@ -79,7 +79,7 @@ dependencies {
 }
 
 spotbugs {
-    toolVersion.set('4.4.2')
+    toolVersion.set('4.7.5')
     excludeFilter.set(file("$rootProject.projectDir/src/config/spotbugs/excludeFilter.xml"))
     ignoreFailures.set(true)
     maxHeapSize.set('2048m')
