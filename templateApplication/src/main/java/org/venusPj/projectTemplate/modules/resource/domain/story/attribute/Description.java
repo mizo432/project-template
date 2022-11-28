@@ -20,6 +20,10 @@ public class Description implements
 
     }
 
+    public static Description of(String value) {
+        return new Description(value);
+    }
+
     @Override
     public String asString() {
         return value;
