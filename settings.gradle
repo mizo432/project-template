@@ -2,3 +2,8 @@ rootProject.name = 'project-template'
 include 'templateApplication'
 include 'admin-template'
 include 'authorization-server'
+include 'common-primitive'
+include 'common-precondition'
+include 'web-common'
+include 'template-web-front'
+

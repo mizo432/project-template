@@ -64,12 +64,11 @@ dependencies {
     }
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '0.23.1'
-    implementation group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '3.0.0-M5'
+    implementation group: 'de.concentric', name: 'spring-boot-admin-starter-client', version: '3.0.0-M5'
     implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '3.0.0'
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
 //    implementation group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-web', version: '5.7.1.SP1.RELEASE'
 
-    liquibaseRuntime 'info.picocli:picocli:4.6.1'
     implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
 

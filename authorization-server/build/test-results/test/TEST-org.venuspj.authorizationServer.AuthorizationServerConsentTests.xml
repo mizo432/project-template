@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.venuspj.authorizationServer.AuthorizationServerConsentTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-11-29T00:31:05" hostname="mizogucBookpuro.lan" time="0.737">
+<testsuite name="org.venuspj.authorizationServer.AuthorizationServerConsentTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-11-29T06:40:58" hostname="80-K-MIZOGUCHI-" time="8.393">
   <properties/>
-  <testcase name="whenUserCancelsConsentThenReturnAccessDeniedError()" classname="org.venuspj.authorizationServer.AuthorizationServerConsentTests" time="0.651"/>
-  <testcase name="whenUserConsentsToAllScopesThenReturnAuthorizationCode()" classname="org.venuspj.authorizationServer.AuthorizationServerConsentTests" time="0.084"/>
+  <testcase name="whenUserCancelsConsentThenReturnAccessDeniedError()" classname="org.venuspj.authorizationServer.AuthorizationServerConsentTests" time="4.258"/>
+  <testcase name="whenUserConsentsToAllScopesThenReturnAuthorizationCode()" classname="org.venuspj.authorizationServer.AuthorizationServerConsentTests" time="4.134"/>
   <system-out><![CDATA[
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \

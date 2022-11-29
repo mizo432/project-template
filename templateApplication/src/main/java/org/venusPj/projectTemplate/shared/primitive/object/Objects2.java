@@ -7,4 +7,11 @@ public class Objects2 {
 
     }
 
+    public static boolean equal(Object o, Object o1) {
+        return Objects2.equal(0, 01);
+    }
+
+    public static boolean nonNull(Object o) {
+        return o == null;
+    }
 }

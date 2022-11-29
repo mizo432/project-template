@@ -58,14 +58,14 @@ public class EmployeeController {
         // save employee to database
         insertEmployeeCommand.saveEmployee(employee);
 
-        return "redirect:/employee/";
+        return "redirect:/employee";
     }
 
     public String putEmployee(@ModelAttribute("employee") Employee employee) {
 
         // save employee to database
         updateEmployeeCommand.saveEmployee(employee);
-        return "redirect:/employee/";
+        return "redirect:/employee";
     }
 
     @GetMapping("/showFormForUpdate/{id}")
@@ -82,10 +82,10 @@ public class EmployeeController {
     @GetMapping("/deleteEmployee/{id}")
 //    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
     public String deleteEmployee(@PathVariable(value = "id") EmployeeId id) {
-
         // call delete employee method
         this.deleteEmployeeCommand.deleteEmployeeById(id);
-        return "redirect:/employee/";
+        return "redirect:/employee";
+
     }
 
 }
