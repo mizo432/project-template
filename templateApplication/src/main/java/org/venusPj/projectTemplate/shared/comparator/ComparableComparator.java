@@ -1,6 +1,6 @@
 package org.venusPj.projectTemplate.shared.comparator;
 
-import static org.venusPj.projectTemplate.shared.primitive.object.Objects2.isNull;
+import static org.venusPj.primitive.object.Objects2.isNull;
 
 import java.util.Comparator;
 
@@ -8,6 +8,7 @@ public class ComparableComparator<C extends Comparable<C>> implements Comparator
 
     private static final ComparableComparator<? extends Comparable<?>> INSTANCE = new ComparableComparator<>();
 
+    @SuppressWarnings("unchecked")
     public static <C extends Comparable<C>> ComparableComparator<C> getInstance() {
         return (ComparableComparator<C>) INSTANCE;
     }

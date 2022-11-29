@@ -1,6 +1,6 @@
 package org.venusPj.projectTemplate.shared.value.name;
 
-import static org.venusPj.projectTemplate.shared.primitive.string.Strings2.isEmpty;
+import static org.venusPj.primitive.string.Strings2.isEmpty;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -19,16 +19,18 @@ public class Name implements StringValue<Name> {
     private final String value;
 
     public static Name of(String value) {
-        if (isEmpty(value))
+        if (isEmpty(value)) {
             return EMPTY;
+        }
 
         return new Name(value);
 
     }
 
     public static Name reconstruct(String value) {
-        if (isEmpty(value))
+        if (isEmpty(value)) {
             return EMPTY;
+        }
         return new Name(value);
 
     }

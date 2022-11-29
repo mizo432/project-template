@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
 import org.venusPj.projectTemplate.modules.example.domain.employee.EmployeeId;
-import org.venusPj.projectTemplate.shared.primitive.list.Lists2;
+import org.venusPj.primitive.list.Lists2;
 
 @Service
 public class FetchEmployeeQuery {

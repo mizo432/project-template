@@ -1,6 +1,6 @@
 package org.venusPj.projectTemplate.shared.entity;
 
-import static org.venusPj.projectTemplate.shared.primitive.object.Objects2.isNull;
+import static org.venusPj.primitive.object.Objects2.isNull;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

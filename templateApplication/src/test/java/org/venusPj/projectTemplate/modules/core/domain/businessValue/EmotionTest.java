@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.venusPj.projectTemplate.shared.test.TestSize;
+import org.venusPj.test.size.TestSize;
 
 @Tag(TestSize.SMALL)
 class EmotionTest {

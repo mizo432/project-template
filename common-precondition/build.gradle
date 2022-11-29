@@ -1,6 +1,13 @@
 plugins {
     id 'java'
 }
+apply plugin: 'idea'
+idea {
+    module {
+        outputDir file('build/classes/main')
+        testOutputDir file('build/classes/test')
+    }
+}
 
 group 'org.venusPj'
 version '0.0.1-SNAPSHOT'
@@ -10,9 +17,14 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation project(":common-primitive")
+    testImplementation project(':common-test')
+
+    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
 
 }
 

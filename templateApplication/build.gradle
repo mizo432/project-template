@@ -49,6 +49,10 @@ repositories {
 }
 
 dependencies {
+    implementation project(':common-primitive')
+    implementation project(':common-precondition')
+    implementation project(':web-common')
+    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
     implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -58,13 +62,18 @@ dependencies {
     implementation 'org.springframework.session:spring-session-data-redis'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // modelmapper
+    implementation 'org.modelmapper:modelmapper:3.1.0'
+
     runtimeOnly 'org.postgresql:postgresql'
+
+    testImplementation project(':common-test')
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '0.23.1'
-    implementation group: 'de.concentric', name: 'spring-boot-admin-starter-client', version: '3.0.0-M5'
+//    implementation group: 'de.concentric', name: 'spring-boot-admin-starter-client', version: '3.0.0-M5'
     implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '3.0.0'
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
 //    implementation group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-web', version: '5.7.1.SP1.RELEASE'
@@ -72,8 +81,6 @@ dependencies {
     implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
 
-    // modelmapper
-    implementation 'org.modelmapper:modelmapper:3.1.0'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

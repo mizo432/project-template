@@ -8,7 +8,7 @@
     </appender>
 
     <appender name="APPLICATION_LOG_FILE"
-      class="ch.qos.logback.core.FileAppender"> <!-- (3) -->
+        class="ch.qos.logback.core.FileAppender"> <!-- (3) -->
         <file>${LOG_DIR}/application.log</file> <!-- (4) -->
         <encoder>
             <charset>UTF-8</charset> <!-- (7) -->
@@ -27,15 +27,6 @@
     </logger>
 
     <logger name="org.springframework.web.servlet">
-        <level value="info"/>
-    </logger>
-    <logger name="org.terasoluna.gfw">
-        <level value="info"/>
-    </logger>
-    <logger name="org.terasoluna.gfw.web.logging.TraceLoggingInterceptor">
-        <level value="trace"/>
-    </logger>
-    <logger name="org.terasoluna.gfw.common.exception.ExceptionLogger">
         <level value="info"/>
     </logger>
     <!--

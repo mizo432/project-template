@@ -1,7 +1,7 @@
 package org.venusPj.projectTemplate.shared.responsibility;
 
 
-import static org.venusPj.projectTemplate.shared.primitive.string.Strings2.isEmpty;
+import static org.venusPj.primitive.string.Strings2.isEmpty;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

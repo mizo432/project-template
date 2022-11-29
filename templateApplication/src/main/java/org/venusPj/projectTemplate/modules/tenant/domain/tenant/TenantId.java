@@ -1,6 +1,6 @@
 package org.venusPj.projectTemplate.modules.tenant.domain.tenant;
 
-import static org.venusPj.projectTemplate.shared.primitive.object.Objects2.isNull;
+import static org.venusPj.primitive.object.Objects2.isNull;
 
 import de.huxhorn.sulky.ulid.ULID;
 import lombok.AllArgsConstructor;
@@ -44,6 +44,6 @@ public class TenantId extends Id<TenantId> {
 
     public boolean isEmpty() {
         return isNull(value);
-        
+
     }
 }

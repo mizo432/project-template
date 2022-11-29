@@ -8,7 +8,7 @@
     </appender>
 
     <appender name="APPLICATION_LOG_FILE"
-      class="ch.qos.logback.core.FileAppender"> <!-- (3) -->
+        class="ch.qos.logback.core.FileAppender"> <!-- (3) -->
         <file>${LOG_DIR}/application.log</file> <!-- (4) -->
         <encoder>
             <charset>UTF-8</charset> <!-- (7) -->
@@ -44,7 +44,7 @@
             <appender-ref ref="MONITORING_LOG_FILE" />
         </logger>
     -->
-    <root level="warn"> <!-- (11) -->
+    <root level="debug"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
         <appender-ref ref="APPLICATION_LOG_FILE"/>
     </root>

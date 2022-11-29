@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-import org.venusPj.projectTemplate.shared.primitive.object.Objects2;
+import org.venusPj.primitive.object.Objects2;
 import org.venusPj.projectTemplate.shared.value.IntegerValue;
 
 @Getter

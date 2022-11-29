@@ -5,7 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
 import org.venusPj.projectTemplate.modules.example.domain.employee.EmployeeId;
-import org.venusPj.projectTemplate.shared.primitive.map.Maps2;
+import org.venusPj.primitive.map.Maps2;
 
 @Component
 public class EmployeesData {
