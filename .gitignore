@@ -22,3 +22,8 @@ gradle-app.setting
 /src/env/axon-server/config/*
 /src/env/jenkins/jenkins_home/*
 /src/env/redis/data/*
+/web-common/build/
+/template-web-front/build/
+/common-primitive/build/
+/common-precondition/build/
+/authorization-server/build/
