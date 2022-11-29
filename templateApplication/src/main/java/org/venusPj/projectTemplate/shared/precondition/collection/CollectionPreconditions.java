@@ -3,10 +3,10 @@ package org.venusPj.projectTemplate.shared.precondition.collection;
 import static org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull;
 import static org.venusPj.projectTemplate.shared.primitive.object.Objects2.isNull;
 
-import com.google.common.collect.Range;
 import java.util.Collection;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.data.domain.Range;
 import org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions;
 
 public class CollectionPreconditions {

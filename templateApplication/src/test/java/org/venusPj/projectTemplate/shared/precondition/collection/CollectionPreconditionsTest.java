@@ -3,11 +3,11 @@ package org.venusPj.projectTemplate.shared.precondition.collection;
 import static com.tngtech.archunit.thirdparty.com.google.common.collect.Lists.newArrayList;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.google.common.collect.Range;
 import java.util.ArrayList;
 import java.util.Collection;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.springframework.data.domain.Range;
 import org.venusPj.projectTemplate.shared.test.TestSize;
 
 @Tag(TestSize.SMALL)
@@ -48,7 +48,7 @@ class CollectionPreconditionsTest {
     void testCheckSize() {
         // Arrange
         ArrayList<Object> referenceCollection = new ArrayList<>();
-        Range<Integer> sizeRange = Range.all();
+        Range<Integer> sizeRange = Range.closed(Integer.MIN_VALUE, Integer.MAX_VALUE);
 
         // Act and Assert
         assertThrows(IllegalArgumentException.class,

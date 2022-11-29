@@ -2,10 +2,10 @@ package org.venusPj.projectTemplate.shared.precondition.string;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.google.common.collect.Range;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.springframework.data.domain.Range;
 import org.venusPj.projectTemplate.shared.primitive.string.Strings2;
 import org.venusPj.projectTemplate.shared.test.TestSize;
 
@@ -19,7 +19,7 @@ public class StringPreconditionsTest {
     void testCheckLength() {
         // Arrange
         String reference = "Reference";
-        Range<Integer> sizeRange = Range.all();
+        Range<Integer> sizeRange = Range.closed(Integer.MIN_VALUE, Integer.MAX_VALUE);
 
         // Act and Assert
         assertThrows(IllegalArgumentException.class,
@@ -33,7 +33,7 @@ public class StringPreconditionsTest {
     void testCheckLength2() {
         // Arrange
         String reference = null;
-        Range<Integer> sizeRange = Range.all();
+        Range<Integer> sizeRange = Range.closed(Integer.MIN_VALUE, Integer.MAX_VALUE);
 
         // Act and Assert
         assertThrows(IllegalArgumentException.class,

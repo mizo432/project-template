@@ -7,16 +7,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.terasoluna.gfw.common.message.ResultMessage;
-import org.terasoluna.gfw.common.message.ResultMessages;
 import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
 import org.venusPj.projectTemplate.modules.example.domain.employee.EmployeeId;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.DeleteEmployeeCommand;
-import org.venusPj.projectTemplate.modules.example.usecase.employee.EntityNotFoundException;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.FetchEmployeeQuery;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.InsertEmployeeCommand;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.UpdateEmployeeCommand;
-import org.venusPj.projectTemplate.shared.primitive.string.Strings2;
 
 @Controller
 @RequestMapping(path = "/employee")
@@ -59,11 +55,6 @@ public class EmployeeController {
     @PostMapping("/saveEmployee")
 //    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
     public String postEmployee(@ModelAttribute("employee") Employee employee) {
-        if (Strings2.isEmpty(employee.getFirstName())) {
-            ResultMessages resultMessages = ResultMessages.error()
-                .add(ResultMessage.fromCode("EAB0001"));
-            throw new EntityNotFoundException(resultMessages);
-        }
         // save employee to database
         insertEmployeeCommand.saveEmployee(employee);
 

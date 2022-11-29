@@ -2,10 +2,10 @@ package org.venusPj.projectTemplate.shared.precondition.array;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.google.common.collect.Range;
 import java.util.function.Supplier;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.springframework.data.domain.Range;
 import org.venusPj.projectTemplate.shared.test.TestSize;
 
 @Tag(TestSize.SMALL)
@@ -87,7 +87,7 @@ class ArrayPreconditionsTest {
         // Arrange
         String string = "Reference Array";
         Object[] referenceArray = new Object[]{string};
-        Range<Integer> sizeRange = Range.all();
+        Range<Integer> sizeRange = Range.closed(Integer.MIN_VALUE, Integer.MAX_VALUE);
 
         // Act and Assert
         assertThrows(IllegalArgumentException.class,
@@ -115,7 +115,7 @@ class ArrayPreconditionsTest {
     void testCheckLength3() {
         // Arrange
         Object[] referenceArray = null;
-        Range<Integer> sizeRange = Range.all();
+        Range<Integer> sizeRange = Range.closed(Integer.MIN_VALUE, Integer.MAX_VALUE);
 
         // Act and Assert
         assertThrows(IllegalArgumentException.class,

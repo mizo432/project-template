@@ -8,10 +8,6 @@ spring:
     name: 環境モニター # アプリケーション名
   boot:
     admin:
-      client:
-        url: http://localhost:8082/admin
-        instance:
-          prefer-ip: true
       ui:
         title: "環境モニター"
         brand: "<img src=\"assets/img/icon-spring-boot-admin.svg\"><span>環境モニター</span>"

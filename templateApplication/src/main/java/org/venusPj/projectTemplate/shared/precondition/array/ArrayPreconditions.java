@@ -3,9 +3,9 @@ package org.venusPj.projectTemplate.shared.precondition.array;
 import static org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull;
 import static org.venusPj.projectTemplate.shared.primitive.object.Objects2.isNull;
 
-import com.google.common.collect.Range;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.data.domain.Range;
 import org.venusPj.projectTemplate.shared.primitive.array.Arrays2;
 
 public class ArrayPreconditions {

@@ -1,6 +1,6 @@
 package org.venusPj.projectTemplate.shared.primitive.localDate;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import static org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull;
 import static org.venusPj.projectTemplate.shared.precondition.string.StringPreconditions.checkNotEmpty;
 
 import java.time.LocalDate;

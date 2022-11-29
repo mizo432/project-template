@@ -1,12 +1,11 @@
 package org.venusPj.projectTemplate.shared.precondition.string;
 
-import static com.google.common.base.Preconditions.checkNotNull;
 import static org.venusPj.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull;
 import static org.venusPj.projectTemplate.shared.primitive.string.Strings2.isDigit;
 
-import com.google.common.collect.Range;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.data.domain.Range;
 import org.venusPj.projectTemplate.shared.primitive.string.Strings2;
 
 public class StringPreconditions {
@@ -28,13 +27,13 @@ public class StringPreconditions {
     /**
      * 参照値の全ての文字が10進数字である事をチェックします。
      *
-     * @param referenceString          参照値
+     * @param reference                参照値
      * @param runtimeExceptionSupplier 参照値が対象値セットが含まれていない場合返す例外の供給者を指定します。
      */
-    public static void checkAllCharactersAreDigits(String referenceString,
+    public static void checkAllCharactersAreDigits(@NotNull String reference,
         Supplier<RuntimeException> runtimeExceptionSupplier) {
-        checkNotNull(referenceString);
-        if (!isDigit(referenceString)) {
+        checkNotNull(reference, "referenceString");
+        if (!isDigit(reference)) {
             throw runtimeExceptionSupplier.get();
         }
 

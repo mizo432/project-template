@@ -1,12 +1,12 @@
 package org.venusPj.projectTemplate.modules.example.usecase.employee;
 
-import static com.google.common.collect.Lists.newArrayList;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
 import org.venusPj.projectTemplate.modules.example.domain.employee.EmployeeId;
+import org.venusPj.projectTemplate.shared.primitive.list.Lists2;
 
 @Service
 public class FetchEmployeeQuery {
@@ -20,7 +20,7 @@ public class FetchEmployeeQuery {
 
     @Transactional
     public List<Employee> selectAllEmployees() {
-        return newArrayList(data.values());
+        return Lists2.newArrayList(data.values());
 
     }
 
