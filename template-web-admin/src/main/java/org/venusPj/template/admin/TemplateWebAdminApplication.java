@@ -1,4 +1,4 @@
-package org.venuspj.template.admin;
+package org.venusPj.template.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

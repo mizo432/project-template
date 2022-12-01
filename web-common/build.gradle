@@ -13,7 +13,17 @@ idea {
 }
 
 group 'org.venusPj.projectTemplate'
-version '0.0.1-SNAPSHOT'
+version '0.0.1-SNAPSHOT' +
+        bootRun {
+            enabled = false
+        }
+bootJar {
+    enabled = false
+}
+jar {
+    enabled = true
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
 
 repositories {
     mavenCentral()

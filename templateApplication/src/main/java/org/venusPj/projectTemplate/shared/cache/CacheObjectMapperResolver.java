@@ -18,7 +18,6 @@ public class CacheObjectMapperResolver {
 
         ObjectMapper resultMapper = builder.filters(filters).build();
         resultMapper.registerModule(new JavaTimeModule());
-//        resultMapper.setSerializationInclusion(Include.NON_NULL);
         resultMapper.activateDefaultTyping(resultMapper.getPolymorphicTypeValidator(),
             DefaultTyping.NON_FINAL, As.PROPERTY);
         resultMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
