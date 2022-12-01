@@ -24,6 +24,7 @@ gradle-app.setting
 /src/env/redis/data/*
 /web-common/build/
 /common-primitive/build/
+/common-test/build/
 /common-precondition/build/
 /authorization-server/build/
 /template-web-admin/build/

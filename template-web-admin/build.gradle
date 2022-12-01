@@ -6,7 +6,6 @@ plugins {
 }
 
 group = 'org.venusPj.template'
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 idea {
     module {

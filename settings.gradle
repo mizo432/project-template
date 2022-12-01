@@ -1,5 +1,5 @@
 rootProject.name = 'project-template'
-// include 'authorization-server'
+//include 'authorization-server'
 include 'common-primitive'
 include 'common-precondition'
 include 'web-common'
