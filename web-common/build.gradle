@@ -12,11 +12,10 @@ idea {
     }
 }
 
-group 'org.venusPj.projectTemplate'
-version '0.0.1-SNAPSHOT' +
-        bootRun {
-            enabled = false
-        }
+group 'org.venusPj'
+bootRun {
+    enabled = false
+}
 bootJar {
     enabled = false
 }

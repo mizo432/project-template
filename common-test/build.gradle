@@ -10,7 +10,6 @@ idea {
 }
 
 group 'org.venusPj'
-version '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
