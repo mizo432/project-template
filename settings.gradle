@@ -5,5 +5,5 @@ include 'common-precondition'
 include 'web-common'
 include 'common-test'
 include 'templateApplication'
-include 'template-web-front'
+include 'template-web-admin'
 
