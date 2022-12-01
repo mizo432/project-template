@@ -1101,6 +1101,15 @@ public class Lists2 {
 
     }
 
+    /**
+     * 指定された配列に連動する固定サイズのリストを返します。
+     *
+     * @param inputArray リストの基となる配列
+     * @param <E>        配列内のオブジェクトのクラス
+     * @return 指定された配列のリスト表示
+     * @deprecated use {@link Arrays#asList(Object...)}  method
+     */
+    @Deprecated
     public static <E> List<E> arrayToList(E[] inputArray) {
         return Arrays.asList(inputArray);
 
@@ -1142,4 +1151,5 @@ public class Lists2 {
         destCollection.addAll(sourceCollection.stream().parallel().filter(predicate).toList());
 
     }
+
 }

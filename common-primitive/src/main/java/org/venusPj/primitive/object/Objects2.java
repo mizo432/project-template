@@ -12,6 +12,6 @@ public class Objects2 {
     }
 
     public static boolean nonNull(Object o) {
-        return o == null;
+        return o != null;
     }
 }
