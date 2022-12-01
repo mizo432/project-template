@@ -1129,5 +1129,17 @@ public class Lists2 {
         }
     }
 
+    /**
+     * 元リストの中から条件に合致した要素を先リストの追加する
+     *
+     * @param sourceCollection 元リスト
+     * @param destCollection   先リスト
+     * @param predicate        条件子
+     * @param <T>              リストの要素の型
+     */
+    public static <T> void addAllIf(@NotNull List<T> sourceCollection,
+        @NotNull List<T> destCollection, Predicate<T> predicate) {
+        destCollection.addAll(sourceCollection.stream().parallel().filter(predicate).toList());
 
+    }
 }

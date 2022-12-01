@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.venusPj.primitive.string.CharSequences;
-import org.venusPj.primitive.string.Strings2;
 
 class CharSequencesTest {
 
@@ -18,7 +16,7 @@ class CharSequencesTest {
     @Test
     void testIsEmpty() {
         // Arrange
-        String cs = System.lineSeparator();
+        String cs = Strings2.CRLF;
 
         // Act
         boolean actualIsEmptyResult = CharSequences.isEmpty(cs);
@@ -66,14 +64,14 @@ class CharSequencesTest {
     @Test
     void testSubSequence() {
         // Arrange
-        String cs = System.lineSeparator();
+        String cs = Strings2.CRLF;
         int start = 1;
 
         // Act
         CharSequence actualSubSequenceResult = CharSequences.subSequence(cs, start);
 
         // Assert
-        String expectedSubSequenceResult = Strings2.EMPTY;
+        String expectedSubSequenceResult = Strings2.LF;
         assertEquals(expectedSubSequenceResult, actualSubSequenceResult);
     }
 
@@ -300,16 +298,16 @@ class CharSequencesTest {
     @Test
     void testToCharArray() {
         // Arrange
-        String cs = System.lineSeparator();
+        String cs = Strings2.CRLF;
 
         // Act
         char[] actualToCharArrayResult = CharSequences.toCharArray(cs);
 
         // Assert
-        int expectedResultInt = 1;
+        int expectedResultInt = 2;
         int actualResultInt = actualToCharArrayResult.length;
         assertEquals(expectedResultInt, actualResultInt);
-        char expectedResultChar = '\n';
+        char expectedResultChar = CharSequences.CR;
         int resultInt = 0;
         char actualResultChar = actualToCharArrayResult[resultInt];
         assertEquals(expectedResultChar, actualResultChar);

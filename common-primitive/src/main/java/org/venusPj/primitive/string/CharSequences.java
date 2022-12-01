@@ -2,6 +2,8 @@ package org.venusPj.primitive.string;
 
 public class CharSequences {
 
+    public static final char CR = '\r';
+    public static final char LR = '\n';
     private static final int NOT_FOUND = -1;
 
     public CharSequences() {
@@ -18,6 +20,17 @@ public class CharSequences {
         return cs == null || cs.length() == 0;
     }
 
+    /**
+     * このシーケンスのサブシーケンスであるCharSequenceを返します。
+     * <pre>
+     * サブシーケンスは、指定されたインデックスのchar値で始まり、インデックスend - 1のchar値で終わります。
+     * 返される(charの)シーケンスの長さはend - startです。このため、start == endの場合、空のシーケンスが返されます。
+     * </pre>
+     *
+     * @param cs    キャラクターシーケンス
+     * @param start 開始インデックス(この値を含む)
+     * @return 指定されたサブシーケンス
+     */
     public static CharSequence subSequence(CharSequence cs, int start) {
         return cs == null ? null : cs.subSequence(start, cs.length());
     }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
+import org.jetbrains.annotations.NotNull;
 
 public class Collections3 {
 
@@ -16,6 +18,13 @@ public class Collections3 {
 
     public static <T> List<T> copy(Collection<T> collection) {
         return new ArrayList<T>(collection);
+
+    }
+
+    public static <T> void addAllIf(@NotNull Collection<T> sourceCollection,
+        @NotNull Collection<T> destCollection,
+        Predicate<T> predicate) {
+        destCollection.addAll(sourceCollection.stream().parallel().filter(predicate).toList());
 
     }
 
