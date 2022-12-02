@@ -8,6 +8,7 @@ plugins {
     id 'se.patrikerdes.use-latest-versions' version '0.2.18'
     id "com.github.spotbugs" version "5.0.8"
     id 'jacoco'
+    id 'java-library'
 }
 
 apply plugin: 'idea'
@@ -47,9 +48,7 @@ repositories {
 }
 
 dependencies {
-    implementation project(':common-primitive')
-    implementation project(':common-precondition')
-    implementation project(':web-common')
+    api project(':web-common')
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'

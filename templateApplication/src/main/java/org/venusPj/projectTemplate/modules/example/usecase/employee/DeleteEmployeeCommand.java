@@ -2,7 +2,8 @@ package org.venusPj.projectTemplate.modules.example.usecase.employee;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.venusPj.projectTemplate.modules.example.domain.employee.EmployeeId;
+import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Service
 public class DeleteEmployeeCommand {
@@ -14,7 +15,7 @@ public class DeleteEmployeeCommand {
     }
 
     @Transactional
-    public void deleteEmployeeById(EmployeeId id) {
+    public void deleteEmployeeById(Identifier<Employee> id) {
         data.remove(id);
     }
 

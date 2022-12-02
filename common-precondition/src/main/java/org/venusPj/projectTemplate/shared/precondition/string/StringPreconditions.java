@@ -61,4 +61,20 @@ public class StringPreconditions {
     }
 
 
+    public static void checkLength(String reference, int length) {
+        checkNotNull(reference, "reference");
+        checkLength(reference, length, () -> new IllegalArgumentException(
+            "reference" + length + "桁でなければいけません。 reference=" + reference));
+
+    }
+
+    public static void checkLength(String reference, int length,
+        @NotNull Supplier<RuntimeException> runtimeExceptionSupplier) {
+        checkNotNull(reference, "reference");
+        checkNotNull(runtimeExceptionSupplier, "runtimeExceptionSupplier");
+        if (length != reference.length()) {
+            throw runtimeExceptionSupplier.get();
+        }
+
+    }
 }

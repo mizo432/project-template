@@ -1,10 +1,11 @@
 package org.venusPj.projectTemplate.modules.resource.domain.project;
 
 import java.util.List;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 public interface ProjectRepository {
 
-    Project findOnBy(ProjectId projectId);
+    Project findOnBy(Identifier<Project> projectId);
 
     List<Project> selectAll();
 
@@ -12,6 +13,6 @@ public interface ProjectRepository {
 
     void update(Project project);
 
-    void delete(ProjectId projectId);
+    void delete(Identifier<Project> projectId);
 
 }

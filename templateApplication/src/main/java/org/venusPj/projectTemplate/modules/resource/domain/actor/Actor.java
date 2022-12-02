@@ -5,9 +5,10 @@ import lombok.Getter;
 import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
 import org.venusPj.projectTemplate.modules.resource.domain.actor.attribute.ActorAttribute;
-import org.venusPj.projectTemplate.modules.resource.domain.project.ProjectId;
+import org.venusPj.projectTemplate.modules.resource.domain.project.Project;
 import org.venusPj.projectTemplate.shared.entity.AbstractEntity;
 import org.venusPj.projectTemplate.shared.entity.AuditInfo;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 import org.venusPj.projectTemplate.shared.responsibility.layer.Layer;
 import org.venusPj.projectTemplate.shared.responsibility.layer.LayerType;
 import org.venusPj.projectTemplate.shared.responsibility.model.Model;
@@ -18,12 +19,12 @@ import org.venusPj.projectTemplate.shared.responsibility.model.ModelType;
 @ToString(callSuper = true)
 @Layer(value = LayerType.MODEL_LAYER)
 @Model(value = ModelType.PARTY_ROLE)
-public class Actor extends AbstractEntity<ActorId, Actor> {
+public class Actor extends AbstractEntity<Actor> {
 
-    private final ProjectId projectId;
+    private final Identifier<Project> projectId;
     private final ActorAttribute attribute;
 
-    private Actor(ActorId id, ProjectId projectId, AuditInfo auditInfo,
+    private Actor(Identifier<Actor> id, Identifier<Project> projectId, AuditInfo auditInfo,
         ActorAttribute attribute) {
         super(id, auditInfo);
         this.projectId = projectId;
@@ -38,7 +39,8 @@ public class Actor extends AbstractEntity<ActorId, Actor> {
             attribute.equals(other.attribute);
     }
 
-    public static Actor reconstruct(@NotNull ActorId id, @NotNull ProjectId projectId,
+    public static Actor reconstruct(@NotNull Identifier<Actor> id,
+        @NotNull Identifier<Project> projectId,
         @NotNull AuditInfo auditInfo, @NotNull ActorAttribute attribute) {
         return new Actor(id, projectId, auditInfo, attribute);
 

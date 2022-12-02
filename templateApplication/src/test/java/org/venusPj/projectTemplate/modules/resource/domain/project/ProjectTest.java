@@ -12,6 +12,7 @@ import org.venusPj.projectTemplate.modules.resource.domain.project.attribute.Sto
 import org.venusPj.projectTemplate.shared.entity.AuditInfo;
 import org.venusPj.projectTemplate.shared.entity.WhenNoticed;
 import org.venusPj.projectTemplate.shared.entity.WhoNoticed;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 class ProjectTest {
 
@@ -21,7 +22,7 @@ class ProjectTest {
     @Test
     void testConstructor() {
         // Arrange
-        ProjectId newInstanceResult = ProjectId.newInstance();
+        Identifier<Project> newInstanceResult = Identifier.newInstance();
         AuditInfo emptyResult = AuditInfo.empty();
         String value = "42";
         ProjectName ofResult = ProjectName.of(value);
@@ -39,7 +40,7 @@ class ProjectTest {
         // Assert
         ProjectAttribute attribute = actualProject.getAttribute();
         assertSame(createResult, attribute);
-        ProjectId actualId = actualProject.getId();
+        Identifier<Project> actualId = actualProject.getId();
         assertSame(newInstanceResult, actualId);
         AuditInfo auditInfo = actualProject.getAuditInfo();
         assertSame(emptyResult, auditInfo);

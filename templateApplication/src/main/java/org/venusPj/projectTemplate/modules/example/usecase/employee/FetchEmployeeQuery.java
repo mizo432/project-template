@@ -4,9 +4,9 @@ package org.venusPj.projectTemplate.modules.example.usecase.employee;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
-import org.venusPj.projectTemplate.modules.example.domain.employee.EmployeeId;
 import org.venusPj.primitive.list.Lists2;
+import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Service
 public class FetchEmployeeQuery {
@@ -25,7 +25,7 @@ public class FetchEmployeeQuery {
     }
 
     @Transactional
-    public Employee findEmployeeById(EmployeeId id) {
+    public Employee findEmployeeById(Identifier<Employee> id) {
         return data.get(id);
 
     }

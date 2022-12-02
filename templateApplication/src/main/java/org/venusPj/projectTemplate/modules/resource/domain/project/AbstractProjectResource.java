@@ -5,18 +5,20 @@ import lombok.Getter;
 import lombok.ToString;
 import org.venusPj.projectTemplate.shared.entity.AbstractEntity;
 import org.venusPj.projectTemplate.shared.entity.AuditInfo;
-import org.venusPj.projectTemplate.shared.entity.id.Id;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public abstract class ProjectResource<I extends Id<I>, E extends ProjectResource<I, E>> extends
-    AbstractEntity<I, E> {
+public abstract class AbstractProjectResource<E extends AbstractProjectResource<E>> extends
+    AbstractEntity<E> {
 
-    private final ProjectId projectId;
+    private final Identifier<Project> projectId;
 
 
-    protected ProjectResource(I id, AuditInfo auditInfo, ProjectId projectId) {
+    protected AbstractProjectResource(Identifier<E> id,
+        AuditInfo auditInfo,
+        Identifier<Project> projectId) {
         super(id, auditInfo);
         this.projectId = projectId;
     }

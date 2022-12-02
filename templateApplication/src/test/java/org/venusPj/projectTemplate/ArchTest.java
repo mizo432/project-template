@@ -25,7 +25,7 @@ public class ArchTest {
             .should()
             .dependOnClassesThat(new DescribedPredicate<>("moduleパッケージに別モジュールパッケージの依存が存在するか") {
                 @Override
-                public boolean apply(JavaClass javaClass) {
+                public boolean test(JavaClass javaClass) {
                     // ここに設定を制約を書く
                     return false;
                 }

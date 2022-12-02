@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
-import org.venusPj.projectTemplate.modules.example.domain.employee.EmployeeId;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.DeleteEmployeeCommand;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.FetchEmployeeQuery;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.InsertEmployeeCommand;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.UpdateEmployeeCommand;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Controller
 @RequestMapping(path = "/employee")
@@ -69,8 +69,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/showFormForUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") String id, Model model) {
-        EmployeeId employeeId = EmployeeId.of(id);
+    public String showFormForUpdate(@PathVariable(value = "id") Identifier<Employee> employeeId,
+        Model model) {
         // get employee from the service
         Employee employee = fetchEmployeeQuery.findEmployeeById(employeeId);
 
@@ -81,7 +81,7 @@ public class EmployeeController {
 
     @GetMapping("/deleteEmployee/{id}")
 //    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
-    public String deleteEmployee(@PathVariable(value = "id") EmployeeId id) {
+    public String deleteEmployee(@PathVariable(value = "id") Identifier<Employee> id) {
         // call delete employee method
         this.deleteEmployeeCommand.deleteEmployeeById(id);
         return "redirect:/employee";

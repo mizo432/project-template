@@ -58,17 +58,29 @@ GETは必要な情報に合わせて{identifier}が必須。{identifier}つけ�
 ## アプリケーション配置図
 
 ```puml
-@startuml
-title アプリケーション配置図
-artifact "web-application" as webApplication
-artifact "api-application" as apiApplication
-artifact precondition
-artifact premitive
+title 非業務ユーティリティ依存関係図
 
-webApplication --> apiApplication
-webApplication -> precondition
-apiApplication -> precondition
-precondition -> premitive
+component "common-precondition" as precondition
+component "common-primitive" as primitive
+component "common-test" as test
+component "web-common" as web
+
+precondition -> primitive
+web ..> test
+web -> precondition
+precondition ..> test
+
+```
+
+```puml
+@startuml
+title アプリケーション依存図
+component "template-web-front" as application
+component "web-common" as web
+component "common-test" as test
+
+application -> web
+application ..> test
 
 @enduml
 ```

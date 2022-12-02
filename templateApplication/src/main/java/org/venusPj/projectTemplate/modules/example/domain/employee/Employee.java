@@ -1,28 +1,35 @@
 package org.venusPj.projectTemplate.modules.example.domain.employee;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.venusPj.projectTemplate.shared.entity.AbstractEntity;
+import org.venusPj.projectTemplate.shared.entity.AuditInfo;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Getter
 @Setter
-@EqualsAndHashCode
-@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @ToString
-public class Employee {
+public class Employee extends AbstractEntity<Employee> {
+
+    private final String firstName;
+
+    private final String lastName;
+
+    private final String email;
 
     public Employee() {
-        this(EmployeeId.newInstance(), null, null, null);
+        this(Identifier.newInstance(), null, null, null);
     }
 
-    private EmployeeId id;
+    private Employee(Identifier<Employee> id, String firstName, String lastName, String email) {
+        super(id, AuditInfo.empty());
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
-    private String firstName;
-
-    private String lastName;
-
-    private String email;
 
 }

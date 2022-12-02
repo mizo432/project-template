@@ -7,9 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-import org.venusPj.projectTemplate.modules.resource.domain.project.ProjectId;
-import org.venusPj.projectTemplate.modules.resource.domain.sprint.SprintId;
+import org.venusPj.projectTemplate.modules.resource.domain.project.Project;
+import org.venusPj.projectTemplate.modules.resource.domain.sprint.Sprint;
 import org.venusPj.projectTemplate.modules.resource.domain.sprint.SprintNumber;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 import org.venusPj.projectTemplate.shared.value.BigDecimalValue;
 
 /**
@@ -21,16 +22,17 @@ import org.venusPj.projectTemplate.shared.value.BigDecimalValue;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class VelocityOfSprint implements BigDecimalValue<VelocityOfSprint> {
 
-    private final ProjectId projectId;
+    private final Identifier<Project> projectId;
 
-    private final SprintId sprintId;
+    private final Identifier<Sprint> sprintId;
 
     private final SprintNumber sprintNumber;
 
     private final EffortOfSprint effort;
     private final DaysOfSprint days;
 
-    public static VelocityOfSprint create(ProjectId projectId, SprintId sprintId,
+    public static VelocityOfSprint create(Identifier<Project> projectId,
+        Identifier<Sprint> sprintId,
         SprintNumber sprintNumber, EffortOfSprint effort, DaysOfSprint days) {
         return new VelocityOfSprint(projectId, sprintId, sprintNumber, effort, days);
 

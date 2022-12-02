@@ -3,25 +3,25 @@ package org.venusPj.projectTemplate.modules.example.usecase.employee;
 import java.util.Collection;
 import java.util.Map;
 import org.springframework.stereotype.Component;
-import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
-import org.venusPj.projectTemplate.modules.example.domain.employee.EmployeeId;
 import org.venusPj.primitive.map.Maps2;
+import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Component
 public class EmployeesData {
 
-    private static final Map<EmployeeId, Employee> value = Maps2.newHashMap();
+    private static final Map<Identifier<Employee>, Employee> value = Maps2.newHashMap();
 
-    public void put(EmployeeId key, Employee employee) {
+    public void put(Identifier<Employee> key, Employee employee) {
         value.put(key, employee);
 
     }
 
-    public void remove(EmployeeId key) {
+    public void remove(Identifier<Employee> key) {
         value.remove(key);
     }
 
-    public Employee get(EmployeeId key) {
+    public Employee get(Identifier<Employee> key) {
         return value.get(key);
 
     }

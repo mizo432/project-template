@@ -3,31 +3,39 @@ package org.venusPj.projectTemplate.shared.entity;
 import java.util.Objects;
 import lombok.Getter;
 import lombok.ToString;
-import org.venusPj.projectTemplate.shared.entity.id.Id;
+import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Getter
 @ToString
-public abstract class AbstractEntity<I extends Id<I>, E extends AbstractEntity<I, E>> {
+public abstract class AbstractEntity<E extends AbstractEntity<E>> {
 
-    protected final I id;
+    protected final Identifier<E> id;
 
     protected final AuditInfo auditInfo;
 
-    protected AbstractEntity(I id, AuditInfo auditInfo) {
+    protected AbstractEntity() {
+        this(Identifier.empty(), AuditInfo.empty());
+    }
+
+    protected AbstractEntity(Identifier<E> id, AuditInfo auditInfo) {
         this.id = id;
         this.auditInfo = auditInfo;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object other) {
+        if (this == other) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (other == null || getClass() != other.getClass()) {
             return false;
         }
-        AbstractEntity<?, ?> that = (AbstractEntity<?, ?>) o;
-        return id.equals(that.id);
+        if (other instanceof AbstractEntity<?>) {
+            AbstractEntity<E> that = (AbstractEntity<E>) other;
+            return id.equals(that.id);
+        }
+        return false;
     }
 
     public boolean sameIdAs(E other) {
@@ -49,6 +57,7 @@ public abstract class AbstractEntity<I extends Id<I>, E extends AbstractEntity<I
 
     @Override
     public int hashCode() {
-        return Objects.hash(getClass().getCanonicalName(), id);
+        return Objects.hash(id);
+
     }
 }

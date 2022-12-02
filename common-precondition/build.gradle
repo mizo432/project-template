@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'java-library'
 }
 apply plugin: 'idea'
 idea {
@@ -16,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    implementation project(":common-primitive")
+    api project(":common-primitive")
     testImplementation project(':common-test')
 
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
