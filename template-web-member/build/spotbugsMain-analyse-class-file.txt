@@ -1,0 +1,1 @@
+C:\IdeaProjects\project-template\template-web-member\build\classes\java\main\org\venusPj\template\modules\TemplateWebMemberApplication.class
