@@ -16,7 +16,7 @@ server:
     port: 6379
     database: 0
   application:
-    name: 管理者アプリケーション # アプリケーション名
+    name: システム管理者向けアプリケーション # アプリケーション名
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss.SSS
     time-zone: Asia/Tokyo
