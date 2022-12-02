@@ -28,3 +28,6 @@ gradle-app.setting
 /common-precondition/build/
 /authorization-server/build/
 /template-web-admin/build/
+/template-web-member/build/
+/template-web-productOwner/build/
+/template-web-viewer/build/

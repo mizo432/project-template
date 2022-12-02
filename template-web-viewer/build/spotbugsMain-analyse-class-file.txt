@@ -1,1 +1,0 @@
-C:\IdeaProjects\project-template\template-web-viewer\build\classes\java\main\org\venusPj\template\modules\TemplateWebViewerApplication.class
