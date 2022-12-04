@@ -35,6 +35,9 @@ repositories {
 
 dependencies {
     api project(":common-precondition")
+    api project(":common-exception")
+    api project(":common-message")
+
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
     testImplementation project(":common-test")
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
