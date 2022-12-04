@@ -28,4 +28,8 @@ public class Collections3 {
 
     }
 
+    public static <T> boolean isEmpty(Collection<T> collection) {
+        return collection.isEmpty();
+
+    }
 }

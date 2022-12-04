@@ -2,6 +2,8 @@ package org.venusPj.primitive.object;
 
 public class Objects2 {
 
+    public static final Object[] EMPTY_ARRAY = new Object[0];
+
     public static boolean isNull(Object refernce) {
         return refernce == null;
 

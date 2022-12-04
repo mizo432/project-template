@@ -1,5 +1,7 @@
 package org.venusPj.primitive.array;
 
+import java.util.Arrays;
+
 public class Arrays2 {
 
     /**
@@ -34,5 +36,20 @@ public class Arrays2 {
         }
         return isEmpty(referenceArray);
 
+    }
+
+    public static int hash(Object[] args) {
+        return Arrays.hashCode(args);
+
+    }
+
+    public static String toString(Object[] args) {
+        return Arrays.toString(args);
+
+    }
+
+    public static boolean equal(Object[] args, Object[] args1) {
+        return Arrays.equals(args, args1);
+        
     }
 }
