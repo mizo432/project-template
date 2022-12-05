@@ -34,9 +34,10 @@ repositories {
 }
 
 dependencies {
-    implementation project(":common-precondition")
-    implementation project(":common-exception")
-    implementation project(":common-message")
+    api project(":web-common")
+    api project(":common-precondition")
+    api project(":common-exception")
+    api project(":common-message")
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
     testImplementation project(":common-test")
@@ -44,6 +45,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
 }
 

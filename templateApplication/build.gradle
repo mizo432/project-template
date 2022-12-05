@@ -49,7 +49,7 @@ repositories {
 }
 
 dependencies {
-    api project(':web-common')
+    api project(':web-security')
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
