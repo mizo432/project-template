@@ -82,7 +82,6 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation 'jp.fintan.keel:keel-spring-boot-starter-web:1.0.0'
 }
 
 spotbugs {

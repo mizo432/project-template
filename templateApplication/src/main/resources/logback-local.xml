@@ -22,7 +22,14 @@
         <level value="info"/>
     </logger>
 
+    <logger name="org.venusPj.projectTemplate.shared"> <!-- (9) -->
+        <level value="trace"/>
+    </logger>
+
     <logger name="org.venusPj.gfw"> <!-- (9) -->
+        <level value="trace"/>
+    </logger>
+    <logger name="org.venusPj.gfw.web.loging.TraceLoggingInterceptor"> <!-- (9) -->
         <level value="trace"/>
     </logger>
 

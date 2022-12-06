@@ -15,7 +15,7 @@ import org.venusPj.primitive.object.Objects2;
 
 public class TransactionTokenInterceptor implements HandlerInterceptor {
 
-    private static final Logger logger = LoggerFactory.getLogger(TransactionTokenInterceptor.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TransactionTokenInterceptor.class);
 
     public static final String TOKEN_CONTEXT_REQUEST_ATTRIBUTE_NAME =
         TransactionTokenInterceptor.class
@@ -66,7 +66,7 @@ public class TransactionTokenInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        logger.trace("preHandle");
+        LOGGER.trace("preHandle");
 
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         TransactionTokenInfo tokenInfo = tokenInfoStore.getTransactionTokenInfo(
@@ -97,13 +97,13 @@ public class TransactionTokenInterceptor implements HandlerInterceptor {
 
     protected void processTransactionTokenError(
         TransactionToken receivedToken) {
-        logger.trace("processTransactionTokenError(TransactionToken)");
+        LOGGER.trace("#processTransactionTokenError(TransactionToken)");
         removeToken(receivedToken);
         throw new InvalidTransactionTokenException();
     }
 
     TransactionToken createReceivedToken(final HttpServletRequest request) {
-        logger.trace("createReceivedToken(HttpServletRequest)");
+        LOGGER.trace("#createReceivedToken(HttpServletRequest)");
         String tokenStr = request.getParameter(TOKEN_REQUEST_PARAMETER);
         return new TransactionToken(tokenStr);
 
@@ -112,7 +112,7 @@ public class TransactionTokenInterceptor implements HandlerInterceptor {
     boolean validateToken(final TransactionToken receivedToken,
         final TransactionTokenStore tokenStore,
         final TransactionTokenInfo tokenInfo) {
-        logger.trace("validateToken(TransactionToken,TransactionTokenStore,TransactionTokenInfo)");
+        LOGGER.trace("#validateToken(TransactionToken,TransactionTokenStore,TransactionTokenInfo)");
 
         if (receivedToken.valid() && receivedToken.getTokenName().equals(
             tokenInfo.getTokenName())) {
@@ -131,7 +131,7 @@ public class TransactionTokenInterceptor implements HandlerInterceptor {
         final @NotNull HttpServletResponse response, final @NotNull Object handler,
         final ModelAndView modelAndView) {
 
-        logger.trace("postHandle");
+        LOGGER.trace("#postHandle");
 
         if (!(handler instanceof HandlerMethod)) {
             return;
@@ -142,18 +142,22 @@ public class TransactionTokenInterceptor implements HandlerInterceptor {
 
         switch (tokenContext.getReserveCommand()) {
             case CREATE_TOKEN:
+                LOGGER.trace("CREATE_TOKEN");
                 createToken(request, request.getSession(true), tokenContext
                     .getTokenInfo(), generator, tokenStore);
                 break;
             case UPDATE_TOKEN:
+                LOGGER.trace("UPDATE_TOKEN");
                 updateToken(request, request.getSession(true), tokenContext
                         .getReceivedToken(), tokenContext.getTokenInfo(), generator,
                     tokenStore);
                 break;
             case REMOVE_TOKEN:
+                LOGGER.trace("REMOVE_TOKEN");
                 removeToken(tokenContext.getReceivedToken());
                 break;
             case KEEP_TOKEN:
+                LOGGER.trace("KEEP_TOKEN");
                 keepToken(request, tokenContext.getReceivedToken(), tokenContext
                     .getTokenInfo(), tokenStore);
                 break;
@@ -168,7 +172,7 @@ public class TransactionTokenInterceptor implements HandlerInterceptor {
     public void afterCompletion(final @NotNull HttpServletRequest request,
         final @NotNull HttpServletResponse response, final @NotNull Object handler,
         final Exception ex) {
-        logger.trace("afterCompletion");
+        LOGGER.trace("afterCompletion");
 
         if (ex != null) {
             TransactionTokenContextImpl tokenContext = (TransactionTokenContextImpl) request
@@ -203,6 +207,7 @@ public class TransactionTokenInterceptor implements HandlerInterceptor {
                 .getId()));
             tokenStore.store(nextToken);
         }
+        LOGGER.trace("nextToken:" + nextToken.getTokenString());
         request.setAttribute(NEXT_TOKEN_REQUEST_ATTRIBUTE_NAME, nextToken);
     }
 

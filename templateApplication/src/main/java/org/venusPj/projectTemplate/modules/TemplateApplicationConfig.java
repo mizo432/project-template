@@ -25,6 +25,7 @@ public class TemplateApplicationConfig {
     @Bean
     public MDCClearFilter mDCClearFilter() {
         return new MDCClearFilter();
+        
     }
 
 

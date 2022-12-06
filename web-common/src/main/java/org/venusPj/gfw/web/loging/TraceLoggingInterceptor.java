@@ -85,10 +85,11 @@ public class TraceLoggingInterceptor implements HandlerInterceptor {
             }
         }
 
-        logger.trace("[END CONTROLLER  ] {}.{}({})-> view={}, model={}",
+        logger.trace("[END CONTROLLER  ] {}.{}({})-> view={}, model={}, status={}",
             new Object[]{m.getDeclaringClass().getSimpleName(), m
                 .getName(), buildMethodParams(handlerMethod), view,
-                model});
+                model,
+                response.getStatus()});
         String handlingTimeMessage = "[HANDLING TIME   ] {}.{}({})-> {} ns";
         if (isWarnHandling) {
             logger.warn(handlingTimeMessage + " > {}", new Object[]{m

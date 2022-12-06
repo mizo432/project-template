@@ -15,7 +15,7 @@ public class TransactionTokenRequestDataValueProcessor extends
         TransactionTokenRequestDataValueProcessor.class);
 
     public TransactionTokenRequestDataValueProcessor() {
-        LOGGER.trace("TransactionTokenRequestDataValueProcessor()");
+        LOGGER.debug("TransactionTokenRequestDataValueProcessor()");
 
     }
 
@@ -25,7 +25,7 @@ public class TransactionTokenRequestDataValueProcessor extends
 
         TransactionToken nextToken = (TransactionToken) request.getAttribute(
             TransactionTokenInterceptor.NEXT_TOKEN_REQUEST_ATTRIBUTE_NAME);
-        LOGGER.trace("nextToken:" + nextToken);
+        LOGGER.debug("nextToken:" + nextToken);
 
         if (nextToken != null) {
             Map<String, String> map = new HashMap<>(2);

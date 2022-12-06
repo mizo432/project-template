@@ -82,7 +82,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/deleteEmployee/{id}")
-    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
+//    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
     public String deleteEmployee(@PathVariable(value = "id") Identifier<Employee> id) {
         // call delete employee method
         this.deleteEmployeeCommand.deleteEmployeeById(id);
