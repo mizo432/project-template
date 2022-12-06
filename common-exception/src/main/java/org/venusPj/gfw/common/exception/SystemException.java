@@ -1,5 +1,11 @@
 package org.venusPj.gfw.common.exception;
 
+/**
+ * システム例外の基底クラス.
+ * <pre>
+ *     システム例外の場合はこの例外を継承証する
+ * </pre>
+ */
 public class SystemException extends RuntimeException implements
     ExceptionCodeProvider {
 

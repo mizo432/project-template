@@ -3,6 +3,12 @@ package org.venusPj.gfw.common.exception;
 import org.venusPj.gfw.common.message.ResultMessage;
 import org.venusPj.gfw.common.message.ResultMessages;
 
+/**
+ * 業務例外の基底クラス.
+ * <pre>
+ *     業務例外の場合はこの例外を継承する
+ * </pre>
+ */
 public class BusinessException extends ResultMessagesNotificationException {
 
     private static final long serialVersionUID = 1L;

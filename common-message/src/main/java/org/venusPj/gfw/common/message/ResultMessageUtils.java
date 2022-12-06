@@ -12,9 +12,6 @@ public class ResultMessageUtils {
     private static final Logger logger = LoggerFactory.getLogger(
         ResultMessageUtils.class);
 
-    /**
-     * Default Constructor.
-     */
     private ResultMessageUtils() {
     }
 

@@ -6,111 +6,45 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.util.StringUtils;
+import org.venusPj.primitive.string.Strings2;
 
 public class ExceptionLogger implements InitializingBean {
 
-    /**
-     * Logger suffix of monitoring log.
-     */
     private static final String MONITORING_LOG_LOGGER_SUFFIX = ".Monitoring";
 
-    /**
-     * Logger for application log output.
-     */
     private final Logger applicationLogger;
 
-    /**
-     * Logger for monitoring log output.
-     */
     private final Logger monitoringLogger;
 
-    /**
-     * Logger for each log level.
-     */
     private final Map<ExceptionLevel, LogLevelWrappingLogger> exceptionLevelLoggers = new ConcurrentHashMap<ExceptionLevel, LogLevelWrappingLogger>();
 
-    /**
-     * Logger that outputs log at INFO log level.
-     */
     private final InfoLogger infoLogger;
 
-    /**
-     * Logger that outputs log at WARN log level.
-     */
     private final WarnLogger warnLogger;
 
-    /**
-     * Logger that outputs log at ERROR log level.
-     */
     private final ErrorLogger errorLogger;
 
-    /**
-     * Object that resolves exception code.
-     */
     private ExceptionCodeResolver exceptionCodeResolver = new SimpleMappingExceptionCodeResolver();
 
-    /**
-     * Object that resolves exception level.
-     */
     private ExceptionLevelResolver exceptionLevelResolver;
 
-    /**
-     * placeholder for exception code of log formatter.
-     */
-    private String PLACEHOLDER_OF_EXCEPTION_CODE = "{0}";
+    private final String PLACEHOLDER_OF_EXCEPTION_CODE = "{0}";
 
-    /**
-     * placeholder for exception message of log formatter.
-     */
-    private String PLACEHOLDER_OF_EXCEPTION_MESSAGE = "{1}";
+    private final String PLACEHOLDER_OF_EXCEPTION_MESSAGE = "{1}";
 
-    /**
-     * Message formatter for log output.
-     */
     private String logMessageFormat = String.format("[%s] %s",
         PLACEHOLDER_OF_EXCEPTION_CODE, PLACEHOLDER_OF_EXCEPTION_MESSAGE);
 
-    /**
-     * Default exception code in case it is not specified.
-     */
     private String defaultCode = "UNDEFINED-CODE";
 
-    /**
-     * Default exception message in case it is not specified.
-     */
     private String defaultMessage = "UNDEFINED-MESSAGE";
 
-    /**
-     * Log message trim flag.
-     */
     private boolean trimLogMessage = true;
 
-    /**
-     * Default constructor.
-     * <p>
-     * {@link #ExceptionLogger(String)} is called with FQCN of this class as parameter.
-     * </p>
-     */
     public ExceptionLogger() {
         this(ExceptionLogger.class.getName());
     }
 
-    /**
-     * Constructor
-     * <p>
-     * Based on the name specified in the parameters, logger for application log and <br> logger for
-     * monitoring log is fetched.
-     * </p>
-     * <p>
-     * Logger Name<br>
-     * <ul>
-     * <li>logger for output of application log: {name}</li>
-     * <li>logger for output of monitoring log: {name} + ".Monitoring"</li>
-     * </ul>
-     *
-     * @param name name of logger
-     */
     public ExceptionLogger(String name) {
         this.applicationLogger = LoggerFactory.getLogger(name);
         this.monitoringLogger = LoggerFactory.getLogger(name
@@ -120,74 +54,28 @@ public class ExceptionLogger implements InitializingBean {
         this.errorLogger = new ErrorLogger();
     }
 
-    /**
-     * Set the resolver object for exception code.
-     * <p>
-     * If the exception code resolution object is not set, exception code is not output to the log.
-     * </p>
-     *
-     * @param exceptionCodeResolver exception code resolution object
-     */
     public void setExceptionCodeResolver(
         ExceptionCodeResolver exceptionCodeResolver) {
         this.exceptionCodeResolver = exceptionCodeResolver;
     }
 
-    /**
-     * set the resolution object for exception level.
-     * <p>
-     * If the exception level resolution object is not set, exception level is not output to the
-     * log.
-     * </p>
-     *
-     * @param exceptionLevelResolver exception level resolution object.
-     */
     public void setExceptionLevelResolver(
         ExceptionLevelResolver exceptionLevelResolver) {
         this.exceptionLevelResolver = exceptionLevelResolver;
     }
 
-    /**
-     * set the log format.
-     * <p>
-     * It is possible to specify the output position of the exception message and exception code in
-     * log format. <br> The position can specified using "{0}" for exception code and "{1}" for
-     * exception message.<br> "{0}" and "{1}" is must be specified. if changed validation rule of
-     * logMessageFormat, please override {@link #validateLogMessageFormat(String)} method.
-     * </p>
-     *
-     * @param logMessageFormat log format.
-     */
     public void setLogMessageFormat(String logMessageFormat) {
         this.logMessageFormat = logMessageFormat;
     }
 
-    /**
-     * Set the trim flag of log message.
-     * <p>
-     * Default is <code>true</code>
-     * </p>
-     *
-     * @param trimLogMessage set <code>true</code> for trimming
-     */
     public void setTrimLogMessage(boolean trimLogMessage) {
         this.trimLogMessage = trimLogMessage;
     }
 
-    /**
-     * Set default exception code.
-     *
-     * @param defaultCode default exception code.
-     */
     public void setDefaultCode(String defaultCode) {
         this.defaultCode = defaultCode;
     }
 
-    /**
-     * Set default exception message.
-     *
-     * @param defaultMessage default exception message.
-     */
     public void setDefaultMessage(String defaultMessage) {
         this.defaultMessage = defaultMessage;
     }
@@ -259,10 +147,10 @@ public class ExceptionLogger implements InitializingBean {
 
         String bindingExceptionCode = exceptionCode;
         String bindingExceptionMessage = exceptionMessage;
-        if (!StringUtils.hasText(bindingExceptionCode)) {
+        if (!Strings2.hasText(bindingExceptionCode)) {
             bindingExceptionCode = defaultCode;
         }
-        if (!StringUtils.hasText(bindingExceptionMessage)) {
+        if (!Strings2.hasText(bindingExceptionMessage)) {
             bindingExceptionMessage = defaultMessage;
         }
 
