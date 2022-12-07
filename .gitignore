@@ -34,3 +34,4 @@ gradle-app.setting
 /common-exception/build/
 /common-message/build/
 /web-security/build/
+/templateApplication/src/main/generated/
