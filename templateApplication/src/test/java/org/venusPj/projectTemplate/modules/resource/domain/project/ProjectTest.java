@@ -17,7 +17,7 @@ import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 class ProjectTest {
 
     /**
-     * Method under test: {@link Project#Project(ProjectId, AuditInfo, ProjectAttribute)}
+     * Method under test: {@link Project#Project(Identifier, AuditInfo, ProjectAttribute)}
      */
     @Test
     void testConstructor() {

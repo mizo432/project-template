@@ -10,21 +10,21 @@ import org.venusPj.gfw.web.logging.mdc.XTrackMDCPutFilter;
 
 public class TemplateApplicationConfig {
 
+    @Bean
+    public MDCClearFilter mDCClearFilter() {
+        return new MDCClearFilter();
+
+    }
 
     @Bean
     public XTrackMDCPutFilter xTrackMDCPutFilter() {
         return new XTrackMDCPutFilter();
+
     }
 
     @Bean
     public UserIdMDCPutFilter userIdMDCPutFilter() {
         return new UserIdMDCPutFilter();
-
-    }
-
-    @Bean
-    public MDCClearFilter mDCClearFilter() {
-        return new MDCClearFilter();
 
     }
 
