@@ -29,9 +29,6 @@ public class TemplateWebMvcConfig extends WebMvcConfigurationSupport {
         return new TransactionTokenInterceptor();
     }
 
-    /**
-     * @return
-     */
     private HandlerInterceptor traceLoggingInterceptor() {
         return new TraceLoggingInterceptor();
 
