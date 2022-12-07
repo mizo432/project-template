@@ -1,4 +1,4 @@
-package org.venusPj.gfw.web.loging;
+package org.venusPj.gfw.web.logging;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -40,9 +41,11 @@ public class TraceLoggingInterceptor implements HandlerInterceptor {
         if (logger.isTraceEnabled()) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Method m = handlerMethod.getMethod();
-            logger.trace("[START CONTROLLER] {}.{}({})", new Object[]{m
-                .getDeclaringClass().getSimpleName(), m.getName(),
-                buildMethodParams(handlerMethod)});
+            logger.trace("[START CONTROLLER] {}.{}({}) {}",
+                m.getDeclaringClass().getSimpleName(),
+                m.getName(),
+                buildMethodParams(handlerMethod),
+                request.getRequestURI());
         }
         long startTime = System.nanoTime();
         request.setAttribute(START_ATTR, startTime);
@@ -50,8 +53,8 @@ public class TraceLoggingInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void postHandle(HttpServletRequest request,
-        HttpServletResponse response, Object handler,
+    public void postHandle(@NotNull HttpServletRequest request,
+        @NotNull HttpServletResponse response, @NotNull Object handler,
         ModelAndView modelAndView) {
 
         if (!(handler instanceof HandlerMethod)) {
@@ -60,7 +63,7 @@ public class TraceLoggingInterceptor implements HandlerInterceptor {
 
         long startTime = 0;
         if (request.getAttribute(START_ATTR) != null) {
-            startTime = ((Long) request.getAttribute(START_ATTR)).longValue();
+            startTime = (Long) request.getAttribute(START_ATTR);
         }
         long handlingTime = System.nanoTime() - startTime;
         request.removeAttribute(START_ATTR);
@@ -86,32 +89,33 @@ public class TraceLoggingInterceptor implements HandlerInterceptor {
         }
 
         logger.trace("[END CONTROLLER  ] {}.{}({})-> view={}, model={}, status={}",
-            new Object[]{m.getDeclaringClass().getSimpleName(), m
-                .getName(), buildMethodParams(handlerMethod), view,
-                model,
-                response.getStatus()});
+            m.getDeclaringClass().getSimpleName(),
+            m.getName(), buildMethodParams(handlerMethod), view,
+            model,
+            response.getStatus());
         String handlingTimeMessage = "[HANDLING TIME   ] {}.{}({})-> {} ns";
         if (isWarnHandling) {
-            logger.warn(handlingTimeMessage + " > {}", new Object[]{m
-                .getDeclaringClass().getSimpleName(), m.getName(),
-                buildMethodParams(handlerMethod), formattedHandlingTime,
-                warnHandlingNanos});
+            logger.warn(handlingTimeMessage + " > {}",
+                m.getDeclaringClass().getSimpleName(),
+                m.getName(),
+                buildMethodParams(handlerMethod),
+                formattedHandlingTime,
+                warnHandlingNanos);
         } else {
-            logger.trace(handlingTimeMessage, new Object[]{m
-                .getDeclaringClass().getSimpleName(), m.getName(),
-                buildMethodParams(handlerMethod), formattedHandlingTime});
+            logger.trace(handlingTimeMessage,
+                m.getDeclaringClass().getSimpleName(),
+                m.getName(),
+                buildMethodParams(handlerMethod),
+                formattedHandlingTime);
         }
     }
 
     private boolean isEnabledLogLevel(boolean isWarnHandling) {
         if (isWarnHandling) {
-            if (!logger.isWarnEnabled()) {
-                return false;
-            }
-        } else if (!logger.isTraceEnabled()) {
-            return false;
+            return logger.isWarnEnabled();
+        } else {
+            return logger.isTraceEnabled();
         }
-        return true;
     }
 
     protected static String buildMethodParams(HandlerMethod handlerMethod) {

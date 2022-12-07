@@ -1,4 +1,4 @@
-package org.venusPj.gfw.web.loging;
+package org.venusPj.gfw.web.logging;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpSessionActivationListener;

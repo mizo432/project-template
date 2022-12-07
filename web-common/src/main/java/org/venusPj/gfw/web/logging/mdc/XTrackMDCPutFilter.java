@@ -1,4 +1,4 @@
-package org.venusPj.gfw.web.loging.mdc;
+package org.venusPj.gfw.web.logging.mdc;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,0 +1,30 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /admin
+
+spring:
+  application:
+    name: 管理者アプリケーション # アプリケーション名
+  boot:
+    admin:
+      url: http://localhost:8090/admin
+      client:
+        url: http://localhost:8090/admin
+        instance:
+          service-host-type: ip
+
+logging:
+  file:
+    name: ./build/logs/AdministratorApplication.log
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.venusPj.gfw.web.loging.TraceLoggingInterceptor;
+import org.venusPj.gfw.web.logging.TraceLoggingInterceptor;
 import org.venusPj.gfw.web.token.transaction.TransactionTokenInterceptor;
 
 @Configuration
@@ -19,7 +19,6 @@ public class TemplateWebMvcConfig extends WebMvcConfigurationSupport {
      */
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
-        LOGGER.trace("#addInterceptors(InterceptorRegistry)");
         registry.addInterceptor(traceLoggingInterceptor());
         registry.addInterceptor(transactionTokenInterceptor());
 
@@ -29,9 +28,6 @@ public class TemplateWebMvcConfig extends WebMvcConfigurationSupport {
         return new TransactionTokenInterceptor();
     }
 
-    /**
-     * @return
-     */
     private HandlerInterceptor traceLoggingInterceptor() {
         return new TraceLoggingInterceptor();
 

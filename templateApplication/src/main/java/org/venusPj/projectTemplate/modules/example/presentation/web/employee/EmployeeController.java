@@ -1,4 +1,4 @@
-package org.venusPj.projectTemplate.modules.example.presentation.employee;
+package org.venusPj.projectTemplate.modules.example.presentation.web.employee;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.venusPj.gfw.web.token.transaction.TransactionTokenCheck;
-import org.venusPj.gfw.web.token.transaction.TransactionTokenType;
 import org.venusPj.projectTemplate.modules.example.domain.employee.Employee;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.DeleteEmployeeCommand;
 import org.venusPj.projectTemplate.modules.example.usecase.employee.FetchEmployeeQuery;
@@ -18,7 +16,7 @@ import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Controller
 @RequestMapping(path = "/employee")
-@TransactionTokenCheck("admin/employee")
+// @TransactionTokenCheck("admin/employee")
 public class EmployeeController {
 
     private final FetchEmployeeQuery fetchEmployeeQuery;
@@ -46,7 +44,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/showNewEmployeeForm")
-    @TransactionTokenCheck(type = TransactionTokenType.BEGIN)
+//    @TransactionTokenCheck(type = TransactionTokenType.BEGIN)
     public String showNewEmployeeForm(Model model) {
         // create model attribute to bind form data
         Employee employee = new Employee();
@@ -55,7 +53,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/saveEmployee")
-    @TransactionTokenCheck(type = TransactionTokenType.IN)
+//    @TransactionTokenCheck(type = TransactionTokenType.IN)
     public String postEmployee(@ModelAttribute("employee") Employee employee) {
         // save employee to database
         insertEmployeeCommand.saveEmployee(employee);
