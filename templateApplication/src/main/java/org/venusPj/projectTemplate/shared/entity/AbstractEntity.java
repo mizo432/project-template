@@ -3,12 +3,14 @@ package org.venusPj.projectTemplate.shared.entity;
 import java.util.Objects;
 import lombok.Getter;
 import lombok.ToString;
+import org.seasar.doma.Id;
 import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Getter
 @ToString
 public abstract class AbstractEntity<E extends AbstractEntity<E>> {
 
+    @Id
     protected final Identifier<E> id;
 
     protected final AuditInfo auditInfo;

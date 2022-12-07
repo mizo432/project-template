@@ -109,9 +109,13 @@ spotbugsMain {
     }
 }
 
-tasks.withType(JavaCompile) {
+compileJava {
+    options.compilerArgs = ['-Adoma.domain.converters=org.venusPj.projectTemplate.modules.resource.infra.daoConverter.DomainConvertersProvider',
+                            '-Xlint:unchecked',
+                            '-Xlint:deprecation',
+                            '-parameters'
+    ]
     options.encoding = 'UTF-8'
-    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation" << "-parameters"
 
 }
 

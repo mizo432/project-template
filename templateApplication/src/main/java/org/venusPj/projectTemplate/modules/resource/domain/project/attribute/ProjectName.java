@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import org.venusPj.primitive.string.Strings2;
 import org.venusPj.projectTemplate.shared.precondition.string.StringPreconditions;
 import org.venusPj.projectTemplate.shared.value.StringValue;
 
@@ -13,7 +14,13 @@ import org.venusPj.projectTemplate.shared.value.StringValue;
 @ToString
 public class ProjectName implements StringValue<ProjectName> {
 
+    private static final ProjectName EMPTY = new ProjectName(Strings2.EMPTY);
+
     private final String value;
+
+    public static ProjectName empty() {
+        return EMPTY;
+    }
 
 
     @Override
