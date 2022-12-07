@@ -3,12 +3,9 @@ package org.venusPj.projectTemplate.modules.resource.domain.story.attribute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.venusPj.projectTemplate.shared.value.ValueNotFoundException;
-import org.venusPj.test.size.TestSize;
 
-@Tag(TestSize.SMALL)
 class StoryStateTest {
 
     /**

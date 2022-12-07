@@ -52,7 +52,6 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation "org.junit.jupiter:junit-jupiter"
     testImplementation "net.sourceforge.htmlunit:htmlunit"
-    testImplementation project(":common-test")
 }
 
 tasks.named('test') {

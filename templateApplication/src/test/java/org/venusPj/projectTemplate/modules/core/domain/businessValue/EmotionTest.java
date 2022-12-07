@@ -2,11 +2,8 @@ package org.venusPj.projectTemplate.modules.core.domain.businessValue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.venusPj.test.size.TestSize;
 
-@Tag(TestSize.SMALL)
 class EmotionTest {
 
     /**
