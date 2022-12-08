@@ -9,14 +9,13 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-import org.venusPj.projectTemplate.shared.entity.AbstractEntity;
 import org.venusPj.projectTemplate.shared.value.StringValue;
 
 @Getter
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class Identifier<E extends AbstractEntity<E>> implements
+public class Identifier<E> implements
     StringValue<Identifier<E>> {
 
     private static final Identifier<?> EMPTY = new Identifier<>();
@@ -28,7 +27,7 @@ public class Identifier<E extends AbstractEntity<E>> implements
     }
 
     @SuppressWarnings("unchecked")
-    public static <E extends AbstractEntity<E>> Identifier<E> empty() {
+    public static <E> Identifier<E> empty() {
         return (Identifier<E>) EMPTY;
     }
 
@@ -37,7 +36,7 @@ public class Identifier<E extends AbstractEntity<E>> implements
         return value;
     }
 
-    public static <E extends AbstractEntity<E>> Identifier<E> newInstance() {
+    public static <E> Identifier<E> newInstance() {
         return new Identifier<E>(new ULID().nextValue().toString());
 
     }
@@ -50,7 +49,7 @@ public class Identifier<E extends AbstractEntity<E>> implements
      * @return 識別子オブジェクト
      */
     @SuppressWarnings("unchecked")
-    public static <E extends AbstractEntity<E>> Identifier<E> reconstruct(String value) {
+    public static <E> Identifier<E> reconstruct(String value) {
         if (isEmpty(value)) {
             return (Identifier<E>) EMPTY;
         }
@@ -58,7 +57,7 @@ public class Identifier<E extends AbstractEntity<E>> implements
 
     }
 
-    public static <E extends AbstractEntity<E>> Identifier<E> of(String value) {
+    public static <E> Identifier<E> of(String value) {
         checkLength(value, 26,
             () -> new IllegalArgumentException("識別子は" + 26 + "桁でなければいけません。 value=" + value));
 

@@ -40,7 +40,7 @@ class ProjectTest {
         // Assert
         ProjectAttribute attribute = actualProject.getAttribute();
         assertSame(createResult, attribute);
-        Identifier<Project> actualId = actualProject.getId();
+        Identifier<Project> actualId = actualProject.getProjectId();
         assertSame(newInstanceResult, actualId);
         AuditInfo auditInfo = actualProject.getAuditInfo();
         assertSame(emptyResult, auditInfo);

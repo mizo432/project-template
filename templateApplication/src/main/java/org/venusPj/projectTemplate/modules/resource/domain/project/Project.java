@@ -1,21 +1,30 @@
 package org.venusPj.projectTemplate.modules.resource.domain.project;
 
+import static org.venusPj.primitive.object.Objects2.isNull;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import org.seasar.doma.Entity;
+import org.seasar.doma.Id;
 import org.seasar.doma.Table;
+import org.seasar.doma.boot.ConfigAutowireable;
 import org.venusPj.projectTemplate.modules.resource.domain.project.attribute.ProjectAttribute;
-import org.venusPj.projectTemplate.shared.entity.AbstractEntity;
 import org.venusPj.projectTemplate.shared.entity.AuditInfo;
 import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Getter
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
+@EqualsAndHashCode
+@ToString
 @Entity
 @Table(schema = "resources", name = "projects")
-public class Project extends AbstractEntity<Project> {
+@@ConfigAutowireable
+public class Project {
+
+    @Id
+    protected final Identifier<Project> projectId;
+
+    protected final AuditInfo auditInfo;
 
     private final ProjectAttribute attribute;
 
@@ -24,8 +33,10 @@ public class Project extends AbstractEntity<Project> {
 
     }
 
-    protected Project(Identifier<Project> id, AuditInfo auditInfo, ProjectAttribute attribute) {
-        super(id, auditInfo);
+    protected Project(Identifier<Project> projectId, AuditInfo auditInfo,
+        ProjectAttribute attribute) {
+        this.projectId = projectId;
+        this.auditInfo = auditInfo;
         this.attribute = attribute;
 
     }
@@ -40,11 +51,18 @@ public class Project extends AbstractEntity<Project> {
 
     }
 
-    @Override
     public boolean sameValueAs(Project other) {
-        return super.sameValueAs(other)
+        return sameIdentifierAs(other)
+            && auditInfo.equals(other.auditInfo)
             && attribute.equals(other.attribute);
 
+    }
+
+    private boolean sameIdentifierAs(Project other) {
+        if (isNull(other)) {
+            return false;
+        }
+        return projectId.equals(other.projectId);
     }
 
 }

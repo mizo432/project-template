@@ -35,7 +35,7 @@ public class ProductsRestController {
 
         // Locationで設定するURLを作成する
         URI location = uriBuilder.path("api/v1.0/products/{id}")    // c
-            .buildAndExpand(createdProject.getId().asString())    // d
+            .buildAndExpand(createdProject.getProjectId().asString())    // d
             .toUri();
 
         // レスポンスのHTTPヘッダー

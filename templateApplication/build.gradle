@@ -9,7 +9,7 @@ plugins {
     id "com.github.spotbugs" version "5.0.8"
     id 'jacoco'
     id 'java-library'
-    id 'org.flywaydb.flyway' version '6.4.3'
+    id 'org.flywaydb.flyway' version '9.8.1'
 
 }
 
@@ -24,6 +24,7 @@ springBoot {
 }
 bootJar {
     enabled = true
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 jar {
     enabled = false
@@ -48,7 +49,12 @@ repositories {
     maven { url 'https://repo.spring.io/snapshot' }
     maven { url 'https://repo.spring.io/libs-release' }
 }
-
+task copyDomaResources(type: Copy, dependsOn: processResources) {
+    from processResources.destinationDir
+    into compileJava.destinationDir
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+compileJava.dependsOn copyDomaResources
 dependencies {
     api project(':web-security')
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
@@ -57,14 +63,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation "org.springframework.boot:spring-boot-starter-web"
-    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.flywaydb:flyway-core:9.8.3'
     implementation 'org.springframework.session:spring-session-data-redis'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     // modelmapper
     implementation 'org.modelmapper:modelmapper:3.1.0'
 
-    runtimeOnly 'org.postgresql:postgresql'
+    runtimeOnly 'org.postgresql:postgresql:42.5.1'
 
 //    testImplementation project(':common-test')
     testImplementation('org.springframework.boot:spring-boot-starter-test') {

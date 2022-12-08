@@ -4,11 +4,13 @@ import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
+import org.seasar.doma.Embeddable;
 
 @Getter
 @AllArgsConstructor
 @lombok.EqualsAndHashCode
 @ToString
+@Embeddable
 public class AuditInfo {
 
     private final WhenNoticed whenNoticed;
