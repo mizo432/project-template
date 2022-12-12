@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import org.seasar.doma.Embeddable;
+import org.venusPj.projectTemplate.modules.resource.domain.story.attribute.Description;
 
 @Getter
 @EqualsAndHashCode
@@ -14,15 +15,17 @@ import org.seasar.doma.Embeddable;
 public class ProjectAttribute {
 
     private static final ProjectAttribute EMPTY = new ProjectAttribute(ProjectName.empty(),
-        ProjectCode.empty(), StoryCodePrefix.empty());
+        ProjectCode.empty(), StoryCodePrefix.empty(), Description.empty());
 
-    private final ProjectName name;
-    private final ProjectCode code;
+    private final ProjectName projectName;
+    private final ProjectCode projectCode;
     private final StoryCodePrefix storyCodePrefix;
 
+    private final Description description;
+
     public static ProjectAttribute create(ProjectName name, ProjectCode code,
-        StoryCodePrefix storyCodePrefix) {
-        return new ProjectAttribute(name, code, storyCodePrefix);
+        StoryCodePrefix storyCodePrefix, Description description) {
+        return new ProjectAttribute(name, code, storyCodePrefix, description);
     }
 
     public static ProjectAttribute empty() {

@@ -4,6 +4,6 @@ CREATE TABLE resource.projects
     projectCode     varchar(10)  NOT NULL,
     projectName     varchar(255) NOT NULL,
     description     TEXT,
-    storyCodePrefix integer      NOT NULL,
+    storyCodePrefix varchar(10)  NOT NULL,
     primary key (projectId)
 );

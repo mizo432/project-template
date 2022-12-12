@@ -3,6 +3,7 @@ package org.venusPj.projectTemplate.modules.resource.domain.project.attribute;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 import org.junit.jupiter.api.Test;
+import org.venusPj.projectTemplate.modules.resource.domain.story.attribute.Description;
 
 class ProjectAttributeTest {
 
@@ -22,16 +23,16 @@ class ProjectAttributeTest {
 
         // Act
         ProjectAttribute actualCreateResult = ProjectAttribute.create(ofResult, ofResult1,
-            ofResult2);
+            ofResult2, Description.of("A"));
 
         System.out.println(actualCreateResult);
 
         // Assert
-        ProjectCode actualCode = actualCreateResult.getCode();
+        ProjectCode actualCode = actualCreateResult.getProjectCode();
         assertSame(ofResult1, actualCode);
         StoryCodePrefix actualStoryCodePrefix = actualCreateResult.getStoryCodePrefix();
         assertSame(ofResult2, actualStoryCodePrefix);
-        ProjectName actualName = actualCreateResult.getName();
+        ProjectName actualName = actualCreateResult.getProjectName();
         assertSame(ofResult, actualName);
     }
 }

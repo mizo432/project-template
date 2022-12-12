@@ -10,18 +10,31 @@ import org.venusPj.projectTemplate.shared.value.StringValue;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class Description implements
-    StringValue<Description> {
+public class Description implements StringValue<Description> {
+
+    private static final Description EMPTY = new Description();
 
     private final String value;
 
+    private Description() {
+        this(null);
+    }
+
     public static Description reconstruct(String value) {
-        return new Description(value);
+        Description description = new Description(value);
+        if (EMPTY.equals(description)) {
+            return EMPTY;
+        }
+        return description;
 
     }
 
     public static Description of(String value) {
         return new Description(value);
+    }
+
+    public static Description empty() {
+        return EMPTY;
     }
 
     @Override

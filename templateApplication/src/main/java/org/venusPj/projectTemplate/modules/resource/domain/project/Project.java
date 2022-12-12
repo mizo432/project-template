@@ -10,50 +10,45 @@ import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 import org.seasar.doma.boot.ConfigAutowireable;
 import org.venusPj.projectTemplate.modules.resource.domain.project.attribute.ProjectAttribute;
-import org.venusPj.projectTemplate.shared.entity.AuditInfo;
 import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Getter
 @EqualsAndHashCode
 @ToString
 @Entity
-@Table(schema = "resources", name = "projects")
-@@ConfigAutowireable
+@Table(schema = "resource", name = "projects")
+@ConfigAutowireable
 public class Project {
 
     @Id
     protected final Identifier<Project> projectId;
 
-    protected final AuditInfo auditInfo;
-
     private final ProjectAttribute attribute;
 
     public Project() {
-        this(Identifier.empty(), AuditInfo.empty(), ProjectAttribute.empty());
+        this(Identifier.empty(), ProjectAttribute.empty());
 
     }
 
-    protected Project(Identifier<Project> projectId, AuditInfo auditInfo,
+    protected Project(Identifier<Project> projectId,
         ProjectAttribute attribute) {
         this.projectId = projectId;
-        this.auditInfo = auditInfo;
         this.attribute = attribute;
 
     }
 
     public static Project create(ProjectAttribute attribute) {
-        return new Project(Identifier.newInstance(), AuditInfo.empty(), attribute);
+        return new Project(Identifier.newInstance(), attribute);
 
     }
 
     public static Project create(Project project) {
-        return new Project(Identifier.newInstance(), AuditInfo.empty(), project.attribute);
+        return new Project(Identifier.newInstance(), project.attribute);
 
     }
 
     public boolean sameValueAs(Project other) {
         return sameIdentifierAs(other)
-            && auditInfo.equals(other.auditInfo)
             && attribute.equals(other.attribute);
 
     }
@@ -63,6 +58,7 @@ public class Project {
             return false;
         }
         return projectId.equals(other.projectId);
+
     }
 
 }

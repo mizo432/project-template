@@ -2299,68 +2299,40 @@ public final class Strings2 {
 
         if (_moji2Char == 'ﾞ') {
             if ("ｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾊﾋﾌﾍﾎ".indexOf(_moji1Char) > 0) {
-                switch (_moji1Char) {
-                    case 'ｶ':
-                        return 'ガ';
-                    case 'ｷ':
-                        return 'ギ';
-                    case 'ｸ':
-                        return 'グ';
-                    case 'ｹ':
-                        return 'ゲ';
-                    case 'ｺ':
-                        return 'ゴ';
-                    case 'ｻ':
-                        return 'ザ';
-                    case 'ｼ':
-                        return 'ジ';
-                    case 'ｽ':
-                        return 'ズ';
-                    case 'ｾ':
-                        return 'ゼ';
-                    case 'ｿ':
-                        return 'ゾ';
-                    case 'ﾀ':
-                        return 'ダ';
-                    case 'ﾁ':
-                        return 'ヂ';
-                    case 'ﾂ':
-                        return 'ヅ';
-                    case 'ﾃ':
-                        return 'デ';
-                    case 'ﾄ':
-                        return 'ド';
-                    case 'ﾊ':
-                        return 'バ';
-                    case 'ﾋ':
-                        return 'ビ';
-                    case 'ﾌ':
-                        return 'ブ';
-                    case 'ﾍ':
-                        return 'ベ';
-                    case 'ﾎ':
-                        return 'ボ';
-                    default:
-                        return _moji1Char;
-
-                }
+                return switch (_moji1Char) {
+                    case 'ｶ' -> 'ガ';
+                    case 'ｷ' -> 'ギ';
+                    case 'ｸ' -> 'グ';
+                    case 'ｹ' -> 'ゲ';
+                    case 'ｺ' -> 'ゴ';
+                    case 'ｻ' -> 'ザ';
+                    case 'ｼ' -> 'ジ';
+                    case 'ｽ' -> 'ズ';
+                    case 'ｾ' -> 'ゼ';
+                    case 'ｿ' -> 'ゾ';
+                    case 'ﾀ' -> 'ダ';
+                    case 'ﾁ' -> 'ヂ';
+                    case 'ﾂ' -> 'ヅ';
+                    case 'ﾃ' -> 'デ';
+                    case 'ﾄ' -> 'ド';
+                    case 'ﾊ' -> 'バ';
+                    case 'ﾋ' -> 'ビ';
+                    case 'ﾌ' -> 'ブ';
+                    case 'ﾍ' -> 'ベ';
+                    case 'ﾎ' -> 'ボ';
+                    default -> _moji1Char;
+                };
             }
         } else if (_moji2Char == 'ﾟ') {
             if ("ﾊﾋﾌﾍﾎ".indexOf(_moji1Char) > 0) {
-                switch (_moji1Char) {
-                    case 'ﾊ':
-                        return 'パ';
-                    case 'ﾋ':
-                        return 'ピ';
-                    case 'ﾌ':
-                        return 'プ';
-                    case 'ﾍ':
-                        return 'ペ';
-                    case 'ﾎ':
-                        return 'ポ';
-                    default:
-                        return _moji1Char;
-                }
+                return switch (_moji1Char) {
+                    case 'ﾊ' -> 'パ';
+                    case 'ﾋ' -> 'ピ';
+                    case 'ﾌ' -> 'プ';
+                    case 'ﾍ' -> 'ペ';
+                    case 'ﾎ' -> 'ポ';
+                    default -> _moji1Char;
+                };
             }
         }
         return _moji1Char;
