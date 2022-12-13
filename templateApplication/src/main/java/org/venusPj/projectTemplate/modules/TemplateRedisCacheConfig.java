@@ -30,11 +30,10 @@ class TemplateRedisCacheConfig {
 
     }
 
-    @Bean
-    public RedisCacheConfiguration cacheConfiguration() {
+    public RedisCacheConfiguration cacheConfiguration(Duration duration) {
         ObjectMapper objectMapper = objectMapper();
         return RedisCacheConfiguration.defaultCacheConfig()
-            .entryTtl(Duration.ofMinutes(60))
+            .entryTtl(duration)
             .disableCachingNullValues()
             .serializeKeysWith(SerializationPair.fromSerializer(new StringRedisSerializer()))
             .serializeValuesWith(
@@ -53,11 +52,9 @@ class TemplateRedisCacheConfig {
                 // ２．デフォルトのキャッシュ有効期限を設定する
                 RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofDays(1)))
             // ３．actorCacheという名称のキャッシュに対し、有効期限を設定する
-            .withCacheConfiguration("actorCache",
-                RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofHours(24)))
+            .withCacheConfiguration("actorCache", cacheConfiguration(Duration.ofHours(24)))
             // productCacheという名称のキャッシュに対し、有効期限を設定する
-            .withCacheConfiguration("projectCache",
-                RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofHours(24)))
+            .withCacheConfiguration("projectCache", cacheConfiguration(Duration.ofMinutes(5L)))
         ;
 
         return builder.build();

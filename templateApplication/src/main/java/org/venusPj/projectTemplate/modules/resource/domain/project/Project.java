@@ -47,6 +47,10 @@ public class Project {
 
     }
 
+    public static Project newInstance() {
+        return new Project(Identifier.newInstance(), ProjectAttribute.empty());
+    }
+
     public boolean sameValueAs(Project other) {
         return sameIdentifierAs(other)
             && attribute.equals(other.attribute);
