@@ -2,6 +2,7 @@ package org.venusPj.projectTemplate.modules.resource.domain.project;
 
 import static org.venusPj.primitive.object.Objects2.isNull;
 
+import java.io.Serializable;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -18,7 +19,7 @@ import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 @Entity
 @Table(schema = "resource", name = "projects")
 @ConfigAutowireable
-public class Project {
+public class Project implements Serializable {
 
     @Id
     protected final Identifier<Project> projectId;

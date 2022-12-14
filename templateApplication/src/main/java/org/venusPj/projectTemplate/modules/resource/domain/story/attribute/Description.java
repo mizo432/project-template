@@ -1,5 +1,6 @@
 package org.venusPj.projectTemplate.modules.resource.domain.story.attribute;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import org.venusPj.projectTemplate.shared.value.StringValue;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class Description implements StringValue<Description> {
+public class Description implements StringValue<Description>, Serializable {
 
     private static final Description EMPTY = new Description();
 

@@ -2,6 +2,7 @@ package org.venusPj.projectTemplate.modules.resource.domain.project.attribute;
 
 import static org.venusPj.projectTemplate.shared.precondition.string.StringPreconditions.checkNotEmpty;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import org.venusPj.projectTemplate.shared.value.StringValue;
 @AllArgsConstructor
 @EqualsAndHashCode()
 @ToString
-public class StoryCodePrefix implements StringValue<StoryCodePrefix> {
+public class StoryCodePrefix implements StringValue<StoryCodePrefix>, Serializable {
 
     private static final StoryCodePrefix EMPTY = new StoryCodePrefix(Strings2.EMPTY);
     private final String value;

@@ -30,7 +30,7 @@ class TemplateRedisCacheConfig {
 
     }
 
-    public RedisCacheConfiguration cacheConfiguration(Duration duration) {
+    private RedisCacheConfiguration cacheConfiguration(Duration duration) {
         ObjectMapper objectMapper = objectMapper();
         return RedisCacheConfiguration.defaultCacheConfig()
             .entryTtl(duration)

@@ -4,6 +4,7 @@ import static org.venusPj.primitive.string.Strings2.isEmpty;
 import static org.venusPj.projectTemplate.shared.precondition.string.StringPreconditions.checkLength;
 
 import de.huxhorn.sulky.ulid.ULID;
+import java.io.Serializable;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -16,7 +17,7 @@ import org.venusPj.projectTemplate.shared.value.StringValue;
 @EqualsAndHashCode
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Identifier<E> implements
-    StringValue<Identifier<E>> {
+    StringValue<Identifier<E>>, Serializable {
 
     private static final Identifier<?> EMPTY = new Identifier<>();
 

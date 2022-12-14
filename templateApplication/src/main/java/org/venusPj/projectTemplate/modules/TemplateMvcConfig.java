@@ -2,12 +2,18 @@ package org.venusPj.projectTemplate.modules;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.resource.EncodedResourceResolver;
 import org.springframework.web.servlet.resource.VersionResourceResolver;
+import org.venusPj.gfw.security.web.logging.UserIdMDCPutFilter;
+import org.venusPj.gfw.web.logging.TraceLoggingInterceptor;
+import org.venusPj.gfw.web.logging.mdc.MDCClearFilter;
+import org.venusPj.gfw.web.logging.mdc.XTrackMDCPutFilter;
 
 @Configuration
 @EnableWebMvc
@@ -17,7 +23,6 @@ public class TemplateMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        LOG.info("TemplateMvcConfig#addResourceHandlers(ResourceHandlerRegistry)");
         registry.addResourceHandler("/css/**")
             .addResourceLocations("classpath:/static/css/")
             .setCachePeriod(604800)
@@ -41,4 +46,26 @@ public class TemplateMvcConfig implements WebMvcConfigurer {
 
     }
 
+    @Bean
+    public MDCClearFilter mDCClearFilter() {
+        return new MDCClearFilter();
+
+    }
+
+    @Bean
+    public XTrackMDCPutFilter xTrackMDCPutFilter() {
+        return new XTrackMDCPutFilter();
+
+    }
+
+    @Bean
+    public UserIdMDCPutFilter userIdMDCPutFilter() {
+        return new UserIdMDCPutFilter();
+
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new TraceLoggingInterceptor());
+    }
 }

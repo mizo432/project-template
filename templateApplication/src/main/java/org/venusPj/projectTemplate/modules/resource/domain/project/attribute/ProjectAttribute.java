@@ -1,5 +1,6 @@
 package org.venusPj.projectTemplate.modules.resource.domain.project.attribute;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import org.venusPj.projectTemplate.modules.resource.domain.story.attribute.Descr
 @ToString
 @AllArgsConstructor
 @Embeddable
-public class ProjectAttribute {
+public class ProjectAttribute implements Serializable {
 
     private static final ProjectAttribute EMPTY = new ProjectAttribute(ProjectName.empty(),
         ProjectCode.empty(), StoryCodePrefix.empty(), Description.empty());

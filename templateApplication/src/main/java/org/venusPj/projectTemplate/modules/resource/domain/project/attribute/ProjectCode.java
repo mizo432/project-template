@@ -1,5 +1,6 @@
 package org.venusPj.projectTemplate.modules.resource.domain.project.attribute;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import org.venusPj.projectTemplate.shared.value.StringValue;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class ProjectCode implements StringValue<ProjectCode> {
+public class ProjectCode implements StringValue<ProjectCode>, Serializable {
 
     private static final ProjectCode EMPTY = new ProjectCode(Strings2.EMPTY);
 
