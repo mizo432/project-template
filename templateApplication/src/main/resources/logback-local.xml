@@ -8,7 +8,7 @@
     </appender>
 
     <appender name="APPLICATION_LOG_FILE"
-        class="ch.qos.logback.core.rolling.RollingFileAppender"> <!-- (3) -->
+      class="ch.qos.logback.core.rolling.RollingFileAppender"> <!-- (3) -->
         <file>${LOG_DIR}/TemplateApplication.log</file> <!-- (4) -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>
