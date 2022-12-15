@@ -23,15 +23,15 @@ import org.venusPj.projectTemplate.shared.cache.CacheObjectMapperResolver;
 @EnableCaching
 class TemplateRedisCacheConfig {
 
-    private final static CacheObjectMapperResolver cacheObjectMapperResolver = new CacheObjectMapperResolver();
+    private final CacheObjectMapperResolver cacheObjectMapperResolver;
 
-    private ObjectMapper objectMapper() {
-        return cacheObjectMapperResolver.objectMapper();
 
+    public TemplateRedisCacheConfig(CacheObjectMapperResolver cacheObjectMapperResolver) {
+        this.cacheObjectMapperResolver = cacheObjectMapperResolver;
     }
 
     private RedisCacheConfiguration cacheConfiguration(Duration duration) {
-        ObjectMapper objectMapper = objectMapper();
+        ObjectMapper objectMapper = cacheObjectMapperResolver.objectMapper();
         return RedisCacheConfiguration.defaultCacheConfig()
             .entryTtl(duration)
             .disableCachingNullValues()
@@ -52,9 +52,9 @@ class TemplateRedisCacheConfig {
                 // ２．デフォルトのキャッシュ有効期限を設定する
                 RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofDays(1)))
             // ３．actorCacheという名称のキャッシュに対し、有効期限を設定する
-            .withCacheConfiguration("actorCache", cacheConfiguration(Duration.ofHours(24)))
+            .withCacheConfiguration("actor", cacheConfiguration(Duration.ofHours(24)))
             // productCacheという名称のキャッシュに対し、有効期限を設定する
-            .withCacheConfiguration("projectCache", cacheConfiguration(Duration.ofMinutes(5L)))
+            .withCacheConfiguration("project", cacheConfiguration(Duration.ofMinutes(5L)))
         ;
 
         return builder.build();

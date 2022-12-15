@@ -17,7 +17,7 @@
     <hr>
     <h2>Save Employee</h2>
 
-    <form action="#" th:action="@{/project/insertProject}" th:object="${project}"
+    <form action="#" th:action="@{/project/update}" th:object="${project}"
           method="POST">
         <input type="hidden" th:field="*{projectId.value}" class="form-control mb-4 col-4"/>
         <input type="text" th:field="*{attribute.projectCode.value}" placeholder="プロジェクトコード"

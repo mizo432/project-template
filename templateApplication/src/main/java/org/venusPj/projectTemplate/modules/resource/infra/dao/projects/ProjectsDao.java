@@ -7,6 +7,7 @@ import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
 import org.seasar.doma.boot.ConfigAutowireable;
+import org.seasar.doma.jdbc.Result;
 import org.venusPj.projectTemplate.modules.resource.domain.project.Project;
 import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
@@ -21,10 +22,10 @@ public interface ProjectsDao {
     List<Project> selectAll();
 
     @Insert
-    int insert(Project project);
+    Result<Project> insert(Project project);
 
     @Update
-    int update(Project project);
+    Result<Project> update(Project project);
 
     @Delete(sqlFile = true)
     int delete(Identifier<Project> projectId);

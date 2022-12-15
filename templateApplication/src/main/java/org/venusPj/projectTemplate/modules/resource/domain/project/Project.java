@@ -2,7 +2,10 @@ package org.venusPj.projectTemplate.modules.resource.domain.project;
 
 import static org.venusPj.primitive.object.Objects2.isNull;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -15,8 +18,9 @@ import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Getter
 @EqualsAndHashCode
+@AllArgsConstructor
 @ToString
-@Entity
+@Entity(immutable = true)
 @Table(schema = "resource", name = "projects")
 @ConfigAutowireable
 public class Project implements Serializable {
@@ -31,15 +35,16 @@ public class Project implements Serializable {
 
     }
 
-    protected Project(Identifier<Project> projectId,
-        ProjectAttribute attribute) {
-        this.projectId = projectId;
-        this.attribute = attribute;
+
+    public static Project create(ProjectAttribute attribute) {
+        return create(Identifier.newInstance(), attribute);
 
     }
 
-    public static Project create(ProjectAttribute attribute) {
-        return new Project(Identifier.newInstance(), attribute);
+    @JsonCreator
+    public static Project create(@JsonProperty("projectId") Identifier<Project> projectId,
+        @JsonProperty("attribute") ProjectAttribute attribute) {
+        return new Project(projectId, attribute);
 
     }
 

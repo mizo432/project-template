@@ -5,7 +5,6 @@ import static org.venusPj.projectTemplate.shared.precondition.string.StringPreco
 
 import de.huxhorn.sulky.ulid.ULID;
 import java.io.Serializable;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,7 +14,7 @@ import org.venusPj.projectTemplate.shared.value.StringValue;
 @Getter
 @ToString
 @EqualsAndHashCode
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 public class Identifier<E> implements
     StringValue<Identifier<E>>, Serializable {
 

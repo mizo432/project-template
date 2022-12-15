@@ -1,28 +1,23 @@
-package org.venusPj.projectTemplate.modules.resource.usecase.query;
+package org.venusPj.projectTemplate.modules.resource.usecase.command.project;
 
-import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.venusPj.projectTemplate.modules.resource.domain.project.Project;
 import org.venusPj.projectTemplate.modules.resource.domain.project.ProjectRepository;
 import org.venusPj.projectTemplate.shared.entity.id.Identifier;
 
 @Service
-public class ProjectFetcher {
+public class DeleteProjectCommand {
 
     private final ProjectRepository projectRepository;
 
-
-    public ProjectFetcher(ProjectRepository projectRepository) {
+    public DeleteProjectCommand(ProjectRepository projectRepository) {
         this.projectRepository = projectRepository;
     }
 
-    public List<Project> selectAll() {
-        return projectRepository.selectAll();
+    @Transactional
+    public void delete(Identifier<Project> projectId) {
+        projectRepository.delete(projectId);
         
-    }
-
-    public Project findOneBy(Identifier<Project> projectId) {
-        return projectRepository.findOneBy(projectId);
-
     }
 }

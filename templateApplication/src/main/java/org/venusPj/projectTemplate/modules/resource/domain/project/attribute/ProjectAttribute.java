@@ -1,5 +1,7 @@
 package org.venusPj.projectTemplate.modules.resource.domain.project.attribute;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -24,9 +26,13 @@ public class ProjectAttribute implements Serializable {
 
     private final Description description;
 
-    public static ProjectAttribute create(ProjectName name, ProjectCode code,
-        StoryCodePrefix storyCodePrefix, Description description) {
-        return new ProjectAttribute(name, code, storyCodePrefix, description);
+    @JsonCreator
+    public static ProjectAttribute create(
+        @JsonProperty("projectName") final ProjectName projectName,
+        @JsonProperty("projectName") ProjectCode projectCode,
+        @JsonProperty("storyCodePrefix") StoryCodePrefix storyCodePrefix,
+        @JsonProperty("description") Description description) {
+        return new ProjectAttribute(projectName, projectCode, storyCodePrefix, description);
     }
 
     public static ProjectAttribute empty() {
