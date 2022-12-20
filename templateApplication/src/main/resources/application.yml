@@ -81,3 +81,7 @@ management:
         include: "*"
   security:
     enabled: false
+  auditevents:
+    enabled: true
+  httpexchanges:
+    enabled: true
