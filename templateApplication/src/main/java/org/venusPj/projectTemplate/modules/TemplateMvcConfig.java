@@ -44,7 +44,7 @@ public class TemplateMvcConfig implements WebMvcConfigurer {
             .setCachePeriod(604800)
             .resourceChain(true) // プロダクション環境ではtrue/開発環境ではfalseがおすすめ
             .addResolver(new VersionResourceResolver()
-                    .addContentVersionStrategy("/**/*.png", "/**/*.jpg")
+                    .addContentVersionStrategy("/**/*.png", "/**/*.jpg", "/**/*.svg")
                 // コンテンツデータのMD5ハッシュ値によるバージョニング機能の有効化
             );
         registry.addResourceHandler("/js/**")
