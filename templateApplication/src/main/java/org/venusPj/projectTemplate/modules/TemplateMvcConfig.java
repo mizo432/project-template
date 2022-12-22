@@ -39,6 +39,30 @@ public class TemplateMvcConfig implements WebMvcConfigurer {
                     .addContentVersionStrategy("/**/*.png")
                 // コンテンツデータのMD5ハッシュ値によるバージョニング機能の有効化
             );
+        registry.addResourceHandler("/img/**")
+            .addResourceLocations("classpath:/static/img/")
+            .setCachePeriod(604800)
+            .resourceChain(true) // プロダクション環境ではtrue/開発環境ではfalseがおすすめ
+            .addResolver(new VersionResourceResolver()
+                    .addContentVersionStrategy("/**/*.png", "/**/*.jpg")
+                // コンテンツデータのMD5ハッシュ値によるバージョニング機能の有効化
+            );
+        registry.addResourceHandler("/js/**")
+            .addResourceLocations("classpath:/static/js/")
+            .setCachePeriod(604800)
+            .resourceChain(true) // プロダクション環境ではtrue/開発環境ではfalseがおすすめ
+            .addResolver(new VersionResourceResolver()
+                    .addContentVersionStrategy("/**/*.js")
+                // コンテンツデータのMD5ハッシュ値によるバージョニング機能の有効化
+            );
+        registry.addResourceHandler("/**")
+            .addResourceLocations("classpath:/static/")
+            .setCachePeriod(604800)
+            .resourceChain(true) // プロダクション環境ではtrue/開発環境ではfalseがおすすめ
+            .addResolver(new VersionResourceResolver()
+                    .addContentVersionStrategy("/**/*.html", "/**/*.ico")
+                // コンテンツデータのMD5ハッシュ値によるバージョニング機能の有効化
+            );
         registry.addResourceHandler("/webjars/**")
             .addResourceLocations("classpath:/META-INF/resources/webjars/")
             .resourceChain(true) // プロダクション環境ではtrue/開発環境ではfalseがおすすめ
