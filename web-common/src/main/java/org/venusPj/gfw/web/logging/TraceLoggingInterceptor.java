@@ -43,10 +43,11 @@ public class TraceLoggingInterceptor implements HandlerInterceptor {
         if (logger.isTraceEnabled()) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Method m = handlerMethod.getMethod();
-            logger.trace("[START CONTROLLER] {}.{}({}) {}",
+            logger.trace("[START CONTROLLER] {}.{}({}) {} {}",
                 m.getDeclaringClass().getSimpleName(),
                 m.getName(),
                 buildMethodParams(handlerMethod),
+                request.getMethod(),
                 request.getRequestURI());
         }
         long startTime = System.nanoTime();

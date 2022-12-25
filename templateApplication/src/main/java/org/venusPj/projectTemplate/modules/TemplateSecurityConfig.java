@@ -2,8 +2,6 @@ package org.venusPj.projectTemplate.modules;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,14 +12,14 @@ import org.venusPj.gfw.web.mvc.support.CompositeRequestDataValueProcessor;
 import org.venusPj.gfw.web.token.transaction.TransactionTokenRequestDataValueProcessor;
 
 @Configuration
-@AutoConfigureAfter(SecurityAutoConfiguration.class)
+//@AutoConfigureAfter(SecurityAutoConfiguration.class)
 public class TemplateSecurityConfig {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TemplateSecurityConfig.class);
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.securityMatcher("/actuator/**");
+        http.securityMatcher("/actuator/**", "/images/**", "/js/**", "/css/**", "/css/**");
         http.authorizeHttpRequests((requests) -> requests.anyRequest().permitAll());
         return http.build();
     }

@@ -5,9 +5,14 @@ server:
   compression:
     enabled: true
     mime-types: text/html,text/css,application/javascript,application/json
+  servlet:
+    register-default-servlet: true
+
+
 
 spring:
-  mvc.favicon.enabled: false
+  mvc:
+    favicon.enabled: false
   main:
     allow-bean-definition-overriding: true
   profiles.active: unit
