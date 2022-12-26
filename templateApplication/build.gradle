@@ -121,7 +121,7 @@ spotbugsMain {
 }
 
 compileJava {
-    options.compilerArgs = ['-Adoma.domain.converters=org.venusPj.projectTemplate.modules.resource.infra.daoConverter.DomainConvertersProvider',
+    options.compilerArgs = ['-Adoma.domain.converters=com.undecided.projectTemplate.modules.resource.infra.daoConverter.DomainConvertersProvider',
                             '-Xlint:unchecked',
                             '-Xlint:deprecation',
                             '-parameters'

@@ -24,24 +24,24 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="org.venusPj.projectTemplate"> <!-- (9) -->
+    <logger name="com.undecided.projectTemplate"> <!-- (9) -->
         <level value="info"/>
     </logger>
 
-    <logger name="org.venusPj.projectTemplate.shared"> <!-- (9) -->
+    <logger name="com.undecided.projectTemplate.shared"> <!-- (9) -->
         <level value="trace"/>
     </logger>
 
-    <logger name="org.venusPj.gfw.web.logging.HttpSessionEventLoggingListener"> <!-- (9) -->
+    <logger name="com.undecided.gfw.web.logging.HttpSessionEventLoggingListener"> <!-- (9) -->
         <level value="trace"/>
     </logger>
-    <logger name="org.venusPj.gfw.web.logging.TraceLoggingInterceptor"> <!-- (9) -->
+    <logger name="com.undecided.gfw.web.logging.TraceLoggingInterceptor"> <!-- (9) -->
         <level value="trace"/>
     </logger>
-    <logger name="org.venusPj.gfw.web.token.transaction"> <!-- (9) -->
+    <logger name="com.undecided.gfw.web.token.transaction"> <!-- (9) -->
         <level value="info"/>
     </logger>
-    <logger name="org.venusPj.gfw.common.exception.ExceptionLogger"> <!-- (9) -->
+    <logger name="com.undecided.gfw.common.exception.ExceptionLogger"> <!-- (9) -->
         <level value="info"/>
     </logger>
 
