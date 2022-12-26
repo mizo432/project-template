@@ -1,0 +1,1 @@
+package com.undecided.projectTemplate.modules.resource.domain.partyRole.user.attribbute;

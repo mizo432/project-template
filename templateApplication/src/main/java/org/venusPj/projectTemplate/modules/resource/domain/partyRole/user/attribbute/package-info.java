@@ -1,1 +1,0 @@
-package org.venusPj.projectTemplate.modules.resource.domain.partyRole.user.attribbute;
