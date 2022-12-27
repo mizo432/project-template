@@ -52,12 +52,13 @@ repositories {
     maven { url 'https://repo.spring.io/libs-release' }
 }
 
-task copyDomaResources(type: Copy, dependsOn: processResources) {
+tasks.register('copyDomaResources', Copy) {
     from processResources.destinationDir
     into compileJava.destinationDirectory
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
+copyDomaResources.dependsOn processResources
 dependencies {
     api project(':web-security')
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
@@ -75,7 +76,6 @@ dependencies {
 
     runtimeOnly 'org.postgresql:postgresql:42.5.1'
 
-//    testImplementation project(':common-test')
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
@@ -147,8 +147,7 @@ test {
         junitXml.required = true
     }
 }
-
-task testMedium(type: Test) {
+tasks.register("testMedium", Test) {
     ignoreFailures = false
     maxHeapSize("3g")
     useJUnitPlatform {
@@ -159,7 +158,8 @@ task testMedium(type: Test) {
         junitXml.required = true
     }
 }
-task testLarge(type: Test) {
+
+tasks.register("testLarge", Test) {
     ignoreFailures = false
     useJUnitPlatform {
         includeTags('LARGE')
@@ -168,10 +168,12 @@ task testLarge(type: Test) {
     reports {
         junitXml.required = true
     }
+
 }
-task testReport(type: TestReport) {
+tasks.register("testReport", TestReport) {
     reportOn subprojects.tasks.test.binResultsDir
     fileTree(dir: it, exclude: ['**/*Test.class', '**/**test/*.class'])
+
 }
 
 jacoco {
