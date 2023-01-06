@@ -4,18 +4,52 @@ Project class diagram
 ```puml
 @startuml Book Store sample
 
-'include ./coloruml.puml
+'!include https://raw.githubusercontent.com/gnodux/coloruml/master/coloruml.puml
+
+!include ./coloruml.puml
 'left_to_right()
 
-object Project <<thing>> {
-}
-object ProjectAttribute <<description>> {
-
+thing(プロジェクト,Project){
 }
 
-object ProjectDescription <<description>> {
+role(現在プロジェクト, CurrentProject){
 }
-Project - ProjectDescription
+
+Project -> CurrentProject
+
+moment(注文, Order){
+    int OrderId
+    int Status
+
+}
+moment(Bill)
+moment(Delivery)
+thing(Book)
+desc(Comments)
+role(Customer)
+thing(Employee){
+    String Name
+    Date Birthday
+    int Status()
+}
+thing(Author)
+role(Courier)
+role(Accounting)
+
+Courier from(Employee)
+Accounting from(Employee)
+
+Book contains(Comments)
+Book has_d(Author)
+Order contains(Bill)
+Order contains(Delivery)
+Order has(Book)
+Bill has(Accounting)
+Delivery has(Courier)
+Customer has(Order)
+Customer has(Comments)
+
+Bill layout_u(Delivery)
 
 @enduml
 ```
