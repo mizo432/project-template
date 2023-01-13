@@ -51,7 +51,7 @@ repositories {
 group 'org.venusPj'
 
 dependencies {
-    implementation group: 'de.codecentric', name: 'spring-boot-admin-server', version: '3.0.0-M5'
+    implementation group: 'de.codecentric', name: 'spring-boot-admin-server', version: '3.0.0-M6'
     implementation group: 'de.codecentric', name: 'spring-boot-admin-server-ui', version: '3.0.0-M5'
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '3.0.0'
