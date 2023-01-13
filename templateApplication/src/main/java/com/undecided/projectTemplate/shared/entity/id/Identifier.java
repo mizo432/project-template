@@ -1,7 +1,6 @@
 package com.undecided.projectTemplate.shared.entity.id;
 
 import static org.venusPj.primitive.string.Strings2.isEmpty;
-import static com.undecided.projectTemplate.shared.precondition.string.StringPreconditions.checkLength;
 
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;
 import com.undecided.projectTemplate.shared.value.StringValue;

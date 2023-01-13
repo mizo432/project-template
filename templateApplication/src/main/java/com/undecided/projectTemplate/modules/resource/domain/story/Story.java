@@ -1,16 +1,16 @@
 package com.undecided.projectTemplate.modules.resource.domain.story;
 
+import com.undecided.projectTemplate.modules.resource.domain.project.AbstractProjectResource;
+import com.undecided.projectTemplate.modules.resource.domain.project.Project;
 import com.undecided.projectTemplate.modules.resource.domain.story.attribute.StoryAttribute;
+import com.undecided.projectTemplate.shared.entity.AuditInfo;
+import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import com.undecided.projectTemplate.shared.precondition.object.ObjectPreconditions;
 import java.time.LocalDateTime;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
-import com.undecided.projectTemplate.modules.resource.domain.project.AbstractProjectResource;
-import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
-import com.undecided.projectTemplate.shared.precondition.object.ObjectPreconditions;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)

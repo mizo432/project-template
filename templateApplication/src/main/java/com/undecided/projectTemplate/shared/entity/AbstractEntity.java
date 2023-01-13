@@ -1,10 +1,12 @@
 package com.undecided.projectTemplate.shared.entity;
 
+import static org.venusPj.primitive.object.Objects2.isNull;
+
+import com.undecided.projectTemplate.shared.entity.id.Identifier;
 import java.util.Objects;
 import lombok.Getter;
 import lombok.ToString;
 import org.seasar.doma.Id;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
 
 @Getter
 @ToString
@@ -17,11 +19,13 @@ public abstract class AbstractEntity<E extends AbstractEntity<E>> {
 
     protected AbstractEntity() {
         this(Identifier.empty(), AuditInfo.empty());
+
     }
 
     protected AbstractEntity(Identifier<E> id, AuditInfo auditInfo) {
         this.id = id;
         this.auditInfo = auditInfo;
+
     }
 
     @SuppressWarnings("unchecked")
@@ -33,33 +37,34 @@ public abstract class AbstractEntity<E extends AbstractEntity<E>> {
         if (other == null || getClass() != other.getClass()) {
             return false;
         }
-        if (other instanceof AbstractEntity<?>) {
-            AbstractEntity<E> that = (AbstractEntity<E>) other;
-            return id.equals(that.id);
-        }
-        return false;
+        E that = (E) other;
+        return sameIdentifierAs(that);
+
     }
 
-    public boolean sameIdAs(E other) {
-        return equals(other);
+    public boolean sameIdentifierAs(E other) {
+        if (isNull(other)) {
+            return false;
+        }
+
+        return id.equals(other.id);
+
     }
 
     protected boolean sameValueAs(E other) {
         if (this == other) {
             return true;
         }
-        if (other == null || getClass() != other.getClass()) {
+        if (isNull(other)) {
             return false;
         }
-        return id.equals(other.id)
-            && auditInfo.equals(other.auditInfo);
-
+        return sameIdentifierAs(other);
 
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(this.getClass(), id);
 
     }
 }

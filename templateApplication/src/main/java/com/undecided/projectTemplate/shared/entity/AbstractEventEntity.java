@@ -7,7 +7,6 @@ public abstract class AbstractEventEntity<E extends AbstractEventEntity<E>> exte
 
     protected final WhenOccurred whenOccurred;
 
-
     protected AbstractEventEntity(Identifier<E> id, WhenOccurred whenOccurred,
         AuditInfo auditInfo) {
         super(id, auditInfo);

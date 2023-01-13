@@ -2,8 +2,6 @@ package com.undecided.projectTemplate.shared.precentation.web.config;
 
 import com.undecided.gfw.web.logging.TraceLoggingInterceptor;
 import com.undecided.gfw.web.token.transaction.TransactionTokenInterceptor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -12,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @Configuration
 public class TemplateWebMvcConfig extends WebMvcConfigurationSupport {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TemplateWebMvcConfig.class);
+//    private static final Logger LOGGER = LoggerFactory.getLogger(TemplateWebMvcConfig.class);
 
     /**
      * {@inheritDoc}
