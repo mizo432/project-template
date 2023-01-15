@@ -4,8 +4,6 @@ import com.undecided.gfw.security.web.logging.UserIdMDCPutFilter;
 import com.undecided.gfw.web.logging.TraceLoggingInterceptor;
 import com.undecided.gfw.web.logging.mdc.MDCClearFilter;
 import com.undecided.gfw.web.logging.mdc.XTrackMDCPutFilter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -20,7 +18,7 @@ import org.springframework.web.servlet.resource.VersionResourceResolver;
 @EnableWebMvc
 public class TemplateMvcConfig implements WebMvcConfigurer {
 
-    private static final Logger LOG = LoggerFactory.getLogger(TemplateMvcConfig.class);
+//    private static final Logger LOG = LoggerFactory.getLogger(TemplateMvcConfig.class);
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {

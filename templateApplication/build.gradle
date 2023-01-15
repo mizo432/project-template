@@ -17,6 +17,7 @@ apply plugin: 'idea'
 apply plugin: 'com.github.spotbugs'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'pmd'
 
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
@@ -58,6 +59,13 @@ tasks.register('copyDomaResources', Copy) {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
+pmd {
+    ignoreFailures = true
+    consoleOutput = true
+
+    ruleSetFiles = files(file("$rootProject.projectDir/src/config/pmd/pmdRules.xml"))
+    pmdTest.enabled = false
+}
 copyDomaResources.dependsOn processResources
 dependencies {
     api project(':web-security')
@@ -73,7 +81,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     // modelmapper
     implementation 'org.modelmapper:modelmapper:3.1.0'
-
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.3'
     runtimeOnly 'org.postgresql:postgresql:42.5.1'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
@@ -86,7 +94,7 @@ dependencies {
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
 
     implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'
-    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.1.0'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

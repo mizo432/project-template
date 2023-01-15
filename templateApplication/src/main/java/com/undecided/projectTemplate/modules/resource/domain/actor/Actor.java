@@ -1,10 +1,6 @@
 package com.undecided.projectTemplate.modules.resource.domain.actor;
 
 import com.undecided.projectTemplate.modules.resource.domain.actor.attribute.ActorAttribute;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
-import org.jetbrains.annotations.NotNull;
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
 import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
@@ -13,6 +9,10 @@ import com.undecided.projectTemplate.shared.responsibility.layer.Layer;
 import com.undecided.projectTemplate.shared.responsibility.layer.LayerType;
 import com.undecided.projectTemplate.shared.responsibility.model.Model;
 import com.undecided.projectTemplate.shared.responsibility.model.ModelType;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
+import org.jetbrains.annotations.NotNull;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
