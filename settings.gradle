@@ -8,5 +8,6 @@ include 'web-common'
 include 'web-security'
 include 'common-test'
 include 'templateApplication'
+include 'template-web-application'
 include 'admin-template'
 
