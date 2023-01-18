@@ -37,7 +37,7 @@ spring:
     port: 6379
     database: 0
   application:
-    name: テンプレートWebアプリケーション # アプリケーション名
+    name: テンプレートWeb # アプリケーション名
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss.SSS
     time-zone: Asia/Tokyo
