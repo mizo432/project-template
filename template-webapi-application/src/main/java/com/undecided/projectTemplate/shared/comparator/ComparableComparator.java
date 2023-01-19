@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.shared.comparator;
 
-import static org.venusPj.primitive.object.Objects2.isNull;
+import static com.undecided.primitive.object.Objects2.isNull;
 
 import java.util.Comparator;
 

@@ -1,0 +1,77 @@
+buildscript {
+    ext {
+        springBootVersion = '3.0.1'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'application'
+    id 'idea'
+    id 'java-library'
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+}
+def javaFXPlatform = getJavaFXPlatform()
+def javaFXVersion = "17.0.2"
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+idea {
+    module {
+        outputDir file('build/classes/main')
+        testOutputDir file('build/classes/test')
+    }
+}
+dependencies {
+    api project(":common-primitive")
+    // you need a dependency for each of the JavaFX modules you're going to use
+    implementation "org.openjfx:javafx-base:${javaFXVersion}:${javaFXPlatform}"
+    implementation "org.openjfx:javafx-controls:${javaFXVersion}:${javaFXPlatform}"
+    implementation "org.openjfx:javafx-graphics:${javaFXVersion}:${javaFXPlatform}"
+    implementation "org.openjfx:javafx-fxml:${javaFXVersion}:${javaFXPlatform}"
+
+    implementation('org.springframework.boot:spring-boot-starter')
+    runtimeOnly('org.springframework.boot:spring-boot-devtools')
+    implementation('org.projectlombok:lombok')
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.testfx:testfx-core:4.0.16-alpha')
+    testImplementation('org.testfx:testfx-junit:4.0.16-alpha')
+
+}
+application {
+    //Java Module System module name
+    mainModule.set('com.undecided.projectTemplate')
+    //Your JavaFX application class
+    mainClass.set('com.undecided.projectTemplate.TemplateClientApplication')
+}
+
+java {
+    // this enables Java Modularity in Gradle (version 6.7 and above)
+    modularity.inferModulePath.set(true)
+
+}
+// Based on this StackOverflow answer: https://stackoverflow.com/a/65209664/653519
+private static String getJavaFXPlatform() {
+    def currentOS = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem;
+    if (currentOS.isWindows()) {
+        return 'win'
+    } else if (currentOS.isLinux()) {
+        return 'linux'
+    } else if (currentOS.isMacOsX()) {
+        return 'mac'
+    }
+    return null
+}

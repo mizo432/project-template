@@ -1,6 +1,6 @@
 package org.venusPj.gfw.common.exception;
 
-import org.venusPj.primitive.string.Strings2;
+import com.undecided.primitive.string.Strings2;
 
 public class DefaultExceptionLevelResolver implements ExceptionLevelResolver {
 

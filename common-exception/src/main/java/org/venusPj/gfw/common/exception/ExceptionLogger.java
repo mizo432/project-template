@@ -1,12 +1,12 @@
 package org.venusPj.gfw.common.exception;
 
+import com.undecided.primitive.string.Strings2;
 import java.text.MessageFormat;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
-import org.venusPj.primitive.string.Strings2;
 
 public class ExceptionLogger implements InitializingBean {
 

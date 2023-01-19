@@ -1,11 +1,11 @@
 package com.undecided.projectTemplate.shared.precondition.object;
 
-import static org.venusPj.primitive.object.Objects2.isNull;
+import static com.undecided.primitive.object.Objects2.isNull;
 
+import com.undecided.primitive.object.Objects2;
+import com.undecided.primitive.string.Strings2;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
-import org.venusPj.primitive.object.Objects2;
-import org.venusPj.primitive.string.Strings2;
 
 public class ObjectPreconditions {
 

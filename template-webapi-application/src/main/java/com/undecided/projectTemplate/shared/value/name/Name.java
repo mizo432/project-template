@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.shared.value.name;
 
-import static org.venusPj.primitive.string.Strings2.isEmpty;
+import static com.undecided.primitive.string.Strings2.isEmpty;
 
 import com.undecided.projectTemplate.shared.value.StringValue;
 import lombok.AccessLevel;

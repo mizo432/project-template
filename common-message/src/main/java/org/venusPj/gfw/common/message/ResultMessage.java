@@ -1,11 +1,11 @@
 package org.venusPj.gfw.common.message;
 
+import com.undecided.primitive.array.Arrays2;
+import com.undecided.primitive.object.Objects2;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import org.venusPj.primitive.array.Arrays2;
-import org.venusPj.primitive.object.Objects2;
 
 public class ResultMessage implements Serializable {
 

@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.shared.entity;
 
-import static org.venusPj.primitive.object.Objects2.isNull;
+import static com.undecided.primitive.object.Objects2.isNull;
 
 import com.undecided.projectTemplate.shared.entity.id.Identifier;
 import java.util.Objects;

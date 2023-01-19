@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.shared.precondition.object;
 
-import static org.venusPj.primitive.object.Objects2.isNull;
+import static com.undecided.primitive.object.Objects2.isNull;
 
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;

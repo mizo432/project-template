@@ -1,11 +1,11 @@
 package com.undecided.projectTemplate.modules.example.usecase.employee;
 
+import com.undecided.primitive.map.Maps2;
 import com.undecided.projectTemplate.modules.example.domain.employee.Employee;
+import com.undecided.projectTemplate.shared.entity.id.Identifier;
 import java.util.Collection;
 import java.util.Map;
 import org.springframework.stereotype.Component;
-import org.venusPj.primitive.map.Maps2;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
 
 @Component
 public class EmployeesData {

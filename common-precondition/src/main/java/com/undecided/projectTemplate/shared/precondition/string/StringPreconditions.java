@@ -1,13 +1,12 @@
 package com.undecided.projectTemplate.shared.precondition.string;
 
-import static org.venusPj.primitive.string.Strings2.isDigit;
-import static com.undecided.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull;
+import static com.undecided.primitive.string.Strings2.isDigit;
 
 import com.google.common.collect.Range;
+import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.precondition.object.ObjectPreconditions;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
-import org.venusPj.primitive.string.Strings2;
 
 public class StringPreconditions {
 

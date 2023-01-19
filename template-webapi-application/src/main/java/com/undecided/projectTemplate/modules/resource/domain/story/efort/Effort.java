@@ -1,11 +1,11 @@
 package com.undecided.projectTemplate.modules.resource.domain.story.efort;
 
+import com.undecided.primitive.object.Objects2;
+import com.undecided.projectTemplate.shared.value.IntegerValue;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-import org.venusPj.primitive.object.Objects2;
-import com.undecided.projectTemplate.shared.value.IntegerValue;
 
 @Getter
 @AllArgsConstructor

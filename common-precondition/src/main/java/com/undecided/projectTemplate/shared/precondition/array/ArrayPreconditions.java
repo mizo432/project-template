@@ -1,13 +1,12 @@
 package com.undecided.projectTemplate.shared.precondition.array;
 
-import static org.venusPj.primitive.object.Objects2.isNull;
-import static com.undecided.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull;
+import static com.undecided.primitive.object.Objects2.isNull;
 
 import com.google.common.collect.Range;
+import com.undecided.primitive.array.Arrays2;
 import com.undecided.projectTemplate.shared.precondition.object.ObjectPreconditions;
 import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
-import org.venusPj.primitive.array.Arrays2;
 
 public class ArrayPreconditions {
 

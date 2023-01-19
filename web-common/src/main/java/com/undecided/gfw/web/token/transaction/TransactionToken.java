@@ -1,7 +1,7 @@
 package com.undecided.gfw.web.token.transaction;
 
+import com.undecided.primitive.string.Strings2;
 import java.io.Serializable;
-import org.venusPj.primitive.string.Strings2;
 
 public class TransactionToken implements Serializable {
 

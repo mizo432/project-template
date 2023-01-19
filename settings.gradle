@@ -10,4 +10,5 @@ include 'common-test'
 include 'template-webapi-application'
 include 'template-web-application'
 include 'admin-template'
+include 'template-client-application'
 

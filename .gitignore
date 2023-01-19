@@ -38,3 +38,4 @@ gradle-app.setting
 /template-web-application/build/
 /template-webapi-application/build/
 /template-webapi-application/src/main/generated/
+/template-client-application/build/

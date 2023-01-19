@@ -1,5 +1,6 @@
 package com.undecided.projectTemplate.modules.resource.domain.project.attribute;
 
+import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;
 import com.undecided.projectTemplate.shared.value.StringValue;
 import java.io.Serializable;
@@ -7,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-import org.venusPj.primitive.string.Strings2;
 
 @Getter
 @AllArgsConstructor

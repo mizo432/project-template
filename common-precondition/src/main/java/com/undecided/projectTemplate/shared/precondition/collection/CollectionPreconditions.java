@@ -1,7 +1,6 @@
 package com.undecided.projectTemplate.shared.precondition.collection;
 
-import static org.venusPj.primitive.object.Objects2.isNull;
-import static com.undecided.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull;
+import static com.undecided.primitive.object.Objects2.isNull;
 
 import com.google.common.collect.Range;
 import com.undecided.projectTemplate.shared.precondition.object.ObjectPreconditions;

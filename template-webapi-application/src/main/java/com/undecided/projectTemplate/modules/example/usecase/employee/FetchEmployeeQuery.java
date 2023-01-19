@@ -1,12 +1,12 @@
 package com.undecided.projectTemplate.modules.example.usecase.employee;
 
 
+import com.undecided.primitive.list.Lists2;
 import com.undecided.projectTemplate.modules.example.domain.employee.Employee;
+import com.undecided.projectTemplate.shared.entity.id.Identifier;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.venusPj.primitive.list.Lists2;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
 
 @Service
 public class FetchEmployeeQuery {

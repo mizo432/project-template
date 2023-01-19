@@ -1,7 +1,8 @@
 package org.venusPj.gfw.common.message;
 
-import static org.venusPj.primitive.list.Lists2.newArrayList;
+import static com.undecided.primitive.list.Lists2.newArrayList;
 
+import com.undecided.primitive.string.Strings2;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -9,7 +10,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import org.venusPj.primitive.string.Strings2;
 
 public class ResultMessages implements Serializable, Iterable<ResultMessage> {
 

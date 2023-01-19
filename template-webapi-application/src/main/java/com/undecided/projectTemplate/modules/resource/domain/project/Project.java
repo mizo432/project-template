@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.modules.resource.domain.project;
 
-import static org.venusPj.primitive.object.Objects2.isNull;
+import static com.undecided.primitive.object.Objects2.isNull;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

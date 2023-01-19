@@ -1,10 +1,10 @@
 package org.venusPj.gfw.common.exception;
 
+import com.undecided.primitive.map.Maps2;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.venusPj.primitive.map.Maps2;
 
 public class SimpleMappingExceptionCodeResolver implements
     ExceptionCodeResolver {
