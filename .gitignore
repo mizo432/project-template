@@ -14,8 +14,6 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 /.idea/
 /admin-template/build/
-/templateApplication/build/
-/templateApplication/logs/
 /logs/
 /src/env/axon-server/data/*
 /src/env/axon-server/events/*
@@ -34,8 +32,8 @@ gradle-app.setting
 /common-exception/build/
 /common-message/build/
 /web-security/build/
-/templateApplication/src/main/generated/
 /template-web-application/build/
+/template-web-application/src/main/generated/
 /template-webapi-application/build/
 /template-webapi-application/src/main/generated/
 /template-client-application/build/
