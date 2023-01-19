@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: 管理者アプリケーション # アプリケーション名
+    name: 管理者app # アプリケーション名
   boot:
     admin:
       url: http://localhost:8090/admin

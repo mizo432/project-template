@@ -35,3 +35,6 @@ gradle-app.setting
 /common-message/build/
 /web-security/build/
 /templateApplication/src/main/generated/
+/template-web-application/build/
+/template-webapi-application/build/
+/template-webapi-application/src/main/generated/

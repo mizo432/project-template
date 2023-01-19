@@ -1,0 +1,221 @@
+plugins {
+    id 'org.springframework.boot' version '3.0.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'net.researchgate.release' version '2.8.1'
+    id 'java'
+    id 'idea'
+    id "com.github.ben-manes.versions" version '0.42.0'
+    id 'se.patrikerdes.use-latest-versions' version '0.2.18'
+    id "com.github.spotbugs" version "5.0.8"
+    id 'jacoco'
+    id 'java-library'
+    id 'org.flywaydb.flyway' version '9.8.1'
+
+}
+
+apply plugin: 'idea'
+apply plugin: 'com.github.spotbugs'
+apply plugin: 'jacoco'
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'pmd'
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+springBoot {
+    buildInfo()
+}
+bootJar {
+    enabled = true
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+jar {
+    enabled = false
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+idea {
+    module {
+        outputDir file('build/classes/main')
+        testOutputDir file('build/classes/test')
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
+    maven { url 'https://repo.spring.io/libs-release' }
+}
+
+tasks.register('copyDomaResources', Copy) {
+    from processResources.destinationDir
+    into compileJava.destinationDirectory
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+pmd {
+    ignoreFailures = true
+    consoleOutput = true
+
+    ruleSetFiles = files(file("$rootProject.projectDir/src/config/pmd/pmdRules.xml"))
+    pmdTest.enabled = false
+}
+copyDomaResources.dependsOn processResources
+dependencies {
+    api project(':web-security')
+    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation 'org.flywaydb:flyway-core:9.8.3'
+    implementation 'org.springframework.session:spring-session-data-redis'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.axonframework:axon-spring-boot-starter:4.6.3'
+    // modelmapper
+    implementation 'org.modelmapper:modelmapper:3.1.0'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.3'
+    runtimeOnly 'org.postgresql:postgresql:42.5.1'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.0.0'
+    implementation 'de.codecentric:spring-boot-admin-starter-client:3.0.0-M9'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '3.0.0'
+    implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
+
+    implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.1.0'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.13'
+    implementation group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: '1.7.0'
+    annotationProcessor 'org.seasar.doma:doma-processor:2.53.1'
+    implementation group: 'org.webjars', name: 'webjars-locator', version: '0.46'
+    implementation 'org.webjars:materializecss:1.0.0'
+}
+
+flyway {
+    url = 'jdbc:postgresql://localhost:5432/sample'
+    user = 'user'
+    password = 'password'
+    locations = ['classpath:db/migration']
+}
+spotbugs {
+    toolVersion.set('4.7.3')
+    excludeFilter.set(file("$rootProject.projectDir/src/config/spotbugs/excludeFilter.xml"))
+    ignoreFailures.set(true)
+    maxHeapSize.set('2048m')
+    spotbugsTest.enabled = false
+    showStackTraces = false
+}
+spotbugsMain {
+    reports {
+        xml {
+            required = true
+            outputLocation = file("$buildDir/reports/spotbugs/main.xml")
+        }
+    }
+}
+
+compileJava {
+    options.compilerArgs = ['-Adoma.domain.converters=com.undecided.projectTemplate.modules.resource.infra.daoConverter.DomainConvertersProvider',
+                            '-Xlint:unchecked',
+                            '-Xlint:deprecation',
+                            '-parameters'
+    ]
+    options.encoding = 'UTF-8'
+    dependsOn copyDomaResources
+
+}
+compileTestJava {
+    options.compilerArgs = ['-proc:none']
+    options.encoding = 'UTF-8'
+
+}
+
+test {
+    // 失敗しても後続の処理を継続させる
+    ignoreFailures = true
+    useJUnitPlatform {
+        includeTags 'SMALL'
+        excludeTags('MEDIUM', 'LARGE')
+    }
+    reports {
+        junitXml.required = true
+    }
+}
+tasks.register("testMedium", Test) {
+    ignoreFailures = false
+    maxHeapSize("3g")
+    useJUnitPlatform {
+        includeTags('MEDIUM')
+        excludeTags('SMALL', 'LARGE')
+    }
+    reports {
+        junitXml.required = true
+    }
+}
+
+tasks.register("testLarge", Test) {
+    ignoreFailures = false
+    useJUnitPlatform {
+        includeTags('LARGE')
+        excludeTags('SMALL', 'MEDIUM')
+    }
+    reports {
+        junitXml.required = true
+    }
+
+}
+tasks.register("testReport", TestReport) {
+    reportOn subprojects.tasks.test.binResultsDir
+    fileTree(dir: it, exclude: ['**/*Test.class', '**/**test/*.class'])
+
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.required = true
+    }
+    afterEvaluate {
+        classDirectories.from(
+                files(classDirectories.files.collect {
+                    fileTree(dir: it, exclude: ['**/*Test.class', '**/**test/*.class'])
+                }))
+    }
+}
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA', 'JRE11'].any { it -> version.toUpperCase().contains(it) }
+    def unstableKeyword = ['PREVIEW', 'ALPHA', 'M', 'BETA', 'RC', 'RC-1'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return ((!stableKeyword) && (!(version ==~ regex))) || (unstableKeyword)
+} as Object
+
+dependencyUpdates {
+    // checkForGradleUpdate = true
+    // reject all non stable versions
+    rejectVersionIf {
+        isNonStable(it.candidate.version)
+    }
+
+}
+
+
+
