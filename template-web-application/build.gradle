@@ -68,27 +68,21 @@ pmd {
 }
 copyDomaResources.dependsOn processResources
 dependencies {
-    api project(':web-security')
+    api project(':web-common')
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation 'org.flywaydb:flyway-core:9.8.3'
     implementation 'org.springframework.session:spring-session-data-redis'
-    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation 'org.axonframework:axon-spring-boot-starter:4.6.3'
     // modelmapper
     implementation 'org.modelmapper:modelmapper:3.1.0'
-    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.3'
     runtimeOnly 'org.postgresql:postgresql:42.5.1'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    testImplementation 'org.springframework.security:spring-security-test'
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.0.0'
     implementation 'de.codecentric:spring-boot-admin-starter-client:3.0.0-M9'
     implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '3.0.0'
@@ -104,6 +98,9 @@ dependencies {
     annotationProcessor 'org.seasar.doma:doma-processor:2.53.1'
     implementation group: 'org.webjars', name: 'webjars-locator', version: '0.46'
     implementation 'org.webjars:materializecss:1.0.0'
+    implementation 'org.webjars:datatables:1.13.1'
+    implementation 'org.webjars:fullcalendar:5.11.3'
+    implementation 'org.webjars:jquery:3.6.2'
 }
 
 flyway {
