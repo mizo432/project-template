@@ -68,6 +68,7 @@ pmd {
 }
 copyDomaResources.dependsOn processResources
 dependencies {
+    api project(':server-business')
     api project(':web-security')
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
@@ -136,7 +137,7 @@ spotbugsMain {
 }
 
 compileJava {
-    options.compilerArgs = ['-Adoma.domain.converters=com.undecided.projectTemplate.modules.resource.infra.daoConverter.DomainConvertersProvider',
+    options.compilerArgs = ['-Adoma.domain.converters=com.undecided.projectTemplate.shared.daoConverter.DomainConvertersProvider',
                             '-Xlint:unchecked',
                             '-Xlint:deprecation',
                             '-parameters'

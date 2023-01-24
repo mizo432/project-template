@@ -1,7 +1,11 @@
 package com.undecided.projectTemplate.modules.resource.presentation.web.project;
 
-import com.undecided.projectTemplate.modules.resource.usecase.command.project.InsertProjectCommand;
-import com.undecided.projectTemplate.modules.resource.usecase.query.ProjectFetcher;
+import com.undecided.projectTemplate.modules.resource.buisiness.command.project.DeleteProjectCommand;
+import com.undecided.projectTemplate.modules.resource.buisiness.command.project.InsertProjectCommand;
+import com.undecided.projectTemplate.modules.resource.buisiness.command.project.UpdateProjectCommand;
+import com.undecided.projectTemplate.modules.resource.buisiness.query.ProjectFetcher;
+import com.undecided.projectTemplate.modules.resource.domain.project.Project;
+import com.undecided.projectTemplate.shared.entity.id.Identifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,10 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.modules.resource.usecase.command.project.DeleteProjectCommand;
-import com.undecided.projectTemplate.modules.resource.usecase.command.project.UpdateProjectCommand;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
 
 @Controller
 @RequestMapping(path = "/project")

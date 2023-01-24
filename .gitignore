@@ -37,3 +37,5 @@ gradle-app.setting
 /template-webapi-application/build/
 /template-webapi-application/src/main/generated/
 /template-client-application/build/
+/server-business/build/
+/server-business/src/main/generated/
