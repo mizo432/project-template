@@ -1,0 +1,44 @@
+server:
+  compression:
+    enabled: true
+    mime-types: text/html,text/css,application/javascript,application/json
+
+spring:
+  mvc.favicon.enabled: false
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sample
+    username: user
+    password: password
+  hikari:
+    connection-timeout: 20000 #maximum number of milliseconds that a client will wait for a connection
+    minimum-idle: 5 #minimum number of idle connections maintained by HikariCP in a connection pool
+    maximum-pool-size: 10 #maximum pool size
+    idle-timeout: 600000 #maximum idle time for connection
+    max-lifetime: 1800000 #maximum lifetime in milliseconds of a connection in the pool after it is closed.
+    auto-commit: true #default auto-commit behavior.
+    connection-test-query: select 1
+  session:
+    store-type: REDIS
+    redis:
+      namespace: spring:session # Namespace for keys used to store session.
+      flush-mode: on_save # Session flush mode.
+  redis:
+    host: "localhost"
+    port: 6379
+    database: 0
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    time-zone: Asia/Tokyo
+    visibility:
+      field: any
+      getter: none
+      setter: none
+  profiles:
+    active: develop
+  security:
+    user:
+      name: user
+      password: user

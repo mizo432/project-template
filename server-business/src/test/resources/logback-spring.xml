@@ -1,0 +1,7 @@
+<configuration>
+    <!-- 開発用ローカル起動用 -->
+    <springProfile name="develop,test">
+        <include resource="logback-local.xml"/>
+    </springProfile>
+
+</configuration>
