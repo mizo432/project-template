@@ -55,7 +55,7 @@ dependencies {
     implementation group: 'de.codecentric', name: 'spring-boot-admin-server-ui', version: '3.0.0'
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '3.0.0'
-    implementation 'de.codecentric:spring-boot-admin-starter-client:3.0.0-M9'
+    implementation 'de.codecentric:spring-boot-admin-starter-client:3.0.0'
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
 

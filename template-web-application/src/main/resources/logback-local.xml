@@ -24,7 +24,7 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="com.undecided.projectTemplate"> <!-- (9) -->
+    <logger name="com.undecided.projectTemplate.modules.admin"> <!-- (9) -->
         <level value="info"/>
     </logger>
 

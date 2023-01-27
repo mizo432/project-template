@@ -1,6 +1,11 @@
 package com.undecided.projectTemplate.modules.example.presentation.web.employee;
 
+import com.undecided.projectTemplate.modules.example.business.command.employee.DeleteEmployeeCommand;
+import com.undecided.projectTemplate.modules.example.business.command.employee.InsertEmployeeCommand;
+import com.undecided.projectTemplate.modules.example.business.command.employee.UpdateEmployeeCommand;
+import com.undecided.projectTemplate.modules.example.business.query.employee.FetchEmployeeQuery;
 import com.undecided.projectTemplate.modules.example.domain.employee.Employee;
+import com.undecided.projectTemplate.shared.entity.id.Identifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,11 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.undecided.projectTemplate.modules.example.usecase.employee.DeleteEmployeeCommand;
-import com.undecided.projectTemplate.modules.example.usecase.employee.FetchEmployeeQuery;
-import com.undecided.projectTemplate.modules.example.usecase.employee.InsertEmployeeCommand;
-import com.undecided.projectTemplate.modules.example.usecase.employee.UpdateEmployeeCommand;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
 
 @Controller
 @RequestMapping(path = "/employee")
