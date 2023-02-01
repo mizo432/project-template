@@ -90,3 +90,27 @@ application -> api
 
 @enduml
 ```
+
+# Webページの場合
+
+## メソッド
+
+処理時のレスポンスはOK(200)とする
+| ページ種類 | メソッド |
+|-------------|------|
+| ①情報の一覧表示ページ | GET |
+| ②情報の個別表示ページ | GET |
+| ③新規登録用入力ページ | GET |
+| ④新規登録処理 | POST |
+| ⑤変更用入力ページ | GET |
+| ⑥更用確認ページ | GET |
+| ⑦変更処理 | POST |
+| ⑧削除処理 | POST |
+
+# クライアント依存外部ライブラリー
+
+## materialize
+
+https://materializecss.github.io/materialize/
+
+##      
