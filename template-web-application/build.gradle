@@ -61,7 +61,7 @@ pmd {
     pmdTest.enabled = false
 }
 dependencies {
-    api project(':web-security')
+    api project(':web-common')
     api project(':server-business')
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'

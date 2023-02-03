@@ -12,6 +12,7 @@ spring:
   mvc:
     favicon.enabled: false
   main:
+    lazy-initialization: true
     allow-bean-definition-overriding: true
   profiles.active: unit
   thymeleaf:

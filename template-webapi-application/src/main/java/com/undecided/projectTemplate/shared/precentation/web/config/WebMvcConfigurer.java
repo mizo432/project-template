@@ -1,6 +1,5 @@
-package com.undecided.projectTemplate.modules;
+package com.undecided.projectTemplate.shared.precentation.web.config;
 
-import com.undecided.gfw.security.web.logging.UserIdMDCPutFilter;
 import com.undecided.gfw.web.logging.TraceLoggingInterceptor;
 import com.undecided.gfw.web.logging.mdc.MDCClearFilter;
 import com.undecided.gfw.web.logging.mdc.XTrackMDCPutFilter;
@@ -10,13 +9,13 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.resource.EncodedResourceResolver;
 import org.springframework.web.servlet.resource.VersionResourceResolver;
 
 @Configuration
 @EnableWebMvc
-public class TemplateMvcConfig implements WebMvcConfigurer {
+public class WebMvcConfigurer implements
+    org.springframework.web.servlet.config.annotation.WebMvcConfigurer {
 
 //    private static final Logger LOG = LoggerFactory.getLogger(TemplateMvcConfig.class);
 
@@ -84,12 +83,6 @@ public class TemplateMvcConfig implements WebMvcConfigurer {
     @Bean
     public XTrackMDCPutFilter xTrackMDCPutFilter() {
         return new XTrackMDCPutFilter();
-
-    }
-
-    @Bean
-    public UserIdMDCPutFilter userIdMDCPutFilter() {
-        return new UserIdMDCPutFilter();
 
     }
 

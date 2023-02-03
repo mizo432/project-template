@@ -5,10 +5,10 @@ import com.undecided.gfw.web.token.transaction.TransactionTokenInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 @Configuration
-public class TemplateWebMvcConfig extends WebMvcConfigurationSupport {
+public class WebMvcConfigurationSupport extends
+    org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport {
 
 //    private static final Logger LOGGER = LoggerFactory.getLogger(TemplateWebMvcConfig.class);
 

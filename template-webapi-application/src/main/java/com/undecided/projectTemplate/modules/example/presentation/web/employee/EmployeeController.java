@@ -44,7 +44,6 @@ public class EmployeeController {
     }
 
     @GetMapping("/showNewEmployeeForm")
-//    @TransactionTokenCheck(type = TransactionTokenType.BEGIN)
     public String showNewEmployeeForm(Model model) {
         // create model attribute to bind form data
         Employee employee = new Employee();
@@ -53,7 +52,6 @@ public class EmployeeController {
     }
 
     @PostMapping("/saveEmployee")
-//    @TransactionTokenCheck(type = TransactionTokenType.IN)
     public String postEmployee(@ModelAttribute("employee") Employee employee) {
         // save employee to database
         insertEmployeeCommand.saveEmployee(employee);
