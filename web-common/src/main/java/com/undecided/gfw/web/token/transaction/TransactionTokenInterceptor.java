@@ -5,6 +5,7 @@ import com.undecided.primitive.object.Objects2;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.io.Serial;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,7 @@ public class TransactionTokenInterceptor implements HandlerInterceptor {
     public static final String TOKEN_REQUEST_PARAMETER = "_TRANSACTION_TOKEN";
 
     private static final TransactionToken INVALID_TOKEN = new TransactionToken(null, null, null) {
+        @Serial
         private static final long serialVersionUID = 674844591801033738L;
 
         @Override

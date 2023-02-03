@@ -6,7 +6,6 @@ plugins {
 
 apply plugin: 'idea'
 
-group = 'org.venuspj'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 springBoot {

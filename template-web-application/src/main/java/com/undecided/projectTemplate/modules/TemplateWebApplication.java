@@ -12,5 +12,4 @@ public class TemplateWebApplication {
         SpringApplication.run(TemplateWebApplication.class, args);
     }
 
-
 }

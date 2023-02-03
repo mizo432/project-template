@@ -1,11 +1,10 @@
 server:
   port: 8082
-  #  servlet:
-  #    context-path: /web
   compression:
     enabled: true
     mime-types: text/html,text/css,application/javascript,application/json
-
+  servlet:
+    register-default-servlet: true
 spring:
   mvc.favicon.enabled: false
   main:

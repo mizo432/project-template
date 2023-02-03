@@ -48,8 +48,6 @@ repositories {
     maven { url 'https://repo.spring.io/libs-release' }
 }
 
-group 'org.venusPj'
-
 dependencies {
     implementation group: 'de.codecentric', name: 'spring-boot-admin-server', version: '3.0.0'
     implementation group: 'de.codecentric', name: 'spring-boot-admin-server-ui', version: '3.0.0'
