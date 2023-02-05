@@ -1,0 +1,83 @@
+server:
+  port: 8080
+#  servlet:
+#    context-path: /api
+
+spring:
+  profiles.active: unit
+  thymeleaf:
+    cache: false
+    mode: HTML
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sample
+    username: user
+    password: password
+    # JDBC
+  #    driverClassName: org.h2.Driver # JDBC Driver class name.
+  #    url: jdbc:h2:mem:testDb;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH # connection url
+  #    username: sa
+  #    password:
+  #  h2:
+  #    console:
+  #      enabled: true
+  hikari:
+    connection-timeout: 20000 #maximum number of milliseconds that a client will wait for a connection
+    minimum-idle: 25 #minimum number of idle connections maintained by HikariCP in a connection pool
+    maximum-pool-size: 50 #maximum pool size
+    idle-timeout: 600000 #maximum idle time for connection
+    max-lifetime: 1800000 #maximum lifetime in milliseconds of a connection in the pool after it is closed.
+    auto-commit: true #default auto-commit behavior.
+    connection-test-query: select 1
+    leakDetectionThreshold: 120000 # 開発時は設定するが検証機、本番期では設定しない
+  session:
+    store-type: REDIS
+    redis:
+      namespace: apiSession # Namespace for keys used to store session.
+      flush-mode: on_save # Session flush mode.
+  redis:
+    host: "localhost"
+    port: 6379
+    database: 0
+  application:
+    name: テンプレートアプリケーション # アプリケーション名
+  boot:
+    admin:
+      client:
+        url: http://localhost:8082/admin
+        instance:
+          prefer-ip: true
+          service-base-url: http://localhost:8080
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    time-zone: Asia/Tokyo
+    visibility:
+      field: any
+      getter: none
+      setter: none
+  profiles:
+    active: develop
+  devtools:
+    restart:
+      exclude: static/**, public/**
+      additional-exclude: java/**, test/**
+  security:
+    user:
+      name: user
+      password: user
+
+
+logging:
+  file:
+    name: ../build/logs/application.log
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false
