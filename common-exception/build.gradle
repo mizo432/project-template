@@ -17,8 +17,8 @@ repositories {
 }
 
 dependencies {
-    api project(":common-primitive")
-    api project(":common-message")
+    implementation project(":common-primitive")
+    implementation project(":common-message")
     testImplementation project(':common-test')
     implementation "org.springframework:spring-context:6.0.2"
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'

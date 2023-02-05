@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    api project(":common-primitive")
+    implementation project(":common-primitive")
     testImplementation project(':common-test')
     implementation "org.springframework:spring-context:6.0.2"
 

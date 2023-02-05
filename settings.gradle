@@ -9,7 +9,7 @@ include 'web-security'
 include 'common-test'
 include 'server-business'
 include 'template-webapi-application'
-include 'template-web-application'
+include 'web-front'
 include 'admin-template'
 include 'template-client-application'
 

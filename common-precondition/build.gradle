@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    api project(":common-primitive")
+    implementation project(":common-primitive")
     testImplementation project(':common-test')
 
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
