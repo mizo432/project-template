@@ -32,11 +32,10 @@ gradle-app.setting
 /common-exception/build/
 /common-message/build/
 /web-security/build/
-/template-web-application/build/
-/template-web-application/src/main/generated/
-/template-webapi-application/build/
-/template-webapi-application/src/main/generated/
 /template-client-application/build/
 /server-business/build/
 /server-business/src/main/generated/
 /web-front/build/
+/web-front/src/main/generated/
+/web-backend/build/
+/web-backend/src/main/generated/
