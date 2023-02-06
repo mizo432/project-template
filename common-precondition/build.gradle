@@ -10,8 +10,6 @@ idea {
     }
 }
 
-group 'org.venusPj'
-
 repositories {
     mavenCentral()
 }

@@ -37,7 +37,7 @@ spring:
     port: 6379
     database: 0
   application:
-    name: テンプレートWeb # アプリケーション名
+    name: front # アプリケーション名
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss.SSS
     time-zone: Asia/Tokyo
@@ -67,7 +67,7 @@ spring:
 
 logging:
   file:
-    name: ./build/logs/TemplateWebApplication.log
+    name: ./build/logs/WebFrontApplication.log
 
 management:
   endpoint:

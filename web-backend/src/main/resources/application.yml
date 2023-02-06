@@ -41,7 +41,7 @@ spring:
     port: 6379
     database: 0
   application:
-    name: テンプレートWeb+API # アプリケーション名
+    name: backend # アプリケーション名
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss.SSS
     time-zone: Asia/Tokyo
@@ -71,7 +71,7 @@ spring:
 
 logging:
   file:
-    name: ./build/logs/TemplateWebApiApplication.log
+    name: ./build/logs/WebBackendApplication.log
 
 management:
   endpoint:

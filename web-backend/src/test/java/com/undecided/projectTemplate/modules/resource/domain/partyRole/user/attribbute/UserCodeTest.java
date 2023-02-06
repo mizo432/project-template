@@ -47,15 +47,6 @@ class UserCodeTest {
     @Test
     @Disabled("TODO: Complete this test")
     void testOf2() {
-        // TODO: Complete this test.
-        //   Reason: R013 No inputs found that don't throw a trivial exception.
-        //   Diffblue Cover tried to run the arrange/act section, but the method under
-        //   test threw
-        //   java.lang.IllegalArgumentException: Argument for @NotNull parameter 'reference' of org/venusPj/projectTemplate/shared/precondition/string/StringPreconditions.checkNotEmpty must not be null
-        //       at org.venusPj.projectTemplate.shared.precondition.string.StringPreconditions.$$$reportNull$$$0(StringPreconditions.java)
-        //       at org.venusPj.projectTemplate.shared.precondition.string.StringPreconditions.checkNotEmpty(StringPreconditions.java)
-        //       at org.venusPj.projectTemplate.modules.resource.domain.partyRole.user.attribbute.UserCode.of(UserCode.java:25)
-        //   See https://diff.blue/R013 to resolve this issue.
 
         // Arrange
         String value = null;
@@ -70,14 +61,6 @@ class UserCodeTest {
     @Test
     @Disabled("TODO: Complete this test")
     void testOf3() {
-        // TODO: Complete this test.
-        //   Reason: R013 No inputs found that don't throw a trivial exception.
-        //   Diffblue Cover tried to run the arrange/act section, but the method under
-        //   test threw
-        //   java.lang.IllegalArgumentException: ユーザーコードが空白です。ユーザーコードに空白は許容されません。
-        //       at org.venusPj.projectTemplate.shared.precondition.string.StringPreconditions.checkNotEmpty(StringPreconditions.java:21)
-        //       at org.venusPj.projectTemplate.modules.resource.domain.partyRole.user.attribbute.UserCode.of(UserCode.java:25)
-        //   See https://diff.blue/R013 to resolve this issue.
 
         // Arrange
         String value = "";

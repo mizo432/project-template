@@ -10,8 +10,6 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 public class WebMvcConfigurationSupport extends
     org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport {
 
-//    private static final Logger LOGGER = LoggerFactory.getLogger(TemplateWebMvcConfig.class);
-
     /**
      * {@inheritDoc}
      */

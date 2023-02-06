@@ -6,7 +6,6 @@ plugins {
 
 apply plugin: 'idea'
 
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 springBoot {
     buildInfo()

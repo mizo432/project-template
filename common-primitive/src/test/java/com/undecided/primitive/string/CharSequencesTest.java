@@ -1012,13 +1012,6 @@ class CharSequencesTest {
         @Test
         @Disabled("TODO: Complete this test")
         void testAppendHex() {
-            // TODO: Complete this test.
-            //   Reason: R013 No inputs found that don't throw a trivial exception.
-            //   Diffblue Cover tried to run the arrange/act section, but the method under
-            //   test threw
-            //   java.lang.NullPointerException: Cannot invoke "java.lang.StringBuilder.append(char)" because "buf" is null
-            //       at org.venusPj.primitive.string.Strings2.appendHex(Strings2.java:1779)
-            //   See https://diff.blue/R013 to resolve this issue.
 
             // Arrange
             StringBuilder buf = null;
@@ -1034,13 +1027,6 @@ class CharSequencesTest {
         @Test
         @Disabled("TODO: Complete this test")
         void testAppendHex2() {
-            // TODO: Complete this test.
-            //   Reason: R013 No inputs found that don't throw a trivial exception.
-            //   Diffblue Cover tried to run the arrange/act section, but the method under
-            //   test threw
-            //   java.lang.NullPointerException: Cannot invoke "java.lang.StringBuilder.append(String)" because "buf" is null
-            //       at org.venusPj.primitive.string.Strings2.appendHex(Strings2.java:1790)
-            //   See https://diff.blue/R013 to resolve this issue.
 
             // Arrange
             StringBuilder buf = null;
@@ -1072,16 +1058,6 @@ class CharSequencesTest {
         @Test
         @Disabled("TODO: Complete this test")
         void testChangeHankakuToZenkaku2() {
-            // TODO: Complete this test.
-            //   Reason: R013 No inputs found that don't throw a trivial exception.
-            //   Diffblue Cover tried to run the arrange/act section, but the method under
-            //   test threw
-            //   java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-            //       at java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:105)
-            //       at java.lang.StringBuffer.<init>(StringBuffer.java:158)
-            //       at org.venusPj.primitive.string.Strings2.hankakuKatakanaTokubetsuHenkan(Strings2.java:2090)
-            //       at org.venusPj.primitive.string.Strings2.changeHankakuToZenkaku(Strings2.java:1971)
-            //   See https://diff.blue/R013 to resolve this issue.
 
             // Arrange
             String aString = null;
@@ -1193,16 +1169,6 @@ class CharSequencesTest {
         @Test
         @Disabled("TODO: Complete this test")
         void testChangeZenkakuToHankaku2() {
-            // TODO: Complete this test.
-            //   Reason: R013 No inputs found that don't throw a trivial exception.
-            //   Diffblue Cover tried to run the arrange/act section, but the method under
-            //   test threw
-            //   java.lang.NullPointerException: Cannot invoke "String.length()" because "str" is null
-            //       at java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:105)
-            //       at java.lang.StringBuffer.<init>(StringBuffer.java:158)
-            //       at org.venusPj.primitive.string.Strings2.zenkakuToHankakuTokubetsuHenkan(Strings2.java:2063)
-            //       at org.venusPj.primitive.string.Strings2.changeZenkakuToHankaku(Strings2.java:2013)
-            //   See https://diff.blue/R013 to resolve this issue.
 
             // Arrange
             String targetString = null;
