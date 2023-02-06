@@ -1,6 +1,14 @@
+buildscript {
+    ext {
+        group = 'com.undecided'
+
+    }
+
+}
 plugins {
     id 'java'
 }
+
 repositories {
     mavenCentral()
 }
