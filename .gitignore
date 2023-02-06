@@ -25,10 +25,6 @@ gradle-app.setting
 /common-test/build/
 /common-precondition/build/
 /authorization-server/build/
-/template-web-admin/build/
-/template-web-member/build/
-/template-web-productOwner/build/
-/template-web-viewer/build/
 /common-exception/build/
 /common-message/build/
 /web-security/build/
@@ -39,3 +35,4 @@ gradle-app.setting
 /web-front/src/main/generated/
 /web-backend/build/
 /web-backend/src/main/generated/
+/web-admin/build/
