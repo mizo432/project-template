@@ -1,9 +1,11 @@
 package com.undecided.gfw.common.exception;
 
 import com.undecided.gfw.common.message.ResultMessages;
+import java.io.Serial;
 
 public class ResultMessagesNotificationException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private final ResultMessages resultMessages;
