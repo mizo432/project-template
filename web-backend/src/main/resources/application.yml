@@ -3,14 +3,7 @@ server:
   compression:
     enabled: true
     mime-types: text/html,text/css,application/javascript,application/json
-  servlet:
-    register-default-servlet: true
-
-
-
 spring:
-  mvc:
-    favicon.enabled: false
   main:
     lazy-initialization: true
     allow-bean-definition-overriding: true
@@ -54,10 +47,10 @@ spring:
       exclude: static/**, public/**
       # 再起動のトリガーから除外するファイルを追加で指定する
       additional-exclude: java/**, test/**
-  security:
-    user:
-      name: user
-      password: user
+  #  security:
+  #    user:
+  #      name: user
+  #      password: user
   boot:
     admin:
       url: http://localhost:8090/admin
