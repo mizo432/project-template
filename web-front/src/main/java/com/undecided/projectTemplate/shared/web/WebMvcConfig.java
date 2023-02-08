@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.shared.precentation.web.config;
+package com.undecided.projectTemplate.shared.web;
 
 import com.undecided.gfw.web.logging.TraceLoggingInterceptor;
 import com.undecided.gfw.web.logging.mdc.MDCClearFilter;
@@ -14,11 +14,8 @@ import org.springframework.web.servlet.resource.VersionResourceResolver;
 
 @Configuration
 @EnableWebMvc
-public class WebMvcConfigurer implements
+public class WebMvcConfig implements
     org.springframework.web.servlet.config.annotation.WebMvcConfigurer {
-
-    //    private static final Logger LOG = LoggerFactory.getLogger(TemplateMvcConfig.class);
-
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {

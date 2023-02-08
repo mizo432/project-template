@@ -24,8 +24,8 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="com.undecided.projectTemplate.modules.admin"> <!-- (9) -->
-        <level value="info"/>
+    <logger name="com.undecided.projectTemplate.modules"> <!-- (9) -->
+        <level value="debug"/>
     </logger>
 
     <logger name="com.undecided.projectTemplate.shared"> <!-- (9) -->

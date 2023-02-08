@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.shared.precentation.web.config;
+package com.undecided.projectTemplate.shared.web;
 
 import com.undecided.gfw.web.logging.TraceLoggingInterceptor;
 import com.undecided.gfw.web.token.transaction.TransactionTokenInterceptor;
@@ -7,7 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 @Configuration
-public class WebMvcConfigurationSupport extends
+public class WebMvcConfigSupport extends
     org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport {
 
     /**

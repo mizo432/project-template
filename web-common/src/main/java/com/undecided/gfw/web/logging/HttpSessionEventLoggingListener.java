@@ -25,7 +25,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
     public void sessionWillPassivate(HttpSessionEvent se) {
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
-            logger.debug("SESSIONID#{} sessionWillPassivate : {}", session
+            logger.debug("SESSION_ID#{} sessionWillPassivate : {}", session
                 .getId(), se.getSource());
         }
     }
@@ -34,7 +34,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
     public void sessionDidActivate(HttpSessionEvent se) {
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
-            logger.debug("SESSIONID#{} sessionDidActivate : {}", session
+            logger.debug("SESSION_ID#{} sessionDidActivate : {}", session
                 .getId(), se.getSource());
         }
     }
@@ -43,7 +43,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
     public void attributeAdded(HttpSessionBindingEvent se) {
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
-            logger.debug("SESSIONID#{} attributeAdded : {}={}", session.getId(),
+            logger.debug("SESSION_ID#{} attributeAdded : {}={}", session.getId(),
                 se.getName(), se.getValue());
         }
     }
@@ -52,7 +52,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
     public void attributeRemoved(HttpSessionBindingEvent se) {
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
-            logger.debug("SESSIONID#{} attributeRemoved : {}={}", session
+            logger.debug("SESSION_ID#{} attributeRemoved : {}={}", session
                 .getId(), se.getName(), se.getValue());
         }
     }
@@ -61,7 +61,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
     public void attributeReplaced(HttpSessionBindingEvent se) {
         if (logger.isTraceEnabled()) {
             HttpSession session = se.getSession();
-            logger.trace("SESSIONID#{} attributeReplaced : {}={}", session
+            logger.trace("SESSION_ID#{} attributeReplaced : {}={}", session
                 .getId(), se.getName(), se.getValue());
         }
     }
@@ -70,7 +70,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
     public void sessionCreated(HttpSessionEvent se) {
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
-            logger.debug("SESSIONID#{} sessionCreated : {}", session.getId(), se
+            logger.debug("SESSION_ID#{} sessionCreated : {}", session.getId(), se
                 .getSource());
         }
     }
@@ -79,7 +79,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
     public void sessionDestroyed(HttpSessionEvent se) {
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
-            logger.debug("SESSIONID#{} sessionDestroyed : {}", session.getId(),
+            logger.debug("SESSION_ID#{} sessionDestroyed : {}", session.getId(),
                 se.getSource());
         }
     }

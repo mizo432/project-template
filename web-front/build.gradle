@@ -61,6 +61,7 @@ pmd {
     pmdTest.enabled = false
 }
 dependencies {
+    implementation project(':web-validation')
     implementation project(':web-common')
     implementation project(':server-business')
     implementation project(":common-primitive")
