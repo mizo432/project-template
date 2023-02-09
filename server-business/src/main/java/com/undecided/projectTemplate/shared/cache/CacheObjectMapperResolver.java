@@ -8,8 +8,12 @@ public class CacheObjectMapperResolver {
 
     private final ObjectMapper objectMapper;
 
-    public CacheObjectMapperResolver(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
+    public CacheObjectMapperResolver() {
+        this.objectMapper = createObjectMapper();
+    }
+
+    private ObjectMapper createObjectMapper() {
+        return new ObjectMapper();
     }
 
     public ObjectMapper objectMapper() {

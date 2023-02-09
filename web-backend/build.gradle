@@ -61,10 +61,11 @@ pmd {
     pmdTest.enabled = false
 }
 dependencies {
-    api project(":common-precondition")
-    api project(':server-business')
-    api project(':web-common')
-    api project(':common-primitive')
+    implementation project(':web-validation')
+    implementation project(":common-precondition")
+    implementation project(':server-business')
+    implementation project(':web-common')
+    implementation project(':common-primitive')
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation "org.springframework.boot:spring-boot-starter-web"

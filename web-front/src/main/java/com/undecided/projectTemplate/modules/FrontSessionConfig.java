@@ -5,6 +5,6 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 
 @Configuration
 @EnableRedisHttpSession
-public class SessionConfig {
+public class FrontSessionConfig {
 
 }

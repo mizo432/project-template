@@ -5,6 +5,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 @Configuration
 @EnableAsync
-public class TemplateEventConfig {
+public class FrontEventConfig {
 
 }

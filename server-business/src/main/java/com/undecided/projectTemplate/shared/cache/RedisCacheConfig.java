@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.modules;
+package com.undecided.projectTemplate.shared.cache;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.Duration;
@@ -14,19 +14,18 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext.SerializationPair;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import com.undecided.projectTemplate.shared.cache.CacheObjectMapperResolver;
 
 /**
  * BackboneSharedApplication向けキャッシュ設定
  */
 @Configuration
 @EnableCaching
-class TemplateRedisCacheConfig {
+class RedisCacheConfig {
 
     private final CacheObjectMapperResolver cacheObjectMapperResolver;
 
 
-    public TemplateRedisCacheConfig(CacheObjectMapperResolver cacheObjectMapperResolver) {
+    public RedisCacheConfig(CacheObjectMapperResolver cacheObjectMapperResolver) {
         this.cacheObjectMapperResolver = cacheObjectMapperResolver;
     }
 
@@ -41,7 +40,7 @@ class TemplateRedisCacheConfig {
                     new GenericJackson2JsonRedisSerializer(objectMapper)));
     }
 
-    @Bean(name = "templateRedisCacheManager")
+    @Bean(name = "redisCacheManager")
     @Primary
     public CacheManager redisCacheManager(RedisConnectionFactory fac) {
         // １．キャッシュビルダーからキャッシュを作成する
@@ -51,10 +50,12 @@ class TemplateRedisCacheConfig {
             .cacheDefaults(
                 // ２．デフォルトのキャッシュ有効期限を設定する
                 RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofDays(1)))
-            // ３．actorCacheという名称のキャッシュに対し、有効期限を設定する
+            // ３．actorという名称のキャッシュに対し、有効期限を設定する
             .withCacheConfiguration("actor", cacheConfiguration(Duration.ofHours(24)))
-            // productCacheという名称のキャッシュに対し、有効期限を設定する
+            // projectという名称のキャッシュに対し、有効期限を設定する
             .withCacheConfiguration("project", cacheConfiguration(Duration.ofMinutes(5L)))
+            // projectという名称のキャッシュに対し、有効期限を設定する
+            .withCacheConfiguration("business", cacheConfiguration(Duration.ofMinutes(5L)))
         ;
 
         return builder.build();

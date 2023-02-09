@@ -1,10 +1,10 @@
 package com.undecided.projectTemplate.modules;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
-@EnableAsync
-public class TemplateEventConfig {
+@EnableScheduling
+public class FrontScheduleConfig {
 
 }
