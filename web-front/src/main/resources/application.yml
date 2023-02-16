@@ -8,6 +8,8 @@ server:
 spring:
   mvc.favicon.enabled: false
   resources:
+    cache:
+      period: 86400
     chain:
       strategy:
         content:
