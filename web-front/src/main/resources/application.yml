@@ -7,6 +7,12 @@ server:
     register-default-servlet: true
 spring:
   mvc.favicon.enabled: false
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
   main:
     lazy-initialization: true
     allow-bean-definition-overriding: true

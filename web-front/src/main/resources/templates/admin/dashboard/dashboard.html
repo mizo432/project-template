@@ -10,7 +10,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.1/dist/css/materialize.min.css"
-          th:src="@{/css/materialize.min.css}">
+          th:href="@{/css/materialize.min.css}">
 
     <link href="../../../static/css/jqvmap.css" rel="stylesheet"
           th:href="@{/css/jqvmap.css}">
@@ -32,9 +32,6 @@
             <div class="nav-wrapper"><a href="#!"
                                         class="brand-logo grey-text text-darken-4">Home</a>
                 <ul id="nav-mobile" class="right">
-                    <li class="hide-on-med-and-down"><a
-                            href="https://themes.materializecss.com/products/admin">Buy Now!</a>
-                    </li>
                     <li class="hide-on-med-and-down"><a href="#!" data-target="dropdown1"
                                                         class="dropdown-trigger waves-effect"><i
                             class="material-icons">notifications</i></a></li>
@@ -56,7 +53,7 @@
                         class="material-icons chevron">chevron_left</i></a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="dashboard.html" class="waves-effect active">Dashboard<i
+                            <li><a href="dashboard.html" th:href="." class="waves-effect active">Dashboard<i
                                     class="material-icons">web</i></a></li>
                             <li><a href="pages-fixed-chart.html" class="waves-effect">Fixed Chart<i
                                     class="material-icons">list</i></a></li>
@@ -512,7 +509,8 @@
 </footer><!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- Compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.1/dist/js/materialize.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.1/dist/js/materialize.min.js"
+        th:src="@{/js/materialize.min.js}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 

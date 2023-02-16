@@ -44,14 +44,14 @@
 
 | 促成     | カラム名       | 摘要  | 備考  |
 |:-------|------------|-----|-----|
-| リソースID | ResourceId |     |     |
+| リソースID | ResourceId |     | PK  |
 
 #### リソース摘要開始
 
 | 促成      | カラム名          | 摘要  | 備考  |
 |:--------|---------------|-----|-----|
-| リソースID  | ResourceId    |     |     |
-| 開始日次    | StartDateTime |     |     |
+| リソースID  | ResourceId    |     | PK  |
+| 開始日時    | StartDateTime |     | PK  |
 | リソースコード | ResourceCode  |     |     |
 | リソース名   | ResourceName  |     |     |
 
@@ -59,8 +59,8 @@
 
 | 促成     | カラム名        |     |     |
 |:-------|-------------|-----|-----|
-| リソースID | ResourceId  |     |     |
-| 終了日時   | EndDateTime |     |     |
+| リソースID | ResourceId  |     | PK  |
+| 終了日時   | EndDateTime |     | PK  |
 
 #### 現在 リソース materialized viewで用意する
 
@@ -80,22 +80,50 @@
 | リソースコード | ResourceCode |     |     |
 | リソース名   | ResourceName |     |     |
 
-####      
+####         
 
-## イベント 年度別に
+## イベント
 
-| 促成        | カラム名                 |     |     |
-|:----------|----------------------|-----|-----|
-| イベントID    | EventId              |     |     |
-| 発生日時      | WhenOccurred         |     |     |
-| 適用年       | WhenNoticedYear      |     |     |
-| 適用年月      | WhenNoticedYearMonth |     |     |
-| 適用日時      | WhenNoticed          |     |     |
-| PartyId   | partyId              |     |     |
-| PlaceId   | PlaceId              |     |     |
-| ProductId | ProductId            |     |     |
+| 促成        | カラム名                 |              | PK  |
+|:----------|:---------------------|--------------|-----|
+| イベントID    | EventId              |              | ◎   |
+| 発生日時      | WhenOccurred         | 入力日付         |     |
+| 適用年       | WhenNoticedYear      | イベントが適用される年  |     |
+| 適用年月      | WhenNoticedYearMonth | イベントが適用される年月 |     |
+| 適用日時      | WhenNoticed          | イベントが適用される日時 |     |
+| PartyId   | partyId              |              |     |
+| PlaceId   | PlaceId              |              |     |
+| ProductId | ProductId            |              |     |
 
 ## 対応表
+
+リソース同士の関連を対応表で定義する。
+原則はイベントだが世代を保持しない場合には対応表を作成する、
+
+### 従業員
+
+| 促成     | カラム名         |     | PK  |
+|:-------|--------------|-----|-----|
+| 従業員ID  | EmployeeId   |     | ◎   |
+| 従業員コード | EmployeeCode |     |     |
+| 従業員名   | EmployeeName |     |     |
+
+### 部署
+
+| 促成    | カラム名     |     | PK  |
+|:------|----------|-----|-----|
+| 部署ID  | PartId   |     | ◎   |
+| 部署コード | PartCode |     |     |
+| 部署名   | PartName |     |     |
+
+### 従業員_部署対照表
+
+対応表は以下の通りになる
+
+| 属性    | カラム名       |     | PK  |
+|:------|:-----------|-----|-----|
+| 従業員ID | EmployeeId |     | ◎   |
+| 部署ID  | PartId     |     | ◎   |
 
 ## 対照表
 
