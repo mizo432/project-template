@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class BusinessQuolytyTest {
+class BusinessQualityTest {
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom() {
@@ -16,16 +16,16 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.EXPECT_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.UNKNOWN;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.UNKNOWN;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom2() {
@@ -34,16 +34,16 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.EXPECT_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.REVERSE;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.REVERSE;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom3() {
@@ -52,16 +52,16 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.EXPECT_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.REVERSE;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.REVERSE;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom4() {
@@ -70,16 +70,16 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.EXPECT_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.REVERSE;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.REVERSE;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom5() {
@@ -88,16 +88,16 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.LIKE_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.ATTRACTIVE;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.ATTRACTIVE;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom6() {
@@ -106,16 +106,16 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.EXPECT_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.REVERSE;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.REVERSE;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom7() {
@@ -124,16 +124,16 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.LIKE_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.INDIFFERENT;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.INDIFFERENT;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom8() {
@@ -142,16 +142,16 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.DISLIKE_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.ONE_DIMENSIONAL;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.ONE_DIMENSIONAL;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom9() {
@@ -160,16 +160,16 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.LIKE_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.REVERSE;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.REVERSE;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom10() {
@@ -178,16 +178,16 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.DISLIKE_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.MUST_BE;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.MUST_BE;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 
     /**
-     * Method under test: {@link BusinessQuolyty#computeFrom(Emotion, Emotion)}
+     * Method under test: {@link BusinessQuality#computeFrom(Emotion, Emotion)}
      */
     @Test
     void testComputeFrom11() {
@@ -196,11 +196,11 @@ class BusinessQuolytyTest {
         Emotion dysfunctionalEmotion = Emotion.DISLIKE_IT;
 
         // Act
-        BusinessQuolyty actualComputeFromResult = BusinessQuolyty.computeFrom(functionalEmotion,
+        BusinessQuality actualComputeFromResult = BusinessQuality.computeFrom(functionalEmotion,
             dysfunctionalEmotion);
 
         // Assert
-        BusinessQuolyty expectedComputeFromResult = BusinessQuolyty.UNKNOWN;
+        BusinessQuality expectedComputeFromResult = BusinessQuality.UNKNOWN;
         assertEquals(expectedComputeFromResult, actualComputeFromResult);
     }
 }

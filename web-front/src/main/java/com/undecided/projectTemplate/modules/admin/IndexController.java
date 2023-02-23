@@ -12,4 +12,5 @@ public class IndexController {
     public String get() {
         return "admin/dashboard/dashboard";
     }
+
 }

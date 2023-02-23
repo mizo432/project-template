@@ -17,13 +17,10 @@ public class Effort implements IntegerValue<Effort> {
 
     private final Integer value;
 
-    @Override
-    public Integer getValue() {
-        return value;
-
-    }
-
     public static Effort of(Integer value) {
+        if (Objects2.isNull(value)) {
+            return EMPTY;
+        }
         return new Effort(value);
     }
 

@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.modules.resource.domain.story.estimate.businessValue;
 
-public enum BusinessQuolyty {
+public enum BusinessQuality {
     MUST_BE("必須", 100),
     ONE_DIMENSIONAL("それなり", 66),
     ATTRACTIVE("未食的", 33),
@@ -19,28 +19,28 @@ public enum BusinessQuolyty {
         return value;
     }
 
-    BusinessQuolyty(String displayName, int value) {
+    BusinessQuality(String displayName, int value) {
         this.displayName = displayName;
         this.value = value;
 
     }
 
-    public static BusinessQuolyty computeFrom(Emotion functionalEmotion,
+    public static BusinessQuality computeFrom(Emotion functionalEmotion,
         Emotion dysfunctionalEmotion) {
         return switch (functionalEmotion) {
             case EXPECT_IT -> switch (dysfunctionalEmotion) {
-                case EXPECT_IT -> BusinessQuolyty.UNKNOWN;
-                case LIKE_IT, NATURAL, CAN_TOLERATE_IT -> BusinessQuolyty.ATTRACTIVE;
-                case DISLIKE_IT -> BusinessQuolyty.ONE_DIMENSIONAL;
+                case EXPECT_IT -> BusinessQuality.UNKNOWN;
+                case LIKE_IT, NATURAL, CAN_TOLERATE_IT -> BusinessQuality.ATTRACTIVE;
+                case DISLIKE_IT -> BusinessQuality.ONE_DIMENSIONAL;
             };
             case LIKE_IT, NATURAL, CAN_TOLERATE_IT -> switch (dysfunctionalEmotion) {
-                case EXPECT_IT -> BusinessQuolyty.REVERSE;
-                case LIKE_IT, NATURAL, CAN_TOLERATE_IT -> BusinessQuolyty.INDIFFERENT;
-                case DISLIKE_IT -> BusinessQuolyty.MUST_BE;
+                case EXPECT_IT -> BusinessQuality.REVERSE;
+                case LIKE_IT, NATURAL, CAN_TOLERATE_IT -> BusinessQuality.INDIFFERENT;
+                case DISLIKE_IT -> BusinessQuality.MUST_BE;
             };
             case DISLIKE_IT -> switch (dysfunctionalEmotion) {
-                case EXPECT_IT, LIKE_IT, NATURAL, CAN_TOLERATE_IT -> BusinessQuolyty.REVERSE;
-                case DISLIKE_IT -> BusinessQuolyty.UNKNOWN;
+                case EXPECT_IT, LIKE_IT, NATURAL, CAN_TOLERATE_IT -> BusinessQuality.REVERSE;
+                case DISLIKE_IT -> BusinessQuality.UNKNOWN;
             };
         };
 
