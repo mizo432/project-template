@@ -6,6 +6,7 @@ server:
   servlet:
     register-default-servlet: true
 spring:
+  profiles.default: unit
   mvc.favicon.enabled: false
   resources:
     cache:
@@ -18,28 +19,6 @@ spring:
   main:
     lazy-initialization: true
     allow-bean-definition-overriding: true
-  profiles.active: unit
-  thymeleaf:
-    cache: false
-    mode: HTML
-  datasource:
-    driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/sample
-    username: user
-    password: password
-  hikari:
-    connection-timeout: 20000 #maximum number of milliseconds that a client will wait for a connection
-    minimum-idle: 5 #minimum number of idle connections maintained by HikariCP in a connection pool
-    maximum-pool-size: 10 #maximum pool size
-    idle-timeout: 600000 #maximum idle time for connection
-    max-lifetime: 1800000 #maximum lifetime in milliseconds of a connection in the pool after it is closed.
-    auto-commit: true #default auto-commit behavior.
-    connection-test-query: select 1
-  session:
-    store-type: REDIS
-    redis:
-      namespace: spring:session # Namespace for keys used to store session.
-      flush-mode: on_save # Session flush mode.
   redis:
     host: "localhost"
     port: 6379
@@ -53,43 +32,14 @@ spring:
       field: any
       getter: none
       setter: none
-  profiles:
-    active: develop
   devtools:
     restart:
       # 再起動のトリガーから除外するファイルを指定する
       exclude: static/**, public/**
       # 再起動のトリガーから除外するファイルを追加で指定する
       additional-exclude: java/**, test/**
-  security:
-    user:
-      name: user
-      password: user
-  boot:
-    admin:
-      url: http://localhost:8090/admin
-      client:
-        url: http://localhost:8090/admin
-        instance:
-          service-host-type: ip
 
 logging:
   file:
     name: ./build/logs/WebFrontApplication.log
 
-management:
-  endpoint:
-    health:
-      show-details: ALWAYS
-    metrics:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  security:
-    enabled: false
-  auditevents:
-    enabled: true
-  httpexchanges:
-    enabled: true
