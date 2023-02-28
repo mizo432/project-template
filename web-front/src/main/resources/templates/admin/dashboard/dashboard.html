@@ -55,11 +55,15 @@
                         <ul>
                             <li><a href="dashboard.html" th:href="." class="waves-effect active">Dashboard<i
                                     class="material-icons">web</i></a></li>
-                            <li><a href="pages-fixed-chart.html" class="waves-effect">Fixed Chart<i
+                            <li><a href="../../../static/pages-fixed-chart.html"
+                                   th:href="@{/pages-fixed-chart.html}"
+                                   class="waves-effect">Fixed Chart<i
                                     class="material-icons">list</i></a></li>
-                            <li><a href="pages-grid.html" class="waves-effect">Grid<i
+                            <li><a href="../../../static/pages-grid.html"
+                                   class="waves-effect">Grid<i
                                     class="material-icons">dashboard</i></a></li>
-                            <li><a href="pages-chat.html" class="waves-effect">Chat<i
+                            <li><a href="../../../static/pages-chat.html"
+                                   class="waves-effect">Chat<i
                                     class="material-icons">chat</i></a></li>
                         </ul>
                     </div>
@@ -68,17 +72,22 @@
                         class="material-icons chevron">chevron_left</i></a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="line-charts.html" class="waves-effect">Line Charts<i
-                                    class="material-icons">show_chart</i></a></li>
-                            <li><a href="bar-charts.html" class="waves-effect">Bar Charts<i
-                                    class="material-icons">equalizer</i></a></li>
-                            <li><a href="area-charts.html" class="waves-effect">Area Charts<i
-                                    class="material-icons">multiline_chart</i></a></li>
-                            <li><a href="doughnut-charts.html" class="waves-effect">Doughnut
+                            <li><a href="../../../static/line-charts.html" class="waves-effect">Line
+                                Charts<i
+                                        class="material-icons">show_chart</i></a></li>
+                            <li><a href="../../../static/bar-charts.html" class="waves-effect">Bar
+                                Charts<i
+                                        class="material-icons">equalizer</i></a></li>
+                            <li><a href="../../../static/area-charts.html" class="waves-effect">Area
+                                Charts<i
+                                        class="material-icons">multiline_chart</i></a></li>
+                            <li><a href="../../../static/doughnut-charts.html" class="waves-effect">Doughnut
                                 Charts<i class="material-icons">pie_chart</i></a></li>
-                            <li><a href="financial-charts.html" class="waves-effect">Financial
+                            <li><a href="../../../static/financial-charts.html"
+                                   class="waves-effect">Financial
                                 Charts<i class="material-icons">euro_symbol</i></a></li>
-                            <li><a href="interactive-charts.html" class="waves-effect">Interactive
+                            <li><a href="../../../static/interactive-charts.html"
+                                   class="waves-effect">Interactive
                                 Charts<i class="material-icons">touch_app</i></a></li>
                         </ul>
                     </div>
@@ -87,9 +96,11 @@
                         class="material-icons chevron">chevron_left</i></a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="fullscreen-table.html" class="waves-effect">Fullscreen with
+                            <li><a href="../../../static/fullscreen-table.html"
+                                   class="waves-effect">Fullscreen with
                                 Chart<i class="material-icons">show_chart</i></a></li>
-                            <li><a href="table-custom-elements.html" class="waves-effect">Table with
+                            <li><a href="../../../static/table-custom-elements.html"
+                                   class="waves-effect">Table with
                                 Custom Elements<i class="material-icons">settings</i></a></li>
                         </ul>
                     </div>
@@ -98,7 +109,7 @@
                         class="material-icons chevron">chevron_left</i></a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="calendar.html" class="waves-effect">Calendar<i
+                            <li><a href="../../../static/calendar.html" class="waves-effect">Calendar<i
                                     class="material-icons">cloud</i></a></li>
                         </ul>
                     </div>
@@ -107,11 +118,11 @@
                         class="material-icons chevron">chevron_left</i></a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="header-tabbed.html" class="waves-effect">Tabbed<i
+                            <li><a href="../../../static/header-tabbed.html" class="waves-effect">Tabbed<i
                                     class="material-icons">tab</i></a></li>
-                            <li><a href="header-metrics.html" class="waves-effect">Metrics<i
+                            <li><a href="../../../static/header-metrics.html" class="waves-effect">Metrics<i
                                     class="material-icons">web</i></a></li>
-                            <li><a href="header-search.html" class="waves-effect">Search<i
+                            <li><a href="../../../static/header-search.html" class="waves-effect">Search<i
                                     class="material-icons">search</i></a></li>
                         </ul>
                     </div>
@@ -120,9 +131,9 @@
                         class="material-icons chevron">chevron_left</i></a>
                     <div class="collapsible-body">
                         <ul>
-                            <li><a href="log-in.html" class="waves-effect">Log In<i
+                            <li><a href="../../../static/log-in.html" class="waves-effect">Log In<i
                                     class="material-icons">person</i></a></li>
-                            <li><a href="settings.html" class="waves-effect">Settings<i
+                            <li><a href="../../../static/settings.html" class="waves-effect">Settings<i
                                     class="material-icons">settings</i></a></li>
                         </ul>
                     </div>
@@ -175,19 +186,25 @@
         <div id="friends" class="col s12">
             <ul class="collection flush">
                 <li class="collection-item avatar">
-                    <div class="badged-circle online"><img src="img/portrait1.jpg" alt="avatar"
+                    <div class="badged-circle online"><img src="../../../static/img/portrait1.jpg"
+                                                           th:src="@{img/portrait1.jpg}"
+                                                           alt="avatar"
                                                            class="circle"></div>
                     <span class="title">Jane Doe</span>
                     <p class="truncate">Lo-fi you probably haven't heard of them</p>
                 </li>
                 <li class="collection-item avatar">
-                    <div class="badged-circle"><img src="img/portrait2.jpg" alt="avatar"
+                    <div class="badged-circle"><img src="../../../static/img/portrait2.jpg"
+                                                    th:src="@{img/portrait2.jpg}"
+                                                    alt="avatar"
                                                     class="circle"></div>
                     <span class="title">John Chang</span>
                     <p class="truncate">etsy leggings raclette kickstarter four dollar toast</p>
                 </li>
                 <li class="collection-item avatar">
-                    <div class="badged-circle"><img src="img/portrait3.jpg" alt="avatar"
+                    <div class="badged-circle"><img src="../../../static/img/portrait3.jpg"
+                                                    th:src="@{img/portrait3.jpg}"
+                                                    alt="avatar"
                                                     class="circle"></div>
                     <span class="title">Lisa Simpson</span>
                     <p class="truncate">Raw denim fingerstache food truck chia health goth synth</p>
@@ -477,7 +494,9 @@
     <div class="container">
         <div class="row">
             <div class="col s6 m3">
-                <img class="materialize-logo" src="img/materialize-logo.png" alt="Materialize">
+                <img class="materialize-logo" src="../../../static/img/materialize-logo.png"
+                     th:src="@{/img/materialize-logo.png}"
+                     alt="Materialize">
                 <p>Made with love by Materialize.</p>
             </div>
             <div class="col s6 m3">
@@ -517,9 +536,13 @@
 <!-- External libraries -->
 
 <!-- jqvmap -->
-<script type="text/javascript" src="/js/jqvmap/jquery.vmap.min.js"></script>
-<script type="text/javascript" src="/js/jqvmap/jquery.vmap.world.js" charset="utf-8"></script>
-<script type="text/javascript" src="/js/jqvmap/jquery.vmap.sampledata.js"></script>
+<script type="text/javascript" src="../../../static/js/jqvmap/jquery.vmap.min.js"
+        th:src="@{/js/jqvmap/jquery.vmap.min.js}"></script>
+<script type="text/javascript" src="../../../static/js/jqvmap/jquery.vmap.world.js"
+        th:src="@{/js/jqvmap/jquery.vmap.world.js}"
+        charset="utf-8"></script>
+<script type="text/javascript" src="../../../static/js/jqvmap/jquery.vmap.sampledata.js"
+        th:src="@{/js/jqvmap/jquery.vmap.sampledata.js}"></script>
 
 <!-- ChartJS -->
 <script type="text/javascript" src="../../../static/js/Chart.js" th:src="@{/js/Chart.js}"></script>
@@ -536,9 +559,9 @@
 
 
 <!-- Initialization script -->
-<script src="../../../static/js/admin.js" th:src="@{js/admin.js}"></script>
+<script src="../../../static/js/admin.js" th:src="@{/js/admin.js}"></script>
 <script src="../../../static/js/page-scripts/dashboard.js"
         th:src="@{/js/page-scripts/dashboard.js}"></script>
-<script src="../../../static/js/init.js" th:src="@{js/init.js}"></script>
+<script src="../../../static/js/init.js" th:src="@{/js/init.js}"></script>
 </body>
 </html>
