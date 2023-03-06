@@ -1,7 +1,4 @@
 buildscript {
-    ext {
-        springBootVersion = '3.0.3'
-    }
     repositories {
         mavenCentral()
     }
@@ -65,7 +62,7 @@ java {
 }
 // Based on this StackOverflow answer: https://stackoverflow.com/a/65209664/653519
 private static String getJavaFXPlatform() {
-    def currentOS = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem;
+    def currentOS = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem
     if (currentOS.isWindows()) {
         return 'win'
     } else if (currentOS.isLinux()) {

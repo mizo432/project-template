@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '3.0.3'
+    id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version '1.1.0'
     id 'net.researchgate.release' version '2.8.1'
     id 'java'
@@ -57,7 +57,7 @@ dependencies {
 
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
     options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 
@@ -75,7 +75,7 @@ test {
     }
 }
 
-task testMedium(type: Test) {
+tasks.register('testMedium', Test) {
     ignoreFailures = false
     maxHeapSize("3g")
     useJUnitPlatform {
@@ -86,7 +86,7 @@ task testMedium(type: Test) {
         junitXml.required = true
     }
 }
-task testLarge(type: Test) {
+tasks.register('testLarge', Test) {
     ignoreFailures = false
     useJUnitPlatform {
         includeTags('LARGE')
@@ -96,7 +96,7 @@ task testLarge(type: Test) {
         junitXml.required = true
     }
 }
-task testReport(type: TestReport) {
+tasks.register('testReport', TestReport) {
     reportOn subprojects.tasks.test.binResultsDir
     fileTree(dir: it, exclude: ['**/*Test.class', '**/**test/*.class'])
 }

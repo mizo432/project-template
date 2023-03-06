@@ -1,6 +1,7 @@
 buildscript {
     ext {
         group = 'com.undecided'
+        springBootVersion = '3.0.4'
 
     }
 
