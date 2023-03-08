@@ -2,7 +2,6 @@ package com.undecided.projectTemplate.modules.resource.domain.partyRole.user.att
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class UserCodeTest {
@@ -39,34 +38,6 @@ class UserCodeTest {
         String expectedValue = "42";
         String actualValue = actualOfResult.getValue();
         assertEquals(expectedValue, actualValue);
-    }
-
-    /**
-     * Method under test: {@link UserCode#of(String)}
-     */
-    @Test
-    @Disabled("TODO: Complete this test")
-    void testOf2() {
-
-        // Arrange
-        String value = null;
-
-        // Act
-        UserCode.of(value);
-    }
-
-    /**
-     * Method under test: {@link UserCode#of(String)}
-     */
-    @Test
-    @Disabled("TODO: Complete this test")
-    void testOf3() {
-
-        // Arrange
-        String value = "";
-
-        // Act
-        UserCode.of(value);
     }
 
     /**

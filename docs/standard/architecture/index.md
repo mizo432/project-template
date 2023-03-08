@@ -5,7 +5,7 @@
 
 # [プレゼンテーションレイヤー](presentationLayer.md)
 
-# [ユースケースレイヤー](useCaseLayer.md)
+# [ビジネスレイヤー](businessLayer.md)
 
 # [インフラレイヤー](infrastructureLayer.md)
 

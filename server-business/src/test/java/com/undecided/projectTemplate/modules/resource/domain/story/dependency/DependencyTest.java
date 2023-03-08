@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.undecided.projectTemplate.modules.resource.domain.story.Story;
 import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class DependencyTest {
@@ -52,6 +54,12 @@ class DependencyTest {
         assertEquals(sourceStoryId, destStoryId);
         assertEquals("42", destStoryId.getValue());
         assertEquals("42", sourceStoryId.getValue());
+
+        List<String> list = new ArrayList<>();
+        for (String s : list) {
+
+        }
+
     }
 }
 

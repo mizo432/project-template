@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class CharSequencesTest {
@@ -1007,36 +1006,6 @@ class CharSequencesTest {
         }
 
         /**
-         * Method under test: {@link Strings2#appendHex(StringBuilder, byte)}
-         */
-        @Test
-        @Disabled("TODO: Complete this test")
-        void testAppendHex() {
-
-            // Arrange
-            StringBuilder buf = null;
-            char resultChar = 'A';
-
-            // Act
-            Strings2.appendHex(buf, (byte) resultChar);
-        }
-
-        /**
-         * Method under test: {@link Strings2#appendHex(StringBuilder, int)}
-         */
-        @Test
-        @Disabled("TODO: Complete this test")
-        void testAppendHex2() {
-
-            // Arrange
-            StringBuilder buf = null;
-            int i = 1;
-
-            // Act
-            Strings2.appendHex(buf, i);
-        }
-
-        /**
          * Method under test: {@link Strings2#changeHankakuToZenkaku(String)}
          */
         @Test
@@ -1050,20 +1019,6 @@ class CharSequencesTest {
             // Assert
             String expectedChangeHankakuToZenkakuResult = "Ａ Ｓｔｒｉｎｇ";
             assertEquals(expectedChangeHankakuToZenkakuResult, actualChangeHankakuToZenkakuResult);
-        }
-
-        /**
-         * Method under test: {@link Strings2#changeHankakuToZenkaku(String)}
-         */
-        @Test
-        @Disabled("TODO: Complete this test")
-        void testChangeHankakuToZenkaku2() {
-
-            // Arrange
-            String aString = null;
-
-            // Act
-            Strings2.changeHankakuToZenkaku(aString);
         }
 
         /**
@@ -1161,20 +1116,6 @@ class CharSequencesTest {
             // Assert
             String expectedChangeZenkakuToHankakuResult = "Target String";
             assertEquals(expectedChangeZenkakuToHankakuResult, actualChangeZenkakuToHankakuResult);
-        }
-
-        /**
-         * Method under test: {@link Strings2#changeZenkakuToHankaku(String)}
-         */
-        @Test
-        @Disabled("TODO: Complete this test")
-        void testChangeZenkakuToHankaku2() {
-
-            // Arrange
-            String targetString = null;
-
-            // Act
-            Strings2.changeZenkakuToHankaku(targetString);
         }
 
         /**

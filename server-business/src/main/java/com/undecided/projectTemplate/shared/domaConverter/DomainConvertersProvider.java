@@ -1,5 +1,7 @@
 package com.undecided.projectTemplate.shared.domaConverter;
 
+import com.undecided.projectTemplate.modules.business.infra.daoConverter.entity.EntityKanaNameConverter;
+import com.undecided.projectTemplate.modules.business.infra.daoConverter.entity.EntityNameConverter;
 import com.undecided.projectTemplate.modules.resource.infra.daoConverter.project.projectCode.ProjectCodeConverter;
 import com.undecided.projectTemplate.modules.resource.infra.daoConverter.project.projectName.ProjectNameConverter;
 import com.undecided.projectTemplate.modules.resource.infra.daoConverter.project.storyCodePrefix.StoryCodePrefixConverter;
@@ -11,7 +13,8 @@ import org.seasar.doma.DomainConverters;
 
 @DomainConverters({ProjectNameConverter.class, ProjectCodeConverter.class,
     StoryCodePrefixConverter.class, IdentifierConverter.class, WhenNoticedConverter.class,
-    WhoNoticedConverter.class, DescriptionConverter.class})
+    WhoNoticedConverter.class, DescriptionConverter.class, EntityKanaNameConverter.class,
+    EntityNameConverter.class})
 public class DomainConvertersProvider {
 
 }
