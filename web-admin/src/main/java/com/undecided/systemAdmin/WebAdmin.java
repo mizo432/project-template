@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableAdminServer
-public class WebAdminApplication {
+public class WebAdmin {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebAdminApplication.class, args);
+        SpringApplication.run(WebAdmin.class, args);
 
     }
 

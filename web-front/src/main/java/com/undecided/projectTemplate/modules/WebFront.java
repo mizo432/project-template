@@ -6,11 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.undecided.projectTemplate")
-public class WebBackendApplication {
+public class WebFront {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebBackendApplication.class, args);
+        SpringApplication.run(WebFront.class, args);
     }
-
 
 }

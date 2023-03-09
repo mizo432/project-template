@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commons/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="AAAAAA">個別ページタイトル</title>
+    <meta name="description" content="個別metaタグ">
+</head>
+<body>
+<div layout:fragment="header">タイトルは個別に設定します。</div>
+<div layout:fragment="contents">
+    <P>ここから下が、個別のページです</P>
+    <div id="hello-text"></div>
+    <!-- 個別ページでjquery-uiが正しくうごくか検証します -->
+    <input type="text" class="datepicker"/>
+</div>
+</body>
+</html>

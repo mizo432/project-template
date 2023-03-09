@@ -9,10 +9,10 @@
 
     <appender name="APPLICATION_LOG_FILE"
       class="ch.qos.logback.core.rolling.RollingFileAppender"> <!-- (3) -->
-        <file>${LOG_DIR}/WebBackendApplication.log</file> <!-- (4) -->
+        <file>${LOG_DIR}/WebBackend.log</file> <!-- (4) -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>
-                ${LOG_DIR}/WebBackendApplication-%d{yyyy-MM-dd}.zip
+                ${LOG_DIR}/WebBackend-%d{yyyy-MM-dd}.zip
             </fileNamePattern> <!-- (5) -->
             <maxHistory>7</maxHistory> <!-- (6) -->
         </rollingPolicy>

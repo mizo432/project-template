@@ -59,27 +59,34 @@ pmd {
     pmdTest.enabled = false
 }
 dependencies {
+    // モジュール内プロジェクト
     implementation project(':web-validation')
     implementation project(':web-common')
     implementation project(':server-business')
     implementation project(":common-primitive")
-    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+    // spring boot関連資材
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation 'org.flywaydb:flyway-core:9.8.3'
     implementation 'org.springframework.session:spring-session-data-redis'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    implementation 'de.codecentric:spring-boot-admin-starter-client:3.0.0'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '3.0.0'
+
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: "${thymeleafLayoutDialectVersion}"
+
+    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+
     // modelmapper
     implementation 'org.modelmapper:modelmapper:3.1.0'
     runtimeOnly 'org.postgresql:postgresql:42.5.1'
 
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.0.0'
-    implementation 'de.codecentric:spring-boot-admin-starter-client:3.0.0'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '3.0.0'
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
 
     implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'

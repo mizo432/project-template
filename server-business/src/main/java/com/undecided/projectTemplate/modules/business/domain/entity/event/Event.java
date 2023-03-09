@@ -9,15 +9,13 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.seasar.doma.Entity;
-import org.seasar.doma.Table;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @NoArgsConstructor
-@Entity(immutable = true)
-@Table(schema = "tm", name = "events")
+// @Entity(immutable = true)
+// @Table(schema = "tm", name = "events")
 public class Event extends AbstractEntity<Event> {
 
     private EntityKanaName kanaName;
