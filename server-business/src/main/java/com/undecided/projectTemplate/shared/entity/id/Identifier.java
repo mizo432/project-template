@@ -1,7 +1,6 @@
 package com.undecided.projectTemplate.shared.entity.id;
 
-import static com.undecided.primitive.string.Strings2.isEmpty;
-
+import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;
 import com.undecided.projectTemplate.shared.value.StringValue;
 import de.huxhorn.sulky.ulid.ULID;
@@ -50,7 +49,7 @@ public class Identifier<E> implements
      */
     @SuppressWarnings("unchecked")
     public static <E> Identifier<E> reconstruct(String value) {
-        if (isEmpty(value)) {
+        if (Strings2.isEmpty(value)) {
             return (Identifier<E>) EMPTY;
         }
         return new Identifier<>(value);

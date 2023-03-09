@@ -1,7 +1,6 @@
 package com.undecided.projectTemplate.shared.value.name;
 
-import static com.undecided.primitive.string.Strings2.isEmpty;
-
+import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.value.StringValue;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -19,7 +18,7 @@ public class Name implements StringValue<Name> {
     private final String value;
 
     public static Name of(String value) {
-        if (isEmpty(value)) {
+        if (Strings2.isEmpty(value)) {
             return EMPTY;
         }
 
@@ -28,7 +27,7 @@ public class Name implements StringValue<Name> {
     }
 
     public static Name reconstruct(String value) {
-        if (isEmpty(value)) {
+        if (Strings2.isEmpty(value)) {
             return EMPTY;
         }
         return new Name(value);
