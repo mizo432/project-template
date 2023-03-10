@@ -1,5 +1,6 @@
 package com.undecided.projectTemplate.shared.entity;
 
+import com.undecided.primitive.localDate.StaticDateProvider;
 import com.undecided.projectTemplate.shared.value.DateTimeValue;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ public class WhenNoticed implements DateTimeValue<WhenNoticed> {
     }
 
     public static WhenNoticed now() {
-        return new WhenNoticed(LocalDateTime.now());
+        return new WhenNoticed(StaticDateProvider.currentLocalDateTime());
 
     }
 

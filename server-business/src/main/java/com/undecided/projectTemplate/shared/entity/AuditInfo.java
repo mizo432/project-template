@@ -1,5 +1,6 @@
 package com.undecided.projectTemplate.shared.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,5 +36,10 @@ public class AuditInfo {
 
     public static AuditInfo empty() {
         return new AuditInfo(WhenNoticed.empty(), WhoNoticed.empty());
+    }
+
+    @JsonIgnore
+    public boolean isEmpty() {
+        return whenNoticed.isEmpty() && whoNoticed.isEmpty();
     }
 }
