@@ -4,6 +4,8 @@
 !define THING_COLOR #CCFFAF
 !define ROLE_COLOR #FEFFAF
 !define MOMENT_COLOR #FFB7AF
+!define INTERVAL_COLOR #FFB7AF
+!define DETAIL_COLOR #FFB7AF
 !define DESC_COLOR #AFD1FF
 !define BORDER_COLOR #666666
 
@@ -36,7 +38,7 @@ hide stereotype
 legend right
 |=  Color             |= Type |
 |<THING_COLOR>      | Thing/Place/Party |
-|<MOMENT_COLOR>      | Moment of interval |
+|<MOMENT_COLOR>      | Moment/Interval/mi detail |
 |<ROLE_COLOR>   | Role |
 |<DESC_COLOR>      | Description |
 endlegend
@@ -62,7 +64,9 @@ skinparam class{
     BackgroundColor<<thing>> THING_COLOR
     BackgroundColor<<place>> THING_COLOR
     BackgroundColor<<party>> THING_COLOR
-    BackgroundColor<<moment-interval>> MOMENT_COLOR
+    BackgroundColor<<moment>> MOMENT_COLOR
+    BackgroundColor<<interval>> INTERVAL_COLOR
+    BackgroundColor<<detail>> DETAIL_COLOR
     BackgroundColor<<description>> DESC_COLOR
     BackgroundColor<<role>> ROLE_COLOR
     Shadowing false
@@ -77,7 +81,9 @@ skinparam object{
     BackgroundColor<<thing>> THING_COLOR
     BackgroundColor<<place>> THING_COLOR
     BackgroundColor<<party>> THING_COLOR
-    BackgroundColor<<moment-interval>> MOMENT_COLOR
+    BackgroundColor<<moment>> MOMENT_COLOR
+    BackgroundColor<<interval>> INTERVAL_COLOR
+    BackgroundColor<<detail>> DETAIL_COLOR
     BackgroundColor<<description>> DESC_COLOR
     BackgroundColor<<role>> ROLE_COLOR
     Shadowing false
@@ -103,8 +109,12 @@ skinparam wrapWidth 200
 !define party(label) model("party",label,P)
 !define role(label,alias) model("role",label,alias,R)
 !define role(label) model("role",label,R)
-!define moment(label,alias) model("moment-interval",label,alias,M)
-!define moment(label) model("moment-interval",label,M)
+!define moment(label,alias) model("moment",label,alias,M)
+!define moment(label) model("moment",label,M)
+!define interval(label,alias) model("interval",label,alias,I)
+!define interval(label) model("interval",label,I)
+!define detail(label,alias) model("detail",label,alias,De)
+!define detail(label) model("detail",label,De)
 !define desc(label,alias) model("description",label,alias,D)
 !define desc(label) model("description",label,D)
 

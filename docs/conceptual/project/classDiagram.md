@@ -10,7 +10,7 @@ Project class diagram
 
 !include ./colorUml.puml
 'left_to_right()
-
+legend()
 thing(プロジェクト,Project){
 
 }
@@ -25,10 +25,19 @@ moment(注文, Order){
     int Status
 
 }
+role(ThingRole)
+role(PersonRole)
+role(PlaceRole)
 moment(Bill)
 moment(Delivery)
+interval(見積もり, estimate)
+detail(見積もり明細)
 thing(Book)
 desc(Comments)
+desc(ThingDescription)
+desc(PlaceDescription)
+desc(PersonDescription)
+
 role(Customer)
 thing(Employee){
     String Name
