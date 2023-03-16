@@ -1,15 +1,18 @@
 Project class diagram
 =====
 
+# サンプル
+
 ```puml
 @startuml Book Store sample
 
-'!include https://raw.githubusercontent.com/gnodux/coloruml/master/coloruml.puml
+!include https://raw.githubusercontent.com/gnodux/coloruml/master/coloruml.puml
 
-!include ./coloruml.puml
+'!include ./colorUml.puml
 'left_to_right()
 
 thing(プロジェクト,Project){
+
 }
 
 role(現在プロジェクト, CurrentProject){
