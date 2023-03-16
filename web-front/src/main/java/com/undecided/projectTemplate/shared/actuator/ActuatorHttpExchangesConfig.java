@@ -8,13 +8,18 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ActuatorHttpExchangesConfig {
 
-    private static final int EXCHANGE_CAPACITY = 2000;
+    // private static final int EXCHANGE_CAPACITY = 2000;
+
+//    @Bean
+//    ObjectMapper om() {
+//        return new ObjectMapper();
+//            .registerModule(new JavaTimeModule())
+//            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+//    }
 
     @Bean
     public HttpExchangeRepository httpExchangeRepository() {
-        InMemoryHttpExchangeRepository repository = new InMemoryHttpExchangeRepository();
-        repository.setCapacity(EXCHANGE_CAPACITY);
-        return repository;
-
+        // repository.setCapacity(EXCHANGE_CAPACITY);
+        return new InMemoryHttpExchangeRepository();
     }
 }

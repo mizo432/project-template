@@ -26,7 +26,7 @@ spring:
   application:
     name: front # アプリケーション名
   jackson:
-    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    date-format: yyyy-MM-dd HH:mm:ss
     time-zone: Asia/Tokyo
     visibility:
       field: any
