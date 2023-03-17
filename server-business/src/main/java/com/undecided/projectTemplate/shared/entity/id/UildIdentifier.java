@@ -14,20 +14,20 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class Identifier<E> implements
-    StringValue<Identifier<E>>, Serializable {
+public class UildIdentifier<E> implements
+    StringValue<UildIdentifier<E>>, Serializable {
 
-    private static final Identifier<?> EMPTY = new Identifier<>();
+    private static final UildIdentifier<?> EMPTY = new UildIdentifier<>();
 
     private final String value;
 
-    public Identifier() {
+    public UildIdentifier() {
         this(null);
     }
 
     @SuppressWarnings("unchecked")
-    public static <E> Identifier<E> empty() {
-        return (Identifier<E>) EMPTY;
+    public static <E> UildIdentifier<E> empty() {
+        return (UildIdentifier<E>) EMPTY;
     }
 
     @Override
@@ -35,8 +35,8 @@ public class Identifier<E> implements
         return value;
     }
 
-    public static <E> Identifier<E> newInstance() {
-        return new Identifier<E>(new ULID().nextValue().toString());
+    public static <E> UildIdentifier<E> newInstance() {
+        return new UildIdentifier<E>(new ULID().nextValue().toString());
 
     }
 
@@ -48,19 +48,19 @@ public class Identifier<E> implements
      * @return 識別子オブジェクト
      */
     @SuppressWarnings("unchecked")
-    public static <E> Identifier<E> reconstruct(String value) {
+    public static <E> UildIdentifier<E> reconstruct(String value) {
         if (Strings2.isEmpty(value)) {
-            return (Identifier<E>) EMPTY;
+            return (UildIdentifier<E>) EMPTY;
         }
-        return new Identifier<>(value);
+        return new UildIdentifier<>(value);
 
     }
 
-    public static <E> Identifier<E> of(String value) {
+    public static <E> UildIdentifier<E> of(String value) {
         StringPreconditions.checkLength(value, 26,
             () -> new IllegalArgumentException("識別子は" + 26 + "桁でなければいけません。 value=" + value));
 
-        return new Identifier<>(value);
+        return new UildIdentifier<>(value);
     }
 
 }

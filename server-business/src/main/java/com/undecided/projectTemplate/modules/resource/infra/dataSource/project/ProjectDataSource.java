@@ -1,14 +1,14 @@
 package com.undecided.projectTemplate.modules.resource.infra.dataSource.project;
 
+import com.undecided.projectTemplate.modules.resource.domain.project.Project;
+import com.undecided.projectTemplate.modules.resource.domain.project.ProjectRepository;
 import com.undecided.projectTemplate.modules.resource.infra.dao.projects.ProjectsDao;
+import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
 import java.util.List;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
-import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.modules.resource.domain.project.ProjectRepository;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
 
 @Component
 public class ProjectDataSource implements ProjectRepository {
@@ -21,7 +21,7 @@ public class ProjectDataSource implements ProjectRepository {
 
     @Override
     @Cacheable(value = "project", key = "'projectId/' + #projectId")
-    public Project findOneBy(Identifier<Project> projectId) {
+    public Project findOneBy(UildIdentifier<Project> projectId) {
         return projectsDao.findOneById(projectId);
 
     }
@@ -50,7 +50,7 @@ public class ProjectDataSource implements ProjectRepository {
 
     @Override
     @CacheEvict(value = "project", key = "'projectId/' + #projectId")
-    public void delete(Identifier<Project> projectId) {
+    public void delete(UildIdentifier<Project> projectId) {
         projectsDao.delete(projectId);
 
     }

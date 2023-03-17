@@ -1,20 +1,21 @@
 package com.undecided.projectTemplate.shared.entity;
 
+import com.undecided.primitive.object.Objects2;
+import com.undecided.projectTemplate.shared.value.AbstractValue;
+import com.undecided.projectTemplate.shared.value.DateTimeValue;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-import com.undecided.projectTemplate.shared.value.DateTimeValue;
 
 /**
  *
  */
 @Getter
-@EqualsAndHashCode
 @AllArgsConstructor
 @ToString
-public class WhenOccurred implements DateTimeValue<WhenOccurred> {
+public class WhenOccurred extends AbstractValue<LocalDateTime> implements
+    DateTimeValue<WhenOccurred> {
 
     private final LocalDateTime value;
 
@@ -23,4 +24,8 @@ public class WhenOccurred implements DateTimeValue<WhenOccurred> {
 
     }
 
+    @Override
+    public String asString() {
+        return Objects2.ifPresent(value, Object::toString);
+    }
 }

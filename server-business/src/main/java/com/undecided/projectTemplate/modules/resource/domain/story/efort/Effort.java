@@ -1,6 +1,7 @@
 package com.undecided.projectTemplate.modules.resource.domain.story.efort;
 
 import com.undecided.primitive.object.Objects2;
+import com.undecided.projectTemplate.shared.value.AbstractValue;
 import com.undecided.projectTemplate.shared.value.IntegerValue;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -11,7 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class Effort implements IntegerValue<Effort> {
+public class Effort extends AbstractValue<Integer> implements IntegerValue<Effort> {
 
     private final static Effort EMPTY = new Effort(null);
 
@@ -29,5 +30,10 @@ public class Effort implements IntegerValue<Effort> {
             return EMPTY;
         }
         return new Effort(value);
+    }
+
+    @Override
+    public String asString() {
+        return Objects2.ifPresent(value, Object::toString);
     }
 }

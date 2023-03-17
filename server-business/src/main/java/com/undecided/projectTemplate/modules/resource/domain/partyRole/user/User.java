@@ -3,7 +3,7 @@ package com.undecided.projectTemplate.modules.resource.domain.partyRole.user;
 import com.undecided.projectTemplate.modules.resource.domain.partyRole.user.attribbute.UserAttribute;
 import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -15,19 +15,19 @@ public class User extends AbstractEntity<User> {
 
     private final UserAttribute attribute;
 
-    protected User(Identifier<User> id, AuditInfo auditInfo, UserAttribute attribute) {
+    protected User(UildIdentifier<User> id, AuditInfo auditInfo, UserAttribute attribute) {
         super(id, auditInfo);
         this.attribute = attribute;
 
     }
 
     public static User create(UserAttribute attribute) {
-        return new User(Identifier.newInstance(), AuditInfo.empty(), attribute);
+        return new User(UildIdentifier.newInstance(), AuditInfo.empty(), attribute);
 
     }
 
     public static User create(User project) {
-        return new User(Identifier.newInstance(), AuditInfo.empty(), project.attribute);
+        return new User(UildIdentifier.newInstance(), AuditInfo.empty(), project.attribute);
 
     }
 

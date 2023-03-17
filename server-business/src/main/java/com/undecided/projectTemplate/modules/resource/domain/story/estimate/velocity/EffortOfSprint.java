@@ -1,5 +1,7 @@
 package com.undecided.projectTemplate.modules.resource.domain.story.estimate.velocity;
 
+import com.undecided.primitive.object.Objects2;
+import com.undecided.projectTemplate.shared.value.AbstractValue;
 import com.undecided.projectTemplate.shared.value.IntegerValue;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -10,13 +12,19 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class EffortOfSprint implements IntegerValue<EffortOfSprint> {
+public class EffortOfSprint extends AbstractValue<Integer> implements IntegerValue<EffortOfSprint> {
 
     private final Integer value;
 
     @Override
     public Integer getValue() {
         return value;
+
+    }
+
+    @Override
+    public String asString() {
+        return Objects2.ifPresent(value, Object::toString);
 
     }
 

@@ -6,17 +6,18 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import com.undecided.projectTemplate.modules.business.domain.entity.EntityKanaName;
 import com.undecided.projectTemplate.modules.business.domain.entity.EntityName;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
 import org.junit.jupiter.api.Test;
 
 class EventTest {
 
     /**
-     * Method under test: {@link Event#create(Identifier, AuditInfo, EntityKanaName, EntityName)}
+     * Method under test:
+     * {@link Event#create(UildIdentifier, AuditInfo, EntityKanaName, EntityName)}
      */
     @Test
     void testCreate() {
-        Identifier<Event> emptyResult = Identifier.empty();
+        UildIdentifier<Event> emptyResult = UildIdentifier.empty();
         AuditInfo emptyResult1 = AuditInfo.empty();
         EntityKanaName ofResult = EntityKanaName.of("42");
         EntityName ofResult1 = EntityName.of("42");

@@ -3,7 +3,7 @@ package com.undecided.projectTemplate.modules.resource.presentation.api.actors;
 import com.undecided.projectTemplate.modules.resource.buisiness.command.actor.RegisterActorCommand;
 import com.undecided.projectTemplate.modules.resource.domain.actor.Actor;
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
 import java.net.URI;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,7 +33,7 @@ public class ActorsRestController {
     }
 
     @GetMapping("v1.0/actors/{id}")
-    Project get(@PathVariable("id") Identifier<Project> projectId) {
+    Project get(@PathVariable("id") UildIdentifier<Project> projectId) {
         return Project.empty();
 
     }
@@ -52,14 +52,14 @@ public class ActorsRestController {
     }
 
     @DeleteMapping("v1.0/actors/{id}")
-    ResponseEntity<Void> delete(@PathVariable("id") Identifier<Actor> actorId) {
+    ResponseEntity<Void> delete(@PathVariable("id") UildIdentifier<Actor> actorId) {
 
         // レスポンス情報を作成
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("v1.0/actors/{id}")
-    public ResponseEntity<Actor> update(@PathVariable Identifier<Actor> id,
+    public ResponseEntity<Actor> update(@PathVariable UildIdentifier<Actor> id,
         @RequestBody Actor sourceActor) {
 
         return ResponseEntity.ok(sourceActor);

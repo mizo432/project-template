@@ -1,5 +1,8 @@
 package com.undecided.projectTemplate.modules.resource.domain.sprint;
 
+import com.google.common.base.Function;
+import com.undecided.primitive.object.Objects2;
+import com.undecided.projectTemplate.shared.value.AbstractValue;
 import com.undecided.projectTemplate.shared.value.IntegerValue;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -11,7 +14,8 @@ import lombok.ToString;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class SprintNumber implements IntegerValue<SprintNumber> {
+public class SprintNumber extends AbstractValue<Integer> implements
+    IntegerValue<SprintNumber> {
 
     private final Integer value;
 
@@ -21,7 +25,11 @@ public class SprintNumber implements IntegerValue<SprintNumber> {
     }
 
     @Override
-    public Integer getValue() {
-        return value;
+    public String asString() {
+        return Objects2.ifPresent(getValue(),
+            (Function<Integer, String>) Object::toString);
+        
     }
+
+
 }

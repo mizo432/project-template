@@ -5,7 +5,7 @@ import com.undecided.projectTemplate.modules.resource.buisiness.command.project.
 import com.undecided.projectTemplate.modules.resource.buisiness.command.project.UpdateProjectCommand;
 import com.undecided.projectTemplate.modules.resource.buisiness.query.ProjectFetcher;
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,7 +56,8 @@ public class ProjectController {
     }
 
     @GetMapping("/delete/{projectId}")
-    public String deleteEmployee(@PathVariable(value = "projectId") Identifier<Project> projectId) {
+    public String deleteEmployee(
+        @PathVariable(value = "projectId") UildIdentifier<Project> projectId) {
         deleteProjectCommand.delete(projectId);
         return "redirect:/project";
 
@@ -64,7 +65,7 @@ public class ProjectController {
 
     @GetMapping("/showFormForUpdate/{projectId}")
     public String showFormForUpdate(
-        @PathVariable(value = "projectId") Identifier<Project> projectId, Model model) {
+        @PathVariable(value = "projectId") UildIdentifier<Project> projectId, Model model) {
 
         Project project = projectFetcher.findOneBy(projectId);
 

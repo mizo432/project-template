@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.modules.resource.domain.project;
 
 import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -13,12 +13,12 @@ import lombok.ToString;
 public abstract class AbstractProjectResource<E extends AbstractProjectResource<E>> extends
     AbstractEntity<E> {
 
-    private final Identifier<Project> projectId;
+    private final UildIdentifier<Project> projectId;
 
 
-    protected AbstractProjectResource(Identifier<E> id,
+    protected AbstractProjectResource(UildIdentifier<E> id,
         AuditInfo auditInfo,
-        Identifier<Project> projectId) {
+        UildIdentifier<Project> projectId) {
         super(id, auditInfo);
         this.projectId = projectId;
     }

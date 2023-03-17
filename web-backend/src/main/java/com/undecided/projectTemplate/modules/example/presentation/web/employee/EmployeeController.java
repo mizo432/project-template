@@ -5,7 +5,7 @@ import com.undecided.projectTemplate.modules.example.business.command.employee.I
 import com.undecided.projectTemplate.modules.example.business.command.employee.UpdateEmployeeCommand;
 import com.undecided.projectTemplate.modules.example.business.query.employee.FetchEmployeeQuery;
 import com.undecided.projectTemplate.modules.example.domain.employee.Employee;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,7 +67,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/showFormForUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") Identifier<Employee> employeeId,
+    public String showFormForUpdate(@PathVariable(value = "id") UildIdentifier<Employee> employeeId,
         Model model) {
         // get employee from the service
         Employee employee = fetchEmployeeQuery.findEmployeeById(employeeId);
@@ -79,7 +79,7 @@ public class EmployeeController {
 
     @GetMapping("/deleteEmployee/{id}")
 //    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
-    public String deleteEmployee(@PathVariable(value = "id") Identifier<Employee> id) {
+    public String deleteEmployee(@PathVariable(value = "id") UildIdentifier<Employee> id) {
         // call delete employee method
         this.deleteEmployeeCommand.deleteEmployeeById(id);
         return "redirect:/employee";

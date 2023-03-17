@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.modules.resource.presentation.api.projects
 
 import com.undecided.projectTemplate.modules.resource.buisiness.command.RegisterProductCommand;
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
 import java.net.URI;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,7 +32,7 @@ public class ProjectsRestController {
     }
 
     @GetMapping("v1.0/projects/{id}")
-    Project get(@PathVariable("id") Identifier<Project> projectId) {
+    Project get(@PathVariable("id") UildIdentifier<Project> projectId) {
         return Project.empty();
 
     }
@@ -51,14 +51,14 @@ public class ProjectsRestController {
     }
 
     @DeleteMapping("v1.0/projects/{id}")
-    ResponseEntity<Void> delete(@PathVariable("id") Identifier<Project> projectId) {
+    ResponseEntity<Void> delete(@PathVariable("id") UildIdentifier<Project> projectId) {
 
         // レスポンス情報を作成
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("v1.0/projects/{id}")
-    public ResponseEntity<Project> update(@PathVariable Identifier<Project> id,
+    public ResponseEntity<Project> update(@PathVariable UildIdentifier<Project> id,
         @RequestBody Project sourceProject) {
 
         return ResponseEntity.ok(sourceProject);

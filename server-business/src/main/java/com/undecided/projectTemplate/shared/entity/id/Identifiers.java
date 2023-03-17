@@ -8,9 +8,9 @@ import java.util.Collection;
 import java.util.Set;
 
 public class Identifiers<E extends AbstractEntity<E>> implements
-    SetValue<Identifier<E>>, Serializable {
+    SetValue<UildIdentifier<E>>, Serializable {
 
-    private final Set<Identifier<E>> value = Sets2.newHashSet();
+    private final Set<UildIdentifier<E>> value = Sets2.newHashSet();
 
     Identifiers(Collection<E> value) {
         value.addAll(value);
@@ -21,7 +21,7 @@ public class Identifiers<E extends AbstractEntity<E>> implements
     }
 
     @Override
-    public Set<Identifier<E>> getValue() {
+    public Set<UildIdentifier<E>> getValue() {
         return value;
     }
 

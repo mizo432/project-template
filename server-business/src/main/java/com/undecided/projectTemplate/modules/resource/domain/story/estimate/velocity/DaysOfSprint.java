@@ -1,5 +1,6 @@
 package com.undecided.projectTemplate.modules.resource.domain.story.estimate.velocity;
 
+import com.undecided.projectTemplate.shared.value.AbstractValue;
 import com.undecided.projectTemplate.shared.value.IntegerValue;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -10,7 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class DaysOfSprint implements IntegerValue<DaysOfSprint> {
+public class DaysOfSprint extends AbstractValue<Integer> implements IntegerValue<DaysOfSprint> {
 
     private final Integer value;
 
@@ -20,6 +21,11 @@ public class DaysOfSprint implements IntegerValue<DaysOfSprint> {
 
     }
 
+    @Override
+    public String asString() {
+        return null;
+    }
+
     public static DaysOfSprint of(Integer value) {
         return new DaysOfSprint(value);
     }
@@ -27,5 +33,6 @@ public class DaysOfSprint implements IntegerValue<DaysOfSprint> {
     public static DaysOfSprint reconstruct(Integer value) {
         return new DaysOfSprint(value);
     }
+
 
 }

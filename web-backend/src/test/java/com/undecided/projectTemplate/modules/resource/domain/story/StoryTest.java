@@ -4,17 +4,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.undecided.projectTemplate.modules.resource.domain.project.Project;
 import com.undecided.projectTemplate.modules.resource.domain.story.attribute.StoryAttribute;
 import com.undecided.projectTemplate.modules.resource.domain.story.attribute.StoryStatus;
 import com.undecided.projectTemplate.modules.resource.domain.story.attribute.StoryType;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.WhenNoticed;
 import com.undecided.projectTemplate.shared.entity.WhoNoticed;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
-import com.undecided.projectTemplate.modules.resource.domain.project.Project;
 
 class StoryTest {
 
@@ -50,11 +50,11 @@ class StoryTest {
         StoryAttribute actualAttribute = actualReconstructResult.getAttribute();
         assertSame(reconstructResult, actualAttribute);
         String expectedValue = "42";
-        Identifier<Story> id = actualReconstructResult.getId();
+        UildIdentifier<Story> id = actualReconstructResult.getId();
         String actualValue = id.getValue();
         assertEquals(expectedValue, actualValue);
         String expectedValue1 = "42";
-        Identifier<Project> projectId1 = actualReconstructResult.getProjectId();
+        UildIdentifier<Project> projectId1 = actualReconstructResult.getProjectId();
         String actualValue1 = projectId1.getValue();
         assertEquals(expectedValue1, actualValue1);
         String expectedValue2 = "Who Noticed";
@@ -127,11 +127,11 @@ class StoryTest {
         StoryAttribute actualAttribute = actualReconstructResult.getAttribute();
         assertSame(reconstructResult, actualAttribute);
         String expectedValue = "Story Id";
-        Identifier<Story> id = actualReconstructResult.getId();
+        UildIdentifier<Story> id = actualReconstructResult.getId();
         String actualValue = id.getValue();
         assertEquals(expectedValue, actualValue);
         String expectedValue1 = "42";
-        Identifier<Project> projectId1 = actualReconstructResult.getProjectId();
+        UildIdentifier<Project> projectId1 = actualReconstructResult.getProjectId();
         String actualValue1 = projectId1.getValue();
         assertEquals(expectedValue1, actualValue1);
         String expectedValue2 = "Who Noticed";
@@ -179,11 +179,11 @@ class StoryTest {
         StoryAttribute actualAttribute = actualReconstructResult.getAttribute();
         assertSame(reconstructResult, actualAttribute);
         String expectedValue = "42";
-        Identifier<Story> id = actualReconstructResult.getId();
+        UildIdentifier<Story> id = actualReconstructResult.getId();
         String actualValue = id.getValue();
         assertEquals(expectedValue, actualValue);
         String expectedValue1 = "42";
-        Identifier<Project> projectId1 = actualReconstructResult.getProjectId();
+        UildIdentifier<Project> projectId1 = actualReconstructResult.getProjectId();
         String actualValue1 = projectId1.getValue();
         assertEquals(expectedValue1, actualValue1);
         String expectedToStringResult = "0001-01-01";

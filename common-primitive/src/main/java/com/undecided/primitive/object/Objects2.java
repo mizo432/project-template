@@ -1,6 +1,7 @@
 package com.undecided.primitive.object;
 
 import java.util.Objects;
+import java.util.function.Function;
 
 public class Objects2 {
 
@@ -17,5 +18,16 @@ public class Objects2 {
 
     public static boolean nonNull(Object o) {
         return o != null;
+    }
+
+    public static int hash(Object... objects) {
+        return Objects.hash(objects);
+    }
+
+    public static <O> String ifPresent(O value, Function<O, String> function) {
+        if (isNull(value))
+            return null;
+
+        return function.apply(value);
     }
 }

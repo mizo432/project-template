@@ -4,7 +4,7 @@ package com.undecided.projectTemplate.modules.example.business.query.employee;
 import com.undecided.primitive.list.Lists2;
 import com.undecided.projectTemplate.modules.example.business.command.employee.EmployeesData;
 import com.undecided.projectTemplate.modules.example.domain.employee.Employee;
-import com.undecided.projectTemplate.shared.entity.id.Identifier;
+import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +26,7 @@ public class FetchEmployeeQuery {
     }
 
     @Transactional
-    public Employee findEmployeeById(Identifier<Employee> id) {
+    public Employee findEmployeeById(UildIdentifier<Employee> id) {
         return data.get(id);
 
     }
