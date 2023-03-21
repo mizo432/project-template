@@ -7,7 +7,6 @@ server:
     register-default-servlet: true
 spring:
   profiles.default: unit
-  mvc.favicon.enabled: false
   resources:
     cache:
       period: 86400
@@ -19,19 +18,25 @@ spring:
   main:
     lazy-initialization: true
     allow-bean-definition-overriding: true
-  redis:
-    host: "localhost"
-    port: 6379
-    database: 0
+  data:
+    redis:
+      host: "localhost"
+      port: 6379
+      database: 0
   application:
     name: front # アプリケーション名
   jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: Asia/Tokyo
+#    time-zone: Asia/Tokyo
     visibility:
       field: any
-      getter: none
-      setter: none
+      getter: any
+      setter: any
+    serialization:
+      write-dates-as-timestamps: false
+      write-date-timestamps-as-nanoseconds: false
+      write-date-keys-as-timestamps: false
+      write-dates-with-context-time-zone: false
+      write-dates-with-zone-id: false
   devtools:
     restart:
       # 再起動のトリガーから除外するファイルを指定する

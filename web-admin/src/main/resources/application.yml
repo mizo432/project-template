@@ -8,11 +8,12 @@ spring:
     name: admin # アプリケーション名
   boot:
     admin:
-      url: http://localhost:8090/admin
       client:
         url: http://localhost:8090/admin
         instance:
           service-host-type: ip
+  thymeleaf:
+    check-template-location: false
 
 logging:
   file:

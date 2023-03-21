@@ -10,13 +10,6 @@ public class ActuatorHttpExchangesConfig {
 
     // private static final int EXCHANGE_CAPACITY = 2000;
 
-//    @Bean
-//    ObjectMapper om() {
-//        return new ObjectMapper();
-//            .registerModule(new JavaTimeModule())
-//            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-//    }
-
     @Bean
     public HttpExchangeRepository httpExchangeRepository() {
         // repository.setCapacity(EXCHANGE_CAPACITY);

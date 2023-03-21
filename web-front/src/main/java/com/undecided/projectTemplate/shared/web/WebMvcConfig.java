@@ -30,7 +30,7 @@ public class WebMvcConfig implements
             .setCachePeriod(604800)
             .resourceChain(true) // プロダクション環境ではtrue/開発環境ではfalseがおすすめ
             .addResolver(new VersionResourceResolver()
-                    .addContentVersionStrategy("/**/*.css")
+                    .addContentVersionStrategy("/*.css")
                 // コンテンツデータのMD5ハッシュ値によるバージョニング機能の有効化
             );
         registry.addResourceHandler("/images/**")

@@ -17,13 +17,13 @@ spring:
     auto-commit: true #default auto-commit behavior.
     connection-test-query: select 1
     leakDetectionThreshold: 120000 # 開発時は設定するが検証機、本番期では設定しない
-  redis:
-    host: "localhost"
-    port: 6379
-    database: 0
+  data:
+    redis:
+      host: "localhost"
+      port: 6379
+      database: 0
   boot:
     admin:
-      url: http://localhost:8090/admin
       client:
         url: http://localhost:8090/admin
         instance:
@@ -44,4 +44,6 @@ management:
   auditevents:
     enabled: true
   httpexchanges:
-    enabled: true
+    recording:
+      enabled: true
+      include: RESPONSE_HEADERS
