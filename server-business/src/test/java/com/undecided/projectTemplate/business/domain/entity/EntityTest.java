@@ -37,7 +37,7 @@ class EntityTest {
      */
     @Test
     void testCreate2() {
-        assertThrows(IllegalArgumentException.class, () -> Entity.create(null, null));
+        assertThrows(NullPointerException.class, () -> Entity.create(null, null));
     }
 
     /**
