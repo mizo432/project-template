@@ -8,18 +8,18 @@ import com.undecided.projectTemplate.modules.resource.domain.project.attribute.P
 import com.undecided.projectTemplate.modules.resource.domain.project.attribute.ProjectName;
 import com.undecided.projectTemplate.modules.resource.domain.project.attribute.StoryCodePrefix;
 import com.undecided.projectTemplate.modules.resource.domain.story.attribute.Description;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import org.junit.jupiter.api.Test;
 
 class ProjectTest {
 
     /**
-     * Method under test: {@link Project#Project(UildIdentifier, ProjectAttribute)}
+     * Method under test: {@link Project#Project(UlidIdentifier, ProjectAttribute)}
      */
     @Test
     void testConstructor() {
         // Arrange
-        UildIdentifier<Project> newInstanceResult = UildIdentifier.newInstance();
+        UlidIdentifier<Project> newInstanceResult = UlidIdentifier.newInstance();
         String value = "42";
         ProjectName ofResult = ProjectName.of(value);
         String value1 = "42";
@@ -37,7 +37,7 @@ class ProjectTest {
         // Assert
         ProjectAttribute attribute = actualProject.getAttribute();
         assertSame(createResult, attribute);
-        UildIdentifier<Project> actualId = actualProject.getProjectId();
+        UlidIdentifier<Project> actualId = actualProject.getProjectId();
         assertSame(newInstanceResult, actualId);
         StoryCodePrefix storyCodePrefix = attribute.getStoryCodePrefix();
         assertSame(ofResult2, storyCodePrefix);

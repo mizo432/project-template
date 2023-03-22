@@ -1,13 +1,13 @@
 package com.undecided.projectTemplate.shared.idHolder;
 
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 
 public class ProjectIdHolder {
 
-    private final static ThreadLocal<UildIdentifier<Project>> identifierRef = new ThreadLocal<>();
+    private final static ThreadLocal<UlidIdentifier<Project>> identifierRef = new ThreadLocal<>();
 
-    public static UildIdentifier<Project> operatingIdentifier() {
+    public static UlidIdentifier<Project> operatingIdentifier() {
         return identifierRef.get();
     }
 
@@ -16,7 +16,7 @@ public class ProjectIdHolder {
 
     }
 
-    public static void set(UildIdentifier<Project> identifier) {
+    public static void set(UlidIdentifier<Project> identifier) {
         identifierRef.set(identifier);
 
     }

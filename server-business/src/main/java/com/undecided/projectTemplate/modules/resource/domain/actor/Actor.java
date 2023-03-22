@@ -4,7 +4,7 @@ import com.undecided.projectTemplate.modules.resource.domain.actor.attribute.Act
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
 import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -15,10 +15,10 @@ import org.jetbrains.annotations.NotNull;
 @ToString(callSuper = true)
 public class Actor extends AbstractEntity<Actor> {
 
-    private final UildIdentifier<Project> projectId;
+    private final UlidIdentifier<Project> projectId;
     private final ActorAttribute attribute;
 
-    private Actor(UildIdentifier<Actor> id, UildIdentifier<Project> projectId, AuditInfo auditInfo,
+    private Actor(UlidIdentifier<Actor> id, UlidIdentifier<Project> projectId, AuditInfo auditInfo,
         ActorAttribute attribute) {
         super(id, auditInfo);
         this.projectId = projectId;
@@ -27,7 +27,7 @@ public class Actor extends AbstractEntity<Actor> {
     }
 
     public static Actor empty() {
-        return new Actor(UildIdentifier.empty(), UildIdentifier.empty(), AuditInfo.empty(),
+        return new Actor(UlidIdentifier.empty(), UlidIdentifier.empty(), AuditInfo.empty(),
             ActorAttribute.empty());
     }
 
@@ -38,8 +38,8 @@ public class Actor extends AbstractEntity<Actor> {
             attribute.equals(other.attribute);
     }
 
-    public static Actor reconstruct(@NotNull UildIdentifier<Actor> id,
-        @NotNull UildIdentifier<Project> projectId,
+    public static Actor reconstruct(@NotNull UlidIdentifier<Actor> id,
+        @NotNull UlidIdentifier<Project> projectId,
         @NotNull AuditInfo auditInfo, @NotNull ActorAttribute attribute) {
         return new Actor(id, projectId, auditInfo, attribute);
 

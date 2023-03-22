@@ -3,7 +3,7 @@ package com.undecided.projectTemplate.modules.resource.domain.story.dependency;
 import com.undecided.projectTemplate.modules.resource.domain.story.Story;
 import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -16,13 +16,13 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class Dependency extends AbstractEntity<Dependency> {
 
-    private final UildIdentifier<Story> sourceStoryId;
+    private final UlidIdentifier<Story> sourceStoryId;
 
-    private final UildIdentifier<Story> destStoryId;
+    private final UlidIdentifier<Story> destStoryId;
 
-    Dependency(UildIdentifier<Dependency> dependencyId, AuditInfo auditInfo,
-        UildIdentifier<Story> sourceStoryId,
-        UildIdentifier<Story> destStoryId) {
+    Dependency(UlidIdentifier<Dependency> dependencyId, AuditInfo auditInfo,
+        UlidIdentifier<Story> sourceStoryId,
+        UlidIdentifier<Story> destStoryId) {
         super(dependencyId, auditInfo);
         this.sourceStoryId = sourceStoryId;
         this.destStoryId = destStoryId;
@@ -36,23 +36,23 @@ public class Dependency extends AbstractEntity<Dependency> {
 
     }
 
-    public static Dependency create(UildIdentifier<Story> sourceStoryId,
-        UildIdentifier<Story> destStoryId) {
-        return new Dependency(UildIdentifier.newInstance(), AuditInfo.empty(), sourceStoryId,
+    public static Dependency create(UlidIdentifier<Story> sourceStoryId,
+        UlidIdentifier<Story> destStoryId) {
+        return new Dependency(UlidIdentifier.newInstance(), AuditInfo.empty(), sourceStoryId,
             destStoryId);
 
     }
 
     public static Dependency reconstruct(String dependencyId, String sourceStoryId,
         String destStoryId) {
-        return reconstruct(UildIdentifier.reconstruct(dependencyId), AuditInfo.empty(),
-            UildIdentifier.reconstruct(sourceStoryId), UildIdentifier.reconstruct(destStoryId));
+        return reconstruct(UlidIdentifier.reconstruct(dependencyId), AuditInfo.empty(),
+            UlidIdentifier.reconstruct(sourceStoryId), UlidIdentifier.reconstruct(destStoryId));
 
     }
 
-    private static Dependency reconstruct(UildIdentifier<Dependency> dependencyId,
-        AuditInfo auditInfo, UildIdentifier<Story> sourceStoryId,
-        UildIdentifier<Story> destStoryId) {
+    private static Dependency reconstruct(UlidIdentifier<Dependency> dependencyId,
+        AuditInfo auditInfo, UlidIdentifier<Story> sourceStoryId,
+        UlidIdentifier<Story> destStoryId) {
         return new Dependency(dependencyId, auditInfo, sourceStoryId, destStoryId);
 
     }

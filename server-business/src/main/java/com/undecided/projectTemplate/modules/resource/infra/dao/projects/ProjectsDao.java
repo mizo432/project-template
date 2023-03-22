@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.modules.resource.infra.dao.projects;
 
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import java.util.List;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Delete;
@@ -16,7 +16,7 @@ import org.seasar.doma.jdbc.Result;
 public interface ProjectsDao {
 
     @Select
-    Project findOneById(UildIdentifier<Project> projectId);
+    Project findOneById(UlidIdentifier<Project> projectId);
 
     @Select
     List<Project> selectAll();
@@ -28,6 +28,6 @@ public interface ProjectsDao {
     Result<Project> update(Project project);
 
     @Delete(sqlFile = true)
-    int delete(UildIdentifier<Project> projectId);
+    int delete(UlidIdentifier<Project> projectId);
 
 }

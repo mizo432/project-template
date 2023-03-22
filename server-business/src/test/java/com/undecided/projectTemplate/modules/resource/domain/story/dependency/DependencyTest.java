@@ -3,7 +3,7 @@ package com.undecided.projectTemplate.modules.resource.domain.story.dependency;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.undecided.projectTemplate.modules.resource.domain.story.Story;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -17,10 +17,10 @@ class DependencyTest {
     void testReconstruct() {
         Dependency actualReconstructResult = Dependency.reconstruct("42", "42", "42");
         System.out.println(actualReconstructResult);
-        UildIdentifier<Story> sourceStoryId = actualReconstructResult.getSourceStoryId();
-        UildIdentifier<Story> destStoryId = actualReconstructResult.getDestStoryId();
+        UlidIdentifier<Story> sourceStoryId = actualReconstructResult.getSourceStoryId();
+        UlidIdentifier<Story> destStoryId = actualReconstructResult.getDestStoryId();
         assertEquals(sourceStoryId, destStoryId);
-        UildIdentifier<Dependency> id = actualReconstructResult.getId();
+        UlidIdentifier<Dependency> id = actualReconstructResult.getId();
         assertEquals(destStoryId, id);
         assertEquals("42", destStoryId.getValue());
         assertEquals("42", id.getValue());
@@ -33,10 +33,10 @@ class DependencyTest {
     @Test
     void testReconstruct2() {
         Dependency actualReconstructResult = Dependency.reconstruct("foo", "foo", "foo");
-        UildIdentifier<Story> sourceStoryId = actualReconstructResult.getSourceStoryId();
-        UildIdentifier<Story> destStoryId = actualReconstructResult.getDestStoryId();
+        UlidIdentifier<Story> sourceStoryId = actualReconstructResult.getSourceStoryId();
+        UlidIdentifier<Story> destStoryId = actualReconstructResult.getDestStoryId();
         assertEquals(sourceStoryId, destStoryId);
-        UildIdentifier<Dependency> id = actualReconstructResult.getId();
+        UlidIdentifier<Dependency> id = actualReconstructResult.getId();
         assertEquals(destStoryId, id);
         assertEquals("foo", destStoryId.getValue());
         assertEquals("foo", id.getValue());
@@ -49,8 +49,8 @@ class DependencyTest {
     @Test
     void testReconstruct3() {
         Dependency actualReconstructResult = Dependency.reconstruct("", "42", "42");
-        UildIdentifier<Story> sourceStoryId = actualReconstructResult.getSourceStoryId();
-        UildIdentifier<Story> destStoryId = actualReconstructResult.getDestStoryId();
+        UlidIdentifier<Story> sourceStoryId = actualReconstructResult.getSourceStoryId();
+        UlidIdentifier<Story> destStoryId = actualReconstructResult.getDestStoryId();
         assertEquals(sourceStoryId, destStoryId);
         assertEquals("42", destStoryId.getValue());
         assertEquals("42", sourceStoryId.getValue());

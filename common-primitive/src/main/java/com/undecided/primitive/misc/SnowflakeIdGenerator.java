@@ -6,13 +6,15 @@ public class SnowflakeIdGenerator {
     private static final long MAX_WORKER_ID = 1023L;
 
     private final long workerId;
-    private long sequence = 0L;
+    private static long sequence = 0L;
 
-    private long lastTimestamp = -1L;
+    private static long lastTimestamp = -1L;
 
     public SnowflakeIdGenerator(Long workerId) {
         if (workerId < 0 || workerId > MAX_WORKER_ID) {
-            throw new IllegalArgumentException("worker ID must be between 0 and " + MAX_WORKER_ID);
+            throw new IllegalArgumentException(
+                "worker ID must be between 0 and " + MAX_WORKER_ID + " but workerId is "
+                    + workerId);
         }
         this.workerId = workerId;
     }

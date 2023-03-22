@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.modules.resource.buisiness.query;
 
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
 import com.undecided.projectTemplate.modules.resource.domain.project.ProjectRepository;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,7 @@ public class ProjectFetcher {
 
     }
 
-    public Project findOneBy(UildIdentifier<Project> projectId) {
+    public Project findOneBy(UlidIdentifier<Project> projectId) {
         return projectRepository.findOneBy(projectId);
 
     }

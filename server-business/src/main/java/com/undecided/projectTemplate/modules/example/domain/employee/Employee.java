@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.modules.example.domain.employee;
 
 import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,10 +21,10 @@ public class Employee extends AbstractEntity<Employee> {
     private final String email;
 
     public Employee() {
-        this(UildIdentifier.newInstance(), null, null, null);
+        this(UlidIdentifier.newInstance(), null, null, null);
     }
 
-    private Employee(UildIdentifier<Employee> id, String firstName, String lastName, String email) {
+    private Employee(UlidIdentifier<Employee> id, String firstName, String lastName, String email) {
         super(id, AuditInfo.empty());
         this.email = email;
         this.firstName = firstName;

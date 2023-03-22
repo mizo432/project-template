@@ -7,25 +7,9 @@
         </encoder>
     </appender>
 
-    <appender name="APPLICATION_LOG_FILE"
-      class="ch.qos.logback.core.rolling.RollingFileAppender"> <!-- (3) -->
-        <file>${LOG_DIR}/TemplateWebApiApplication.log</file> <!-- (4) -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>
-                ${LOG_DIR}/TemplateWebApiApplication-%d{yyyy-MM-dd}.zip
-            </fileNamePattern> <!-- (5) -->
-            <maxHistory>7</maxHistory> <!-- (6) -->
-        </rollingPolicy>
-        <encoder>
-            <charset>UTF-8</charset> <!-- (7) -->
-            <pattern>
-                <![CDATA[date:%d{yyyy-MM-dd HH:mm:ss}\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-40logger{40}\tmessage:%replace(%msg){'(\r\n|\r|\n)','$1  '}%n%replace(%replace(%xEx){'(\r\n|\r|\n)','$1  '}){'  $',''}%nopex]]></pattern>
-        </encoder>
-    </appender>
-
     <!-- Application Loggers -->
     <logger name="com.undecided.projectTemplate"> <!-- (9) -->
-        <level value="warn"/>
+        <level value="debug"/>
     </logger>
 
     <logger name="com.undecided.projectTemplate.shared"> <!-- (9) -->
@@ -54,7 +38,6 @@
     </logger -->
     <root level="warn"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
-        <appender-ref ref="APPLICATION_LOG_FILE"/>
     </root>
 
 </included>

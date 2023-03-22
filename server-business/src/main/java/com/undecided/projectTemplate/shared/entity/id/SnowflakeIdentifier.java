@@ -1,18 +1,17 @@
 package com.undecided.projectTemplate.shared.entity.id;
 
+import static com.undecided.primitive.object.Objects2.isNull;
+
 import com.undecided.primitive.misc.NodeIdGenerator;
 import com.undecided.primitive.misc.SnowflakeIdGenerator;
-import com.undecided.primitive.object.Objects2;
 import com.undecided.projectTemplate.shared.value.LongValue;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
 @ToString
-@EqualsAndHashCode
 @AllArgsConstructor
 public class SnowflakeIdentifier<E> implements
     LongValue<SnowflakeIdentifier<E>>, Serializable {
@@ -53,7 +52,7 @@ public class SnowflakeIdentifier<E> implements
      */
     @SuppressWarnings("unchecked")
     public static <E> SnowflakeIdentifier<E> reconstruct(Long value) {
-        if (Objects2.isNull(value)) {
+        if (isNull(value)) {
             return (SnowflakeIdentifier<E>) EMPTY;
         }
         return new SnowflakeIdentifier<>(value);
@@ -62,6 +61,13 @@ public class SnowflakeIdentifier<E> implements
 
     public static <E> SnowflakeIdentifier<E> of(Long value) {
         return new SnowflakeIdentifier<>(value);
+    }
+
+    public String toString() {
+        if (isNull(value)) {
+            return null;
+        }
+        return value.toString();
     }
 
 }

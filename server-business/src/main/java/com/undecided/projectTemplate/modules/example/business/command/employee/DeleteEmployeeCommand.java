@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.modules.example.business.command.employee;
 
 import com.undecided.projectTemplate.modules.example.domain.employee.Employee;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +15,7 @@ public class DeleteEmployeeCommand {
     }
 
     @Transactional
-    public void deleteEmployeeById(UildIdentifier<Employee> id) {
+    public void deleteEmployeeById(UlidIdentifier<Employee> id) {
         data.remove(id);
     }
 

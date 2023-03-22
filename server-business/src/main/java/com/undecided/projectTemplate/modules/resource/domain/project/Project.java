@@ -5,7 +5,7 @@ import static com.undecided.primitive.object.Objects2.isNull;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.undecided.projectTemplate.modules.resource.domain.project.attribute.ProjectAttribute;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -26,39 +26,39 @@ import org.seasar.doma.boot.ConfigAutowireable;
 public class Project implements Serializable {
 
     @Id
-    protected final UildIdentifier<Project> projectId;
+    protected final UlidIdentifier<Project> projectId;
 
     private final ProjectAttribute attribute;
 
     public Project() {
-        this(UildIdentifier.empty(), ProjectAttribute.empty());
+        this(UlidIdentifier.empty(), ProjectAttribute.empty());
 
     }
 
 
     public static Project create(ProjectAttribute attribute) {
-        return create(UildIdentifier.newInstance(), attribute);
+        return create(UlidIdentifier.newInstance(), attribute);
 
     }
 
     @JsonCreator
-    public static Project create(@JsonProperty("projectId") UildIdentifier<Project> projectId,
+    public static Project create(@JsonProperty("projectId") UlidIdentifier<Project> projectId,
         @JsonProperty("attribute") ProjectAttribute attribute) {
         return new Project(projectId, attribute);
 
     }
 
     public static Project create(Project project) {
-        return new Project(UildIdentifier.newInstance(), project.attribute);
+        return new Project(UlidIdentifier.newInstance(), project.attribute);
 
     }
 
     public static Project newInstance() {
-        return new Project(UildIdentifier.newInstance(), ProjectAttribute.empty());
+        return new Project(UlidIdentifier.newInstance(), ProjectAttribute.empty());
     }
 
     public static Project empty() {
-        return new Project(UildIdentifier.empty(), ProjectAttribute.empty());
+        return new Project(UlidIdentifier.empty(), ProjectAttribute.empty());
     }
 
     public boolean sameValueAs(Project other) {

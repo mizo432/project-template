@@ -1,11 +1,11 @@
 package com.undecided.projectTemplate.modules.resource.domain.project;
 
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import java.util.List;
 
 public interface ProjectRepository {
 
-    Project findOneBy(UildIdentifier<Project> projectId);
+    Project findOneBy(UlidIdentifier<Project> projectId);
 
     List<Project> selectAll();
 
@@ -13,6 +13,6 @@ public interface ProjectRepository {
 
     Project update(Project project);
 
-    void delete(UildIdentifier<Project> projectId);
+    void delete(UlidIdentifier<Project> projectId);
 
 }

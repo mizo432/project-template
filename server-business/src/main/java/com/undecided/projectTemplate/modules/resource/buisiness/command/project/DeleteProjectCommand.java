@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.modules.resource.buisiness.command.project
 
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
 import com.undecided.projectTemplate.modules.resource.domain.project.ProjectRepository;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +16,7 @@ public class DeleteProjectCommand {
     }
 
     @Transactional
-    public void delete(UildIdentifier<Project> projectId) {
+    public void delete(UlidIdentifier<Project> projectId) {
         projectRepository.delete(projectId);
 
     }

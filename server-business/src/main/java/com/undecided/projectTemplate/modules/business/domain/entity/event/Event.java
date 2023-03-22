@@ -4,7 +4,7 @@ import com.undecided.projectTemplate.modules.business.domain.entity.EntityKanaNa
 import com.undecided.projectTemplate.modules.business.domain.entity.EntityName;
 import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +21,7 @@ public class Event extends AbstractEntity<Event> {
     private EntityKanaName kanaName;
     private EntityName name;
 
-    Event(UildIdentifier<Event> id, AuditInfo auditInfo, EntityKanaName kanaName,
+    Event(UlidIdentifier<Event> id, AuditInfo auditInfo, EntityKanaName kanaName,
         EntityName name) {
         super(id, auditInfo);
         this.kanaName = kanaName;
@@ -29,7 +29,7 @@ public class Event extends AbstractEntity<Event> {
 
     }
 
-    public static Event create(UildIdentifier<Event> id, AuditInfo auditInfo,
+    public static Event create(UlidIdentifier<Event> id, AuditInfo auditInfo,
         EntityKanaName kanaName,
         EntityName name) {
         return new Event(id, auditInfo, kanaName, name);

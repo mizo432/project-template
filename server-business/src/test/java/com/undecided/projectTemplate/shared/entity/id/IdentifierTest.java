@@ -9,41 +9,41 @@ import org.junit.jupiter.api.Test;
 class IdentifierTest {
 
     /**
-     * Method under test: {@link UildIdentifier#asString()}
+     * Method under test: {@link UlidIdentifier#asString()}
      */
     @Test
     void testAsString() {
         // Arrange, Act and Assert
-        assertNull(UildIdentifier.empty().asString());
+        assertNull(UlidIdentifier.empty().asString());
     }
 
     /**
-     * Method under test: {@link UildIdentifier#reconstruct(String)}
+     * Method under test: {@link UlidIdentifier#reconstruct(String)}
      */
     @Test
     void testReconstruct() {
         // Arrange, Act and Assert
-        assertEquals("42", UildIdentifier.reconstruct("42").getValue());
+        assertEquals("42", UlidIdentifier.reconstruct("42").getValue());
     }
 
     /**
-     * Method under test: {@link UildIdentifier#of(String)}
+     * Method under test: {@link UlidIdentifier#of(String)}
      */
     @Test
     void testOf() {
         // Arrange, Act and Assert
-        assertThrows(IllegalArgumentException.class, () -> UildIdentifier.of("42"));
+        assertThrows(IllegalArgumentException.class, () -> UlidIdentifier.of("42"));
         assertEquals("42runtimeExceptionSupplier",
-            UildIdentifier.of("42runtimeExceptionSupplier").getValue());
+            UlidIdentifier.of("42runtimeExceptionSupplier").getValue());
     }
 
     /**
-     * Method under test: {@link UildIdentifier#UildIdentifier()}
+     * Method under test: {@link UlidIdentifier#UlidIdentifier()}
      */
     @Test
     void testConstructor() {
         // Arrange, Act and Assert
-        assertNull((new UildIdentifier<>()).getValue());
+        assertNull((new UlidIdentifier<>()).getValue());
     }
 }
 

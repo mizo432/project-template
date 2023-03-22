@@ -1,20 +1,20 @@
 package com.undecided.projectTemplate.shared.domaConverter.entity.identifier;
 
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import org.seasar.doma.ExternalDomain;
 import org.seasar.doma.jdbc.domain.DomainConverter;
 
 @ExternalDomain
-public class IdentifierConverter implements DomainConverter<UildIdentifier<?>, String> {
+public class IdentifierConverter implements DomainConverter<UlidIdentifier<?>, String> {
 
     @Override
-    public String fromDomainToValue(UildIdentifier identifier) {
+    public String fromDomainToValue(UlidIdentifier identifier) {
         return identifier.getValue();
     }
 
     @Override
-    public UildIdentifier fromValueToDomain(String value) {
-        return UildIdentifier.reconstruct(value);
+    public UlidIdentifier fromValueToDomain(String value) {
+        return UlidIdentifier.reconstruct(value);
 
     }
 }

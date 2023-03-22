@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.shared.entity;
 
 import static com.undecided.primitive.object.Objects2.isNull;
 
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import java.util.Objects;
 import lombok.Getter;
 import lombok.ToString;
@@ -13,16 +13,16 @@ import org.seasar.doma.Id;
 public abstract class AbstractEntity<E extends AbstractEntity<E>> {
 
     @Id
-    protected final UildIdentifier<E> id;
+    protected final UlidIdentifier<E> id;
 
     protected final AuditInfo auditInfo;
 
     protected AbstractEntity() {
-        this(UildIdentifier.empty(), AuditInfo.empty());
+        this(UlidIdentifier.empty(), AuditInfo.empty());
 
     }
 
-    protected AbstractEntity(UildIdentifier<E> id, AuditInfo auditInfo) {
+    protected AbstractEntity(UlidIdentifier<E> id, AuditInfo auditInfo) {
         this.id = id;
         this.auditInfo = auditInfo;
 

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.undecided.projectTemplate.modules.business.domain.entity.EntityName;
 import org.junit.jupiter.api.Test;
 
-class EntityNameConverterTest {
+class EntityMemberNameConverterTest {
 
     /**
      * Method under test: {@link EntityNameConverter#fromDomainToValue(EntityName)}

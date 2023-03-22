@@ -7,20 +7,20 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import org.junit.jupiter.api.Test;
 
 class EntityTest {
 
     /**
      * Method under test:
-     * {@link Entity#Entity(UildIdentifier, UildIdentifier, AuditInfo, EntityName, EntityKanaName,
+     * {@link Entity#Entity(UlidIdentifier, UlidIdentifier, AuditInfo, EntityName, EntityKanaName,
      * EntityType)}
      */
     @Test
     void testConstructor8() {
-        UildIdentifier<Entity> id = UildIdentifier.empty();
-        UildIdentifier<Project> emptyResult = UildIdentifier.empty();
+        UlidIdentifier<Entity> id = UlidIdentifier.empty();
+        UlidIdentifier<Project> emptyResult = UlidIdentifier.empty();
         AuditInfo emptyResult1 = AuditInfo.empty();
         EntityName name = EntityName.of("42");
         EntityKanaName ofResult = EntityKanaName.of("42");

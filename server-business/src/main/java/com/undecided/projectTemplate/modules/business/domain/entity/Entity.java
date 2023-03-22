@@ -3,7 +3,7 @@ package com.undecided.projectTemplate.modules.business.domain.entity;
 import com.undecided.projectTemplate.modules.resource.domain.project.Project;
 import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import com.undecided.projectTemplate.shared.idHolder.ProjectIdHolder;
 import com.undecided.projectTemplate.shared.precondition.object.ObjectPreconditions;
 import com.undecided.projectTemplate.shared.value.ValuePreconditions;
@@ -18,7 +18,7 @@ import org.jetbrains.annotations.VisibleForTesting;
 @EqualsAndHashCode(callSuper = true)
 public class Entity extends AbstractEntity<Entity> {
 
-    private final UildIdentifier<Project> projectIdentifier;
+    private final UlidIdentifier<Project> projectIdentifier;
 
     private final EntityName name;
     private final EntityKanaName kanaName;
@@ -26,7 +26,7 @@ public class Entity extends AbstractEntity<Entity> {
     private final EntityType type;
 
     @VisibleForTesting
-    Entity(UildIdentifier<Entity> id, UildIdentifier<Project> projectIdentifier,
+    Entity(UlidIdentifier<Entity> id, UlidIdentifier<Project> projectIdentifier,
         AuditInfo auditInfo,
         EntityName name,
         EntityKanaName kanaName, EntityType type) {
@@ -44,13 +44,13 @@ public class Entity extends AbstractEntity<Entity> {
     }
 
     public Entity() {
-        this(UildIdentifier.newInstance(), UildIdentifier.empty(), AuditInfo.empty(),
+        this(UlidIdentifier.newInstance(), UlidIdentifier.empty(), AuditInfo.empty(),
             EntityName.empty(),
             EntityKanaName.empty(), EntityType.UNKNOWN);
     }
 
     public static Entity create(@NotNull EntityName name, @NotNull EntityKanaName kanaName) {
-        return new Entity(UildIdentifier.newInstance(), ProjectIdHolder.operatingIdentifier(),
+        return new Entity(UlidIdentifier.newInstance(), ProjectIdHolder.operatingIdentifier(),
             AuditInfo.empty(), name, kanaName, EntityType.UNKNOWN);
 
     }

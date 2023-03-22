@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.undecided.projectTemplate.modules.business.domain.entity.EntityKanaName;
 import org.junit.jupiter.api.Test;
 
-class EntityKanaNameConverterTest {
+class MemberNameConverterTest {
 
     /**
      * Method under test: {@link EntityKanaNameConverter#fromDomainToValue(EntityKanaName)}

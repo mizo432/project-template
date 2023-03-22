@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.modules.resource.domain.sprint;
 
 import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.UildIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class Sprint extends AbstractEntity<Sprint> {
 
-    protected Sprint(UildIdentifier<Sprint> id,
+    protected Sprint(UlidIdentifier<Sprint> id,
         AuditInfo auditInfo) {
         super(id, auditInfo);
     }

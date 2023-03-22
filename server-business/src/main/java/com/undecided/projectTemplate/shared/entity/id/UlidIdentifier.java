@@ -8,26 +8,24 @@ import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class UildIdentifier<E> implements
-    StringValue<UildIdentifier<E>>, Serializable {
+public class UlidIdentifier<E> implements
+    StringValue<UlidIdentifier<E>>, Serializable {
 
-    private static final UildIdentifier<?> EMPTY = new UildIdentifier<>();
+    private static final UlidIdentifier<?> EMPTY = new UlidIdentifier<>();
 
     private final String value;
 
-    public UildIdentifier() {
+    public UlidIdentifier() {
         this(null);
     }
 
     @SuppressWarnings("unchecked")
-    public static <E> UildIdentifier<E> empty() {
-        return (UildIdentifier<E>) EMPTY;
+    public static <E> UlidIdentifier<E> empty() {
+        return (UlidIdentifier<E>) EMPTY;
     }
 
     @Override
@@ -35,8 +33,8 @@ public class UildIdentifier<E> implements
         return value;
     }
 
-    public static <E> UildIdentifier<E> newInstance() {
-        return new UildIdentifier<E>(new ULID().nextValue().toString());
+    public static <E> UlidIdentifier<E> newInstance() {
+        return new UlidIdentifier<E>(new ULID().nextValue().toString());
 
     }
 
@@ -48,19 +46,23 @@ public class UildIdentifier<E> implements
      * @return 識別子オブジェクト
      */
     @SuppressWarnings("unchecked")
-    public static <E> UildIdentifier<E> reconstruct(String value) {
+    public static <E> UlidIdentifier<E> reconstruct(String value) {
         if (Strings2.isEmpty(value)) {
-            return (UildIdentifier<E>) EMPTY;
+            return (UlidIdentifier<E>) EMPTY;
         }
-        return new UildIdentifier<>(value);
+        return new UlidIdentifier<>(value);
 
     }
 
-    public static <E> UildIdentifier<E> of(String value) {
+    public static <E> UlidIdentifier<E> of(String value) {
         StringPreconditions.checkLength(value, 26,
             () -> new IllegalArgumentException("識別子は" + 26 + "桁でなければいけません。 value=" + value));
 
-        return new UildIdentifier<>(value);
+        return new UlidIdentifier<>(value);
     }
 
+    @Override
+    public String toString() {
+        return value;
+    }
 }
