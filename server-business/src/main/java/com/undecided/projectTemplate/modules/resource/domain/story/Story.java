@@ -31,7 +31,7 @@ public class Story extends AbstractProjectResource<Story> {
 
     }
 
-    public static Story reconstruct(String storyId, LocalDateTime whenNoticed, String whoNoticed,
+    public static Story reconstruct(String storyId, LocalDateTime whenNoticed, Long whoNoticed,
         String productId, @NotNull StoryAttribute attribute) {
         ObjectPreconditions.checkNotNull(attribute, "attribute");
         return new Story(UlidIdentifier.reconstruct(storyId),

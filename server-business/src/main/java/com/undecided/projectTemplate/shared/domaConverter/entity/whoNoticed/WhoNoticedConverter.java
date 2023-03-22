@@ -5,15 +5,16 @@ import org.seasar.doma.ExternalDomain;
 import org.seasar.doma.jdbc.domain.DomainConverter;
 
 @ExternalDomain
-public class WhoNoticedConverter implements DomainConverter<WhoNoticed, String> {
+public class WhoNoticedConverter implements DomainConverter<WhoNoticed, Long> {
 
     @Override
-    public String fromDomainToValue(WhoNoticed whoNoticed) {
+    public Long fromDomainToValue(WhoNoticed whoNoticed) {
         return whoNoticed.getValue();
     }
 
     @Override
-    public WhoNoticed fromValueToDomain(String value) {
+    public WhoNoticed fromValueToDomain(Long value) {
         return WhoNoticed.reconstruct(value);
+
     }
 }

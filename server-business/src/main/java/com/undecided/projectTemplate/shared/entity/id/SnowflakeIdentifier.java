@@ -8,10 +8,8 @@ import com.undecided.projectTemplate.shared.value.LongValue;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@ToString
 @AllArgsConstructor
 public class SnowflakeIdentifier<E> implements
     LongValue<SnowflakeIdentifier<E>>, Serializable {

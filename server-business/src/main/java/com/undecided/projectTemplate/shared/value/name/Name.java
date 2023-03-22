@@ -1,6 +1,7 @@
 package com.undecided.projectTemplate.shared.value.name;
 
 import com.undecided.primitive.string.Strings2;
+import com.undecided.projectTemplate.shared.value.AbstractValue;
 import com.undecided.projectTemplate.shared.value.StringValue;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -12,7 +13,7 @@ import lombok.ToString;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @EqualsAndHashCode(callSuper = false)
 @ToString
-public class Name implements StringValue<Name> {
+public class Name extends AbstractValue<String> implements StringValue<Name> {
 
     private static final Name EMPTY = new Name(null);
     private final String value;
@@ -35,7 +36,7 @@ public class Name implements StringValue<Name> {
     }
 
     public static Name empty() {
-        return new Name(null);
+        return EMPTY;
     }
 
     @Override

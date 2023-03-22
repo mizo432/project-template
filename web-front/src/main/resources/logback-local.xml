@@ -29,7 +29,7 @@
     </logger>
 
     <logger name="com.undecided.projectTemplate.shared"> <!-- (9) -->
-        <level value="trace"/>
+        <level value="debug"/>
     </logger>
 
     <logger name="com.undecided.gfw.web.logging.HttpSessionEventLoggingListener"> <!-- (9) -->

@@ -17,13 +17,13 @@ public class AuditInfo {
     private final WhenNoticed whenNoticed;
     private final WhoNoticed whoNoticed;
 
-    public static AuditInfo reconstruct(LocalDateTime whenNoticed, String whoNoticed) {
+    public static AuditInfo reconstruct(LocalDateTime whenNoticed, Long whoNoticed) {
         return new AuditInfo(WhenNoticed.reconstruct(whenNoticed),
             WhoNoticed.reconstruct(whoNoticed));
 
     }
 
-    public static AuditInfo of(String whoNoticed) {
+    public static AuditInfo of(Long whoNoticed) {
         return of(WhoNoticed.reconstruct(whoNoticed));
 
     }

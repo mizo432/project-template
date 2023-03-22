@@ -3,21 +3,21 @@ package com.undecided.projectTemplate.shared.entity;
 import static com.undecided.primitive.object.Objects2.isNull;
 
 import com.undecided.projectTemplate.shared.value.AbstractValue;
-import com.undecided.projectTemplate.shared.value.StringValue;
+import com.undecided.projectTemplate.shared.value.LongValue;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@EqualsAndHashCode
-public class WhoNoticed extends AbstractValue<String> implements StringValue<WhoNoticed> {
+@EqualsAndHashCode(callSuper = true)
+public class WhoNoticed extends AbstractValue<Long> implements LongValue<WhoNoticed> {
 
     private static final WhoNoticed EMPTY = new WhoNoticed(null);
-    private final String value;
+    private final Long value;
 
 
-    public static WhoNoticed reconstruct(String whoNoticed) {
+    public static WhoNoticed reconstruct(Long whoNoticed) {
         if (isNull(whoNoticed)) {
             return EMPTY;
         }
@@ -30,11 +30,19 @@ public class WhoNoticed extends AbstractValue<String> implements StringValue<Who
 
     @Override
     public String asString() {
-        return value;
+        if (isNull(value)) {
+            return null;
+        }
+        return value.toString();
     }
 
     @Override
     public String toString() {
-        return value;
+        if (isNull(value)) {
+            return null;
+        }
+        return value.toString();
+
     }
+    
 }
