@@ -2,6 +2,7 @@ package com.undecided.projectTemplate.modules.resource.domain.partyRole.user.att
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.undecided.projectTemplate.resource.domain.partyRole.user.attribbute.UserCode;
 import org.junit.jupiter.api.Test;
 
 class UserCodeTest {

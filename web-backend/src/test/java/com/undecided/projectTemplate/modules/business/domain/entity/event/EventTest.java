@@ -3,8 +3,9 @@ package com.undecided.projectTemplate.modules.business.domain.entity.event;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-import com.undecided.projectTemplate.modules.business.domain.entity.EntityKanaName;
-import com.undecided.projectTemplate.modules.business.domain.entity.EntityName;
+import com.undecided.projectTemplate.business.domain.entity.EntityKanaName;
+import com.undecided.projectTemplate.business.domain.entity.EntityName;
+import com.undecided.projectTemplate.business.domain.entity.event.Event;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import org.junit.jupiter.api.Test;

@@ -2,6 +2,7 @@ package com.undecided.projectTemplate.modules.resource.domain.story.attribute;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.undecided.projectTemplate.resource.domain.story.attribute.*;
 import org.junit.jupiter.api.Test;
 
 class StoryAttributeTest {

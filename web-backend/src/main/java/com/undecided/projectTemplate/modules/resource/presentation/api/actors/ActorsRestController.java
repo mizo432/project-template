@@ -1,8 +1,8 @@
 package com.undecided.projectTemplate.modules.resource.presentation.api.actors;
 
-import com.undecided.projectTemplate.modules.resource.buisiness.command.actor.RegisterActorCommand;
-import com.undecided.projectTemplate.modules.resource.domain.actor.Actor;
-import com.undecided.projectTemplate.modules.resource.domain.project.Project;
+import com.undecided.projectTemplate.resource.buisiness.command.actor.RegisterActorCommand;
+import com.undecided.projectTemplate.resource.domain.actor.Actor;
+import com.undecided.projectTemplate.resource.domain.project.Project;
 import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import java.net.URI;
 import org.springframework.http.ResponseEntity;

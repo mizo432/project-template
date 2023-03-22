@@ -1,10 +1,10 @@
 package com.undecided.projectTemplate.modules.resource.presentation.web.project;
 
-import com.undecided.projectTemplate.modules.resource.buisiness.command.project.DeleteProjectCommand;
-import com.undecided.projectTemplate.modules.resource.buisiness.command.project.InsertProjectCommand;
-import com.undecided.projectTemplate.modules.resource.buisiness.command.project.UpdateProjectCommand;
-import com.undecided.projectTemplate.modules.resource.buisiness.query.ProjectFetcher;
-import com.undecided.projectTemplate.modules.resource.domain.project.Project;
+import com.undecided.projectTemplate.resource.buisiness.command.project.DeleteProjectCommand;
+import com.undecided.projectTemplate.resource.buisiness.command.project.InsertProjectCommand;
+import com.undecided.projectTemplate.resource.buisiness.command.project.UpdateProjectCommand;
+import com.undecided.projectTemplate.resource.buisiness.query.ProjectFetcher;
+import com.undecided.projectTemplate.resource.domain.project.Project;
 import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

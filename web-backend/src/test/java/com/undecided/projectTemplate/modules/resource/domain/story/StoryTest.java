@@ -4,10 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.modules.resource.domain.story.attribute.StoryAttribute;
-import com.undecided.projectTemplate.modules.resource.domain.story.attribute.StoryStatus;
-import com.undecided.projectTemplate.modules.resource.domain.story.attribute.StoryType;
+import com.undecided.projectTemplate.resource.domain.project.Project;
+import com.undecided.projectTemplate.resource.domain.story.Story;
+import com.undecided.projectTemplate.resource.domain.story.attribute.StoryAttribute;
+import com.undecided.projectTemplate.resource.domain.story.attribute.StoryStatus;
+import com.undecided.projectTemplate.resource.domain.story.attribute.StoryType;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.WhenNoticed;
 import com.undecided.projectTemplate.shared.entity.WhoNoticed;

@@ -4,7 +4,7 @@ buildscript {
         springBootVersion = '3.0.4'
         springBootAdminVersion = '3.0.2'
         thymeleafLayoutDialectVersion = '3.2.0'
-
+        springModulithVersion = '0.5'
     }
 
 }

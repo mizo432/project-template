@@ -2,17 +2,18 @@ package com.undecided.projectTemplate.modules.resource.infra.dataSource.project;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.undecided.projectTemplate.modules.resource.domain.story.attribute.Description;
+import com.undecided.projectTemplate.resource.domain.story.attribute.Description;
+import com.undecided.projectTemplate.resource.infra.dataSource.project.ProjectDataSource;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.modules.resource.domain.project.attribute.ProjectAttribute;
-import com.undecided.projectTemplate.modules.resource.domain.project.attribute.ProjectCode;
-import com.undecided.projectTemplate.modules.resource.domain.project.attribute.ProjectName;
-import com.undecided.projectTemplate.modules.resource.domain.project.attribute.StoryCodePrefix;
+import com.undecided.projectTemplate.resource.domain.project.Project;
+import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectAttribute;
+import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectCode;
+import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectName;
+import com.undecided.projectTemplate.resource.domain.project.attribute.StoryCodePrefix;
 
 class ProjectDataSourceTest {
 

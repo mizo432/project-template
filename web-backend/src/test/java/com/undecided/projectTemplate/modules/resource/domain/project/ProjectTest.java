@@ -3,11 +3,12 @@ package com.undecided.projectTemplate.modules.resource.domain.project;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-import com.undecided.projectTemplate.modules.resource.domain.project.attribute.ProjectAttribute;
-import com.undecided.projectTemplate.modules.resource.domain.project.attribute.ProjectCode;
-import com.undecided.projectTemplate.modules.resource.domain.project.attribute.ProjectName;
-import com.undecided.projectTemplate.modules.resource.domain.project.attribute.StoryCodePrefix;
-import com.undecided.projectTemplate.modules.resource.domain.story.attribute.Description;
+import com.undecided.projectTemplate.resource.domain.project.Project;
+import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectAttribute;
+import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectCode;
+import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectName;
+import com.undecided.projectTemplate.resource.domain.project.attribute.StoryCodePrefix;
+import com.undecided.projectTemplate.resource.domain.story.attribute.Description;
 import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import org.junit.jupiter.api.Test;
 

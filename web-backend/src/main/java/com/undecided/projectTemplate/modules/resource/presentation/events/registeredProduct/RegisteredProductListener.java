@@ -3,8 +3,8 @@ package com.undecided.projectTemplate.modules.resource.presentation.events.regis
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
-import com.undecided.projectTemplate.modules.resource.domain.project.Project;
-import com.undecided.projectTemplate.modules.resource.domain.project.RegisteredProductEvent;
+import com.undecided.projectTemplate.resource.domain.project.Project;
+import com.undecided.projectTemplate.resource.domain.project.RegisteredProductEvent;
 
 @Component
 @Slf4j

@@ -1,10 +1,10 @@
 package com.undecided.projectTemplate.modules.example.presentation.web.employee;
 
-import com.undecided.projectTemplate.modules.example.business.command.employee.DeleteEmployeeCommand;
-import com.undecided.projectTemplate.modules.example.business.command.employee.InsertEmployeeCommand;
-import com.undecided.projectTemplate.modules.example.business.command.employee.UpdateEmployeeCommand;
-import com.undecided.projectTemplate.modules.example.business.query.employee.FetchEmployeeQuery;
-import com.undecided.projectTemplate.modules.example.domain.employee.Employee;
+import com.undecided.projectTemplate.example.business.command.employee.DeleteEmployeeCommand;
+import com.undecided.projectTemplate.example.business.command.employee.InsertEmployeeCommand;
+import com.undecided.projectTemplate.example.business.command.employee.UpdateEmployeeCommand;
+import com.undecided.projectTemplate.example.business.query.employee.FetchEmployeeQuery;
+import com.undecided.projectTemplate.example.domain.employee.Employee;
 import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

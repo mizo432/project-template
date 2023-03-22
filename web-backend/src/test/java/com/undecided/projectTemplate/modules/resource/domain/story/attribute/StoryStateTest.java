@@ -3,6 +3,8 @@ package com.undecided.projectTemplate.modules.resource.domain.story.attribute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.undecided.projectTemplate.resource.domain.story.attribute.Description;
+import com.undecided.projectTemplate.resource.domain.story.attribute.StoryState;
 import com.undecided.projectTemplate.shared.value.ValueNotFoundException;
 import org.junit.jupiter.api.Test;
 

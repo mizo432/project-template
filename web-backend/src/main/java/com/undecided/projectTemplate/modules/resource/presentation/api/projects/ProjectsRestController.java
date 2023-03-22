@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.modules.resource.presentation.api.projects;
 
-import com.undecided.projectTemplate.modules.resource.buisiness.command.RegisterProductCommand;
-import com.undecided.projectTemplate.modules.resource.domain.project.Project;
+import com.undecided.projectTemplate.resource.buisiness.command.RegisterProductCommand;
+import com.undecided.projectTemplate.resource.domain.project.Project;
 import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import java.net.URI;
 import org.springframework.http.ResponseEntity;
