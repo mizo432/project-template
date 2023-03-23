@@ -4,35 +4,34 @@ import static com.undecided.primitive.object.Objects2.isNull;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.undecided.primitive.object.Objects2;
 import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectAttribute;
+import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.ToString;
 import org.seasar.doma.Entity;
 import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 import org.seasar.doma.boot.ConfigAutowireable;
 
 @Getter
-@EqualsAndHashCode
-@AllArgsConstructor
-@ToString
 @Entity(immutable = true)
 @Table(schema = "resource", name = "projects")
 @ConfigAutowireable
-public class Project implements Serializable {
+public class Project extends AbstractEntity<Project> {
 
     @Id
     protected final UlidIdentifier<Project> projectId;
-
     private final ProjectAttribute attribute;
 
     public Project() {
         this(UlidIdentifier.empty(), ProjectAttribute.empty());
 
+    }
+
+    public Project(UlidIdentifier<Project> projectId, ProjectAttribute attribute) {
+        this.projectId = projectId;
+        this.attribute = attribute;
     }
 
 
@@ -67,7 +66,7 @@ public class Project implements Serializable {
 
     }
 
-    private boolean sameIdentifierAs(Project other) {
+    public boolean sameIdentifierAs(Project other) {
         if (isNull(other)) {
             return false;
         }
@@ -75,4 +74,22 @@ public class Project implements Serializable {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Project project)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        return projectId.equals(project.projectId) && attribute.equals(project.attribute);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects2.hash(getClass(), super.hashCode(), projectId, attribute);
+    }
 }

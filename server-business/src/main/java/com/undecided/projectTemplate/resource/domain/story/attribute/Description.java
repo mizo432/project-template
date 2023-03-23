@@ -1,25 +1,19 @@
 package com.undecided.projectTemplate.resource.domain.story.attribute;
 
-import com.undecided.projectTemplate.shared.value.StringValue;
-import java.io.Serializable;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
+import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@EqualsAndHashCode(callSuper = false)
-@ToString
-public class Description implements StringValue<Description>, Serializable {
+public class Description extends AbstractStringValue {
 
     private static final Description EMPTY = new Description();
 
-    private final String value;
-
     private Description() {
-        this(null);
+        super();
+    }
+
+    Description(String value) {
+        super(value);
     }
 
     public static Description reconstruct(String value) {
@@ -39,9 +33,5 @@ public class Description implements StringValue<Description>, Serializable {
         return EMPTY;
     }
 
-    @Override
-    public String asString() {
-        return value;
-    }
 
 }

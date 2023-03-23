@@ -2,35 +2,30 @@ package com.undecided.projectTemplate.shared.entity.id;
 
 import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;
+import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import com.undecided.projectTemplate.shared.value.StringValue;
 import de.huxhorn.sulky.ulid.ULID;
 import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Getter
-@EqualsAndHashCode
-@AllArgsConstructor
-public class UlidIdentifier<E> implements
-    StringValue<UlidIdentifier<E>>, Serializable {
+public class UlidIdentifier<E> extends AbstractStringValue implements
+    StringValue, Serializable {
 
     private static final UlidIdentifier<?> EMPTY = new UlidIdentifier<>();
 
-    private final String value;
 
     public UlidIdentifier() {
-        this(null);
+        super();
+    }
+
+    UlidIdentifier(String value) {
+        super(value);
     }
 
     @SuppressWarnings("unchecked")
     public static <E> UlidIdentifier<E> empty() {
         return (UlidIdentifier<E>) EMPTY;
-    }
-
-    @Override
-    public String asString() {
-        return value;
     }
 
     public static <E> UlidIdentifier<E> newInstance() {
@@ -61,8 +56,4 @@ public class UlidIdentifier<E> implements
         return new UlidIdentifier<>(value);
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
 }

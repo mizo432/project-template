@@ -1,26 +1,22 @@
 package com.undecided.projectTemplate.business.domain.entity;
 
 import com.undecided.primitive.string.Strings2;
-import com.undecided.projectTemplate.shared.value.StringValue;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
+import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@EqualsAndHashCode(callSuper = false)
-@ToString(callSuper = true)
-public class EntityName implements StringValue<EntityKanaName> {
+public class EntityName extends AbstractStringValue {
 
     private static final EntityName EMPTY = new EntityName();
 
-    private final String value;
 
     public EntityName() {
-        value = null;
-        
+        super();
+
+    }
+
+    EntityName(String value) {
+        super(value);
     }
 
     public static EntityName of(String value) {
@@ -41,12 +37,6 @@ public class EntityName implements StringValue<EntityKanaName> {
 
     public static EntityName empty() {
         return EMPTY;
-    }
-
-
-    @Override
-    public String asString() {
-        return value;
     }
 
 

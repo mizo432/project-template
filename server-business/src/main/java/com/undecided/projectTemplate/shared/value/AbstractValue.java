@@ -1,5 +1,6 @@
 package com.undecided.projectTemplate.shared.value;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.undecided.primitive.object.Objects2;
 
 public abstract class AbstractValue<T> implements SingleValue<T> {
@@ -36,7 +37,9 @@ public abstract class AbstractValue<T> implements SingleValue<T> {
     }
 
     @Override
+    @JsonIgnore
     public boolean isEmpty() {
-        return getValue() == null;
+        return Objects2.isNull(getValue());
+
     }
 }

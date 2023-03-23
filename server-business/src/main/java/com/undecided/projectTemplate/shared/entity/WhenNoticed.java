@@ -1,31 +1,18 @@
 package com.undecided.projectTemplate.shared.entity;
 
-import static com.undecided.primitive.object.Objects2.isNull;
-
 import com.undecided.primitive.localDate.StaticDateProvider;
-import com.undecided.projectTemplate.shared.value.AbstractValue;
-import com.undecided.projectTemplate.shared.value.DateTimeValue;
+import com.undecided.projectTemplate.shared.value.AbstractDateTimeValue;
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.seasar.doma.Embeddable;
 
 @Getter
-@AllArgsConstructor
-@Embeddable
-public class WhenNoticed extends AbstractValue<LocalDateTime> implements
-    DateTimeValue<WhenNoticed> {
-
-    public String asString() {
-        if (isNull(getValue())) {
-            return null;
-        }
-
-        return getValue().toString();
-    }
+public class WhenNoticed extends AbstractDateTimeValue {
 
     private static final WhenNoticed EMPTY = new WhenNoticed(null);
-    private final LocalDateTime value;
+
+    WhenNoticed(LocalDateTime value) {
+        super(value);
+    }
 
     public static WhenNoticed reconstruct(LocalDateTime value) {
         return new WhenNoticed(value);

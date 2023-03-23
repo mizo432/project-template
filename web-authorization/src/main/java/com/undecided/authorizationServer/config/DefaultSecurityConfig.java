@@ -31,6 +31,7 @@ public class DefaultSecurityConfig {
     // @formatter:off
     @Bean
     UserDetailsService users() {
+        //noinspection deprecation
         UserDetails user = User.withDefaultPasswordEncoder()
             .username("user1")
             .password("password")

@@ -2,31 +2,22 @@ package com.undecided.projectTemplate.resource.domain.project.attribute;
 
 import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;
-import com.undecided.projectTemplate.shared.value.StringValue;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
+import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-@ToString
-public class ProjectName implements StringValue<ProjectName>, Serializable {
+public class ProjectName extends AbstractStringValue {
 
     private static final ProjectName EMPTY = new ProjectName(Strings2.EMPTY);
 
-    private final String value;
+    public ProjectName(String value) {
+        super(value);
 
-    public static ProjectName empty() {
-        return EMPTY;
     }
 
 
-    @Override
-    public String asString() {
-        return value;
+    public static ProjectName empty() {
+        return EMPTY;
     }
 
     public static ProjectName of(String value) {

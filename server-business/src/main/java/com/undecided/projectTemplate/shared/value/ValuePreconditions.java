@@ -12,7 +12,7 @@ public class ValuePreconditions {
      * @param argName   引数名
      * @param <E>       検査値の型
      */
-    public static <E> void checkNotEmpty(@NotNull StringValue<E> reference,
+    public static <E> void checkNotEmpty(@NotNull StringValue reference,
         @NotNull String argName) {
         checkNotNull(argName, "argName");
         checkNotEmpty(reference, () -> new IllegalArgumentException(
@@ -21,7 +21,7 @@ public class ValuePreconditions {
     }
 
     public static <E, RE extends RuntimeException> void checkNotEmpty(
-        @NotNull StringValue<E> reference,
+        @NotNull StringValue reference,
         @NotNull Supplier<RE> exceptionSupplier) {
         checkNotNull(exceptionSupplier, (Supplier<IllegalArgumentException>) () -> {
             throw new IllegalArgumentException("引数の\"exceptionSupplier\"は必須ですが指定されていません");

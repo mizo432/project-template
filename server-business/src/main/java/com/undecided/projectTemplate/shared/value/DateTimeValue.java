@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.undecided.primitive.object.Objects2;
 import java.time.LocalDateTime;
 
-public interface DateTimeValue<T> extends SingleValue<LocalDateTime> {
+public interface DateTimeValue extends SingleValue<LocalDateTime> {
 
     @JsonIgnore
     default boolean isEmpty() {

@@ -10,7 +10,7 @@ import org.seasar.doma.Id;
 
 @Getter
 @ToString
-public abstract class AbstractEntity<E extends AbstractEntity<E>> {
+public abstract class AbstractEntity<E extends AbstractEntity<E>> implements Entity<E> {
 
     @Id
     protected final UlidIdentifier<E> id;

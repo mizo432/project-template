@@ -1,31 +1,17 @@
 package com.undecided.projectTemplate.teamMember.domain.member;
 
-import com.undecided.projectTemplate.shared.value.AbstractValue;
-import com.undecided.projectTemplate.shared.value.StringValue;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
+import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@EqualsAndHashCode(callSuper = false)
-public class MemberInitial extends AbstractValue<String> implements StringValue<MemberInitial> {
+public class MemberInitial extends AbstractStringValue {
 
-    private final String value;
+    MemberInitial(String value) {
+        super(value);
+    }
 
     public static MemberInitial reconstruct(String value) {
-        return MemberInitial.reconstruct(value);
-    }
-
-    @Override
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String asString() {
-        return value;
+        return new MemberInitial(value);
     }
 
     public static MemberInitial of(String value) {

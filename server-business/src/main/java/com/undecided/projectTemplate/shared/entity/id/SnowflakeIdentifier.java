@@ -4,27 +4,30 @@ import static com.undecided.primitive.object.Objects2.isNull;
 
 import com.undecided.primitive.misc.NodeIdGenerator;
 import com.undecided.primitive.misc.SnowflakeIdGenerator;
-import com.undecided.projectTemplate.shared.value.LongValue;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
+import com.undecided.projectTemplate.shared.entity.Entity;
+import com.undecided.projectTemplate.shared.entity.Identifier;
+import com.undecided.projectTemplate.shared.value.AbstractLongValue;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
-public class SnowflakeIdentifier<E> implements
-    LongValue<SnowflakeIdentifier<E>>, Serializable {
+public class SnowflakeIdentifier<E extends Entity<E>> extends AbstractLongValue implements
+    Identifier<E> {
 
     private static final SnowflakeIdentifier<?> EMPTY = new SnowflakeIdentifier<>();
 
-    private final Long value;
 
     public SnowflakeIdentifier() {
-        this(null);
+        super();
+    }
+
+    public SnowflakeIdentifier(long value) {
+        super(value);
     }
 
     @SuppressWarnings("unchecked")
-    public static <E> SnowflakeIdentifier<E> empty() {
+    public static <E extends Entity<E>> SnowflakeIdentifier<E> empty() {
         return (SnowflakeIdentifier<E>) EMPTY;
+
     }
 
     @Override
@@ -32,10 +35,10 @@ public class SnowflakeIdentifier<E> implements
         if (isEmpty()) {
             return null;
         }
-        return String.valueOf(value);
+        return String.valueOf(getValue());
     }
 
-    public static <E> SnowflakeIdentifier<E> newInstance() {
+    public static <E extends Entity<E>> SnowflakeIdentifier<E> newInstance() {
         return new SnowflakeIdentifier<>(
             new SnowflakeIdGenerator(NodeIdGenerator.generateNodeId()).generateID());
 
@@ -49,7 +52,7 @@ public class SnowflakeIdentifier<E> implements
      * @return 識別子オブジェクト
      */
     @SuppressWarnings("unchecked")
-    public static <E> SnowflakeIdentifier<E> reconstruct(Long value) {
+    public static <E extends Entity<E>> SnowflakeIdentifier<E> reconstruct(Long value) {
         if (isNull(value)) {
             return (SnowflakeIdentifier<E>) EMPTY;
         }
@@ -57,15 +60,8 @@ public class SnowflakeIdentifier<E> implements
 
     }
 
-    public static <E> SnowflakeIdentifier<E> of(Long value) {
+    public static <E extends Entity<E>> SnowflakeIdentifier<E> of(Long value) {
         return new SnowflakeIdentifier<>(value);
-    }
-
-    public String toString() {
-        if (isNull(value)) {
-            return null;
-        }
-        return value.toString();
     }
 
 }

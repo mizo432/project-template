@@ -1,22 +1,21 @@
 package com.undecided.projectTemplate.shared.value.name;
 
 import com.undecided.primitive.string.Strings2;
-import com.undecided.projectTemplate.shared.value.AbstractValue;
-import com.undecided.projectTemplate.shared.value.StringValue;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
+import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@EqualsAndHashCode(callSuper = false)
-@ToString
-public class Name extends AbstractValue<String> implements StringValue<Name> {
+public class Name extends AbstractStringValue {
 
-    private static final Name EMPTY = new Name(null);
-    private final String value;
+    private static final Name EMPTY = new Name();
+
+    Name(String value) {
+        super(value);
+    }
+
+    public Name() {
+        super();
+    }
 
     public static Name of(String value) {
         if (Strings2.isEmpty(value)) {
@@ -37,12 +36,6 @@ public class Name extends AbstractValue<String> implements StringValue<Name> {
 
     public static Name empty() {
         return EMPTY;
-    }
-
-    @Override
-    public String asString() {
-        return value;
-
     }
 
 }

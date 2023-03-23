@@ -1,26 +1,18 @@
 package com.undecided.projectTemplate.business.domain.postalAddress;
 
-import com.undecided.projectTemplate.shared.value.StringValue;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
+import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@EqualsAndHashCode(callSuper = false)
-@ToString(callSuper = true)
-public class PostalCode implements StringValue<PostalCode> {
+public class PostalCode extends AbstractStringValue {
 
-    private final String value;
+
+    PostalCode(String value) {
+        super(value);
+    }
 
     public static PostalCode of(String value) {
         return new PostalCode(value);
     }
 
-    @Override
-    public String asString() {
-        return value;
-    }
 }

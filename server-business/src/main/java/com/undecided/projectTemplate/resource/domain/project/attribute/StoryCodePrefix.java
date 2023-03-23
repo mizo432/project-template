@@ -2,30 +2,22 @@ package com.undecided.projectTemplate.resource.domain.project.attribute;
 
 import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;
-import com.undecided.projectTemplate.shared.value.StringValue;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
+import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@AllArgsConstructor
-@EqualsAndHashCode()
-@ToString
-public class StoryCodePrefix implements StringValue<StoryCodePrefix>, Serializable {
+public class StoryCodePrefix extends AbstractStringValue {
 
     private static final StoryCodePrefix EMPTY = new StoryCodePrefix(Strings2.EMPTY);
-    private final String value;
+
+    StoryCodePrefix(String value) {
+        super(value);
+    }
 
     public static StoryCodePrefix empty() {
         return EMPTY;
     }
 
-    @Override
-    public String asString() {
-        return value;
-    }
 
     public static StoryCodePrefix of(String value) {
         StringPreconditions.checkNotEmpty(value, "ストーリーコードの接頭子");

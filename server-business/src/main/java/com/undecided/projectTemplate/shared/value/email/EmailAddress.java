@@ -1,36 +1,42 @@
 package com.undecided.projectTemplate.shared.value.email;
 
-import com.undecided.projectTemplate.shared.value.StringValue;
-import lombok.AllArgsConstructor;
+import com.undecided.primitive.string.Strings2;
+import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-@ToString
-public class EmailAddress implements StringValue<EmailAddress> {
+public class EmailAddress extends AbstractStringValue {
 
-    private final String value;
+    private static final EmailAddress EMPTY = new EmailAddress(null);
 
-    @Override
-    public String getValue() {
-        return value;
+    public EmailAddress(String value) {
+        super(value);
+
     }
 
     @Override
     public String asString() {
-        return value;
+        return getValue();
     }
 
     public static EmailAddress of(String value) {
+
+        if (Strings2.isEmpty(value)) {
+            return EMPTY;
+        }
+
         return new EmailAddress(value);
 
     }
 
     public static EmailAddress reconstruct(String value) {
+        if (Strings2.isEmpty(value)) {
+            return EMPTY;
+        }
         return new EmailAddress(value);
 
     }
+
 }

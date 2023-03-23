@@ -2,20 +2,24 @@ package com.undecided.projectTemplate.shared.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import org.seasar.doma.Embeddable;
 
 @Getter
-@AllArgsConstructor
-@lombok.EqualsAndHashCode
+@EqualsAndHashCode
 @ToString
 @Embeddable
 public class AuditInfo {
 
     private final WhenNoticed whenNoticed;
     private final WhoNoticed whoNoticed;
+
+    public AuditInfo(WhenNoticed whenNoticed, WhoNoticed whoNoticed) {
+        this.whenNoticed = whenNoticed;
+        this.whoNoticed = whoNoticed;
+    }
 
     public static AuditInfo reconstruct(LocalDateTime whenNoticed, Long whoNoticed) {
         return new AuditInfo(WhenNoticed.reconstruct(whenNoticed),

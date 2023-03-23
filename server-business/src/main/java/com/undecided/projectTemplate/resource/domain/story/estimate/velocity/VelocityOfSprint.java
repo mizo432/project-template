@@ -17,7 +17,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class VelocityOfSprint extends AbstractValue<BigDecimal> implements
-    BigDecimalValue<VelocityOfSprint> {
+    BigDecimalValue {
 
     public static final VelocityOfSprint ZERO = new VelocityOfSprint(BigDecimal.ZERO);
     public static final VelocityOfSprint EMPTY = new VelocityOfSprint(null);
@@ -38,6 +38,6 @@ public class VelocityOfSprint extends AbstractValue<BigDecimal> implements
     @Override
     public String asString() {
         return Objects2.ifPresent(value, BigDecimal::toString);
-        
+
     }
 }

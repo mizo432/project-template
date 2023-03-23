@@ -5,11 +5,9 @@ import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 @Getter
-@Setter
 @EqualsAndHashCode(callSuper = true)
 @ToString
 public class Employee extends AbstractEntity<Employee> {
@@ -22,6 +20,7 @@ public class Employee extends AbstractEntity<Employee> {
 
     public Employee() {
         this(UlidIdentifier.newInstance(), null, null, null);
+        
     }
 
     private Employee(UlidIdentifier<Employee> id, String firstName, String lastName, String email) {

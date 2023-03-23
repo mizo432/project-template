@@ -30,10 +30,12 @@ public class EffortOfSprint extends AbstractValue<Integer> implements IntegerVal
 
     public static EffortOfSprint of(Integer value) {
         return new EffortOfSprint(value);
+
     }
 
     public static EffortOfSprint reconstruct(Integer value) {
         return new EffortOfSprint(value);
+        
     }
 
     public boolean isZero() {

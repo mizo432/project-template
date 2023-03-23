@@ -1,25 +1,18 @@
 package com.undecided.projectTemplate.resource.domain.partyRole.user.attribbute;
 
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;
+import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import com.undecided.projectTemplate.shared.value.CodeValue;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-@ToString
-public class UserCode implements CodeValue<UserCode> {
-
-    private final String value;
+public class UserCode extends AbstractStringValue implements CodeValue {
 
 
-    @Override
-    public String asString() {
-        return value;
+    UserCode(String value) {
+        super(value);
     }
+
 
     public static UserCode of(String value) {
         StringPreconditions.checkNotEmpty(value, "ユーザーコード");
