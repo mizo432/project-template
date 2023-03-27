@@ -3,7 +3,7 @@ package com.undecided.projectTemplate.resource.domain.partyRole.user;
 import com.undecided.projectTemplate.resource.domain.partyRole.user.attribbute.UserAttribute;
 import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -15,26 +15,26 @@ public class User extends AbstractEntity<User> {
 
     private final UserAttribute attribute;
 
-    protected User(UlidIdentifier<User> id, AuditInfo auditInfo, UserAttribute attribute) {
+    protected User(SnowflakeIdentifier<User> id, AuditInfo auditInfo, UserAttribute attribute) {
         super(id, auditInfo);
         this.attribute = attribute;
 
     }
 
     public static User create(UserAttribute attribute) {
-        return new User(UlidIdentifier.newInstance(), AuditInfo.empty(), attribute);
+        return new User(SnowflakeIdentifier.newInstance(), AuditInfo.empty(), attribute);
 
     }
 
     public static User create(User project) {
-        return new User(UlidIdentifier.newInstance(), AuditInfo.empty(), project.attribute);
+        return new User(SnowflakeIdentifier.newInstance(), AuditInfo.empty(), project.attribute);
 
     }
 
     @Override
     public boolean sameValueAs(User other) {
         return super.sameValueAs(other)
-            && attribute.equals(other.attribute);
+                && attribute.equals(other.attribute);
 
     }
 

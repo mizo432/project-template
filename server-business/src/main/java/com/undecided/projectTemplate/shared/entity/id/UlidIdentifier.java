@@ -5,12 +5,14 @@ import com.undecided.projectTemplate.shared.precondition.string.StringPreconditi
 import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import com.undecided.projectTemplate.shared.value.StringValue;
 import de.huxhorn.sulky.ulid.ULID;
-import java.io.Serializable;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
+@Deprecated
 public class UlidIdentifier<E> extends AbstractStringValue implements
-    StringValue, Serializable {
+        StringValue, Serializable {
 
     private static final UlidIdentifier<?> EMPTY = new UlidIdentifier<>();
 
@@ -51,7 +53,7 @@ public class UlidIdentifier<E> extends AbstractStringValue implements
 
     public static <E> UlidIdentifier<E> of(String value) {
         StringPreconditions.checkLength(value, 26,
-            () -> new IllegalArgumentException("識別子は" + 26 + "桁でなければいけません。 value=" + value));
+                () -> new IllegalArgumentException("識別子は" + 26 + "桁でなければいけません。 value=" + value));
 
         return new UlidIdentifier<>(value);
     }

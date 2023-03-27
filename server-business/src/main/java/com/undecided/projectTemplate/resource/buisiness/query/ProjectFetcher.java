@@ -2,9 +2,10 @@ package com.undecided.projectTemplate.resource.buisiness.query;
 
 import com.undecided.projectTemplate.resource.domain.project.Project;
 import com.undecided.projectTemplate.resource.domain.project.ProjectRepository;
-import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
-import java.util.List;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProjectFetcher {
@@ -21,7 +22,7 @@ public class ProjectFetcher {
 
     }
 
-    public Project findOneBy(UlidIdentifier<Project> projectId) {
+    public Project findOneBy(SnowflakeIdentifier<Project> projectId) {
         return projectRepository.findOneBy(projectId);
 
     }

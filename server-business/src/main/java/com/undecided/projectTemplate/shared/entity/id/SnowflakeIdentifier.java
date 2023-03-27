@@ -1,17 +1,19 @@
 package com.undecided.projectTemplate.shared.entity.id;
 
-import static com.undecided.primitive.object.Objects2.isNull;
-
 import com.undecided.primitive.misc.NodeIdGenerator;
 import com.undecided.primitive.misc.SnowflakeIdGenerator;
-import com.undecided.projectTemplate.shared.entity.Entity;
 import com.undecided.projectTemplate.shared.entity.Identifier;
 import com.undecided.projectTemplate.shared.value.AbstractLongValue;
 import lombok.Getter;
+import org.jetbrains.annotations.VisibleForTesting;
+import org.seasar.doma.Domain;
+
+import static com.undecided.primitive.object.Objects2.isNull;
 
 @Getter
-public class SnowflakeIdentifier<E extends Entity<E>> extends AbstractLongValue implements
-    Identifier<E> {
+@Domain(valueType = Long.class, factoryMethod = "reconstruct")
+public class SnowflakeIdentifier<E> extends AbstractLongValue implements
+        Identifier<E> {
 
     private static final SnowflakeIdentifier<?> EMPTY = new SnowflakeIdentifier<>();
 
@@ -25,7 +27,7 @@ public class SnowflakeIdentifier<E extends Entity<E>> extends AbstractLongValue 
     }
 
     @SuppressWarnings("unchecked")
-    public static <E extends Entity<E>> SnowflakeIdentifier<E> empty() {
+    public static <E> SnowflakeIdentifier<E> empty() {
         return (SnowflakeIdentifier<E>) EMPTY;
 
     }
@@ -38,9 +40,9 @@ public class SnowflakeIdentifier<E extends Entity<E>> extends AbstractLongValue 
         return String.valueOf(getValue());
     }
 
-    public static <E extends Entity<E>> SnowflakeIdentifier<E> newInstance() {
+    public static <E> SnowflakeIdentifier<E> newInstance() {
         return new SnowflakeIdentifier<>(
-            new SnowflakeIdGenerator(NodeIdGenerator.generateNodeId()).generateID());
+                new SnowflakeIdGenerator(NodeIdGenerator.generateNodeId()).generateID());
 
     }
 
@@ -52,7 +54,7 @@ public class SnowflakeIdentifier<E extends Entity<E>> extends AbstractLongValue 
      * @return 識別子オブジェクト
      */
     @SuppressWarnings("unchecked")
-    public static <E extends Entity<E>> SnowflakeIdentifier<E> reconstruct(Long value) {
+    public static <E> SnowflakeIdentifier<E> reconstruct(Long value) {
         if (isNull(value)) {
             return (SnowflakeIdentifier<E>) EMPTY;
         }
@@ -60,7 +62,8 @@ public class SnowflakeIdentifier<E extends Entity<E>> extends AbstractLongValue 
 
     }
 
-    public static <E extends Entity<E>> SnowflakeIdentifier<E> of(Long value) {
+    @VisibleForTesting
+    public static <E> SnowflakeIdentifier<E> of(Long value) {
         return new SnowflakeIdentifier<>(value);
     }
 

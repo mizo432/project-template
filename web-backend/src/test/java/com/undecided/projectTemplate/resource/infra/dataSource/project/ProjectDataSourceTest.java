@@ -37,7 +37,7 @@ class ProjectDataSourceTest {
             projectDataSource.insert(project);
 
             Project actualOptionalProject = projectDataSource.findOneBy(
-                    project.getProjectId());
+                    project.getId());
             assertThat(actualOptionalProject).isNotNull();
             System.out.println(actualOptionalProject);
 
@@ -52,7 +52,7 @@ class ProjectDataSourceTest {
             projectDataSource.update(project);
 
             Project actualOptionalProject = projectDataSource.findOneBy(
-                    project.getProjectId());
+                    project.getId());
             assertThat(actualOptionalProject).isNotNull();
             System.out.println(actualOptionalProject);
         }
@@ -63,10 +63,10 @@ class ProjectDataSourceTest {
             Project project = Project.create(ProjectAttribute.create(ProjectName.of("ProjectName"),
                     ProjectCode.of("PRJ"), StoryCodePrefix.of("APL"), Description.of("description")));
             projectDataSource.insert(project);
-            projectDataSource.delete(project.getProjectId());
+            projectDataSource.delete(project.getId());
 
             Project actualOptionalProject = projectDataSource.findOneBy(
-                    project.getProjectId());
+                    project.getId());
             assertThat(actualOptionalProject).isNull();
 
         }

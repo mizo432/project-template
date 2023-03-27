@@ -1,11 +1,12 @@
 package com.undecided.projectTemplate.resource.domain.project;
 
-import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+
 import java.util.List;
 
 public interface ProjectRepository {
 
-    Project findOneBy(UlidIdentifier<Project> projectId);
+    Project findOneBy(SnowflakeIdentifier<Project> projectId);
 
     List<Project> selectAll();
 
@@ -13,6 +14,6 @@ public interface ProjectRepository {
 
     Project update(Project project);
 
-    void delete(UlidIdentifier<Project> projectId);
+    void delete(SnowflakeIdentifier<Project> projectId);
 
 }

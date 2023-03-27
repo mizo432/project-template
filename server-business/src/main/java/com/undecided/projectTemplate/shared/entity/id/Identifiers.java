@@ -1,16 +1,16 @@
 package com.undecided.projectTemplate.shared.entity.id;
 
 import com.undecided.primitive.set.Sets2;
-import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.value.SetValue;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Set;
 
-public class Identifiers<E extends AbstractEntity<E>> implements
-    SetValue<UlidIdentifier<E>>, Serializable {
+public class Identifiers<E> implements
+        SetValue<SnowflakeIdentifier<E>>, Serializable {
 
-    private final Set<UlidIdentifier<E>> value = Sets2.newHashSet();
+    private final Set<SnowflakeIdentifier<E>> value = Sets2.newHashSet();
 
     Identifiers(Collection<E> value) {
         value.addAll(value);
@@ -21,11 +21,11 @@ public class Identifiers<E extends AbstractEntity<E>> implements
     }
 
     @Override
-    public Set<UlidIdentifier<E>> getValue() {
+    public Set<SnowflakeIdentifier<E>> getValue() {
         return value;
     }
 
-    public static <E extends AbstractEntity<E>> Identifiers<E> of(Collection<E> value) {
+    public static <E> Identifiers<E> of(Collection<E> value) {
         return new Identifiers<>(value);
 
     }

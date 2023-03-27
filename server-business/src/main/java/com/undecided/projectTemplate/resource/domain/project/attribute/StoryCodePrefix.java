@@ -4,8 +4,10 @@ import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;
 import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
+import org.seasar.doma.Domain;
 
 @Getter
+@Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class StoryCodePrefix extends AbstractStringValue {
 
     private static final StoryCodePrefix EMPTY = new StoryCodePrefix(Strings2.EMPTY);

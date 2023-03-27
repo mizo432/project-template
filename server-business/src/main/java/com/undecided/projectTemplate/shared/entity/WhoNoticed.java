@@ -1,11 +1,15 @@
 package com.undecided.projectTemplate.shared.entity;
 
-import static com.undecided.primitive.object.Objects2.isNull;
-
+import com.undecided.projectTemplate.resource.domain.partyRole.user.User;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import com.undecided.projectTemplate.shared.value.AbstractLongValue;
 import lombok.Getter;
+import org.seasar.doma.Domain;
+
+import static com.undecided.primitive.object.Objects2.isNull;
 
 @Getter
+@Domain(valueType = Long.class, factoryMethod = "reconstruct")
 public class WhoNoticed extends AbstractLongValue {
 
     private static final WhoNoticed EMPTY = new WhoNoticed(null);
@@ -25,4 +29,7 @@ public class WhoNoticed extends AbstractLongValue {
         return EMPTY;
     }
 
+    public static WhoNoticed of(SnowflakeIdentifier<User> value) {
+        return new WhoNoticed(value.getValue());
+    }
 }

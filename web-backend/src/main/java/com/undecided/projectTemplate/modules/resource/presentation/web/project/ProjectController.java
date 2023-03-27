@@ -5,14 +5,10 @@ import com.undecided.projectTemplate.resource.buisiness.command.project.InsertPr
 import com.undecided.projectTemplate.resource.buisiness.command.project.UpdateProjectCommand;
 import com.undecided.projectTemplate.resource.buisiness.query.ProjectFetcher;
 import com.undecided.projectTemplate.resource.domain.project.Project;
-import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/project")
@@ -24,8 +20,8 @@ public class ProjectController {
     private final DeleteProjectCommand deleteProjectCommand;
 
     public ProjectController(ProjectFetcher projectFetcher,
-        InsertProjectCommand insertProjectCommand, UpdateProjectCommand updateProjectCommand,
-        DeleteProjectCommand deleteProjectCommand) {
+                             InsertProjectCommand insertProjectCommand, UpdateProjectCommand updateProjectCommand,
+                             DeleteProjectCommand deleteProjectCommand) {
         this.projectFetcher = projectFetcher;
 
         this.insertProjectCommand = insertProjectCommand;
@@ -57,17 +53,17 @@ public class ProjectController {
 
     @GetMapping("/delete/{projectId}")
     public String deleteEmployee(
-        @PathVariable(value = "projectId") UlidIdentifier<Project> projectId) {
-        deleteProjectCommand.delete(projectId);
+            @PathVariable(value = "projectId") SnowflakeIdentifier<Project> id) {
+        deleteProjectCommand.delete(id);
         return "redirect:/project";
 
     }
 
     @GetMapping("/showFormForUpdate/{projectId}")
     public String showFormForUpdate(
-        @PathVariable(value = "projectId") UlidIdentifier<Project> projectId, Model model) {
+            @PathVariable(value = "id") SnowflakeIdentifier<Project> id, Model model) {
 
-        Project project = projectFetcher.findOneBy(projectId);
+        Project project = projectFetcher.findOneBy(id);
 
         model.addAttribute("project", project);
 

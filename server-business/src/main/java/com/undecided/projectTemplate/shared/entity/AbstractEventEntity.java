@@ -1,9 +1,9 @@
 package com.undecided.projectTemplate.shared.entity;
 
-import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 
 public abstract class AbstractEventEntity<E extends AbstractEventEntity<E>> extends
-    AbstractEntity<E> implements Entity<E> {
+        AbstractEntity<E> implements Entity<E> {
 
     /**
      * いつ有効になるかを保持します
@@ -13,8 +13,8 @@ public abstract class AbstractEventEntity<E extends AbstractEventEntity<E>> exte
      */
     protected final WhenOccurred whenOccurred;
 
-    protected AbstractEventEntity(UlidIdentifier<E> id, WhenOccurred whenOccurred,
-        AuditInfo auditInfo) {
+    protected AbstractEventEntity(SnowflakeIdentifier<E> id, WhenOccurred whenOccurred,
+                                  AuditInfo auditInfo) {
         super(id, auditInfo);
         this.whenOccurred = whenOccurred;
 

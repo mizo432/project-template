@@ -1,5 +1,7 @@
 package com.undecided.gfw.common.exception;
 
+import java.io.Serial;
+
 /**
  * システム例外の基底クラス.
  * <pre>
@@ -7,8 +9,9 @@ package com.undecided.gfw.common.exception;
  * </pre>
  */
 public class SystemException extends RuntimeException implements
-    ExceptionCodeProvider {
+        ExceptionCodeProvider {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private final String code;

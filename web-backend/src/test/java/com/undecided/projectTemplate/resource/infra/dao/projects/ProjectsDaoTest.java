@@ -34,7 +34,7 @@ class ProjectsDaoTest {
             projectsDao.insert(project);
 
             Project actualOptionalProject = projectsDao.findOneById(
-                    project.getProjectId());
+                    project.getId());
             assertThat(actualOptionalProject).isNotNull();
             System.out.println(actualOptionalProject);
 
@@ -49,7 +49,7 @@ class ProjectsDaoTest {
             projectsDao.update(project);
 
             Project actualOptionalProject = projectsDao.findOneById(
-                    project.getProjectId());
+                    project.getId());
             assertThat(actualOptionalProject).isNotNull();
             System.out.println(actualOptionalProject);
 
@@ -61,10 +61,10 @@ class ProjectsDaoTest {
             Project project = Project.create(ProjectAttribute.create(ProjectName.of("ProjectName"),
                     ProjectCode.of("PRJ"), StoryCodePrefix.of("APL"), Description.of("description")));
             projectsDao.insert(project);
-            projectsDao.delete(project.getProjectId());
+            projectsDao.delete(project.getId());
 
             Project actualOptionalProject = projectsDao.findOneById(
-                    project.getProjectId());
+                    project.getId());
             assertThat(actualOptionalProject).isNull();
 
         }

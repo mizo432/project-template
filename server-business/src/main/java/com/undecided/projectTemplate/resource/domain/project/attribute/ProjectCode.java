@@ -4,8 +4,10 @@ import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;
 import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
+import org.seasar.doma.Domain;
 
 @Getter
+@Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class ProjectCode extends AbstractStringValue {
 
     private static final ProjectCode EMPTY = new ProjectCode(Strings2.EMPTY);

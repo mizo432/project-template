@@ -1,16 +1,14 @@
 package com.undecided.projectTemplate.resource.domain.project;
 
-import static com.undecided.primitive.object.Objects2.isNull;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.undecided.primitive.object.Objects2;
 import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectAttribute;
-import com.undecided.projectTemplate.shared.entity.AbstractEntity;
-import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
+import com.undecided.projectTemplate.shared.entity.AuditInfo;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import lombok.Getter;
+import lombok.ToString;
 import org.seasar.doma.Entity;
-import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 import org.seasar.doma.boot.ConfigAutowireable;
 
@@ -18,59 +16,63 @@ import org.seasar.doma.boot.ConfigAutowireable;
 @Entity(immutable = true)
 @Table(schema = "resource", name = "projects")
 @ConfigAutowireable
-public class Project extends AbstractEntity<Project> {
+@ToString
+public class Project {
+    private final SnowflakeIdentifier<Project> id;
 
-    @Id
-    protected final UlidIdentifier<Project> projectId;
     private final ProjectAttribute attribute;
+    private final AuditInfo auditInfo;
 
     public Project() {
-        this(UlidIdentifier.empty(), ProjectAttribute.empty());
+        id = SnowflakeIdentifier.empty();
+        auditInfo = AuditInfo.empty();
+        attribute = ProjectAttribute.empty();
+
 
     }
 
-    public Project(UlidIdentifier<Project> projectId, ProjectAttribute attribute) {
-        this.projectId = projectId;
+    public Project(SnowflakeIdentifier<Project> id,
+                   AuditInfo auditInfo,
+                   ProjectAttribute attribute) {
+        this.id = id;
+        this.auditInfo = auditInfo;
         this.attribute = attribute;
     }
 
 
     public static Project create(ProjectAttribute attribute) {
-        return create(UlidIdentifier.newInstance(), attribute);
+        return create(SnowflakeIdentifier.newInstance(), attribute);
 
     }
 
     @JsonCreator
-    public static Project create(@JsonProperty("projectId") UlidIdentifier<Project> projectId,
-        @JsonProperty("attribute") ProjectAttribute attribute) {
-        return new Project(projectId, attribute);
+    public static Project create(@JsonProperty("id") SnowflakeIdentifier<Project> id,
+                                 @JsonProperty("attribute") ProjectAttribute attribute) {
+        return new Project(id, AuditInfo.empty(), attribute);
 
     }
 
     public static Project create(Project project) {
-        return new Project(UlidIdentifier.newInstance(), project.attribute);
+        return new Project(SnowflakeIdentifier.newInstance(), AuditInfo.empty(), project.attribute);
 
     }
 
     public static Project newInstance() {
-        return new Project(UlidIdentifier.newInstance(), ProjectAttribute.empty());
+        return new Project(SnowflakeIdentifier.newInstance(), AuditInfo.empty(), ProjectAttribute.empty());
     }
 
     public static Project empty() {
-        return new Project(UlidIdentifier.empty(), ProjectAttribute.empty());
+        return new Project(SnowflakeIdentifier.empty(), AuditInfo.empty(), ProjectAttribute.empty());
     }
 
     public boolean sameValueAs(Project other) {
-        return sameIdentifierAs(other)
-            && attribute.equals(other.attribute);
+        return sameIdAs(other)
+                && attribute.equals(other.attribute);
 
     }
 
-    public boolean sameIdentifierAs(Project other) {
-        if (isNull(other)) {
-            return false;
-        }
-        return projectId.equals(other.projectId);
+    public boolean sameIdAs(Project other) {
+        return id.equals(other.id);
 
     }
 
@@ -85,11 +87,14 @@ public class Project extends AbstractEntity<Project> {
         if (!super.equals(o)) {
             return false;
         }
-        return projectId.equals(project.projectId) && attribute.equals(project.attribute);
+        return id.equals(project.id) && attribute.equals(project.attribute);
     }
 
     @Override
     public int hashCode() {
-        return Objects2.hash(getClass(), super.hashCode(), projectId, attribute);
+        return Objects2.hash(getClass(), id, auditInfo, attribute);
+
     }
+
+
 }
