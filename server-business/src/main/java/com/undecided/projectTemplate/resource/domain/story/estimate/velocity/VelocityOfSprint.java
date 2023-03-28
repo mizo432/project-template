@@ -1,32 +1,39 @@
 package com.undecided.projectTemplate.resource.domain.story.estimate.velocity;
 
+import static com.undecided.primitive.object.Objects2.isNull;
+
 import com.undecided.primitive.object.Objects2;
-import com.undecided.projectTemplate.shared.value.AbstractValue;
-import com.undecided.projectTemplate.shared.value.BigDecimalValue;
+import com.undecided.projectTemplate.shared.value.AbstractBigDecimalValue;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
+import org.seasar.doma.Domain;
 
 /**
  * スプリントあたりの速度
  */
 @Getter
 @ToString
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class VelocityOfSprint extends AbstractValue<BigDecimal> implements
-    BigDecimalValue {
+@Domain(valueType = BigDecimal.class, factoryMethod = "reconstruct")
+public class VelocityOfSprint extends AbstractBigDecimalValue {
 
     public static final VelocityOfSprint ZERO = new VelocityOfSprint(BigDecimal.ZERO);
     public static final VelocityOfSprint EMPTY = new VelocityOfSprint(null);
-    private final BigDecimal value;
 
-    public static VelocityOfSprint create(EffortOfSprint effort, DaysOfSprint days) {
+    private VelocityOfSprint(BigDecimal value) {
+        super(value);
+
+    }
+
+    public static VelocityOfSprint of(EffortOfSprint effort, DaysOfSprint days) {
         if (effort.isZero()) {
             return VelocityOfSprint.ZERO;
         }
+        if (days.isZero()) {
+            return EMPTY;
+        }
+
         BigDecimal value = BigDecimal.valueOf(effort.getValue())
             .divide(BigDecimal.valueOf(days.getValue()), 2,
                 RoundingMode.HALF_UP);
@@ -35,9 +42,22 @@ public class VelocityOfSprint extends AbstractValue<BigDecimal> implements
 
     }
 
-    @Override
-    public String asString() {
-        return Objects2.ifPresent(value, BigDecimal::toString);
+    public static VelocityOfSprint reconstruct(BigDecimal value) {
+        if (isNull(value)) {
+            return VelocityOfSprint.EMPTY;
+        }
+        if (BigDecimal.ZERO.equals(value)) {
+            return ZERO;
+        }
+        return new VelocityOfSprint(value);
+
 
     }
+
+    @Override
+    public String asString() {
+        return Objects2.ifPresent(getValue(), BigDecimal::toString);
+
+    }
+
 }

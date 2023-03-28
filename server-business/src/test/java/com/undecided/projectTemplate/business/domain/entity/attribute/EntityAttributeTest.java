@@ -3,7 +3,6 @@ package com.undecided.projectTemplate.business.domain.entity.attribute;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import com.undecided.projectTemplate.business.domain.entity.EntityType;
 import org.junit.jupiter.api.Test;
 
 class EntityAttributeTest {

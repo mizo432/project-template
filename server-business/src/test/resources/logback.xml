@@ -1,4 +1,5 @@
-<included>
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
     <property name="LOG_DIR" value="./build/logs"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> <!-- (1) -->
         <encoder>
@@ -8,18 +9,18 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="com.undecided.projectTemplate">
-        <level value="debug"/>
+    <logger name="com.undecided.projectTemplate"> <!-- (9) -->
+        <level value="info"/>
     </logger>
 
-    <logger name="com.undecided.projectTemplate.shared">
+    <logger name="com.undecided.projectTemplate.shared"> <!-- (9) -->
         <level value="trace"/>
     </logger>
 
-    <logger name="com.undecided.gfw.web.token.transaction">
+    <logger name="com.undecided.gfw.web.token.transaction"> <!-- (9) -->
         <level value="info"/>
     </logger>
-    <logger name="com.undecided.gfw.common.exception.ExceptionLogger">
+    <logger name="com.undecided.gfw.common.exception.ExceptionLogger"> <!-- (9) -->
         <level value="info"/>
     </logger>
 
@@ -31,4 +32,4 @@
         <appender-ref ref="STDOUT"/> <!-- (12) -->
     </root>
 
-</included>
+</configuration>

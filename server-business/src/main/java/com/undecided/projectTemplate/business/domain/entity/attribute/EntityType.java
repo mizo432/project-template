@@ -1,7 +1,9 @@
-package com.undecided.projectTemplate.business.domain.entity;
+package com.undecided.projectTemplate.business.domain.entity.attribute;
 
+import org.seasar.doma.Domain;
+
+@Domain(valueType = String.class, factoryMethod = "valueOf")
 public enum EntityType {
-
     /**
      * 未設定
      */
@@ -51,6 +53,10 @@ public enum EntityType {
     EntityType(String typeName, String label) {
         this.typeName = typeName;
         this.label = label;
+    }
+
+    public String getValue() {
+        return name();
     }
 
     /**

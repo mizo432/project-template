@@ -1,19 +1,25 @@
 package com.undecided.projectTemplate.resource.domain.sprint;
 
-import com.undecided.projectTemplate.shared.entity.AbstractEntity;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import org.seasar.doma.Id;
 
 @Getter
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-public class Sprint extends AbstractEntity<Sprint> {
+@EqualsAndHashCode
+@ToString
+public class Sprint {
+
+    @Id
+    protected final SnowflakeIdentifier<Sprint> id;
+
+    protected final AuditInfo auditInfo;
 
     protected Sprint(SnowflakeIdentifier<Sprint> id,
-                     AuditInfo auditInfo) {
-        super(id, auditInfo);
+        AuditInfo auditInfo) {
+        this.id = id;
+        this.auditInfo = auditInfo;
     }
 }

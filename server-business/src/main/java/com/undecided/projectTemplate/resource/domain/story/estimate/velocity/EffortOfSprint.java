@@ -3,6 +3,7 @@ package com.undecided.projectTemplate.resource.domain.story.estimate.velocity;
 import com.undecided.primitive.object.Objects2;
 import com.undecided.projectTemplate.shared.value.AbstractValue;
 import com.undecided.projectTemplate.shared.value.IntegerValue;
+import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -35,10 +36,15 @@ public class EffortOfSprint extends AbstractValue<Integer> implements IntegerVal
 
     public static EffortOfSprint reconstruct(Integer value) {
         return new EffortOfSprint(value);
-        
+
     }
 
     public boolean isZero() {
         return value == null || value.equals(0);
+    }
+
+    public BigDecimal divideBy(DaysOfSprint days) {
+        return BigDecimal.valueOf(value / days.getValue());
+
     }
 }

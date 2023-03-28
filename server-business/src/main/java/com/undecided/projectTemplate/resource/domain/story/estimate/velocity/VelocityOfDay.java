@@ -1,25 +1,22 @@
 package com.undecided.projectTemplate.resource.domain.story.estimate.velocity;
 
-import com.undecided.projectTemplate.shared.value.Value;
+import com.undecided.projectTemplate.shared.value.AbstractBigDecimalValue;
 import java.math.BigDecimal;
+import lombok.Getter;
 
 /**
  * １日あたりの速度
  */
-public class VelocityOfDay implements
-    Value {
+@Getter
+public class VelocityOfDay extends
+    AbstractBigDecimalValue {
 
-    private final EffortOfSprint effort;
-    private final DaysOfSprint days;
-
-    VelocityOfDay(EffortOfSprint effort, DaysOfSprint days) {
-        this.effort = effort;
-        this.days = days;
-
+    VelocityOfDay(BigDecimal value) {
+        super(value);
     }
 
     public static VelocityOfDay create(EffortOfSprint effort, DaysOfSprint days) {
-        return new VelocityOfDay(effort, days);
+        return new VelocityOfDay(effort.divideBy(days));
 
     }
 
@@ -28,14 +25,10 @@ public class VelocityOfDay implements
 
     }
 
-    public BigDecimal getValue() {
-        return null;
-    }
 
     @Override
-    public boolean isEmpty() {
-        return effort.isEmpty() && days.isEmpty();
+    public String asString() {
+        return getValue().toString();
+        
     }
-
-
 }

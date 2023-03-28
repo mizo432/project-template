@@ -1,25 +1,33 @@
 package com.undecided.projectTemplate.business.domain.entity.attribute;
 
-import com.undecided.projectTemplate.business.domain.entity.EntityKanaName;
-import com.undecided.projectTemplate.business.domain.entity.EntityName;
-import com.undecided.projectTemplate.business.domain.entity.EntityType;
 import com.undecided.projectTemplate.shared.value.Value;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import org.seasar.doma.Embeddable;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PUBLIC)
 @ToString
 @EqualsAndHashCode
+@Embeddable
 public class EntityAttribute implements Value {
 
     private final EntityName name;
     private final EntityKanaName kanaName;
 
     private final EntityType type;
+
+    public EntityAttribute() {
+        this(EntityName.empty(), EntityKanaName.empty(), EntityType.UNKNOWN);
+
+    }
+
+    public static EntityAttribute empty() {
+        return new EntityAttribute();
+    }
 
     @Override
     public boolean isEmpty() {
@@ -33,7 +41,7 @@ public class EntityAttribute implements Value {
     }
 
     private static EntityAttribute reconstruct(EntityName name, EntityKanaName kanaName,
-        com.undecided.projectTemplate.business.domain.entity.EntityType type) {
+        EntityType type) {
         return new EntityAttribute(name, kanaName, type);
     }
 

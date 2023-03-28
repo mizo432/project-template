@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.business.infra.daoConverter.entity;
 
-import com.undecided.projectTemplate.business.domain.entity.EntityName;
+import com.undecided.projectTemplate.business.domain.entity.attribute.EntityName;
 import org.seasar.doma.ExternalDomain;
 import org.seasar.doma.jdbc.domain.DomainConverter;
 

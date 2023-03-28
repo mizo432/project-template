@@ -1,10 +1,12 @@
-package com.undecided.projectTemplate.business.domain.entity;
+package com.undecided.projectTemplate.business.domain.entity.attribute;
 
 import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
+import org.seasar.doma.Domain;
 
 @Getter
+@Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class EntityName extends AbstractStringValue {
 
     private static final EntityName EMPTY = new EntityName();

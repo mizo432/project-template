@@ -4,9 +4,6 @@ server:
     mime-types: text/html,text/css,application/javascript,application/json
 
 spring:
-  mvc.favicon.enabled: false
-  main:
-    allow-bean-definition-overriding: true
   datasource:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/sample
@@ -30,15 +27,10 @@ spring:
     port: 6379
     database: 0
   jackson:
-    date-format: yyyy-MM-dd HH:mm:ss.SSS
-    time-zone: Asia/Tokyo
     visibility:
       field: any
       getter: none
       setter: none
   profiles:
     active: develop
-  security:
-    user:
-      name: user
-      password: user
+

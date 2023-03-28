@@ -1,5 +1,6 @@
 package com.undecided.projectTemplate.resource.domain.story.estimate.velocity;
 
+import com.undecided.primitive.integers.Integers;
 import com.undecided.projectTemplate.shared.value.AbstractValue;
 import com.undecided.projectTemplate.shared.value.IntegerValue;
 import lombok.AllArgsConstructor;
@@ -35,4 +36,7 @@ public class DaysOfSprint extends AbstractValue<Integer> implements IntegerValue
     }
 
 
+    public boolean isZero() {
+        return Integers.ZERO.equals(value);
+    }
 }

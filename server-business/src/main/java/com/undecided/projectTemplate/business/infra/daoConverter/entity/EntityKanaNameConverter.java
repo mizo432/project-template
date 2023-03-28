@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.business.infra.daoConverter.entity;
 
-import com.undecided.projectTemplate.business.domain.entity.EntityKanaName;
+import com.undecided.projectTemplate.business.domain.entity.attribute.EntityKanaName;
 import org.seasar.doma.ExternalDomain;
 import org.seasar.doma.jdbc.domain.DomainConverter;
 
@@ -15,6 +15,6 @@ public class EntityKanaNameConverter implements DomainConverter<EntityKanaName, 
     @Override
     public EntityKanaName fromValueToDomain(String value) {
         return EntityKanaName.reconstruct(value);
-        
+
     }
 }

@@ -1,14 +1,13 @@
 package com.undecided.projectTemplate.business.domain.entity.event.event;
 
-import com.undecided.projectTemplate.business.domain.entity.EntityKanaName;
-import com.undecided.projectTemplate.business.domain.entity.EntityName;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import com.undecided.projectTemplate.business.domain.entity.attribute.EntityKanaName;
+import com.undecided.projectTemplate.business.domain.entity.attribute.EntityName;
 import com.undecided.projectTemplate.business.domain.entity.event.Event;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
 
 class EventTest {
 

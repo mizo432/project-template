@@ -3,8 +3,10 @@ package com.undecided.projectTemplate.resource.domain.story.attribute;
 import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import com.undecided.projectTemplate.shared.value.CodeValue;
 import lombok.Getter;
+import org.seasar.doma.Domain;
 
 @Getter
+@Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class StoryCode extends AbstractStringValue implements CodeValue {
 
 

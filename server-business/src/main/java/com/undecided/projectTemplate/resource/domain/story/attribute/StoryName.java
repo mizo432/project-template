@@ -2,8 +2,10 @@ package com.undecided.projectTemplate.resource.domain.story.attribute;
 
 import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
+import org.seasar.doma.Domain;
 
 @Getter
+@Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class StoryName extends AbstractStringValue {
 
 

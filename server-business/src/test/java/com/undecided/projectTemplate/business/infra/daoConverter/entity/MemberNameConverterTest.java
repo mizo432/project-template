@@ -1,9 +1,9 @@
 package com.undecided.projectTemplate.business.infra.daoConverter.entity;
 
-import com.undecided.projectTemplate.business.domain.entity.EntityKanaName;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.undecided.projectTemplate.business.domain.entity.attribute.EntityKanaName;
+import org.junit.jupiter.api.Test;
 
 class MemberNameConverterTest {
 

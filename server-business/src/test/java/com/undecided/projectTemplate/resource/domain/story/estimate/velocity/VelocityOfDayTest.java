@@ -1,11 +1,10 @@
 package com.undecided.projectTemplate.resource.domain.story.estimate.velocity;
 
-import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+
+import java.math.BigDecimal;
+import org.junit.jupiter.api.Test;
 
 class VelocityOfDayTest {
 
@@ -25,7 +24,7 @@ class VelocityOfDayTest {
         BigDecimal actualValue = createResult.getValue();
 
         // Assert
-        String expectedToStringResult = "1.00";
+        String expectedToStringResult = "1";
         String actualToStringResult = actualValue.toString();
         assertEquals(expectedToStringResult, actualToStringResult);
     }
