@@ -1,6 +1,6 @@
 <included>
     <property name="LOG_DIR" value="./build/logs"/>
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> <!-- (1) -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>
                 <![CDATA[date:%d{yyyy-MM-dd HH:mm:ss}\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-40logger{40}\tmessage:%replace(%msg){'(\r\n|\r|\n)','$1  '}%n%replace(%replace(%xEx){'(\r\n|\r|\n)','$1  '}){'  $',''}%nopex]]></pattern> <!-- (2) -->
