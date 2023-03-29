@@ -10,6 +10,11 @@ import org.seasar.doma.Domain;
 
 import static com.undecided.primitive.object.Objects2.isNull;
 
+/**
+ * スノーフレークID.
+ *
+ * @param <E> Dbエンティティ
+ */
 @Getter
 @Domain(valueType = Long.class, factoryMethod = "reconstruct")
 public class SnowflakeIdentifier<E> extends AbstractLongValue implements
