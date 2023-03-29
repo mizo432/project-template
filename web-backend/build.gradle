@@ -82,8 +82,8 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.0.0'
-    implementation 'de.codecentric:spring-boot-admin-starter-client:3.0.0'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '3.0.0'
+    implementation "de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}"
+    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "${actuatorVersion}"
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
 
     implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'

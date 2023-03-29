@@ -74,7 +74,7 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     implementation "de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}"
-    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: '3.0.0'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "${actuatorVersion}"
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
