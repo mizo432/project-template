@@ -24,34 +24,13 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="com.undecided.projectTemplate.modules"> <!-- (9) -->
-        <level value="debug"/>
-    </logger>
-
-    <logger name="com.undecided.projectTemplate.shared"> <!-- (9) -->
-        <level value="debug"/>
-    </logger>
-
-    <logger name="com.undecided.gfw.web.logging.HttpSessionEventLoggingListener"> <!-- (9) -->
-        <level value="trace"/>
-    </logger>
-    <logger name="com.undecided.gfw.web.logging.TraceLoggingInterceptor"> <!-- (9) -->
-        <level value="trace"/>
-    </logger>
-    <logger name="com.undecided.gfw.web.token.transaction"> <!-- (9) -->
-        <level value="info"/>
-    </logger>
-    <logger name="com.undecided.gfw.common.exception.ExceptionLogger"> <!-- (9) -->
-        <level value="info"/>
-    </logger>
-
-    <logger name="org.springframework">
-        <level value="info"/>
-    </logger>
-
-    <!--logger name="org.springframework.web.servlet">
-        <level value="info"/>
-    </logger -->
+    <logger level="debug" name="com.undecided.projectTemplate.modules"/>
+    <logger level="debug" name="com.undecided.projectTemplate.shared"/>
+    <logger level="trace" name="com.undecided.gfw.web.logging.HttpSessionEventLoggingListener"/>
+    <logger level="trace" name="com.undecided.gfw.web.logging.TraceLoggingInterceptor"/>
+    <logger level="info" name="com.undecided.gfw.web.token.transaction"/>
+    <logger level="info" name="com.undecided.gfw.common.exception.ExceptionLogger"/>
+    <logger level="info" name="org.springframework"/>
     <root level="warn"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
         <appender-ref ref="APPLICATION_LOG_FILE"/>

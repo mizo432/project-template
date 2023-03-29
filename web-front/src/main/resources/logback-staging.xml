@@ -24,17 +24,7 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="com.undecided"> <!-- (9) -->
-        <level value="debug"/>
-    </logger>
-
-    <logger name="org.springframework">
-        <level value="warn"/>
-    </logger>
-
-    <logger name="org.springframework.web.servlet">
-        <level value="info"/>
-    </logger>
+    <logger level="info" name="org.springframework.web.servlet"/>
 
     <root level="warn"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
