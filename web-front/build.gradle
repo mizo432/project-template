@@ -80,17 +80,16 @@ dependencies {
 
     implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: "${thymeleafLayoutDialectVersion}"
 
-    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+    implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
 
     // modelmapper
-    implementation 'org.modelmapper:modelmapper:3.1.0'
     runtimeOnly 'org.postgresql:postgresql:42.5.1'
 
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.0.0'
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
 
     implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'
-    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.1.0'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

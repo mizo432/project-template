@@ -29,7 +29,9 @@ public class ActuatorHttpExchangesConfig {
             @SneakyThrows
             @Override
             public void add(HttpExchange exchange) {
-                LOGGER.trace(objectMapper.writeValueAsString(exchange));
+                LOGGER.debug(
+                    objectMapper.writeValueAsString(exchange) + ", " + exchange.getTimestamp()
+                        .getClass());
                 super.add(exchange);
             }
         };

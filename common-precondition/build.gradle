@@ -22,7 +22,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
-    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
 
 }
 

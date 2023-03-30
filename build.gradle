@@ -7,8 +7,9 @@ buildscript {
         springModulithVersion = '0.5'
         actuatorVersion = '3.0.5'
         domaVersion = '2.53.3'
-        jetbrainsAnnotationsVersion = '23.0.0'
+        jetbrainsAnnotationsVersion = '23.1.0'
         guavaVersion = '31.1-jre'
+        assertjVersion = '3.24.2'
     }
 
 }

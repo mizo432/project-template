@@ -61,8 +61,8 @@ dependencies {
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
     implementation 'org.springframework.session:spring-session-data-redis'
     implementation group: 'org.springframework.retry', name: 'spring-retry', version: '2.0.0'
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.14.1'
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.14.2'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.2'
     testImplementation 'ch.qos.logback:logback-core'
     testImplementation 'ch.qos.logback:logback-classic'
 

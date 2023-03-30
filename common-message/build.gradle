@@ -17,14 +17,14 @@ repositories {
 dependencies {
     implementation project(":common-primitive")
     testImplementation project(':common-test')
-    implementation "org.springframework:spring-context:6.0.2"
+    implementation "org.springframework:spring-context:6.0.7"
 
-    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+    implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
-    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
-    implementation "org.slf4j:slf4j-api:2.0.6"
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
+    implementation "org.slf4j:slf4j-api:2.0.7"
 
 }
 

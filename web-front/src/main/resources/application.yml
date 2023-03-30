@@ -3,8 +3,8 @@ server:
   compression:
     enabled: true
     mime-types: text/html,text/css,application/javascript,application/json
-  servlet:
-    register-default-servlet: true
+#  servlet:
+#    register-default-servlet: true
 spring:
   profiles.default: unit
   resources:
@@ -26,7 +26,7 @@ spring:
   application:
     name: front # アプリケーション名
   jackson:
-#    time-zone: Asia/Tokyo
+    #    time-zone: Asia/Tokyo
     visibility:
       field: any
       getter: any
@@ -43,9 +43,9 @@ spring:
       exclude: static/**, public/**
       # 再起動のトリガーから除外するファイルを追加で指定する
       additional-exclude: java/**, test/**
+      add-properties: false
   boot:
     admin:
-      url: http://localhost:8090/admin
       client:
         url: http://localhost:8090/admin
         instance:

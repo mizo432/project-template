@@ -8,6 +8,9 @@ spring:
     name: admin # アプリケーション名
   boot:
     admin:
+      server:
+        monitor:
+          status-interval: 30000
       client:
         url: http://localhost:8090/admin
         instance:

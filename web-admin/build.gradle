@@ -52,7 +52,7 @@ dependencies {
     implementation "de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}"
     implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "${actuatorVersion}"
 
-    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
 
 
 }

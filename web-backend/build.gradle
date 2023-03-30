@@ -64,7 +64,7 @@ dependencies {
     implementation project(':server-business')
     implementation project(':web-common')
     implementation project(':common-primitive')
-    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+    implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation 'org.flywaydb:flyway-core:9.8.3'
@@ -75,7 +75,7 @@ dependencies {
         exclude(group: 'com.thoughtworks.xstream')
     }
     // modelmapper
-    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.3'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.9'
     runtimeOnly 'org.postgresql:postgresql:42.5.1'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
@@ -87,11 +87,10 @@ dependencies {
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
 
     implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'
-    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.1.0'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation 'org.springdoc:springdoc-openapi-ui:1.6.13'
     implementation group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: '1.7.0'
 }
 
