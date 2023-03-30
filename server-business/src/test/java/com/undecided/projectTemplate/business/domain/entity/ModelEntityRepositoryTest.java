@@ -12,6 +12,7 @@ class ModelEntityRepositoryTest {
     @SpringBootTest
     class SpringTest {
 
+        @Autowired
         ModelEntityRepository modelEntityRepository;
 
         @Nested

@@ -24,7 +24,7 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger level="debug" name="com.undecided.projectTemplate.modules"/>
+    <logger level="debug" name="com.undecided.projectTemplate.admin"/>
     <logger level="debug" name="com.undecided.projectTemplate.shared"/>
     <logger level="trace" name="com.undecided.gfw.web.logging.HttpSessionEventLoggingListener"/>
     <logger level="trace" name="com.undecided.gfw.web.logging.TraceLoggingInterceptor"/>

@@ -42,9 +42,9 @@ dependencies {
     implementation project(":common-exception")
     implementation project(":common-message")
     implementation project(":common-primitive")
-    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+    implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
 
-    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
     testImplementation project(":common-test")
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
@@ -57,8 +57,7 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    annotationProcessor 'org.seasar.doma:doma-processor:2.53.1'
+    annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
     implementation 'org.springframework.session:spring-session-data-redis'
     implementation group: 'org.springframework.retry', name: 'spring-retry', version: '2.0.0'

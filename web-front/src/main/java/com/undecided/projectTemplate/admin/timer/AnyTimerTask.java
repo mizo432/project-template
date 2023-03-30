@@ -13,8 +13,8 @@ public class AnyTimerTask {
     private static final Logger LOG = LoggerFactory.getLogger(AnyTimerTask.class);
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-    @Scheduled(fixedRate = 5000)
-    void execute() {
+    @Scheduled(fixedRate = 60000)
+    public void execute() {
         LOG.info("The time is now {}", dateFormat.format(new Date()));
     }
 }
