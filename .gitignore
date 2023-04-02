@@ -37,3 +37,4 @@ gradle-app.setting
 /web-backend/src/main/generated/
 /web-admin/build/
 /web-validation/build/
+/web-front2/build/

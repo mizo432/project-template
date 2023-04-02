@@ -10,6 +10,7 @@ buildscript {
         jetbrainsAnnotationsVersion = '23.1.0'
         guavaVersion = '31.1-jre'
         assertjVersion = '3.24.2'
+        postgresVersion = '42.5.1'
     }
 
 }
