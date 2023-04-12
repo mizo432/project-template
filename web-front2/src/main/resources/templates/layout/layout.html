@@ -1,0 +1,30 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="ja"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="no" name="msapplication-tap-highlight">
+    <meta content="" name="description">    <!--Import Google Icon Font-->
+    <title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">Thymeleaf de layout</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.2/dist/css/materialize.min.css"
+          rel="stylesheet">
+
+</head>
+<body class="has-fixed-sidenav">
+<div layout:replace="~{layout/header::header}"></div>
+<div class="clearfix" id="content">
+    <div class="container">
+        <div layout:fragment="content" th:remove="tag"></div>
+    </div>
+</div>
+<div layout:replace="~{layout/footer::footer}"></div>
+</body>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.2/dist/js/materialize.min.js"></script>
+</html>

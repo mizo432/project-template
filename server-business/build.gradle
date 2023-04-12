@@ -5,6 +5,11 @@ plugins {
     id 'java-library'
 
 }
+
+ext {
+    domaResourcesDir = "${buildDir}/tmp/doma-resources"
+}
+
 apply plugin: 'idea'
 apply plugin: 'pmd'
 
@@ -30,11 +35,18 @@ repositories {
     mavenCentral()
 
 }
-tasks.register('copyDomaResources', Copy) {
-    from processResources.destinationDir
-    into compileJava.destinationDirectory
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+sourceSets {
+    main {
+        output.resourcesDir = compileJava.destinationDirectory.asFile.get()
+    }
 }
+
+tasks.register('copyDomaResources', Copy) {
+    from domaResourcesDir
+    into compileJava.destinationDirectory
+//  duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+processResources.destinationDir = compileJava.destinationDirectory.asFile.get()
 copyDomaResources.dependsOn processResources
 
 dependencies {
@@ -50,10 +62,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation(group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: '1.7.0') {
-        exclude group: 'org.yaml', module: 'snakeyaml'
-
-    }
+    implementation(group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: "${domaStarterVersion}")
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
@@ -75,7 +84,6 @@ pmd {
     ruleSetFiles = files(file("$rootProject.projectDir/src/config/pmd/pmdRules.xml"))
     pmdTest.enabled = false
 }
-
 
 compileJava {
     options.compilerArgs = ['-Adoma.domain.converters=com.undecided.projectTemplate.shared.domaConverter.DomainConvertersProvider',

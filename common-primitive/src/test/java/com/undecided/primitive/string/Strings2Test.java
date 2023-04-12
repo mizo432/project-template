@@ -1,12 +1,12 @@
 package com.undecided.primitive.string;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class Strings2Test {
 
@@ -192,7 +192,7 @@ class Strings2Test {
 
         // Act and Assert
         assertThrows(IllegalArgumentException.class,
-            () -> Strings2.defaultObjectIfEmpty(str, nonEmptyFunction, emptySupplier));
+                () -> Strings2.defaultObjectIfEmpty(str, nonEmptyFunction, emptySupplier));
     }
 
     /**
@@ -273,12 +273,12 @@ class Strings2Test {
 
             // Act
             String actualFindFirstByNotEmptySilentlyResult = Strings2.findFirstByNotEmptySilently(
-                strings);
+                    strings);
 
             // Assert
             String expectedFindFirstByNotEmptySilentlyResult = "Strings";
             assertEquals(expectedFindFirstByNotEmptySilentlyResult,
-                actualFindFirstByNotEmptySilentlyResult);
+                    actualFindFirstByNotEmptySilentlyResult);
         }
 
         @Test
@@ -288,12 +288,12 @@ class Strings2Test {
 
             // Act
             String actualFindFirstByNotEmptySilentlyResult = Strings2.findFirstByNotEmptySilently(
-                strings);
+                    strings);
 
             // Assert
             String expectedFindFirstByNotEmptySilentlyResult = null;
             assertEquals(expectedFindFirstByNotEmptySilentlyResult,
-                actualFindFirstByNotEmptySilentlyResult);
+                    actualFindFirstByNotEmptySilentlyResult);
         }
 
         @Test
@@ -304,12 +304,12 @@ class Strings2Test {
 
             // Act
             String actualFindFirstByNotEmptySilentlyResult = Strings2.findFirstByNotEmptySilently(
-                strings);
+                    strings);
 
             // Assert
             String expectedFindFirstByNotEmptySilentlyResult = null;
             assertEquals(expectedFindFirstByNotEmptySilentlyResult,
-                actualFindFirstByNotEmptySilentlyResult);
+                    actualFindFirstByNotEmptySilentlyResult);
         }
 
         @Test
@@ -320,12 +320,12 @@ class Strings2Test {
 
             // Act
             String actualFindFirstByNotEmptySilentlyResult = Strings2.findFirstByNotEmptySilently(
-                strings);
+                    strings);
 
             // Assert
             String expectedFindFirstByNotEmptySilentlyResult = null;
             assertEquals(expectedFindFirstByNotEmptySilentlyResult,
-                actualFindFirstByNotEmptySilentlyResult);
+                    actualFindFirstByNotEmptySilentlyResult);
         }
 
     }
@@ -344,7 +344,7 @@ class Strings2Test {
 
             // Act and Assert
             assertThrows(IllegalArgumentException.class,
-                () -> Strings2.checkNotNull(reference, argName));
+                    () -> Strings2.checkNotNull(reference, argName));
         }
 
     }
@@ -363,7 +363,7 @@ class Strings2Test {
 
             // Act and Assert
             assertThrows(IllegalArgumentException.class,
-                () -> Strings2.checkAllEntityNotNull(reference, argName));
+                    () -> Strings2.checkAllEntityNotNull(reference, argName));
         }
 
     }
@@ -598,6 +598,31 @@ class Strings2Test {
             // Assert
             boolean expectedIsHankakuAllCharactersResult = true;
             assertEquals(expectedIsHankakuAllCharactersResult, actualIsHankakuAllCharactersResult);
+        }
+
+    }
+
+    /**
+     * Method under test: {@link Strings2#ifIsEmptyToNull(String)}
+     */
+    @Nested
+    class ifIsEmptyToNull {
+
+        @Test
+        void _空文字列を渡すとnullが返却される() {
+            assertNull(Strings2.ifIsEmptyToNull(Strings2.EMPTY));
+
+        }
+
+        @Test
+        void _空文字列ではないStrを渡すとnullが返却される() {
+            assertEquals("Str", Strings2.ifIsEmptyToNull("Str"));
+
+        }
+
+        @Test
+        void _nullを渡すとnullが返却される() {
+            assertNull(Strings2.ifIsEmptyToNull(null));
         }
 
     }

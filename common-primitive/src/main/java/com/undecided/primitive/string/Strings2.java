@@ -1,17 +1,14 @@
 package com.undecided.primitive.string;
 
 import com.undecided.primitive.object.Objects2;
-import java.nio.CharBuffer;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.function.Function;
-import java.util.function.Supplier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+import java.util.*;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * 文字列関連ユーティリティ
@@ -52,40 +49,40 @@ public final class Strings2 {
 
     // カタカナ文字を配列として準備
     private static final char[] HANKAKU_KATAKANA_KIGOU =
-        {'｡', '｢', '｣', '､', '･', 'ｦ', 'ｧ', 'ｨ', 'ｩ', 'ｪ', 'ｫ', 'ｬ', 'ｭ',
-            'ｮ', 'ｯ', 'ｰ', 'ｱ', 'ｲ', 'ｳ', 'ｴ', 'ｵ', 'ｶ', 'ｷ', 'ｸ', 'ｹ',
-            'ｺ', 'ｻ', 'ｼ', 'ｽ', 'ｾ', 'ｿ', 'ﾀ', 'ﾁ', 'ﾂ', 'ﾃ', 'ﾄ', 'ﾅ',
-            'ﾆ', 'ﾇ', 'ﾈ', 'ﾉ', 'ﾊ', 'ﾋ', 'ﾌ', 'ﾍ', 'ﾎ', 'ﾏ', 'ﾐ', 'ﾑ',
-            'ﾒ', 'ﾓ', 'ﾔ', 'ﾕ', 'ﾖ', 'ﾗ', 'ﾘ', 'ﾙ', 'ﾚ', 'ﾛ', 'ﾜ', 'ﾝ',
-            'ﾞ', 'ﾟ'};
+            {'｡', '｢', '｣', '､', '･', 'ｦ', 'ｧ', 'ｨ', 'ｩ', 'ｪ', 'ｫ', 'ｬ', 'ｭ',
+                    'ｮ', 'ｯ', 'ｰ', 'ｱ', 'ｲ', 'ｳ', 'ｴ', 'ｵ', 'ｶ', 'ｷ', 'ｸ', 'ｹ',
+                    'ｺ', 'ｻ', 'ｼ', 'ｽ', 'ｾ', 'ｿ', 'ﾀ', 'ﾁ', 'ﾂ', 'ﾃ', 'ﾄ', 'ﾅ',
+                    'ﾆ', 'ﾇ', 'ﾈ', 'ﾉ', 'ﾊ', 'ﾋ', 'ﾌ', 'ﾍ', 'ﾎ', 'ﾏ', 'ﾐ', 'ﾑ',
+                    'ﾒ', 'ﾓ', 'ﾔ', 'ﾕ', 'ﾖ', 'ﾗ', 'ﾘ', 'ﾙ', 'ﾚ', 'ﾛ', 'ﾜ', 'ﾝ',
+                    'ﾞ', 'ﾟ'};
 
     private static final char[] ZENKAKU_KATAKANA_KIGOU =
-        {'。', '「', '」', '、', '・', 'ヲ', 'ァ', 'ィ', 'ゥ', 'ェ', 'ォ', 'ャ', 'ュ',
-            'ョ', 'ッ', 'ー', 'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ',
-            'コ', 'サ', 'シ', 'ス', 'セ', 'ソ', 'タ', 'チ', 'ツ', 'テ', 'ト', 'ナ',
-            'ニ', 'ヌ', 'ネ', 'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ', 'マ', 'ミ', 'ム',
-            'メ', 'モ', 'ヤ', 'ユ', 'ヨ', 'ラ', 'リ', 'ル', 'レ', 'ロ', 'ワ', 'ン',
-            '゛', '゜'};
+            {'。', '「', '」', '、', '・', 'ヲ', 'ァ', 'ィ', 'ゥ', 'ェ', 'ォ', 'ャ', 'ュ',
+                    'ョ', 'ッ', 'ー', 'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ',
+                    'コ', 'サ', 'シ', 'ス', 'セ', 'ソ', 'タ', 'チ', 'ツ', 'テ', 'ト', 'ナ',
+                    'ニ', 'ヌ', 'ネ', 'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ', 'マ', 'ミ', 'ム',
+                    'メ', 'モ', 'ヤ', 'ユ', 'ヨ', 'ラ', 'リ', 'ル', 'レ', 'ロ', 'ワ', 'ン',
+                    '゛', '゜'};
 
     private static final String[] HANKAKU_KATAKANA =
-        {"ｧ", "ｱ", "ｨ", "ｲ", "ｩ", "ｳ", "ｪ", "ｴ", "ｫ", "ｵ", "ｶ", "ｶﾞ", "ｷ",
-            "ｷﾞ", "ｸ", "ｸﾞ", "ｹ", "ｹﾞ", "ｺ", "ｺﾞ", "ｻ", "ｻﾞ", "ｼ",
-            "ｼﾞ", "ｽ", "ｽﾞ", "ｾ", "ｾﾞ", "ｿ", "ｿﾞ", "ﾀ", "ﾀﾞ", "ﾁ",
-            "ﾁﾞ", "ｯ", "ﾂ", "ﾂﾞ", "ﾃ", "ﾃﾞ", "ﾄ", "ﾄﾞ", "ﾅ", "ﾆ", "ﾇ",
-            "ﾈ", "ﾉ", "ﾊ", "ﾊﾞ", "ﾊﾟ", "ﾋ", "ﾋﾞ", "ﾋﾟ", "ﾌ", "ﾌﾞ",
-            "ﾌﾟ", "ﾍ", "ﾍﾞ", "ﾍﾟ", "ﾎ", "ﾎﾞ", "ﾎﾟ", "ﾏ", "ﾐ", "ﾑ", "ﾒ",
-            "ﾓ", "ｬ", "ﾔ", "ｭ", "ﾕ", "ｮ", "ﾖ", "ﾗ", "ﾘ", "ﾙ", "ﾚ", "ﾛ",
-            "ﾜ", "ﾜ", "ｲ", "ｴ", "ｦ", "ﾝ", "ｳﾞ", "ｶ", "ｹ"};
+            {"ｧ", "ｱ", "ｨ", "ｲ", "ｩ", "ｳ", "ｪ", "ｴ", "ｫ", "ｵ", "ｶ", "ｶﾞ", "ｷ",
+                    "ｷﾞ", "ｸ", "ｸﾞ", "ｹ", "ｹﾞ", "ｺ", "ｺﾞ", "ｻ", "ｻﾞ", "ｼ",
+                    "ｼﾞ", "ｽ", "ｽﾞ", "ｾ", "ｾﾞ", "ｿ", "ｿﾞ", "ﾀ", "ﾀﾞ", "ﾁ",
+                    "ﾁﾞ", "ｯ", "ﾂ", "ﾂﾞ", "ﾃ", "ﾃﾞ", "ﾄ", "ﾄﾞ", "ﾅ", "ﾆ", "ﾇ",
+                    "ﾈ", "ﾉ", "ﾊ", "ﾊﾞ", "ﾊﾟ", "ﾋ", "ﾋﾞ", "ﾋﾟ", "ﾌ", "ﾌﾞ",
+                    "ﾌﾟ", "ﾍ", "ﾍﾞ", "ﾍﾟ", "ﾎ", "ﾎﾞ", "ﾎﾟ", "ﾏ", "ﾐ", "ﾑ", "ﾒ",
+                    "ﾓ", "ｬ", "ﾔ", "ｭ", "ﾕ", "ｮ", "ﾖ", "ﾗ", "ﾘ", "ﾙ", "ﾚ", "ﾛ",
+                    "ﾜ", "ﾜ", "ｲ", "ｴ", "ｦ", "ﾝ", "ｳﾞ", "ｶ", "ｹ"};
 
     private static final char[] ZENKAKU_KATAKANA =
-        {'ァ', 'ア', 'ィ', 'イ', 'ゥ', 'ウ', 'ェ', 'エ', 'ォ', 'オ', 'カ', 'ガ', 'キ',
-            'ギ', 'ク', 'グ', 'ケ', 'ゲ', 'コ', 'ゴ', 'サ', 'ザ', 'シ', 'ジ', 'ス',
-            'ズ', 'セ', 'ゼ', 'ソ', 'ゾ', 'タ', 'ダ', 'チ', 'ヂ', 'ッ', 'ツ', 'ヅ',
-            'テ', 'デ', 'ト', 'ド', 'ナ', 'ニ', 'ヌ', 'ネ', 'ノ', 'ハ', 'バ', 'パ',
-            'ヒ', 'ビ', 'ピ', 'フ', 'ブ', 'プ', 'ヘ', 'ベ', 'ペ', 'ホ', 'ボ', 'ポ',
-            'マ', 'ミ', 'ム', 'メ', 'モ', 'ャ', 'ヤ', 'ュ', 'ユ', 'ョ', 'ヨ', 'ラ',
-            'リ', 'ル', 'レ', 'ロ', 'ヮ', 'ワ', 'ヰ', 'ヱ', 'ヲ', 'ン', 'ヴ', 'ヵ',
-            'ヶ'};
+            {'ァ', 'ア', 'ィ', 'イ', 'ゥ', 'ウ', 'ェ', 'エ', 'ォ', 'オ', 'カ', 'ガ', 'キ',
+                    'ギ', 'ク', 'グ', 'ケ', 'ゲ', 'コ', 'ゴ', 'サ', 'ザ', 'シ', 'ジ', 'ス',
+                    'ズ', 'セ', 'ゼ', 'ソ', 'ゾ', 'タ', 'ダ', 'チ', 'ヂ', 'ッ', 'ツ', 'ヅ',
+                    'テ', 'デ', 'ト', 'ド', 'ナ', 'ニ', 'ヌ', 'ネ', 'ノ', 'ハ', 'バ', 'パ',
+                    'ヒ', 'ビ', 'ピ', 'フ', 'ブ', 'プ', 'ヘ', 'ベ', 'ペ', 'ホ', 'ボ', 'ポ',
+                    'マ', 'ミ', 'ム', 'メ', 'モ', 'ャ', 'ヤ', 'ュ', 'ユ', 'ョ', 'ヨ', 'ラ',
+                    'リ', 'ル', 'レ', 'ロ', 'ヮ', 'ワ', 'ヰ', 'ヱ', 'ヲ', 'ン', 'ヴ', 'ヵ',
+                    'ヶ'};
     private static final String SLASH = "/";
 
     private static final String HYPHEN = "-";
@@ -95,13 +92,13 @@ public final class Strings2 {
     private static final char ZENKAKU_KATAKANA_FIRST_CHAR = ZENKAKU_KATAKANA[0];
 
     private static final char ZENKAKU_KATAKANA_LAST_CHAR =
-        ZENKAKU_KATAKANA[ZENKAKU_KATAKANA.length - 1];
+            ZENKAKU_KATAKANA[ZENKAKU_KATAKANA.length - 1];
 
     private static final char HANKAKU_KATAKANA_FIRST_CHAR =
-        HANKAKU_KATAKANA_KIGOU[0];
+            HANKAKU_KATAKANA_KIGOU[0];
 
     private static final char HANKAKU_KATAKANA_LAST_CHAR =
-        HANKAKU_KATAKANA_KIGOU[HANKAKU_KATAKANA_KIGOU.length - 1];
+            HANKAKU_KATAKANA_KIGOU[HANKAKU_KATAKANA_KIGOU.length - 1];
 
     private static final String ZENKAKU_BLANK = " ";
 
@@ -321,9 +318,14 @@ public final class Strings2 {
         return true;
 
     }
+    private final static String[][] hanZenKigouTaiouArray =
+            new String[][]{{"!", "！"}, {"?", "？"}, {",", "，"},
+                    {"(", "（"}, {")", "）"}, {"#", "＃"}, {"$", "＄"},
+                    {"\\", "￥"}, {"+", "＋"}, {"-", "－"}, {"@", "＠"},
+                    {"/", "／"}, {"*", "＊"}, {".", "．"}};
 
     private static int countCharacters(@NotNull final CharSequence str,
-        final char aSearchCharacter) {
+                                       final char aSearchCharacter) {
         int result = 0;
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
@@ -333,107 +335,6 @@ public final class Strings2 {
         }
         return result;
 
-    }
-
-    /**
-     * 文字列が数値表現かどうかを返します。
-     *
-     * @param str 文字列
-     * @return 数値表現である場合、<code>true</code>
-     */
-    public static boolean isNumber(final String str) {
-        if (isEmpty(str)) {
-            return false;
-        }
-        final char[] chars = str.toCharArray();
-        int sz = chars.length;
-        boolean hasExp = false;
-        boolean hasDecPoint = false;
-        boolean allowSigns = false;
-        boolean foundDigit = false;
-        final int start = (chars[0] == '-') ? 1 : 0;
-        if (sz > start + 1 && chars[start] == '0') {
-            if ((chars[start + 1] == 'x') || (chars[start + 1] == 'X')) {
-                int i = start + 2;
-                if (i == sz) {
-                    return false;
-                }
-                for (; i < chars.length; i++) {
-                    if ((chars[i] < '0' || chars[i] > '9') && (chars[i] < 'a' || chars[i] > 'f')
-                        && (chars[i] < 'A' || chars[i] > 'F')) {
-                        return false;
-                    }
-                }
-                return true;
-            } else if (Character.isDigit(chars[start + 1])) {
-                int i = start + 1;
-                for (; i < chars.length; i++) {
-                    if (chars[i] < '0' || chars[i] > '7') {
-                        return false;
-                    }
-                }
-                return true;
-            }
-        }
-        sz--;
-        int i = start;
-        while (i < sz || (i < sz + 1 && allowSigns && !foundDigit)) {
-            if (chars[i] >= '0' && chars[i] <= '9') {
-                foundDigit = true;
-                allowSigns = false;
-
-            } else if (chars[i] == '.') {
-                if (hasDecPoint || hasExp) {
-                    // two decimal points org dec in exponent
-                    return false;
-                }
-                hasDecPoint = true;
-            } else if (chars[i] == 'e' || chars[i] == 'E') {
-                // we've already taken care of hex.
-                if (hasExp) {
-                    // two E's
-                    return false;
-                }
-                if (!foundDigit) {
-                    return false;
-                }
-                hasExp = true;
-                allowSigns = true;
-            } else if (chars[i] == '+' || chars[i] == '-') {
-                if (!allowSigns) {
-                    return false;
-                }
-                allowSigns = false;
-                foundDigit = false;
-            } else {
-                return false;
-            }
-            i++;
-        }
-        if (i < chars.length) {
-            if (chars[i] >= '0' && chars[i] <= '9') {
-                // no type qualifier, OK
-                return true;
-            }
-            if (chars[i] == 'e' || chars[i] == 'E') {
-                return false;
-            }
-            if (chars[i] == '.') {
-                if (hasDecPoint || hasExp) {
-                    return false;
-                }
-                return foundDigit;
-            }
-            if (!allowSigns && (chars[i] == 'd' || chars[i] == 'D' || chars[i] == 'f'
-                || chars[i] == 'F')) {
-                return foundDigit;
-            }
-            if (chars[i] == 'l' || chars[i] == 'L') {
-                return foundDigit && !hasExp && !hasDecPoint;
-            }
-            return false;
-        }
-        return !allowSigns && foundDigit;
     }
 
     /**
@@ -447,7 +348,6 @@ public final class Strings2 {
      * @return 文字列を囲んだ結果を返却します。
      */
     public static String surround(String value, String s) {
-
         return s + value + s;
     }
 
@@ -612,8 +512,144 @@ public final class Strings2 {
         }
     }
 
+    /**
+     * 文字列が数値表現かどうかを返します。
+     *
+     * @param str 文字列
+     * @return 数値表現である場合、<code>true</code>
+     */
+    public static boolean isNumber(final String str) {
+        if (isEmpty(str)) {
+            return false;
+        }
+        final char[] chars = str.toCharArray();
+        int sz = chars.length;
+        boolean hasExp = false;
+        boolean hasDecPoint = false;
+        boolean allowSigns = false;
+        boolean foundDigit = false;
+        final int start = (chars[0] == '-') ? 1 : 0;
+        if (sz > start + 1 && chars[start] == '0') {
+            if ((chars[start + 1] == 'x') || (chars[start + 1] == 'X')) {
+                int i = start + 2;
+                if (i == sz) {
+                    return false;
+                }
+                for (; i < chars.length; i++) {
+                    if ((chars[i] < '0' || chars[i] > '9') && (chars[i] < 'a' || chars[i] > 'f')
+                            && (chars[i] < 'A' || chars[i] > 'F')) {
+                        return false;
+                    }
+                }
+                return true;
+            } else if (Character.isDigit(chars[start + 1])) {
+                int i = start + 1;
+                for (; i < chars.length; i++) {
+                    if (chars[i] < '0' || chars[i] > '7') {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        sz--;
+        int i = start;
+        while (i < sz || (i < sz + 1 && allowSigns && !foundDigit)) {
+            if (chars[i] >= '0' && chars[i] <= '9') {
+                foundDigit = true;
+                allowSigns = false;
+
+            } else if (chars[i] == '.') {
+                if (hasDecPoint || hasExp) {
+                    // two decimal points org dec in exponent
+                    return false;
+                }
+                hasDecPoint = true;
+            } else if (chars[i] == 'e' || chars[i] == 'E') {
+                // we've already taken care of hex.
+                if (hasExp) {
+                    // two E's
+                    return false;
+                }
+                if (!foundDigit) {
+                    return false;
+                }
+                hasExp = true;
+                allowSigns = true;
+            } else if (chars[i] == '+' || chars[i] == '-') {
+                if (!allowSigns) {
+                    return false;
+                }
+                allowSigns = false;
+                foundDigit = false;
+            } else {
+                return false;
+            }
+            i++;
+        }
+        if (i < chars.length) {
+            if (chars[i] >= '0' && chars[i] <= '9') {
+                // no type qualifier, OK
+                return true;
+            }
+            if (chars[i] == 'e' || chars[i] == 'E') {
+                return false;
+            }
+            if (chars[i] == '.') {
+                if (hasDecPoint || hasExp) {
+                    return false;
+                }
+                return foundDigit;
+            }
+            if (!allowSigns && (chars[i] == 'd' || chars[i] == 'D' || chars[i] == 'f'
+                    || chars[i] == 'F')) {
+                return foundDigit;
+            }
+            if (chars[i] == 'l' || chars[i] == 'L') {
+                return foundDigit && !hasExp && !hasDecPoint;
+            }
+            return false;
+        }
+        return !allowSigns && foundDigit;
+    }
+
+    public static String stripEnd(String str, String stripChars) {
+        int end;
+        if (str != null && (end = str.length()) != 0) {
+            if (stripChars == null) {
+                while (end != 0 && Character.isWhitespace(str.charAt(end - 1))) {
+                    --end;
+                }
+            } else {
+                if (stripChars.isEmpty()) {
+                    return str;
+                }
+
+                while (end != 0 && stripChars.indexOf(str.charAt(end - 1)) != -1) {
+                    --end;
+                }
+            }
+
+            return str.substring(0, end);
+        } else {
+            return str;
+        }
+    }
+
+    public static int indexOf(CharSequence seq, int searchChar) {
+        return CharSequences.isEmpty(seq) ? -1 : CharSequences.indexOf(seq, searchChar);
+    }
+
+    public static int indexOfSilently(CharSequence seq, int searchChar, int startPos) {
+        return CharSequences.isEmpty(seq) ? -1 : CharSequences.indexOf(seq, searchChar, startPos);
+    }
+
+    public static int indexOfSilently(CharSequence seq, CharSequence searchSeq) {
+        return seq != null && searchSeq != null ? CharSequences.indexOf(seq, searchSeq) : -1;
+    }
+
     private static String[] splitWorker(String str, String separatorChars, int max,
-        boolean preserveAllTokens) {
+                                        boolean preserveAllTokens) {
         if (isNull(str)) {
             return new String[]{};
         } else {
@@ -665,79 +701,14 @@ public final class Strings2 {
         }
     }
 
-    public static String stripEnd(String str, String stripChars) {
-        int end;
-        if (str != null && (end = str.length()) != 0) {
-            if (stripChars == null) {
-                while (end != 0 && Character.isWhitespace(str.charAt(end - 1))) {
-                    --end;
-                }
-            } else {
-                if (stripChars.isEmpty()) {
-                    return str;
-                }
-
-                while (end != 0 && stripChars.indexOf(str.charAt(end - 1)) != -1) {
-                    --end;
-                }
-            }
-
-            return str.substring(0, end);
-        } else {
-            return str;
-        }
-    }
-
-    public static int indexOf(CharSequence seq, int searchChar) {
-        return CharSequences.isEmpty(seq) ? -1 : CharSequences.indexOf(seq, searchChar);
-    }
-
-    public static int indexOfSilently(CharSequence seq, int searchChar, int startPos) {
-        return CharSequences.isEmpty(seq) ? -1 : CharSequences.indexOf(seq, searchChar, startPos);
-    }
-
-    public static int indexOfSilently(CharSequence seq, CharSequence searchSeq) {
-        return seq != null && searchSeq != null ? CharSequences.indexOf(seq, searchSeq) : -1;
-    }
-
-    public static int indexOfSilently(CharSequence seq, CharSequence searchSeq, int startPos) {
-        return seq != null && searchSeq != null ?
-            CharSequences.indexOf(seq, searchSeq, startPos) :
-            -1;
-    }
-
     public static int ordinalIndexOf(CharSequence str, CharSequence searchStr, int ordinal) {
         return ordinalIndexOf(str, searchStr, ordinal, false);
     }
 
-    private static int ordinalIndexOf(CharSequence str, CharSequence searchStr, int ordinal,
-        boolean lastIndex) {
-        if (str != null && searchStr != null && ordinal > 0) {
-            if (searchStr.length() == 0) {
-                return lastIndex ? str.length() : 0;
-            } else {
-                int found = 0;
-                int index = lastIndex ? str.length() : -1;
-
-                do {
-                    if (lastIndex) {
-                        index = CharSequences.lastIndexOf(str, searchStr, index - 1);
-                    } else {
-                        index = CharSequences.indexOf(str, searchStr, index + 1);
-                    }
-
-                    if (index < 0) {
-                        return index;
-                    }
-
-                    ++found;
-                } while (found < ordinal);
-
-                return index;
-            }
-        } else {
-            return -1;
-        }
+    public static int indexOfSilently(CharSequence seq, CharSequence searchSeq, int startPos) {
+        return seq != null && searchSeq != null ?
+                CharSequences.indexOf(seq, searchSeq, startPos) :
+                -1;
     }
 
 
@@ -837,52 +808,34 @@ public final class Strings2 {
         return join(delimiter, strings);
     }
 
-    /**
-     * 配列文字列がnullでない場合にジョインした結果を返す
-     * <pre>
-     * 配列文字列がnullの場合は例外が出ます。
-     * </pre>
-     * <pre>
-     * <h3>使用方法</h3>
-     * result = joinIfNotNull("ABC",null,DEF)
-     * result = joinIfNotNull("ABC",null,null)
-     * result = joinIfNotNull()
-     * </pre>
-     * <pre>
-     * <h3>仕様</h3>
-     * assertThat(joinIfNotNull()).isEqualTo();
-     * assertThat(joinIfNotNull(null)).isEqualTo("");
-     * assertThat(joinIfNotNull("ABC")).isEqualTo("ABC");
-     * assertThat(joinIfNotNull("ABC","DEF","GHI")).isEqualTo("ABCDEFGHI");
-     * assertThat(joinIfNotNull((String)null,"DEF","GHI")).isEqualTo("DEFGHI");
-     * assertThat(joinIfNotNull("ABC",(String)null,"GHI")).isEqualTo("ABCGHI");
-     * assertThat(joinIfNotNull("ABC","DEF",(String)null).isEqualTo("ABCDEF");
-     * String[] stringArray = null;
-     * joinIfNotNull(stringArray); // throwed IllegalArgumentException.
-     *
-     * </pre>
-     *
-     * @param strings 配列文字列
-     * @return ジョイン後文字列
-     */
-    public static String joinIfNotNull(@NotNull String... strings) {
-        if (strings == null) {
-            throw new IllegalArgumentException("引数stringsがnullです。null以外の値を指定してください");
-        }
-        ;
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < strings.length; i++) {
-            String string = strings[i];
-            if (string != null) {
-                result.append(string);
+    private static int ordinalIndexOf(CharSequence str, CharSequence searchStr, int ordinal,
+                                      boolean lastIndex) {
+        if (str != null && searchStr != null && ordinal > 0) {
+            if (searchStr.length() == 0) {
+                return lastIndex ? str.length() : 0;
             } else {
-                throw new IllegalArgumentException(
-                    "引数stringsの要素にnullが含まれています。null以外の値を指定してください index:" + i);
+                int found = 0;
+                int index = lastIndex ? str.length() : -1;
 
+                do {
+                    if (lastIndex) {
+                        index = CharSequences.lastIndexOf(str, searchStr, index - 1);
+                    } else {
+                        index = CharSequences.indexOf(str, searchStr, index + 1);
+                    }
+
+                    if (index < 0) {
+                        return index;
+                    }
+
+                    ++found;
+                } while (found < ordinal);
+
+                return index;
             }
+        } else {
+            return -1;
         }
-        return result.toString();
-
     }
 
     /**
@@ -1033,6 +986,54 @@ public final class Strings2 {
     }
 
     /**
+     * 配列文字列がnullでない場合にジョインした結果を返す
+     * <pre>
+     * 配列文字列がnullの場合は例外が出ます。
+     * </pre>
+     * <pre>
+     * <h3>使用方法</h3>
+     * result = joinIfNotNull("ABC",null,DEF)
+     * result = joinIfNotNull("ABC",null,null)
+     * result = joinIfNotNull()
+     * </pre>
+     * <pre>
+     * <h3>仕様</h3>
+     * assertThat(joinIfNotNull()).isEqualTo();
+     * assertThat(joinIfNotNull(null)).isEqualTo("");
+     * assertThat(joinIfNotNull("ABC")).isEqualTo("ABC");
+     * assertThat(joinIfNotNull("ABC","DEF","GHI")).isEqualTo("ABCDEFGHI");
+     * assertThat(joinIfNotNull((String)null,"DEF","GHI")).isEqualTo("DEFGHI");
+     * assertThat(joinIfNotNull("ABC",(String)null,"GHI")).isEqualTo("ABCGHI");
+     * assertThat(joinIfNotNull("ABC","DEF",(String)null).isEqualTo("ABCDEF");
+     * String[] stringArray = null;
+     * joinIfNotNull(stringArray); // throwed IllegalArgumentException.
+     *
+     * </pre>
+     *
+     * @param strings 配列文字列
+     * @return ジョイン後文字列
+     */
+    public static String joinIfNotNull(@NotNull String... strings) {
+        if (strings == null) {
+            throw new IllegalArgumentException("引数stringsがnullです。null以外の値を指定してください");
+        }
+        ;
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < strings.length; i++) {
+            String string = strings[i];
+            if (string != null) {
+                result.append(string);
+            } else {
+                throw new IllegalArgumentException(
+                        "引数stringsの要素にnullが含まれています。null以外の値を指定してください index:" + i);
+
+            }
+        }
+        return result.toString();
+
+    }
+
+    /**
      * JavaBeansの仕様にしたがってアンキャピタライズを行ないます。
      * <p>
      * 大文字が2つ以上続く場合は、小文字にならないので注意してください。
@@ -1055,44 +1056,12 @@ public final class Strings2 {
         }
         final char[] chars = name.toCharArray();
         if (chars.length >= 2 && Character.isUpperCase(chars[0]) && Character
-            .isUpperCase(chars[1])) {
+                .isUpperCase(chars[1])) {
             return name;
         }
         chars[0] = Character.toLowerCase(chars[0]);
         return new String(chars);
 
-    }
-
-    public static String collectionToDelimitedString(@Nullable Collection<?> coll, String delim,
-        String prefix, String suffix) {
-        if (isNull(coll)) {
-            return EMPTY;
-        }
-
-        if (coll.isEmpty()) {
-            return EMPTY;
-        } else {
-            int totalLength = coll.size() * (prefix.length() + suffix.length())
-                + (coll.size() - 1) * delim.length();
-
-            Object element;
-            for (Iterator var5 = coll.iterator(); var5.hasNext();
-                totalLength += String.valueOf(element).length()) {
-                element = var5.next();
-            }
-
-            StringBuilder sb = new StringBuilder(totalLength);
-            Iterator<?> it = coll.iterator();
-
-            while (it.hasNext()) {
-                sb.append(prefix).append(it.next()).append(suffix);
-                if (it.hasNext()) {
-                    sb.append(delim);
-                }
-            }
-
-            return sb.toString();
-        }
     }
 
     private static boolean isNull(Collection<?> reference) {
@@ -1487,41 +1456,36 @@ public final class Strings2 {
 
     }
 
-    /**
-     * 文字列を元に、オブジェクトを返却する（文字列はEMPTY）
-     * <p>
-     * 次のように使います．
-     * </p>
-     *
-     * <pre>
-     * Strings2.defaultObjectIfEmpty(null, null, () -\gt; "") -\gt; NullPointerException
-     * Strings2.defaultObjectIfEmpty(null, Integer::valueOf, null) -\gt; NullPointerException
-     * Strings2.defaultObjectIfEmpty(null, Integer::valueOf, () -\gt; 0) = 0
-     * Strings2.defaultObjectIfEmpty("", Integer::valueOf, () -\gt; 0) = 0
-     * Strings2.defaultObjectIfEmpty("1", Integer::valueOf, () -\gt; 0) = 1
-     * Strings2.defaultObjectIfEmpty("001", JaCode::reconstruct, JaCode::empty) -\gt; JaCode.Of("001")
-     * Strings2.defaultObjectIfEmpty(null, JaCode::reconstruct, JaCode::empty) -\gt; JaCode.empty()
-     * </pre>
-     *
-     * @param str              文字列
-     * @param nonEmptyFunction 文字列がnot EMPTYの場合のオブジェクト作成メソッド
-     * @param emptySupplier    文字列がEMPTYの場合のオブジェクト作成メソッド
-     * @param <T>              オブジェクトの型
-     * @return オブジェクト
-     */
-    public static <T> T defaultObjectIfEmpty(final String str,
-        @NotNull Function<String, T> nonEmptyFunction,
-        @NotNull Supplier<T> emptySupplier) {
-        if (nonEmptyFunction == null) {
-            throw new IllegalArgumentException(
-                "引数nonEmptyFunctionがnullです。null以外の値を指定してください");
-        }
-        if (emptySupplier == null) {
-            throw new IllegalArgumentException("引数emptySupplierがnullです。null以外の値を指定してください");
+    public static String collectionToDelimitedString(@Nullable Collection<?> coll, String delim,
+                                                     String prefix, String suffix) {
+        if (isNull(coll)) {
+            return EMPTY;
         }
 
-        return isNotEmpty(str) ? nonEmptyFunction.apply(str) : emptySupplier.get();
+        if (coll.isEmpty()) {
+            return EMPTY;
+        } else {
+            int totalLength = coll.size() * (prefix.length() + suffix.length())
+                    + (coll.size() - 1) * delim.length();
 
+            Object element;
+            for (Iterator var5 = coll.iterator(); var5.hasNext();
+                 totalLength += String.valueOf(element).length()) {
+                element = var5.next();
+            }
+
+            StringBuilder sb = new StringBuilder(totalLength);
+            Iterator<?> it = coll.iterator();
+
+            while (it.hasNext()) {
+                sb.append(prefix).append(it.next()).append(suffix);
+                if (it.hasNext()) {
+                    sb.append(delim);
+                }
+            }
+
+            return sb.toString();
+        }
     }
 
     /**
@@ -1545,6 +1509,43 @@ public final class Strings2 {
     }
 
     /**
+     * 文字列を元に、オブジェクトを返却する（文字列はEMPTY）
+     * <p>
+     * 次のように使います．
+     * </p>
+     *
+     * <pre>
+     * Strings2.defaultObjectIfEmpty(null, null, () -\gt; "") -\gt; NullPointerException
+     * Strings2.defaultObjectIfEmpty(null, Integer::valueOf, null) -\gt; NullPointerException
+     * Strings2.defaultObjectIfEmpty(null, Integer::valueOf, () -\gt; 0) = 0
+     * Strings2.defaultObjectIfEmpty("", Integer::valueOf, () -\gt; 0) = 0
+     * Strings2.defaultObjectIfEmpty("1", Integer::valueOf, () -\gt; 0) = 1
+     * Strings2.defaultObjectIfEmpty("001", JaCode::reconstruct, JaCode::empty) -\gt; JaCode.Of("001")
+     * Strings2.defaultObjectIfEmpty(null, JaCode::reconstruct, JaCode::empty) -\gt; JaCode.empty()
+     * </pre>
+     *
+     * @param str              文字列
+     * @param nonEmptyFunction 文字列がnot EMPTYの場合のオブジェクト作成メソッド
+     * @param emptySupplier    文字列がEMPTYの場合のオブジェクト作成メソッド
+     * @param <T>              オブジェクトの型
+     * @return オブジェクト
+     */
+    public static <T> T defaultObjectIfEmpty(final String str,
+                                             @NotNull Function<String, T> nonEmptyFunction,
+                                             @NotNull Supplier<T> emptySupplier) {
+        if (nonEmptyFunction == null) {
+            throw new IllegalArgumentException(
+                    "引数nonEmptyFunctionがnullです。null以外の値を指定してください");
+        }
+        if (emptySupplier == null) {
+            throw new IllegalArgumentException("引数emptySupplierがnullです。null以外の値を指定してください");
+        }
+
+        return isNotEmpty(str) ? nonEmptyFunction.apply(str) : emptySupplier.get();
+
+    }
+
+    /**
      * 先頭文字を大文字かした文字列を取得します
      *
      * @param s 文字列
@@ -1562,32 +1563,7 @@ public final class Strings2 {
         }
 
         return s.substring(0, 1).toUpperCase()
-            + s.substring(1);
-
-    }
-
-    /**
-     * 先頭文字を大文字かした文字列を取得します
-     * <pre>
-     *     文字列が空の場合、文字列を返します。
-     * </pre>
-     * <pre>
-     *       assertThat(camelUpperCaseSilently("").isEmpty();
-     *       assertThat(camelUpperCaseSilently(null).isNull();
-     *       assertThat(camelUpperCaseSilently("a").isEqualTo("A");
-     *       assertThat(camelUpperCaseSilently("A").isEqualTo("A");
-     *       assertThat(camelUpperCaseSilently("abc").isEqualTo("Abc");
-     *       assertThat(camelUpperCaseSilently("Abc").isEqualTo("Abc");
-     * </pre>
-     *
-     * @param s 文字列
-     * @return 先頭文字を大文字かした文字列
-     */
-    public static String camelUpperCaseSilently(String s) {
-        if (isEmpty(s)) {
-            return s;
-        }
-        return camelUpperCase(s);
+                + s.substring(1);
 
     }
 
@@ -1745,6 +1721,31 @@ public final class Strings2 {
     }
 
     /**
+     * 先頭文字を大文字かした文字列を取得します
+     * <pre>
+     *     文字列が空の場合、文字列を返します。
+     * </pre>
+     * <pre>
+     *       assertThat(camelUpperCaseSilently("")).isEmpty();
+     *       assertThat(camelUpperCaseSilently(null)).isNull();
+     *       assertThat(camelUpperCaseSilently("a")).isEqualTo("A");
+     *       assertThat(camelUpperCaseSilently("A")).isEqualTo("A");
+     *       assertThat(camelUpperCaseSilently("abc")).isEqualTo("Abc");
+     *       assertThat(camelUpperCaseSilently("Abc")).isEqualTo("Abc");
+     * </pre>
+     *
+     * @param s 文字列
+     * @return 先頭文字を大文字かした文字列
+     */
+    public static String camelUpperCaseSilently(String s) {
+        if (isEmpty(s)) {
+            return s;
+        }
+        return camelUpperCase(s);
+
+    }
+
+    /**
      * 文字列の長さが、長さになるまで付与キャラクターを、文字列の末尾に付与して文字列を返却します
      *
      * @param string    文字列
@@ -1761,41 +1762,8 @@ public final class Strings2 {
             return string;
         }
         return string +
-            String.valueOf(padChar).repeat(minLength - string.length());
+                String.valueOf(padChar).repeat(minLength - string.length());
 
-    }
-
-    /**
-     * 文字列の長さが、長さになるまで付与キャラクターを、文字列の先頭に付与して文字列を返却します.
-     *
-     * <pre>
-     *         assertThatThrownBy(() -&gt; {
-     *         padStart(null, 3, 'a');
-     *       }).as("第一引数でnullを設定した場合Npeをスローする")
-     *           .isInstanceOf(NullPointerException.class);
-     *       assertThat(padStart("", 3, 'a')).isEqualTo("aaa");
-     *       assertThat(padStart("123", 3, 'a')).isEqualTo("123");
-     *       assertThat(padStart("12", 3, 'a')).isEqualTo("a12");
-     *       assertThat(padStart("1", 3, 'a')).isEqualTo("aa1");
-     *       assertThat(padStart("1234", 3, 'a'))
-     *           .as("第一引数が最小桁数よりも長い場合第一引数そのままが返される")
-     *           .isEqualTo("1234");
-     * </pre>
-     *
-     * @param string    文字列
-     * @param minLength 長さ
-     * @param padChar   付与キャラクター
-     * @return パディングをした結果
-     */
-    public static String padStart(@NotNull String string, int minLength, char padChar) {
-        if (isNull(string)) {
-            throw new IllegalArgumentException("引数stringがnullです。null以外の値を指定してください");
-        }
-        if (string.length() >= minLength) {
-            return string;
-        }
-        return String.valueOf(padChar).repeat(minLength - string.length()) +
-            string;
     }
 
     public static String escapeHtml(String string) {
@@ -1899,6 +1867,39 @@ public final class Strings2 {
     }
 
     /**
+     * 文字列の長さが、長さになるまで付与キャラクターを、文字列の先頭に付与して文字列を返却します.
+     *
+     * <pre>
+     *         assertThatThrownBy(() -&gt; {
+     *         padStart(null, 3, 'a');
+     *       }).as("第一引数でnullを設定した場合Npeをスローする")
+     *           .isInstanceOf(NullPointerException.class);
+     *       assertThat(padStart("", 3, 'a')).isEqualTo("aaa");
+     *       assertThat(padStart("123", 3, 'a')).isEqualTo("123");
+     *       assertThat(padStart("12", 3, 'a')).isEqualTo("a12");
+     *       assertThat(padStart("1", 3, 'a')).isEqualTo("aa1");
+     *       assertThat(padStart("1234", 3, 'a'))
+     *           .as("第一引数が最小桁数よりも長い場合第一引数そのままが返される")
+     *           .isEqualTo("1234");
+     * </pre>
+     *
+     * @param string    文字列
+     * @param minLength 長さ
+     * @param padChar   付与キャラクター
+     * @return パディングをした結果
+     */
+    public static String padStart(@NotNull String string, int minLength, char padChar) {
+        if (isNull(string)) {
+            throw new IllegalArgumentException("引数stringがnullです。null以外の値を指定してください");
+        }
+        if (string.length() >= minLength) {
+            return string;
+        }
+        return String.valueOf(padChar).repeat(minLength - string.length()) +
+                string;
+    }
+
+    /**
      * 文字列の全角変換可能なものは全角に変換する
      * <h3> 呼び出しサンプル </h3>
      * <code><pre>
@@ -1919,7 +1920,7 @@ public final class Strings2 {
     public static String changeHankakuToZenkaku(String aString) {
         // ｳﾞ対応した文字列を変換対象にセット
         StringBuffer stringBuffer =
-            hankakuKatakanaTokubetsuHenkan(aString);
+                hankakuKatakanaTokubetsuHenkan(aString);
         String result = stringBuffer.toString();
 
         // 半角数字を全角変換
@@ -1961,7 +1962,7 @@ public final class Strings2 {
     public static String changeZenkakuToHankaku(String targetString) {
         // 特別対応した文字列を変換対象にセット
         StringBuffer stringBuffer =
-            zenkakuToHankakuTokubetsuHenkan(targetString);
+                zenkakuToHankakuTokubetsuHenkan(targetString);
         String result = stringBuffer.toString();
 
         // 全角数字を半角変換
@@ -1977,30 +1978,6 @@ public final class Strings2 {
 
         return result;
 
-    }
-
-    /**
-     * 入力文字列の全角カタカナを半角カタカナに変換する
-     *
-     * @param string 入力文字列
-     * @return 変換後文字列
-     */
-    static String zenkakuKatakanaToHankakuKigou(String string) {
-        if (string == null) {
-            return null;
-        }
-        String result = string;
-
-        for (String[] strings : hanZenKigouTaiouArray) {
-            String fromText = strings[1];
-            String toText = strings[0];
-
-            result =
-                replace(result,
-                    fromText, toText);
-        }
-
-        return result;
     }
 
     /**
@@ -2190,6 +2167,30 @@ public final class Strings2 {
     }
 
     /**
+     * 入力文字列の全角カタカナを半角カタカナに変換する
+     *
+     * @param string 入力文字列
+     * @return 変換後文字列
+     */
+    static String zenkakuKatakanaToHankakuKigou(String string) {
+        if (string == null) {
+            return null;
+        }
+        String result = string;
+
+        for (String[] strings : hanZenKigouTaiouArray) {
+            String fromText = strings[1];
+            String toText = strings[0];
+
+            result =
+                    replace(result,
+                            fromText, toText);
+        }
+
+        return result;
+    }
+
+    /**
      * 全角カタカナから半角カタカナへ変換します。
      *
      * @param targetString 変換前の文字
@@ -2202,7 +2203,7 @@ public final class Strings2 {
         for (int i = 0; i < targetString.length(); i++) {
             char originalChar = targetString.charAt(i);
             String convertedChar =
-                zenkakuKatakanSaToHankakuKatakana(originalChar);
+                    zenkakuKatakanSaToHankakuKatakana(originalChar);
             stringBuffer.append(convertedChar);
         }
         return stringBuffer.toString();
@@ -2217,9 +2218,9 @@ public final class Strings2 {
     private static String zenkakuKatakanSaToHankakuKatakana(char targetString) {
 
         if (targetString >= ZENKAKU_KATAKANA_FIRST_CHAR
-            && targetString <= ZENKAKU_KATAKANA_LAST_CHAR) {
+                && targetString <= ZENKAKU_KATAKANA_LAST_CHAR) {
             return HANKAKU_KATAKANA[targetString
-                - ZENKAKU_KATAKANA_FIRST_CHAR];
+                    - ZENKAKU_KATAKANA_FIRST_CHAR];
         } else {
             return String.valueOf(targetString);
         }
@@ -2237,7 +2238,7 @@ public final class Strings2 {
             return targetString;
         } else if (targetString.length() == 1) {
             return hankakuKatakanaToZenkakuKatakana(targetString.charAt(0))
-                + "";
+                    + "";
         } else {
             StringBuilder stringBuffer = new StringBuilder(targetString);
             int i;
@@ -2250,7 +2251,7 @@ public final class Strings2 {
                     stringBuffer.deleteCharAt(i + 1);
                 } else {
                     char convertedChar =
-                        hankakuKatakanaToZenkakuKatakana(originalChar1);
+                            hankakuKatakanaToZenkakuKatakana(originalChar1);
                     if (convertedChar != originalChar1) {
                         stringBuffer.setCharAt(i, convertedChar);
                     }
@@ -2259,29 +2260,12 @@ public final class Strings2 {
             if (i < stringBuffer.length()) {
                 char originalChar1 = stringBuffer.charAt(i);
                 char convertedChar =
-                    hankakuKatakanaToZenkakuKatakana(originalChar1);
+                        hankakuKatakanaToZenkakuKatakana(originalChar1);
                 if (convertedChar != originalChar1) {
                     stringBuffer.setCharAt(i, convertedChar);
                 }
             }
             return stringBuffer.toString();
-        }
-    }
-
-    /**
-     * 半角カタカナから全角カタカナへ変換します。
-     *
-     * @param targetString 変換前の文字
-     * @return 変換後の文字
-     */
-    private static char hankakuKatakanaToZenkakuKatakana(char targetString) {
-
-        if (targetString >= HANKAKU_KATAKANA_FIRST_CHAR
-            && targetString <= HANKAKU_KATAKANA_LAST_CHAR) {
-            return ZENKAKU_KATAKANA_KIGOU[targetString
-                - HANKAKU_KATAKANA_FIRST_CHAR];
-        } else {
-            return targetString;
         }
     }
 
@@ -2354,11 +2338,22 @@ public final class Strings2 {
 
     }
 
-    private final static String[][] hanZenKigouTaiouArray =
-        new String[][]{{"!", "！"}, {"?", "？"}, {",", "，"},
-            {"(", "（"}, {")", "）"}, {"#", "＃"}, {"$", "＄"},
-            {"\\", "￥"}, {"+", "＋"}, {"-", "－"}, {"@", "＠"},
-            {"/", "／"}, {"*", "＊"}, {".", "．"}};
+    /**
+     * 半角カタカナから全角カタカナへ変換します。
+     *
+     * @param targetString 変換前の文字
+     * @return 変換後の文字
+     */
+    private static char hankakuKatakanaToZenkakuKatakana(char targetString) {
+
+        if (targetString >= HANKAKU_KATAKANA_FIRST_CHAR
+                && targetString <= HANKAKU_KATAKANA_LAST_CHAR) {
+            return ZENKAKU_KATAKANA_KIGOU[targetString
+                    - HANKAKU_KATAKANA_FIRST_CHAR];
+        } else {
+            return targetString;
+        }
+    }
 
     /**
      * 半角記号を全角記号に変換する
@@ -2377,8 +2372,8 @@ public final class Strings2 {
             String toText = strings[1];
 
             resultString =
-                replace(resultString,
-                    fromText, toText);
+                    replace(resultString,
+                            fromText, toText);
         }
 
         return resultString;
@@ -2452,9 +2447,9 @@ public final class Strings2 {
         char[] chars = aString.toCharArray();
         for (char c : chars) {
             if ((c > '\u007e') && // 英数字
-                (c != '\u00a5') && // \記号07
-                (c != '\u203e') && // ~記号
-                (c < '\uff61' || c > '\uff9f') // 半角カナ
+                    (c != '\u00a5') && // \記号07
+                    (c != '\u203e') && // ~記号
+                    (c < '\uff61' || c > '\uff9f') // 半角カナ
             ) {
                 return false;
 
@@ -2493,9 +2488,9 @@ public final class Strings2 {
         char[] chars = aString.toCharArray();
         for (char c : chars) {
             if ((c <= '\u007e') || // 英数字
-                (c == '\u00a5') || // \記号07
-                (c == '\u203e') || // ~記号
-                (c >= '\uff61' && c <= '\uff9f') // 半角カナ
+                    (c == '\u00a5') || // \記号07
+                    (c == '\u203e') || // ~記号
+                    (c >= '\uff61' && c <= '\uff9f') // 半角カナ
             ) {
                 return false;
             }
@@ -2533,7 +2528,7 @@ public final class Strings2 {
         for (int index = 0; index < references.length; index++) {
             if (null == references[index]) {
                 throw new IllegalArgumentException(
-                    "引数:" + argName + " の要素にnullは許されません　index:" + index);
+                        "引数:" + argName + " の要素にnullは許されません　index:" + index);
             }
 
         }
@@ -2636,6 +2631,13 @@ public final class Strings2 {
 
         }
         return findFirstByNotEmpty(strings);
+    }
+
+    public static String ifIsEmptyToNull(@Nullable String str) {
+        if (isEmpty(str))
+            return null;
+
+        return str;
     }
 
 

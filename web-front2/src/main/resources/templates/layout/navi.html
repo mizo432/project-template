@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.2/dist/css/materialize.min.css"
+          rel="stylesheet">
+</head>
+<body class="has-fixed-sidenav">
+<header>
+    <div class="clearfix" id="global-navbar">
+        <ul class="sidenav sidenav-fixed" id="sidenav-left" layout:fragment="navbar">
+            <li><a class="logo-container" href=".">Admin<i
+                    class="material-icons left">spa</i></a></li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li class="bold waves-effect active"><a class="collapsible-header">Pages<i
+                            class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a class="waves-effect active" href="dashboard.html" th:href=".">Dashboard<i
+                                        class="material-icons">web</i></a></li>
+                                <li><a class="waves-effect"
+                                       href="../../../static/pages-fixed-chart.html"
+                                       th:href="@{/pages-fixed-chart.html}">Fixed Chart<i
+                                        class="material-icons">list</i></a></li>
+                                <li><a class="waves-effect"
+                                       href="../../../static/pages-grid.html">Grid<i
+                                        class="material-icons">dashboard</i></a></li>
+                                <li><a class="waves-effect"
+                                       href="../../../static/pages-chat.html">Chat<i
+                                        class="material-icons">chat</i></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold waves-effect"><a class="collapsible-header">Charts<i
+                            class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a class="waves-effect" href="../../../static/line-charts.html">Line
+                                    Charts<i
+                                            class="material-icons">show_chart</i></a></li>
+                                <li><a class="waves-effect" href="../../../static/bar-charts.html">Bar
+                                    Charts<i
+                                            class="material-icons">equalizer</i></a></li>
+                                <li><a class="waves-effect" href="../../../static/area-charts.html">Area
+                                    Charts<i
+                                            class="material-icons">multiline_chart</i></a></li>
+                                <li><a class="waves-effect" href="../../../static/doughnut-charts.html">Doughnut
+                                    Charts<i class="material-icons">pie_chart</i></a></li>
+                                <li><a class="waves-effect"
+                                       href="../../../static/financial-charts.html">Financial
+                                    Charts<i class="material-icons">euro_symbol</i></a></li>
+                                <li><a class="waves-effect"
+                                       href="../../../static/interactive-charts.html">Interactive
+                                    Charts<i class="material-icons">touch_app</i></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold waves-effect"><a class="collapsible-header">Tables<i
+                            class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a class="waves-effect"
+                                       href="../../../static/fullscreen-table.html">Fullscreen with
+                                    Chart<i class="material-icons">show_chart</i></a></li>
+                                <li><a class="waves-effect"
+                                       href="../../../static/table-custom-elements.html">Table with
+                                    Custom Elements<i class="material-icons">settings</i></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold waves-effect"><a class="collapsible-header">Calendar<i
+                            class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a class="waves-effect" href="../../../static/calendar.html">Calendar<i
+                                        class="material-icons">cloud</i></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold waves-effect"><a class="collapsible-header">Headers<i
+                            class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a class="waves-effect" href="../../../static/header-tabbed.html">Tabbed<i
+                                        class="material-icons">tab</i></a></li>
+                                <li><a class="waves-effect" href="../../../static/header-metrics.html">Metrics<i
+                                        class="material-icons">web</i></a></li>
+                                <li><a class="waves-effect" href="../../../static/header-search.html">Search<i
+                                        class="material-icons">search</i></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold waves-effect"><a class="collapsible-header">Account<i
+                            class="material-icons chevron">chevron_left</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a class="waves-effect" href="../../../static/log-in.html">Log In<i
+                                        class="material-icons">person</i></a></li>
+                                <li><a class="waves-effect" href="../../../static/settings.html">Settings<i
+                                        class="material-icons">settings</i></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+</body>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.2/dist/js/materialize.min.js"></script>
+</html>

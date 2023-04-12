@@ -73,6 +73,7 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     implementation "de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}"
     implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "${actuatorVersion}"
+    implementation 'com.zaxxer:HikariCP'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
@@ -83,13 +84,13 @@ dependencies {
     testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.0.0'
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
 
-    implementation group: 'redis.clients', name: 'jedis', version: '4.3.1'
+    implementation group: 'redis.clients', name: 'jedis', version: "${jedisVersion}"
     compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: '1.7.0'
-
+    implementation(group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: "${domaStarterVersion}")
+    implementation 'com.zaxxer:HikariCP'
 }
 
 flyway {
@@ -175,8 +176,8 @@ jacoco {
 
 jacocoTestReport {
     reports {
-        xml.required = true
-        html.required = true
+        xml.required.set(true)
+        html.required.set(true)
     }
     afterEvaluate {
         classDirectories.from(

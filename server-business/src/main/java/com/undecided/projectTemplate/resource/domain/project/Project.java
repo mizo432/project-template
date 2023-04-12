@@ -6,6 +6,7 @@ import com.undecided.primitive.object.Objects2;
 import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectAttribute;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.value.AbstractListValue;
 import lombok.Getter;
 import lombok.ToString;
 import org.seasar.doma.Entity;
@@ -96,5 +97,19 @@ public class Project {
 
     }
 
+    public static class Projects extends AbstractListValue<Project> {
+
+        static Projects EMPTY = new Projects();
+
+
+        public static Projects empty() {
+            return EMPTY;
+        }
+
+        @Override
+        public String asString() {
+            return value.toString();
+        }
+    }
 
 }

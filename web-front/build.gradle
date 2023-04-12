@@ -93,7 +93,7 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: '1.7.0'
+    implementation(group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: "${domaStarterVersion}")
     implementation group: 'org.webjars', name: 'webjars-locator', version: '0.46'
     implementation 'org.webjars:datatables:1.13.1'
     implementation 'org.webjars:fullcalendar:5.11.3'
