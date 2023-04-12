@@ -318,6 +318,7 @@ public final class Strings2 {
         return true;
 
     }
+
     private final static String[][] hanZenKigouTaiouArray =
             new String[][]{{"!", "！"}, {"?", "？"}, {",", "，"},
                     {"(", "（"}, {")", "）"}, {"#", "＃"}, {"$", "＄"},
@@ -2633,6 +2634,15 @@ public final class Strings2 {
         return findFirstByNotEmpty(strings);
     }
 
+    /**
+     * 引数文字列が空文字の場合にnullに変換する.
+     * <pre>
+     *     モデルのファクトリーで使用できる事を想定しています。
+     * </pre>
+     *
+     * @param str 文字列
+     * @return 変換後文字列
+     */
     public static String ifIsEmptyToNull(@Nullable String str) {
         if (isEmpty(str))
             return null;
