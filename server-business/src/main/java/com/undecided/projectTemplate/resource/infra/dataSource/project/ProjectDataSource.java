@@ -2,6 +2,7 @@ package com.undecided.projectTemplate.resource.infra.dataSource.project;
 
 import com.undecided.projectTemplate.resource.domain.project.Project;
 import com.undecided.projectTemplate.resource.domain.project.ProjectRepository;
+import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectCode;
 import com.undecided.projectTemplate.resource.infra.dao.projects.ProjectsDao;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import org.springframework.cache.annotation.CacheEvict;
@@ -21,9 +22,9 @@ public class ProjectDataSource implements ProjectRepository {
     }
 
     @Override
-    @Cacheable(value = "project", key = "'projectId/' + #projectId")
-    public Project findOneBy(SnowflakeIdentifier<Project> projectId) {
-        return projectsDao.findOneById(projectId);
+    @Cacheable(value = "project", key = "'id/' + #id")
+    public Project findOneBy(SnowflakeIdentifier<Project> id) {
+        return projectsDao.findOneById(id);
 
     }
 
@@ -34,7 +35,7 @@ public class ProjectDataSource implements ProjectRepository {
     }
 
     @Override
-    @CachePut(value = "project", key = "'projectId/' + #project.projectId")
+    @CachePut(value = "project", key = "'id/' + #project.id")
     public Project insert(Project project) {
         projectsDao.insert(project);
         return project;
@@ -42,7 +43,7 @@ public class ProjectDataSource implements ProjectRepository {
     }
 
     @Override
-    @CachePut(value = "project", key = "'projectId/' + #project.projectId")
+    @CachePut(value = "project", key = "'id/' + #project.id")
     public Project update(Project project) {
         projectsDao.update(project);
         return project;
@@ -50,10 +51,15 @@ public class ProjectDataSource implements ProjectRepository {
     }
 
     @Override
-    @CacheEvict(value = "project", key = "'projectId/' + #projectId")
-    public void delete(SnowflakeIdentifier<Project> projectId) {
-        projectsDao.delete(projectId);
+    @CacheEvict(value = "project", key = "'id/' + #id")
+    public void delete(SnowflakeIdentifier<Project> id) {
+        projectsDao.delete(id);
 
+    }
+
+    @Override
+    public Project findOneByCode(ProjectCode projectCode) {
+        return projectsDao.findOneByCode(projectCode);
     }
 
 }

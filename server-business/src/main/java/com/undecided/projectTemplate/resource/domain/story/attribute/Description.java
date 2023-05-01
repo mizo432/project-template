@@ -4,6 +4,8 @@ import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;
 import org.seasar.doma.Domain;
 
+import static com.undecided.primitive.string.Strings2.ifIsEmptyToNull;
+
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class Description extends AbstractStringValue {
@@ -15,7 +17,7 @@ public class Description extends AbstractStringValue {
     }
 
     Description(String value) {
-        super(value);
+        super(ifIsEmptyToNull(value));
     }
 
     public static Description reconstruct(String value) {

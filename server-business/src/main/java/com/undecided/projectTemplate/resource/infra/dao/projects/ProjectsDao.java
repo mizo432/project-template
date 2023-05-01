@@ -1,17 +1,16 @@
 package com.undecided.projectTemplate.resource.infra.dao.projects;
 
 import com.undecided.projectTemplate.resource.domain.project.Project;
+import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectCode;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
-import org.seasar.doma.Delete;
-import org.seasar.doma.Insert;
-import org.seasar.doma.Select;
-import org.seasar.doma.Update;
+import org.seasar.doma.*;
+import org.seasar.doma.boot.ConfigAutowireable;
 import org.seasar.doma.jdbc.Result;
 
 import java.util.List;
 
-//@Dao
-//@ConfigAutowireable
+@Dao
+@ConfigAutowireable
 public interface ProjectsDao {
 
     @Select
@@ -20,7 +19,7 @@ public interface ProjectsDao {
     @Select
     List<Project> selectAll();
 
-    @Insert
+    @Insert(sqlFile = true)
     Result<Project> insert(Project project);
 
     @Update
@@ -28,5 +27,8 @@ public interface ProjectsDao {
 
     @Delete(sqlFile = true)
     int delete(SnowflakeIdentifier<Project> id);
+
+    @Select
+    Project findOneByCode(ProjectCode projectCode);
 
 }

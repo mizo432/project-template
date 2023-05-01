@@ -13,6 +13,8 @@ import org.seasar.doma.Entity;
 import org.seasar.doma.Table;
 import org.seasar.doma.boot.ConfigAutowireable;
 
+import java.util.List;
+
 @Getter
 @Entity(immutable = true)
 @Table(schema = "resource", name = "projects")
@@ -101,15 +103,28 @@ public class Project {
 
         static Projects EMPTY = new Projects();
 
+        Projects(List<Project> value) {
+            super(value);
+        }
+
+        public Projects() {
+
+        }
+
 
         public static Projects empty() {
             return EMPTY;
+        }
+
+        public static Projects reconstruct(List<Project> value) {
+            return new Projects(value);
         }
 
         @Override
         public String asString() {
             return value.toString();
         }
+
     }
 
 }

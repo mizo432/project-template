@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja"
+      layout:decorate="~{layout/layout}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>プロジェクトを登録</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.2/dist/css/materialize.min.css"
+          rel="stylesheet">
+
+</head>
+<body>
+<main>
+    <div class="row" layout:fragment="content">
+        <form action="#" class="col s12" method="post" th:action="@{./insert}" th:object="${entry}">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input class="validate" id="projectCode" placeholder="Placeholder" required="required"
+                           th:field="*{project.attribute.projectCode.value}" type="text">
+                    <label for="projectCode">プロジェクトコード</label>
+                </div>
+                <div class="input-field col s6">
+                    <input class="validate" id="projectName" placeholder="Placeholder" required="required"
+                           th:field="*{project.attribute.projectName.value}" type="text">
+                    <label for="projectName">プロジェクト名</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input class="validate" id="storyCodePrefix" placeholder="Placeholder" required="required"
+                           th:field="*{project.attribute.storyCodePrefix.value}" type="text">
+                    <label for="storyCodePrefix">ストーリーコード接頭</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea class="materialize-textarea" id="description"
+                              th:field="*{project.attribute.description.value}"></textarea>
+                    <label for="description">詳細</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" name="send" type="submit">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+</main>
+
+
+</body>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.2/dist/js/materialize.min.js"></script>
+</html>

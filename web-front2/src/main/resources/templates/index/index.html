@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja"
       layout:decorate="~{layout/layout}"
-      xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -24,17 +26,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col l6">
+                <div class="col l6" th:each="project : ${projects.value}" th:object="${project}">
                     <div class="card">
                         <div class="card-content">
-                            <span class="card-title activator">Card Title<i
+                            <span class="card-title activator" th:text="*{attribute.projectName.value}">Card Title<i
                                     class="material-icons right">more_vert</i></span>
-                            <p><a href="/project/index.html">This is a link</a></p>
+                            <p><a href="/projects/index.html"
+                                  th:href="@{'/projects/' + *{attribute.projectCode.value}}">This is
+                                a link</a></p>
                         </div>
                     </div>
 
                 </div>
-                <div class="col l6">
+                <div class="col l6" th:remove="all">
                     <div class="card">
                         <div class="card-content">
                             <span class="card-title activator">Card Title<i

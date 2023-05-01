@@ -29,4 +29,9 @@ public abstract class AbstractListValue<E> implements ListValue<E> {
     public boolean isEmpty() {
         return value.isEmpty();
     }
+
+    @Override
+    public String toString() {
+        return value.toString();
+    }
 }

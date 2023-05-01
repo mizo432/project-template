@@ -3,7 +3,7 @@ package com.undecided.projectTemplate.modules.resource.presentation.web.project;
 import com.undecided.projectTemplate.resource.buisiness.command.project.DeleteProjectCommand;
 import com.undecided.projectTemplate.resource.buisiness.command.project.InsertProjectCommand;
 import com.undecided.projectTemplate.resource.buisiness.command.project.UpdateProjectCommand;
-import com.undecided.projectTemplate.resource.buisiness.query.ProjectFetcher;
+import com.undecided.projectTemplate.resource.buisiness.query.project.ProjectFetcher;
 import com.undecided.projectTemplate.resource.domain.project.Project;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import org.springframework.stereotype.Controller;
