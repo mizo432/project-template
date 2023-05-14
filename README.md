@@ -16,7 +16,7 @@
 | web-backend                 | APIアプリのサンプル,Webアプリのサンプル                                                                                     | common-primitive<br/>common-message<br/>common-exception<br/>web-common<br/>web-security |
 | web-front                   | Webアプリのサンプル                                                                                                 | common-primitive<br/>common-message<br/>common-exception<br/>web-common<br/>web-security |
 | web-admin                   | 管理アプリ                                                                                                       | なし                                                                                       |
-| template-client-application | クライアントプリと通信する                                                                                               | なし                                                                                       |
+| template-client-application | クライアントアプリ                                                                                                   | なし                                                                                       |
 
 # webApi
 
