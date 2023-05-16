@@ -1,7 +1,15 @@
 spring:
+  devtools:
+    add-properties: true
+  # THYMELEAF (ThymeleafAutoConfiguration)
   thymeleaf:
     cache: false
     mode: HTML
+  # INTERNATIONALIZATION (MessageSourceAutoConfiguration)
+  messages:
+    basename: messages
+    encoding: UTF-8
+    cache-duration: -1
   datasource:
     # JDBC
     driverClassName: org.postgresql.Driver

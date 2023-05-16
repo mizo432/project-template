@@ -11,7 +11,6 @@ include 'server-business'
 include 'web-authorization'
 include 'web-backend'
 include 'web-front'
-include 'web-front2'
 include 'web-admin'
 include 'template-client-application'
 

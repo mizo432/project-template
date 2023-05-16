@@ -8,7 +8,7 @@
     </appender>
 
     <appender name="APPLICATION_LOG_FILE"
-      class="ch.qos.logback.core.rolling.RollingFileAppender"> <!-- (3) -->
+              class="ch.qos.logback.core.rolling.RollingFileAppender"> <!-- (3) -->
         <file>${LOG_DIR}/WebFront.log</file> <!-- (4) -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>
@@ -26,6 +26,7 @@
     <!-- Application Loggers -->
     <logger level="debug" name="com.undecided.projectTemplate.admin"/>
     <logger level="debug" name="com.undecided.projectTemplate.shared"/>
+    <logger level="debug" name="com.undecided.projectTemplate.example"/>
     <logger level="trace" name="com.undecided.gfw.web.logging.HttpSessionEventLoggingListener"/>
     <logger level="trace" name="com.undecided.gfw.web.logging.TraceLoggingInterceptor"/>
     <logger level="info" name="com.undecided.gfw.web.token.transaction"/>
