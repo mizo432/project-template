@@ -47,7 +47,6 @@ tasks.register('copyDomaResources', Copy) {
 }
 processResources.destinationDir = compileJava.destinationDirectory.asFile.get()
 copyDomaResources.dependsOn processResources
-javadoc.dependsOn processResources
 
 dependencies {
     implementation project(":common-precondition")

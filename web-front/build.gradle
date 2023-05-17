@@ -1,15 +1,15 @@
 plugins {
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
-    id 'net.researchgate.release' version '2.8.1'
+    id 'net.researchgate.release' version '3.0.2'
     id 'java'
     id 'idea'
-    id "com.github.ben-manes.versions" version '0.42.0'
+    id "com.github.ben-manes.versions" version '0.46.0'
     id 'se.patrikerdes.use-latest-versions' version '0.2.18'
     id "com.github.spotbugs" version "5.0.14"
     id 'jacoco'
     id 'java-library'
-    id 'org.flywaydb.flyway' version '9.8.1'
+    id 'org.flywaydb.flyway' version '9.18.0'
     id 'com.gorylenko.gradle-git-properties' version '2.4.1'
 
 }
@@ -68,25 +68,25 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation "org.springframework.boot:spring-boot-starter-web"
-    implementation 'org.flywaydb:flyway-core:9.8.3'
+    implementation 'org.flywaydb:flyway-core:9.18.0'
     implementation 'org.springframework.session:spring-session-data-redis'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     implementation "de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}"
-    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "${actuatorVersion}"
+    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "3.0.6"
     implementation 'com.zaxxer:HikariCP'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-    implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: "${thymeleafLayoutDialectVersion}"
+    implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: "3.2.1"
     implementation "org.seasar.doma:doma-core:${domaVersion}"
 
     runtimeOnly "org.postgresql:postgresql:${postgresVersion}"
 
-    testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.0.0'
+    testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.0.1'
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
 
-    implementation group: 'redis.clients', name: 'jedis', version: "${jedisVersion}"
-    compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
+    implementation group: 'redis.clients', name: 'jedis', version: "4.4.1"
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: "24.0.1"
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -139,7 +139,7 @@ test {
         excludeTags('MEDIUM', 'LARGE')
     }
     reports {
-        junitXml.required = true
+        junitXml.required.set(true)
     }
 }
 tasks.register("testMedium", Test) {
@@ -150,7 +150,7 @@ tasks.register("testMedium", Test) {
         excludeTags('SMALL', 'LARGE')
     }
     reports {
-        junitXml.required = true
+        junitXml.required.set(true)
     }
 }
 
@@ -161,7 +161,7 @@ tasks.register("testLarge", Test) {
         excludeTags('SMALL', 'MEDIUM')
     }
     reports {
-        junitXml.required = true
+        junitXml.required.set(true)
     }
 
 }
@@ -195,7 +195,7 @@ def isNonStable = { String version ->
 } as Object
 
 dependencyUpdates {
-    // checkForGradleUpdate = true
+    checkForGradleUpdate = true
     // reject all non stable versions
     rejectVersionIf {
         isNonStable(it.candidate.version)

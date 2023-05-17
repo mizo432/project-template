@@ -30,14 +30,14 @@ public class ModelEntity {
 
     public ModelEntity() {
         this(SnowflakeIdentifier.empty(),
-            SnowflakeIdentifier.empty(),
-            AuditInfo.empty(),
-            EntityAttribute.empty());
+                SnowflakeIdentifier.empty(),
+                AuditInfo.empty(),
+                EntityAttribute.empty());
     }
 
     @VisibleForTesting
     ModelEntity(SnowflakeIdentifier<ModelEntity> id, SnowflakeIdentifier<Project> projectId,
-        AuditInfo auditInfo, EntityAttribute attribute) {
+                AuditInfo auditInfo, EntityAttribute attribute) {
         ValuePreconditions.checkNotEmpty(projectId, "projectId");
         this.id = id;
         this.auditInfo = auditInfo;
@@ -49,9 +49,13 @@ public class ModelEntity {
 
     public static ModelEntity create(@NotNull EntityAttribute attribute) {
         return new ModelEntity(SnowflakeIdentifier.newInstance(),
-            ProjectIdHolder.operatingIdentifier(),
-            AuditInfo.empty(), attribute);
+                ProjectIdHolder.operatingIdentifier(),
+                AuditInfo.empty(), attribute);
 
+    }
+
+    public static ModelEntity empty() {
+        return new ModelEntity();
     }
 
     public boolean isEmpty() {
