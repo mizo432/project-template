@@ -12,7 +12,7 @@ public class ElectronicComponentRemoting implements ElectronicComponentRepositor
 
     @Override
     public Optional<ElectronicComponent> findByValueAndType(double v,
-        ElectronicComponentType resistor) {
+                                                            ElectronicComponentType resistor) {
         return Optional.empty();
     }
 

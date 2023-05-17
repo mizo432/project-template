@@ -14,9 +14,9 @@
                         <children>
                             <HBox fx:id="blockResult" alignment="CENTER" styleClass="hBox">
                                 <Label fx:id="title" alignment="CENTER"
-                                    text="Resistance Parallel Simplifier Result: "/>
+                                       text="Resistance Parallel Simplifier Result: "/>
                                 <Label fx:id="resultResistance" alignment="CENTER_LEFT"
-                                    text="0.00"/>
+                                       text="0.00"/>
                                 <Label fx:id="unit" alignment="CENTER_LEFT" text="Ω"/>
                             </HBox>
                             <HBox alignment="CENTER" styleClass="hBox">

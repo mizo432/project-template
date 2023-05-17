@@ -5,7 +5,8 @@ import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectCo
 import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectName;
 import com.undecided.projectTemplate.resource.domain.project.attribute.StoryCodePrefix;
 import com.undecided.projectTemplate.resource.domain.story.attribute.Description;
-import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
+import com.undecided.projectTemplate.shared.entity.AuditInfo;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,12 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 class ProjectTest {
 
     /**
-     * Method under test: {@link Project#Project(UlidIdentifier, ProjectAttribute)}
+     * Method under test: {@link Project#Project(SnowflakeIdentifier, ProjectAttribute)}
      */
     @Test
     void testConstructor() {
         // Arrange
-        UlidIdentifier<Project> newInstanceResult = UlidIdentifier.newInstance();
+        SnowflakeIdentifier<Project> newInstanceResult = SnowflakeIdentifier.newInstance();
         String value = "42";
         ProjectName ofResult = ProjectName.of(value);
         String value1 = "42";
@@ -30,14 +31,14 @@ class ProjectTest {
                 Description.of("A"));
 
         // Act
-        Project actualProject = new Project(newInstanceResult, createResult);
+        Project actualProject = new Project(newInstanceResult, AuditInfo.empty(), createResult);
 
         System.out.println(actualProject);
 
         // Assert
         ProjectAttribute attribute = actualProject.getAttribute();
         assertSame(createResult, attribute);
-        UlidIdentifier<Project> actualId = actualProject.getProjectId();
+        SnowflakeIdentifier<Project> actualId = actualProject.getId();
         assertSame(newInstanceResult, actualId);
         StoryCodePrefix storyCodePrefix = attribute.getStoryCodePrefix();
         assertSame(ofResult2, storyCodePrefix);

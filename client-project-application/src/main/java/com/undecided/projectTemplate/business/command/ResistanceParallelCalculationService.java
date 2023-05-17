@@ -23,7 +23,7 @@ public class ResistanceParallelCalculationService {
     private final ResistorComponentService resistorComponentService;
 
     public ResistanceParallelCalculationService(ElectronicCalculationRepository repository,
-        ResistorComponentService resistorComponentService) {
+                                                ResistorComponentService resistorComponentService) {
         this.repository = repository;
         this.resistorComponentService = resistorComponentService;
 
@@ -38,10 +38,10 @@ public class ResistanceParallelCalculationService {
         ElectronicComponent resultComponent = resistorComponentService.save(resultNode);
         electronicCalculation.setResult(resultComponent);
         List<ElectronicComponent> resistors = rs
-            .stream()
-            .filter(n -> n instanceof TextField)
-            .map(n -> resistorComponentService.save(n))
-            .collect(Collectors.toList());
+                .stream()
+                .filter(n -> n instanceof TextField)
+                .map(n -> resistorComponentService.save(n))
+                .collect(Collectors.toList());
 
         electronicCalculation.setComponents(resistors);
         electronicCalculation.setMode(CalculationMode.PARALLEL);

@@ -21,6 +21,6 @@ public class ElectronicCalculationRemoting implements ElectronicCalculationRepos
 
     @Override
     public void save(ElectronicCalculation electronicCalculation) {
-        
+
     }
 }

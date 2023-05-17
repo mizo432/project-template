@@ -5,14 +5,10 @@ import com.undecided.projectTemplate.example.business.command.employee.InsertEmp
 import com.undecided.projectTemplate.example.business.command.employee.UpdateEmployeeCommand;
 import com.undecided.projectTemplate.example.business.query.employee.FetchEmployeeQuery;
 import com.undecided.projectTemplate.example.domain.employee.Employee;
-import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/employee")
@@ -27,8 +23,8 @@ public class EmployeeController {
     private final DeleteEmployeeCommand deleteEmployeeCommand;
 
     public EmployeeController(FetchEmployeeQuery fetchEmployeeQuery,
-        InsertEmployeeCommand insertEmployeeCommand, UpdateEmployeeCommand updateEmployeeCommand,
-        DeleteEmployeeCommand deleteEmployeeCommand) {
+                              InsertEmployeeCommand insertEmployeeCommand, UpdateEmployeeCommand updateEmployeeCommand,
+                              DeleteEmployeeCommand deleteEmployeeCommand) {
         this.fetchEmployeeQuery = fetchEmployeeQuery;
 
         this.insertEmployeeCommand = insertEmployeeCommand;
@@ -67,8 +63,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/showFormForUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") UlidIdentifier<Employee> employeeId,
-        Model model) {
+    public String showFormForUpdate(@PathVariable(value = "id") SnowflakeIdentifier<Employee> employeeId,
+                                    Model model) {
         // get employee from the service
         Employee employee = fetchEmployeeQuery.findEmployeeById(employeeId);
 
@@ -79,7 +75,7 @@ public class EmployeeController {
 
     @GetMapping("/deleteEmployee/{id}")
 //    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
-    public String deleteEmployee(@PathVariable(value = "id") UlidIdentifier<Employee> id) {
+    public String deleteEmployee(@PathVariable(value = "id") SnowflakeIdentifier<Employee> id) {
         // call delete employee method
         this.deleteEmployeeCommand.deleteEmployeeById(id);
         return "redirect:/employee";

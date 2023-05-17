@@ -28,8 +28,8 @@ public class ResistanceListResultsService {
     private final ComponentCalculationService componentCalculationService;
 
     public ResistanceListResultsService(ElectronicCalculationRepository repository,
-        ResistanceListResultsService resistanceListResultsService,
-        ComponentCalculationService componentCalculationService) {
+                                        ResistanceListResultsService resistanceListResultsService,
+                                        ComponentCalculationService componentCalculationService) {
         this.repository = repository;
         this.resistanceListResultsService = resistanceListResultsService;
         this.componentCalculationService = componentCalculationService;
@@ -42,44 +42,44 @@ public class ResistanceListResultsService {
         historyCalculation.getChildren().clear();
 
         list.stream()
-            .filter(ec -> ec.getType().equals(RESISTOR) && ec.getMode().equals(CalculationMode
-                .PARALLEL))
-            .forEach(ec -> {
-                StringBuilder data = new StringBuilder();
-                String ending = ec.getType().getUnit().getEnding();
-                ec.getComponents().forEach(r -> {
-                    data.append(String.format(Locale.ENGLISH, "%.2f", r.getValue()));
+                .filter(ec -> ec.getType().equals(RESISTOR) && ec.getMode().equals(CalculationMode
+                        .PARALLEL))
+                .forEach(ec -> {
+                    StringBuilder data = new StringBuilder();
+                    String ending = ec.getType().getUnit().getEnding();
+                    ec.getComponents().forEach(r -> {
+                        data.append(String.format(Locale.ENGLISH, "%.2f", r.getValue()));
+                        data.append(ending);
+                        data.append(", ");
+                    });
+                    data.append("turns to ");
+                    data.append(String.format(Locale.ENGLISH, "%.2f", ec.getResult().getValue()));
                     data.append(ending);
-                    data.append(", ");
-                });
-                data.append("turns to ");
-                data.append(String.format(Locale.ENGLISH, "%.2f", ec.getResult().getValue()));
-                data.append(ending);
-                Label l = new Label(data.toString());
-                l.setId(String.valueOf(ec.getId()));
+                    Label l = new Label(data.toString());
+                    l.setId(String.valueOf(ec.getId()));
 
-                Tooltip tp = new Tooltip("Double click to remove this...");
-                Tooltip.install(l, tp);
+                    Tooltip tp = new Tooltip("Double click to remove this...");
+                    Tooltip.install(l, tp);
 
-                l.setOnMouseClicked(event -> {
-                    if (event.getButton().equals(MouseButton.PRIMARY)) {
-                        if (event.getClickCount() == 2) {
+                    l.setOnMouseClicked(event -> {
+                        if (event.getButton().equals(MouseButton.PRIMARY)) {
+                            if (event.getClickCount() == 2) {
 
-                            Alert dialogInfo = new Alert(Alert.AlertType.CONFIRMATION);
-                            dialogInfo.setTitle("Would you like to remove this registration?");
-                            dialogInfo.setHeaderText(((Label) event.getSource()).getText());
-                            Optional<ButtonType> pressedButton = dialogInfo.showAndWait();
-                            pressedButton.ifPresent(b -> {
-                                if (b.equals(ButtonType.OK)) {
-                                    componentCalculationService.delete((Node) event.getSource());
-                                    resistanceListResultsService.update(historyCalculation);
-                                }
-                            });
+                                Alert dialogInfo = new Alert(Alert.AlertType.CONFIRMATION);
+                                dialogInfo.setTitle("Would you like to remove this registration?");
+                                dialogInfo.setHeaderText(((Label) event.getSource()).getText());
+                                Optional<ButtonType> pressedButton = dialogInfo.showAndWait();
+                                pressedButton.ifPresent(b -> {
+                                    if (b.equals(ButtonType.OK)) {
+                                        componentCalculationService.delete((Node) event.getSource());
+                                        resistanceListResultsService.update(historyCalculation);
+                                    }
+                                });
+                            }
                         }
-                    }
+                    });
+                    l.getStyleClass().add("resultLabel");
+                    historyCalculation.getChildren().add(l);
                 });
-                l.getStyleClass().add("resultLabel");
-                historyCalculation.getChildren().add(l);
-            });
     }
 }

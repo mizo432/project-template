@@ -40,7 +40,7 @@ public class MainController {
     private final ResistanceListResultsService resistanceListResultsService;
 
     public MainController(ResistanceParallelCalculationService resistanceParallelCalculationService,
-        ResistanceListResultsService resistanceListResultsService) {
+                          ResistanceListResultsService resistanceListResultsService) {
         this.resistanceParallelCalculationService = resistanceParallelCalculationService;
         this.resistanceListResultsService = resistanceListResultsService;
     }
@@ -51,9 +51,9 @@ public class MainController {
         Set<Node> rs = refBox.lookupAll(ResistanceInputElement.RESIS_SELECTOR);
 
         rs.stream()
-            .filter(node -> node instanceof TextField)
-            .forEach(node -> node.setOnKeyReleased(
-                event -> ReadAndCalculateUtils.asParallel(refBox, resultResistance)));
+                .filter(node -> node instanceof TextField)
+                .forEach(node -> node.setOnKeyReleased(
+                        event -> ReadAndCalculateUtils.asParallel(refBox, resultResistance)));
 
         addR.setOnMouseClicked(e -> {
 

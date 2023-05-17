@@ -26,7 +26,7 @@ public class TemplateClientApplication extends Application {
     @Override
     public void init() throws IOException {
         SpringApplicationBuilder builder = new SpringApplicationBuilder(
-            TemplateClientApplication.class);
+                TemplateClientApplication.class);
         context = builder.run(getParameters().getRaw().toArray(new String[0]));
         builder.headless(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN));

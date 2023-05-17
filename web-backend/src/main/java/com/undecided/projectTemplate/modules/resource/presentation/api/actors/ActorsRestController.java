@@ -3,18 +3,12 @@ package com.undecided.projectTemplate.modules.resource.presentation.api.actors;
 import com.undecided.projectTemplate.resource.buisiness.command.actor.RegisterActorCommand;
 import com.undecided.projectTemplate.resource.domain.actor.Actor;
 import com.undecided.projectTemplate.resource.domain.project.Project;
-import com.undecided.projectTemplate.shared.entity.id.UlidIdentifier;
-import java.net.URI;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("api")
@@ -33,7 +27,7 @@ public class ActorsRestController {
     }
 
     @GetMapping("v1.0/actors/{id}")
-    Project get(@PathVariable("id") UlidIdentifier<Project> projectId) {
+    Project get(@PathVariable("id") SnowflakeIdentifier<Project> projectId) {
         return Project.empty();
 
     }
@@ -44,23 +38,23 @@ public class ActorsRestController {
 
         // Locationで設定するURLを作成する
         URI location = uriBuilder.path("v1.0/actors/{id}")    // c
-            .buildAndExpand(createdActor.getId().asString())    // d
-            .toUri();
+                .buildAndExpand(createdActor.getId().asString())    // d
+                .toUri();
 
         // レスポンス情報を作成
         return ResponseEntity.created(location).build();
     }
 
     @DeleteMapping("v1.0/actors/{id}")
-    ResponseEntity<Void> delete(@PathVariable("id") UlidIdentifier<Actor> actorId) {
+    ResponseEntity<Void> delete(@PathVariable("id") SnowflakeIdentifier<Actor> actorId) {
 
         // レスポンス情報を作成
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("v1.0/actors/{id}")
-    public ResponseEntity<Actor> update(@PathVariable UlidIdentifier<Actor> id,
-        @RequestBody Actor sourceActor) {
+    public ResponseEntity<Actor> update(@PathVariable SnowflakeIdentifier<Actor> id,
+                                        @RequestBody Actor sourceActor) {
 
         return ResponseEntity.ok(sourceActor);
 

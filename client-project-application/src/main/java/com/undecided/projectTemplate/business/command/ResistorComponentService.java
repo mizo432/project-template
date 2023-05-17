@@ -37,9 +37,9 @@ public class ResistorComponentService {
         double v = Double.parseDouble(datum);
 
         Optional<ElectronicComponent> electronicComponentOpt = repository.findByValueAndType(v,
-            ElectronicComponentType.RESISTOR);
+                ElectronicComponentType.RESISTOR);
 
         return electronicComponentOpt.orElseGet(
-            () -> repository.save(ElectronicComponentFactory.resistor(v)));
+                () -> repository.save(ElectronicComponentFactory.resistor(v)));
     }
 }
