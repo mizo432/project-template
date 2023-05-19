@@ -1,5 +1,5 @@
 .gradle
-/build/
+build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -38,3 +38,5 @@ gradle-app.setting
 /web-admin/build/
 /web-validation/build/
 /web-front2/build/
+/client-project-application/build/bootScripts/client-project-application
+/client-project-application/build/bootScripts/client-project-application.bat
