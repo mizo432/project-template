@@ -1,5 +1,8 @@
 package com.undecided.projectTemplate.resource.domain.story.estimate.businessValue;
 
+/**
+ * 業務品質
+ */
 public enum BusinessQuality {
     MUST_BE("必須", 100),
     ONE_DIMENSIONAL("それなり", 66),
@@ -8,7 +11,14 @@ public enum BusinessQuality {
     REVERSE("逆心的", -25),
     UNKNOWN("要確認", -100);
 
+    /**
+     * 表示名
+     */
     private final String displayName;
+
+    /**
+     * 業務価値
+     */
     private final int value;
 
     public String getDisplayName() {
@@ -26,7 +36,7 @@ public enum BusinessQuality {
     }
 
     public static BusinessQuality computeFrom(Emotion functionalEmotion,
-        Emotion dysfunctionalEmotion) {
+                                              Emotion dysfunctionalEmotion) {
         return switch (functionalEmotion) {
             case EXPECT_IT -> switch (dysfunctionalEmotion) {
                 case EXPECT_IT -> BusinessQuality.UNKNOWN;

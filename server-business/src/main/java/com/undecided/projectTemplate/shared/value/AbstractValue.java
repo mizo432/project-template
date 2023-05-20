@@ -3,6 +3,11 @@ package com.undecided.projectTemplate.shared.value;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.undecided.primitive.object.Objects2;
 
+/**
+ * 値オブジェクトの基底クラス
+ *
+ * @param <T> 値オブジェクトが保持している要素の型
+ */
 public abstract class AbstractValue<T> implements SingleValue<T> {
 
 

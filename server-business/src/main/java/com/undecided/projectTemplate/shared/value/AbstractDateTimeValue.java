@@ -2,21 +2,37 @@ package com.undecided.projectTemplate.shared.value;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.undecided.primitive.object.Objects2;
+
 import java.time.LocalDateTime;
 
+/**
+ * 日時の値オブジェクトの基底クラス
+ */
 public abstract class AbstractDateTimeValue extends AbstractValue<LocalDateTime> implements
-    DateTimeValue {
+        DateTimeValue {
 
+    /**
+     * 値
+     */
     protected final LocalDateTime value;
 
+    /**
+     * コンストラクター
+     *
+     * @param value 値
+     */
     protected AbstractDateTimeValue(LocalDateTime value) {
         this.value = value;
     }
 
+    /**
+     * コンストラクター
+     */
     protected AbstractDateTimeValue() {
         value = null;
     }
 
+    @Override
     public LocalDateTime getValue() {
         return value;
     }

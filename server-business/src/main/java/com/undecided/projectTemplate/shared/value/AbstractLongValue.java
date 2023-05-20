@@ -3,15 +3,29 @@ package com.undecided.projectTemplate.shared.value;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.undecided.primitive.object.Objects2;
 
+/**
+ * Long型を保持する値オブジェクトの基底クラス
+ */
 public abstract class AbstractLongValue extends AbstractValue<Long> implements LongValue {
 
+    /**
+     * 保持している値
+     */
     private final Long value;
 
+    /**
+     * コンストラクター
+     *
+     * @param value 値
+     */
     protected AbstractLongValue(Long value) {
         this.value = value;
 
     }
 
+    /**
+     * コンストラクター
+     */
     protected AbstractLongValue() {
         value = null;
 

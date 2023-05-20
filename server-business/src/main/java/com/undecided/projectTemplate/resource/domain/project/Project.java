@@ -101,7 +101,7 @@ public class Project {
 
     public static class Projects extends AbstractListValue<Project> {
 
-        static Projects EMPTY = new Projects();
+        private static final Projects EMPTY = new Projects();
 
         Projects(List<Project> value) {
             super(value);
