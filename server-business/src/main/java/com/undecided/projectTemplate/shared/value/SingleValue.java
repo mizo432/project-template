@@ -16,6 +16,4 @@ public interface SingleValue<T> extends Value {
      */
     String asString();
 
-    boolean isEmpty();
-
 }

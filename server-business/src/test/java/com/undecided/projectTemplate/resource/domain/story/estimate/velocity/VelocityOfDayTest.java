@@ -1,10 +1,14 @@
 package com.undecided.projectTemplate.resource.domain.story.estimate.velocity;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import com.undecided.projectTemplate.story.domain.story.estimate.velocity.DaysOfSprint;
+import com.undecided.projectTemplate.story.domain.story.estimate.velocity.EffortOfSprint;
+import com.undecided.projectTemplate.story.domain.story.estimate.velocity.VelocityOfDay;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 class VelocityOfDayTest {
 

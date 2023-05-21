@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.resource.buisiness.command.actor;
 
-import com.undecided.projectTemplate.resource.domain.actor.Actor;
+import com.undecided.projectTemplate.story.domain.actor.Actor;
 import org.springframework.stereotype.Service;
 
 @Service

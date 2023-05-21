@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.resource.domain.project.attribute;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.undecided.projectTemplate.resource.domain.story.attribute.Description;
+import com.undecided.projectTemplate.story.domain.story.attribute.Description;
 import lombok.Getter;
 import org.seasar.doma.Column;
 import org.seasar.doma.Embeddable;

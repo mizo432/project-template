@@ -1,6 +1,5 @@
 package com.undecided.projectTemplate.shared.value;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.undecided.primitive.object.Objects2;
 
 import java.time.LocalDateTime;
@@ -54,9 +53,4 @@ public abstract class AbstractDateTimeValue extends AbstractValue<LocalDateTime>
 
     }
 
-    @JsonIgnore
-    public boolean isEmpty() {
-        return Objects2.isNull(value);
-
-    }
 }

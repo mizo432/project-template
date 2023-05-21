@@ -1,5 +1,6 @@
 package com.undecided.projectTemplate.resource.domain.story.efort;
 
+import com.undecided.projectTemplate.story.domain.story.efort.Effort;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,6 +1,5 @@
 package com.undecided.projectTemplate.shared.value;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.undecided.primitive.object.Objects2;
 
 import java.math.BigDecimal;
@@ -41,9 +40,4 @@ public abstract class AbstractBigDecimalValue extends AbstractValue<BigDecimal> 
         return value.toString();
     }
 
-    @JsonIgnore
-    public boolean isEmpty() {
-        return Objects2.isNull(value);
-
-    }
 }

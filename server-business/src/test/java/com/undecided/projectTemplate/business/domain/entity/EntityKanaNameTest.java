@@ -1,9 +1,9 @@
 package com.undecided.projectTemplate.business.domain.entity;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import com.undecided.projectTemplate.business.domain.entity.attribute.EntityKanaName;
+import com.undecided.projectTemplate.business.domain.model.entity.attribute.EntityKanaName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class EntityKanaNameTest {
 

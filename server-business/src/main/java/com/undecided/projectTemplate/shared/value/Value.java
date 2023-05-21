@@ -1,5 +1,7 @@
 package com.undecided.projectTemplate.shared.value;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 値オブジェクトのインターフェイス
  */
@@ -12,4 +14,8 @@ public interface Value {
      */
     boolean isEmpty();
 
+    @JsonIgnore
+    default boolean isPresent() {
+        return !isEmpty();
+    }
 }

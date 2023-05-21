@@ -4,9 +4,9 @@ import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectAt
 import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectCode;
 import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectName;
 import com.undecided.projectTemplate.resource.domain.project.attribute.StoryCodePrefix;
-import com.undecided.projectTemplate.resource.domain.story.attribute.Description;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.story.domain.story.attribute.Description;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

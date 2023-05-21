@@ -1,5 +1,6 @@
 package com.undecided.projectTemplate.resource.domain.story.attribute;
 
+import com.undecided.projectTemplate.story.domain.story.attribute.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,5 +1,7 @@
 package com.undecided.projectTemplate.business.domain.entity;
 
+import com.undecided.projectTemplate.business.domain.model.entity.ModelEntity;
+import com.undecided.projectTemplate.business.domain.model.entity.ModelEntityRepository;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;

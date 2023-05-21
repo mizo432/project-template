@@ -29,6 +29,8 @@ public class ProjectName extends AbstractStringValue {
     }
 
     public static ProjectName reconstruct(String value) {
+        if (Strings2.isEmpty(value))
+            return EMPTY;
         return new ProjectName(value);
 
 

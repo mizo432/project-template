@@ -1,9 +1,11 @@
 package com.undecided.projectTemplate.business.domain.entity.attribute;
 
+import com.undecided.projectTemplate.business.domain.model.entity.attribute.EntityAttribute;
+import com.undecided.projectTemplate.business.domain.model.entity.attribute.EntityType;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-
-import org.junit.jupiter.api.Test;
 
 class EntityAttributeTest {
 
@@ -13,7 +15,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "Kana Name",
-            EntityType.UNKNOWN);
+                EntityType.UNKNOWN);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.UNKNOWN, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -26,7 +28,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct2() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("foo", "foo",
-            EntityType.UNKNOWN);
+                EntityType.UNKNOWN);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.UNKNOWN, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -39,7 +41,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct3() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("", "Kana Name",
-            EntityType.UNKNOWN);
+                EntityType.UNKNOWN);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.UNKNOWN, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getKanaName().isEmpty());
@@ -51,7 +53,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct4() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "",
-            EntityType.UNKNOWN);
+                EntityType.UNKNOWN);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.UNKNOWN, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -63,7 +65,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct5() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "Kana Name",
-            EntityType.RESOURCE);
+                EntityType.RESOURCE);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.RESOURCE, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -76,7 +78,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct6() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "Kana Name",
-            EntityType.EVENT);
+                EntityType.EVENT);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.EVENT, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -89,7 +91,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct7() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "Kana Name",
-            EntityType.MO);
+                EntityType.MO);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.MO, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -102,7 +104,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct8() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "Kana Name",
-            EntityType.MA);
+                EntityType.MA);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.MA, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -115,7 +117,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct9() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "Kana Name",
-            EntityType.VE);
+                EntityType.VE);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.VE, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -128,7 +130,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct10() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "Kana Name",
-            EntityType.HDR);
+                EntityType.HDR);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.HDR, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -141,7 +143,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct11() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "Kana Name",
-            EntityType.DTL);
+                EntityType.DTL);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.DTL, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -154,7 +156,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct12() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "Kana Name",
-            EntityType.LAPUTA);
+                EntityType.LAPUTA);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.LAPUTA, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());
@@ -167,7 +169,7 @@ class EntityAttributeTest {
     @Test
     void testReconstruct13() {
         EntityAttribute actualReconstructResult = EntityAttribute.reconstruct("Name", "Kana Name",
-            EntityType.TURBO);
+                EntityType.TURBO);
         assertFalse(actualReconstructResult.isEmpty());
         assertEquals(EntityType.TURBO, actualReconstructResult.getType());
         assertFalse(actualReconstructResult.getName().isEmpty());

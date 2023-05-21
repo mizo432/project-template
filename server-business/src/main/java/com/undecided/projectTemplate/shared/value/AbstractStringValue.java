@@ -1,6 +1,5 @@
 package com.undecided.projectTemplate.shared.value;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.undecided.primitive.string.Strings2;
 
 /**
@@ -51,7 +50,7 @@ public abstract class AbstractStringValue extends AbstractValue<String> implemen
 
     }
 
-    @JsonIgnore
+    @Override
     public boolean isEmpty() {
         return Strings2.isEmpty(value);
 

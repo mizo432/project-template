@@ -12,7 +12,7 @@ ext {
 
 apply plugin: 'idea'
 apply plugin: 'pmd'
-// apply plugin: 'jdepend'
+// apply plugin: 'jDepend'
 
 idea {
     module {
