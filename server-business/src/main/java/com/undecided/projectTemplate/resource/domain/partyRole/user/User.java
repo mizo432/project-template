@@ -1,15 +1,15 @@
 package com.undecided.projectTemplate.resource.domain.partyRole.user;
 
-import static com.undecided.primitive.object.Objects2.isNull;
-
+import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.resource.domain.partyRole.user.attribbute.UserAttribute;
-import com.undecided.projectTemplate.resource.domain.project.Project;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import org.seasar.doma.Id;
+
+import static com.undecided.primitive.object.Objects2.isNull;
 
 @Getter
 @EqualsAndHashCode
@@ -25,7 +25,7 @@ public class User {
     protected final SnowflakeIdentifier<Project> projectId;
 
     protected User(SnowflakeIdentifier<User> id, AuditInfo auditInfo, UserAttribute attribute,
-        SnowflakeIdentifier<Project> projectId) {
+                   SnowflakeIdentifier<Project> projectId) {
         this.id = id;
         this.auditInfo = auditInfo;
         this.attribute = attribute;
@@ -40,8 +40,8 @@ public class User {
 
     public boolean sameValueAs(User other) {
         return sameIdAs(other)
-            && attribute.equals(other.attribute)
-            && projectId.equals(other.getProjectId());
+                && attribute.equals(other.attribute)
+                && projectId.equals(other.getProjectId());
 
     }
 

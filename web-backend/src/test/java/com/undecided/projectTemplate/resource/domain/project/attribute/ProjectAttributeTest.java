@@ -1,5 +1,9 @@
 package com.undecided.projectTemplate.resource.domain.project.attribute;
 
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectAttribute;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectCode;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectName;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.StoryCodePrefix;
 import com.undecided.projectTemplate.story.domain.story.attribute.Description;
 import org.junit.jupiter.api.Test;
 

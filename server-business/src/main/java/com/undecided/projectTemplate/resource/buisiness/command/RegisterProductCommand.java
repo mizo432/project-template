@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.resource.buisiness.command;
 
-import com.undecided.projectTemplate.resource.domain.project.Project;
+import com.undecided.projectTemplate.project.domain.model.project.Project;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

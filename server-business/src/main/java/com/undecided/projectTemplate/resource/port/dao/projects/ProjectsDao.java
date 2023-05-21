@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.resource.port.dao.projects;
 
-import com.undecided.projectTemplate.resource.domain.project.Project;
-import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectCode;
+import com.undecided.projectTemplate.project.domain.model.project.Project;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectCode;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import org.seasar.doma.*;
 import org.seasar.doma.boot.ConfigAutowireable;

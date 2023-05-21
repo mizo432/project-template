@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.shared.idHolder;
 
-import com.undecided.projectTemplate.resource.domain.project.Project;
+import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 
 public class ProjectIdHolder {

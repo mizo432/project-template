@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.teamMember.domain.member;
 
+import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.resource.domain.partyRole.user.User;
-import com.undecided.projectTemplate.resource.domain.project.Project;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

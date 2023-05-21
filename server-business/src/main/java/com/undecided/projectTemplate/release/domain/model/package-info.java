@@ -1,0 +1,1 @@
+package com.undecided.projectTemplate.release.domain.model;

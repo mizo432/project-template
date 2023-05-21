@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.business.domain.model.entity;
 
-import com.undecided.projectTemplate.resource.domain.project.Project;
+import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Select;

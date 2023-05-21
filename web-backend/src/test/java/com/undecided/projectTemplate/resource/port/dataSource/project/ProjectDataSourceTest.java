@@ -1,10 +1,10 @@
 package com.undecided.projectTemplate.resource.port.dataSource.project;
 
-import com.undecided.projectTemplate.resource.domain.project.Project;
-import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectAttribute;
-import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectCode;
-import com.undecided.projectTemplate.resource.domain.project.attribute.ProjectName;
-import com.undecided.projectTemplate.resource.domain.project.attribute.StoryCodePrefix;
+import com.undecided.projectTemplate.project.domain.model.project.Project;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectAttribute;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectCode;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectName;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.StoryCodePrefix;
 import com.undecided.projectTemplate.story.domain.story.attribute.Description;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

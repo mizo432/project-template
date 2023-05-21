@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.story.domain.actor;
 
-import com.undecided.projectTemplate.resource.domain.project.Project;
+import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
 import com.undecided.projectTemplate.story.domain.actor.attribute.ActorAttribute;
