@@ -17,23 +17,23 @@ import static com.undecided.primitive.object.Objects2.isNull;
  */
 @Getter
 @Domain(valueType = Long.class, factoryMethod = "reconstruct")
-public class SnowflakeIdentifier<E> extends AbstractLongValue implements
+public class SnowflakeId<E> extends AbstractLongValue implements
         Identifier<E> {
 
-    private static final SnowflakeIdentifier<?> EMPTY = new SnowflakeIdentifier<>();
+    private static final SnowflakeId<?> EMPTY = new SnowflakeId<>();
 
 
-    public SnowflakeIdentifier() {
+    public SnowflakeId() {
         super();
     }
 
-    public SnowflakeIdentifier(long value) {
+    public SnowflakeId(long value) {
         super(value);
     }
 
     @SuppressWarnings("unchecked")
-    public static <E> SnowflakeIdentifier<E> empty() {
-        return (SnowflakeIdentifier<E>) EMPTY;
+    public static <E> SnowflakeId<E> empty() {
+        return (SnowflakeId<E>) EMPTY;
 
     }
 
@@ -45,8 +45,8 @@ public class SnowflakeIdentifier<E> extends AbstractLongValue implements
         return String.valueOf(getValue());
     }
 
-    public static <E> SnowflakeIdentifier<E> newInstance() {
-        return new SnowflakeIdentifier<>(
+    public static <E> SnowflakeId<E> newInstance() {
+        return new SnowflakeId<>(
                 new SnowflakeIdGenerator(NodeIdGenerator.generateNodeId()).generateID());
 
     }
@@ -59,17 +59,17 @@ public class SnowflakeIdentifier<E> extends AbstractLongValue implements
      * @return 識別子オブジェクト
      */
     @SuppressWarnings("unchecked")
-    public static <E> SnowflakeIdentifier<E> reconstruct(Long value) {
+    public static <E> SnowflakeId<E> reconstruct(Long value) {
         if (isNull(value)) {
-            return (SnowflakeIdentifier<E>) EMPTY;
+            return (SnowflakeId<E>) EMPTY;
         }
-        return new SnowflakeIdentifier<>(value);
+        return new SnowflakeId<>(value);
 
     }
 
     @VisibleForTesting
-    public static <E> SnowflakeIdentifier<E> of(Long value) {
-        return new SnowflakeIdentifier<>(value);
+    public static <E> SnowflakeId<E> of(Long value) {
+        return new SnowflakeId<>(value);
     }
 
 }

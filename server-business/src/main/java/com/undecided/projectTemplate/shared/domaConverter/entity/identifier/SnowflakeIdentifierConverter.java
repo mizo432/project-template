@@ -1,21 +1,21 @@
 package com.undecided.projectTemplate.shared.domaConverter.entity.identifier;
 
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.seasar.doma.ExternalDomain;
 import org.seasar.doma.jdbc.domain.DomainConverter;
 
 @ExternalDomain
-public class SnowflakeIdentifierConverter implements DomainConverter<SnowflakeIdentifier<?>, Long> {
+public class SnowflakeIdentifierConverter implements DomainConverter<SnowflakeId<?>, Long> {
 
     @Override
-    public Long fromDomainToValue(SnowflakeIdentifier<?> identifier) {
+    public Long fromDomainToValue(SnowflakeId<?> identifier) {
         return identifier.getValue();
     }
 
     @Override
     @SuppressWarnings("rawtypes")
-    public SnowflakeIdentifier fromValueToDomain(Long value) {
-        return SnowflakeIdentifier.reconstruct(value);
+    public SnowflakeId fromValueToDomain(Long value) {
+        return SnowflakeId.reconstruct(value);
 
     }
 }

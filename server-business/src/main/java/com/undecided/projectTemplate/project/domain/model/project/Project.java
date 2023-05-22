@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.undecided.primitive.object.Objects2;
 import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectAttribute;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.shared.value.AbstractListValue;
 import lombok.Getter;
 import lombok.ToString;
@@ -21,20 +21,20 @@ import java.util.List;
 @ConfigAutowireable
 @ToString
 public class Project {
-    private final SnowflakeIdentifier<Project> id;
+    private final SnowflakeId<Project> id;
 
     private final ProjectAttribute attribute;
     private final AuditInfo auditInfo;
 
     public Project() {
-        id = SnowflakeIdentifier.empty();
+        id = SnowflakeId.empty();
         auditInfo = AuditInfo.empty();
         attribute = ProjectAttribute.empty();
 
 
     }
 
-    public Project(SnowflakeIdentifier<Project> id,
+    public Project(SnowflakeId<Project> id,
                    AuditInfo auditInfo,
                    ProjectAttribute attribute) {
         this.id = id;
@@ -44,28 +44,28 @@ public class Project {
 
 
     public static Project create(ProjectAttribute attribute) {
-        return create(SnowflakeIdentifier.newInstance(), attribute);
+        return create(SnowflakeId.newInstance(), attribute);
 
     }
 
     @JsonCreator
-    public static Project create(@JsonProperty("id") SnowflakeIdentifier<Project> id,
+    public static Project create(@JsonProperty("id") SnowflakeId<Project> id,
                                  @JsonProperty("attribute") ProjectAttribute attribute) {
         return new Project(id, AuditInfo.empty(), attribute);
 
     }
 
     public static Project create(Project project) {
-        return new Project(SnowflakeIdentifier.newInstance(), AuditInfo.empty(), project.attribute);
+        return new Project(SnowflakeId.newInstance(), AuditInfo.empty(), project.attribute);
 
     }
 
     public static Project newInstance() {
-        return new Project(SnowflakeIdentifier.newInstance(), AuditInfo.empty(), ProjectAttribute.empty());
+        return new Project(SnowflakeId.newInstance(), AuditInfo.empty(), ProjectAttribute.empty());
     }
 
     public static Project empty() {
-        return new Project(SnowflakeIdentifier.empty(), AuditInfo.empty(), ProjectAttribute.empty());
+        return new Project(SnowflakeId.empty(), AuditInfo.empty(), ProjectAttribute.empty());
     }
 
     public boolean sameValueAs(Project other) {

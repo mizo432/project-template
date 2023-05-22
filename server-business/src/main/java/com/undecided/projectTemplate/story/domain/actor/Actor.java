@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.story.domain.actor;
 
 import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.story.domain.actor.attribute.ActorAttribute;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,10 +17,10 @@ import org.jetbrains.annotations.NotNull;
 @ToString
 public class Actor {
 
-    private final SnowflakeIdentifier<Actor> id;
+    private final SnowflakeId<Actor> id;
     private final AuditInfo auditInfo;
 
-    private final SnowflakeIdentifier<Project> projectId;
+    private final SnowflakeId<Project> projectId;
     private final ActorAttribute attribute;
 
     /**
@@ -31,7 +31,7 @@ public class Actor {
      * @param auditInfo 監査証跡情報
      * @param attribute 即成
      */
-    private Actor(SnowflakeIdentifier<Actor> id, SnowflakeIdentifier<Project> projectId,
+    private Actor(SnowflakeId<Actor> id, SnowflakeId<Project> projectId,
                   AuditInfo auditInfo,
                   ActorAttribute attribute) {
         this.id = id;
@@ -47,7 +47,7 @@ public class Actor {
      * @return アクター
      */
     public static Actor empty() {
-        return new Actor(SnowflakeIdentifier.empty(), SnowflakeIdentifier.empty(),
+        return new Actor(SnowflakeId.empty(), SnowflakeId.empty(),
                 AuditInfo.empty(),
                 ActorAttribute.empty());
     }
@@ -61,9 +61,9 @@ public class Actor {
      * @param attribute 属性
      * @return アクター
      */
-    public static Actor reconstruct(@NotNull SnowflakeIdentifier<Actor> id,
+    public static Actor reconstruct(@NotNull SnowflakeId<Actor> id,
                                     @NotNull AuditInfo auditInfo,
-                                    @NotNull SnowflakeIdentifier<Project> projectId,
+                                    @NotNull SnowflakeId<Project> projectId,
                                     @NotNull ActorAttribute attribute) {
         return new Actor(id, projectId, auditInfo, attribute);
 

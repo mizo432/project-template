@@ -5,7 +5,7 @@ import com.undecided.projectTemplate.example.business.command.employee.InsertEmp
 import com.undecided.projectTemplate.example.business.command.employee.UpdateEmployeeCommand;
 import com.undecided.projectTemplate.example.business.query.employee.FetchEmployeeQuery;
 import com.undecided.projectTemplate.example.domain.employee.Employee;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -63,7 +63,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/showFormForUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") SnowflakeIdentifier<Employee> employeeId,
+    public String showFormForUpdate(@PathVariable(value = "id") SnowflakeId<Employee> employeeId,
                                     Model model) {
         // get employee from the service
         Employee employee = fetchEmployeeQuery.findEmployeeById(employeeId);
@@ -75,7 +75,7 @@ public class EmployeeController {
 
     @GetMapping("/deleteEmployee/{id}")
 //    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
-    public String deleteEmployee(@PathVariable(value = "id") SnowflakeIdentifier<Employee> id) {
+    public String deleteEmployee(@PathVariable(value = "id") SnowflakeId<Employee> id) {
         // call delete employee method
         this.deleteEmployeeCommand.deleteEmployeeById(id);
         return "redirect:/employee";

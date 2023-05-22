@@ -4,7 +4,7 @@ package com.undecided.projectTemplate.example.business.query.employee;
 import com.undecided.primitive.list.Lists2;
 import com.undecided.projectTemplate.example.business.command.employee.EmployeesData;
 import com.undecided.projectTemplate.example.domain.employee.Employee;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,7 +27,7 @@ public class FetchEmployeeQuery {
     }
 
     @Transactional
-    public Employee findEmployeeById(SnowflakeIdentifier<Employee> id) {
+    public Employee findEmployeeById(SnowflakeId<Employee> id) {
         return data.get(id);
 
     }

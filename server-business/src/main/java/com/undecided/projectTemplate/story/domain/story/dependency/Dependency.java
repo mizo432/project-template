@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.story.domain.story.dependency;
 
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.story.domain.story.Story;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,19 +14,19 @@ import lombok.ToString;
 @ToString
 public class Dependency {
 
-    private final SnowflakeIdentifier<Story> sourceStoryId;
+    private final SnowflakeId<Story> sourceStoryId;
 
-    private final SnowflakeIdentifier<Story> destStoryId;
+    private final SnowflakeId<Story> destStoryId;
 
     Dependency(
-            SnowflakeIdentifier<Story> sourceStoryId,
-            SnowflakeIdentifier<Story> destStoryId) {
+            SnowflakeId<Story> sourceStoryId,
+            SnowflakeId<Story> destStoryId) {
         this.sourceStoryId = sourceStoryId;
         this.destStoryId = destStoryId;
     }
 
-    public static Dependency create(SnowflakeIdentifier<Story> sourceStoryId,
-                                    SnowflakeIdentifier<Story> destStoryId) {
+    public static Dependency create(SnowflakeId<Story> sourceStoryId,
+                                    SnowflakeId<Story> destStoryId) {
         return new Dependency(sourceStoryId,
                 destStoryId);
 
@@ -35,14 +35,14 @@ public class Dependency {
     public static Dependency reconstruct(Long sourceStoryId,
                                          Long destStoryId) {
         return reconstruct(
-                SnowflakeIdentifier.reconstruct(sourceStoryId),
-                SnowflakeIdentifier.reconstruct(destStoryId));
+                SnowflakeId.reconstruct(sourceStoryId),
+                SnowflakeId.reconstruct(destStoryId));
 
     }
 
     private static Dependency reconstruct(
-            SnowflakeIdentifier<Story> sourceStoryId,
-            SnowflakeIdentifier<Story> destStoryId) {
+            SnowflakeId<Story> sourceStoryId,
+            SnowflakeId<Story> destStoryId) {
         return new Dependency(sourceStoryId, destStoryId);
 
     }

@@ -5,7 +5,7 @@ import com.undecided.projectTemplate.project.appl.command.project.InsertProjectC
 import com.undecided.projectTemplate.project.appl.command.project.UpdateProjectCommand;
 import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.project.domain.query.project.ProjectFetcher;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -53,7 +53,7 @@ public class ProjectController {
 
     @GetMapping("/delete/{projectId}")
     public String deleteEmployee(
-            @PathVariable(value = "projectId") SnowflakeIdentifier<Project> id) {
+            @PathVariable(value = "projectId") SnowflakeId<Project> id) {
         deleteProjectCommand.delete(id);
         return "redirect:/project";
 
@@ -61,7 +61,7 @@ public class ProjectController {
 
     @GetMapping("/showFormForUpdate/{projectId}")
     public String showFormForUpdate(
-            @PathVariable(value = "id") SnowflakeIdentifier<Project> id, Model model) {
+            @PathVariable(value = "id") SnowflakeId<Project> id, Model model) {
 
         Project project = projectFetcher.findOneBy(id);
 

@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.shared.entity.annotation;
 
-public enum ArchType {
+public enum ArcheType {
     PARTY_PLACE_OR_THING,
     ROLE,
 

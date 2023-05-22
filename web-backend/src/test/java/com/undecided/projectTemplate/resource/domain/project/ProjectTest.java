@@ -6,7 +6,7 @@ import com.undecided.projectTemplate.project.domain.model.project.attribute.Proj
 import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectName;
 import com.undecided.projectTemplate.project.domain.model.project.attribute.StoryCodePrefix;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.story.domain.story.attribute.Description;
 import org.junit.jupiter.api.Test;
 
@@ -16,12 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 class ProjectTest {
 
     /**
-     * Method under test: {@link Project#Project(SnowflakeIdentifier, ProjectAttribute)}
+     * Method under test: {@link Project#Project(SnowflakeId, ProjectAttribute)}
      */
     @Test
     void testConstructor() {
         // Arrange
-        SnowflakeIdentifier<Project> newInstanceResult = SnowflakeIdentifier.newInstance();
+        SnowflakeId<Project> newInstanceResult = SnowflakeId.newInstance();
         String value = "42";
         ProjectName ofResult = ProjectName.of(value);
         String value1 = "42";
@@ -39,7 +39,7 @@ class ProjectTest {
         // Assert
         ProjectAttribute attribute = actualProject.getAttribute();
         assertSame(createResult, attribute);
-        SnowflakeIdentifier<Project> actualId = actualProject.getId();
+        SnowflakeId<Project> actualId = actualProject.getId();
         assertSame(newInstanceResult, actualId);
         StoryCodePrefix storyCodePrefix = attribute.getStoryCodePrefix();
         assertSame(ofResult2, storyCodePrefix);

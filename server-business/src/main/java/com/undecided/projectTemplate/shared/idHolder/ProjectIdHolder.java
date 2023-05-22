@@ -1,13 +1,13 @@
 package com.undecided.projectTemplate.shared.idHolder;
 
 import com.undecided.projectTemplate.project.domain.model.project.Project;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 
 public class ProjectIdHolder {
 
-    private final static ThreadLocal<SnowflakeIdentifier<Project>> identifierRef = new ThreadLocal<>();
+    private final static ThreadLocal<SnowflakeId<Project>> identifierRef = new ThreadLocal<>();
 
-    public static SnowflakeIdentifier<Project> operatingIdentifier() {
+    public static SnowflakeId<Project> operatingIdentifier() {
         return identifierRef.get();
     }
 
@@ -16,7 +16,7 @@ public class ProjectIdHolder {
 
     }
 
-    public static void set(SnowflakeIdentifier<Project> identifier) {
+    public static void set(SnowflakeId<Project> identifier) {
         identifierRef.set(identifier);
 
     }

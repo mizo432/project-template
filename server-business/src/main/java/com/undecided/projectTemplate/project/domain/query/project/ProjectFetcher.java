@@ -3,7 +3,7 @@ package com.undecided.projectTemplate.project.domain.query.project;
 import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.project.domain.model.project.ProjectRepository;
 import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectCode;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class ProjectFetcher {
 
     }
 
-    public Project findOneBy(SnowflakeIdentifier<Project> projectId) {
+    public Project findOneBy(SnowflakeId<Project> projectId) {
         return projectRepository.findOneBy(projectId);
 
     }

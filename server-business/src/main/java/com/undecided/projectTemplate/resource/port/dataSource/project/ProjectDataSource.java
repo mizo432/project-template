@@ -4,7 +4,7 @@ import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.project.domain.model.project.ProjectRepository;
 import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectCode;
 import com.undecided.projectTemplate.resource.port.dao.projects.ProjectsDao;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -23,7 +23,7 @@ public class ProjectDataSource implements ProjectRepository {
 
     @Override
     @Cacheable(value = "project", key = "'id/' + #id")
-    public Project findOneBy(SnowflakeIdentifier<Project> id) {
+    public Project findOneBy(SnowflakeId<Project> id) {
         return projectsDao.findOneById(id);
 
     }
@@ -52,7 +52,7 @@ public class ProjectDataSource implements ProjectRepository {
 
     @Override
     @CacheEvict(value = "project", key = "'id/' + #id")
-    public void delete(SnowflakeIdentifier<Project> id) {
+    public void delete(SnowflakeId<Project> id) {
         projectsDao.delete(id);
 
     }

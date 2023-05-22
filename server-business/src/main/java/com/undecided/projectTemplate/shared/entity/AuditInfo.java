@@ -3,7 +3,7 @@ package com.undecided.projectTemplate.shared.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.undecided.gfw.common.exception.SystemException;
 import com.undecided.projectTemplate.resource.domain.partyRole.user.User;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.shared.value.ValuePreconditions;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -98,7 +98,7 @@ public class AuditInfo {
      *
      * @param userId 登録者ID
      */
-    public void setWhoNoticed(SnowflakeIdentifier<User> userId) {
+    public void setWhoNoticed(SnowflakeId<User> userId) {
         ValuePreconditions.checkNotEmpty(userId, () -> new SystemException("E0001001", "userIdが指定されていません"));
         whoNoticed = WhoNoticed.of(userId);
     }

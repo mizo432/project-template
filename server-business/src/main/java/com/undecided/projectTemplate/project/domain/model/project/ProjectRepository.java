@@ -1,13 +1,13 @@
 package com.undecided.projectTemplate.project.domain.model.project;
 
 import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectCode;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 
 import java.util.List;
 
 public interface ProjectRepository {
 
-    Project findOneBy(SnowflakeIdentifier<Project> id);
+    Project findOneBy(SnowflakeId<Project> id);
 
     List<Project> selectAll();
 
@@ -15,7 +15,7 @@ public interface ProjectRepository {
 
     Project update(Project project);
 
-    void delete(SnowflakeIdentifier<Project> id);
+    void delete(SnowflakeId<Project> id);
 
     Project findOneByCode(ProjectCode projectCode);
 

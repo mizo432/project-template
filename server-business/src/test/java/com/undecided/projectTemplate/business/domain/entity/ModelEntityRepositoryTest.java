@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.business.domain.entity;
 
 import com.undecided.projectTemplate.business.domain.model.entity.ModelEntity;
 import com.undecided.projectTemplate.business.domain.model.entity.ModelEntityRepository;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ class ModelEntityRepositoryTest {
             @Test
             @Transactional
             void success() {
-                SnowflakeIdentifier<ModelEntity> id = SnowflakeIdentifier.of(1L);
+                SnowflakeId<ModelEntity> id = SnowflakeId.of(1L);
                 Optional<ModelEntity> actual = modelEntityRepository.findOneById(id);
                 System.out.println(actual.orElseGet(ModelEntity::empty));
             }

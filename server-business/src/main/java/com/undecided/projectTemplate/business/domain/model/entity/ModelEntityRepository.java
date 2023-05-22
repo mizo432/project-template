@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.business.domain.model.entity;
 
 import com.undecided.projectTemplate.project.domain.model.project.Project;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Select;
 import org.seasar.doma.boot.ConfigAutowireable;
@@ -24,7 +24,7 @@ public interface ModelEntityRepository {
      * @return モデルエンティティ
      */
     @Select
-    Optional<ModelEntity> findOneById(SnowflakeIdentifier<ModelEntity> id);
+    Optional<ModelEntity> findOneById(SnowflakeId<ModelEntity> id);
 
     /**
      * プロジェクトIDを元にモデルエンティティを返却します。
@@ -33,6 +33,6 @@ public interface ModelEntityRepository {
      * @return モデルエンティティ(複数)
      */
     @Select
-    List<ModelEntity> selectByProjectId(SnowflakeIdentifier<Project> projectId);
+    List<ModelEntity> selectByProjectId(SnowflakeId<Project> projectId);
 
 }

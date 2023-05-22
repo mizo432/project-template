@@ -8,9 +8,9 @@ import java.util.Collection;
 import java.util.Set;
 
 public class Identifiers<E> implements
-        SetValue<SnowflakeIdentifier<E>>, Serializable {
+        SetValue<SnowflakeId<E>>, Serializable {
 
-    private final Set<SnowflakeIdentifier<E>> value = Sets2.newHashSet();
+    private final Set<SnowflakeId<E>> value = Sets2.newHashSet();
 
     Identifiers(Collection<E> value) {
         value.addAll(value);
@@ -21,7 +21,7 @@ public class Identifiers<E> implements
     }
 
     @Override
-    public Set<SnowflakeIdentifier<E>> getValue() {
+    public Set<SnowflakeId<E>> getValue() {
         return value;
     }
 

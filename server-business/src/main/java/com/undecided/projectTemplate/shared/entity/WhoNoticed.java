@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.shared.entity;
 
 import com.undecided.projectTemplate.resource.domain.partyRole.user.User;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.shared.value.AbstractLongValue;
 import lombok.Getter;
 import org.seasar.doma.Domain;
@@ -29,7 +29,7 @@ public class WhoNoticed extends AbstractLongValue {
         return EMPTY;
     }
 
-    public static WhoNoticed of(SnowflakeIdentifier<User> value) {
+    public static WhoNoticed of(SnowflakeId<User> value) {
         return new WhoNoticed(value.getValue());
     }
 }

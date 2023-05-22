@@ -3,7 +3,7 @@ package com.undecided.projectTemplate.business.domain.model.entity;
 import com.undecided.projectTemplate.business.domain.model.entity.attribute.EntityAttribute;
 import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeIdentifier;
+import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.shared.idHolder.ProjectIdHolder;
 import com.undecided.projectTemplate.shared.value.ValuePreconditions;
 import lombok.EqualsAndHashCode;
@@ -21,22 +21,22 @@ import org.seasar.doma.Table;
 @Table(schema = "business", name = "model_entities")
 public class ModelEntity {
 
-    private final SnowflakeIdentifier<ModelEntity> id;
+    private final SnowflakeId<ModelEntity> id;
 
     private final EntityAttribute attribute;
     private final AuditInfo auditInfo;
 
-    private final SnowflakeIdentifier<Project> projectId;
+    private final SnowflakeId<Project> projectId;
 
     public ModelEntity() {
-        this(SnowflakeIdentifier.empty(),
-                SnowflakeIdentifier.empty(),
+        this(SnowflakeId.empty(),
+                SnowflakeId.empty(),
                 AuditInfo.empty(),
                 EntityAttribute.empty());
     }
 
     @VisibleForTesting
-    ModelEntity(SnowflakeIdentifier<ModelEntity> id, SnowflakeIdentifier<Project> projectId,
+    ModelEntity(SnowflakeId<ModelEntity> id, SnowflakeId<Project> projectId,
                 AuditInfo auditInfo, EntityAttribute attribute) {
         ValuePreconditions.checkNotEmpty(projectId, "projectId");
         this.id = id;
@@ -48,7 +48,7 @@ public class ModelEntity {
 
 
     public static ModelEntity create(@NotNull EntityAttribute attribute) {
-        return new ModelEntity(SnowflakeIdentifier.newInstance(),
+        return new ModelEntity(SnowflakeId.newInstance(),
                 ProjectIdHolder.operatingIdentifier(),
                 AuditInfo.empty(), attribute);
 
