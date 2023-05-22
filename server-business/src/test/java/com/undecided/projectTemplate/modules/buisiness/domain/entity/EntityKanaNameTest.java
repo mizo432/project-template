@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.business.domain.entity;
+package com.undecided.projectTemplate.modules.buisiness.domain.entity;
 
 import com.undecided.projectTemplate.modules.business.domain.model.entity.attribute.EntityKanaName;
 import org.junit.jupiter.api.Test;

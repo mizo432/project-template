@@ -22,7 +22,7 @@ public class UserAttribute {
 
     public static UserAttribute reconstruct(String code, String emailAddress, String name) {
         return new UserAttribute(UserCode.reconstruct(code), EmailAddress.reconstruct(emailAddress),
-            Name.reconstruct(name));
+                Name.reconstruct(name));
     }
 
     public static UserAttribute reconstruct(UserCode code, EmailAddress emailAddress, Name name) {

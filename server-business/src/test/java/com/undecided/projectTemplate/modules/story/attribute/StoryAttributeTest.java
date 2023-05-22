@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.resource.domain.story.attribute;
+package com.undecided.projectTemplate.modules.story.attribute;
 
 import com.undecided.projectTemplate.modules.story.domain.story.attribute.*;
 import org.junit.jupiter.api.Test;

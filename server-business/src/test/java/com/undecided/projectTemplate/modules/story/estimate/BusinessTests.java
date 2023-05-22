@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.resource.domain.story.estimate;
+package com.undecided.projectTemplate.modules.story.estimate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

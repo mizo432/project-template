@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.resource.domain.story.estimate.businessValue;
+package com.undecided.projectTemplate.modules.story.estimate.businessValue;
 
 import com.undecided.projectTemplate.modules.story.domain.story.estimate.businessValue.Emotion;
 import org.junit.jupiter.api.Test;

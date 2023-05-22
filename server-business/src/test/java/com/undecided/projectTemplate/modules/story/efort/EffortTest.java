@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.resource.domain.story.efort;
+package com.undecided.projectTemplate.modules.story.efort;
 
 import com.undecided.projectTemplate.modules.story.domain.story.efort.Effort;
 import org.junit.jupiter.api.Test;

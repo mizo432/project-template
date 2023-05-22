@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.business.domain.entity.attribute;
+package com.undecided.projectTemplate.modules.buisiness.domain.entity.attribute;
 
 import com.undecided.projectTemplate.modules.business.domain.model.entity.attribute.EntityAttribute;
 import com.undecided.projectTemplate.modules.business.domain.model.entity.attribute.EntityType;

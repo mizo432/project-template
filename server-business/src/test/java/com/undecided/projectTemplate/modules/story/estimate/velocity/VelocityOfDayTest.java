@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.resource.domain.story.estimate.velocity;
+package com.undecided.projectTemplate.modules.story.estimate.velocity;
 
 import com.undecided.projectTemplate.modules.story.domain.story.estimate.velocity.DaysOfSprint;
 import com.undecided.projectTemplate.modules.story.domain.story.estimate.velocity.EffortOfSprint;
