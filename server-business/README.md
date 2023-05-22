@@ -2,7 +2,7 @@ server-business
 =====
 
 業務ロジックを格納するモジュール
-* sprint
+* sprint0
   * feature
     * business
 * sprint
