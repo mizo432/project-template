@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.business.domain.entity.attribute;
 
-import com.undecided.projectTemplate.business.domain.model.entity.attribute.EntityAttribute;
-import com.undecided.projectTemplate.business.domain.model.entity.attribute.EntityType;
+import com.undecided.projectTemplate.modules.business.domain.model.entity.attribute.EntityAttribute;
+import com.undecided.projectTemplate.modules.business.domain.model.entity.attribute.EntityType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

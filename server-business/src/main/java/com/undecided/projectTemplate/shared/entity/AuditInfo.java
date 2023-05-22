@@ -2,7 +2,7 @@ package com.undecided.projectTemplate.shared.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.undecided.gfw.common.exception.SystemException;
-import com.undecided.projectTemplate.resource.domain.partyRole.user.User;
+import com.undecided.projectTemplate.modules.resource.domain.partyRole.user.User;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.shared.value.ValuePreconditions;
 import lombok.EqualsAndHashCode;

@@ -1,11 +1,12 @@
 package com.undecided.projectTemplate.shared.entity.id;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.undecided.projectTemplate.modules.example.domain.employee.Employee;
+import org.junit.jupiter.api.Test;
 
-import com.undecided.projectTemplate.example.domain.employee.Employee;
 import java.util.ArrayList;
 import java.util.Collection;
-import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class IdentifiersTest {
 

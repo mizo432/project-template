@@ -1,9 +1,9 @@
 package com.undecided.projectTemplate.modules.resource.presentation.api.actors;
 
-import com.undecided.projectTemplate.project.domain.model.project.Project;
-import com.undecided.projectTemplate.resource.buisiness.command.actor.RegisterActorCommand;
+import com.undecided.projectTemplate.modules.project.domain.model.project.Project;
+import com.undecided.projectTemplate.modules.resource.appl.command.actor.RegisterActorCommand;
+import com.undecided.projectTemplate.modules.story.domain.actor.Actor;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
-import com.undecided.projectTemplate.story.domain.actor.Actor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;

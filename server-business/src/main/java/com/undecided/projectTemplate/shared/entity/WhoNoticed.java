@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.shared.entity;
 
-import com.undecided.projectTemplate.resource.domain.partyRole.user.User;
+import com.undecided.projectTemplate.modules.resource.domain.partyRole.user.User;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.shared.value.AbstractLongValue;
 import lombok.Getter;

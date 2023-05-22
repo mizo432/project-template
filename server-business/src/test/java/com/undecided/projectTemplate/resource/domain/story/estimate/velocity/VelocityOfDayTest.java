@@ -1,8 +1,8 @@
 package com.undecided.projectTemplate.resource.domain.story.estimate.velocity;
 
-import com.undecided.projectTemplate.story.domain.story.estimate.velocity.DaysOfSprint;
-import com.undecided.projectTemplate.story.domain.story.estimate.velocity.EffortOfSprint;
-import com.undecided.projectTemplate.story.domain.story.estimate.velocity.VelocityOfDay;
+import com.undecided.projectTemplate.modules.story.domain.story.estimate.velocity.DaysOfSprint;
+import com.undecided.projectTemplate.modules.story.domain.story.estimate.velocity.EffortOfSprint;
+import com.undecided.projectTemplate.modules.story.domain.story.estimate.velocity.VelocityOfDay;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
