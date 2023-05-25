@@ -2,9 +2,9 @@ package com.undecided.projectTemplate.modules.relationshipMgmt.party.domain.orga
 
 import com.undecided.projectTemplate.shared.entity.annotation.Arche;
 import com.undecided.projectTemplate.shared.entity.annotation.ArcheType;
-import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
-@NoArgsConstructor
+@AllArgsConstructor(staticName = "create")
 @Arche(ArcheType.ROLE)
 public class OrganizationRole extends AbstractOrganizationRole {
 }
