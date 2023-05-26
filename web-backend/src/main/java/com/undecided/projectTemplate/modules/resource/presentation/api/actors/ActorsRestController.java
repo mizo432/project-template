@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.modules.resource.presentation.api.actors;
 
 import com.undecided.projectTemplate.modules.project.domain.model.project.Project;
-import com.undecided.projectTemplate.modules.resource.appl.command.actor.RegisterActorCommand;
+import com.undecided.projectTemplate.modules.story.appl.command.actor.RegisterActorCommand;
 import com.undecided.projectTemplate.modules.story.domain.actor.Actor;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.springframework.http.ResponseEntity;

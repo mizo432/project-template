@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.modules.resource.appl.command.actor;
+package com.undecided.projectTemplate.modules.story.appl.command.actor;
 
 import com.undecided.projectTemplate.modules.story.domain.actor.Actor;
 import org.springframework.stereotype.Service;
