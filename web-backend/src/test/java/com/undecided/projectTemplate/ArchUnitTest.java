@@ -5,11 +5,12 @@ import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption.Predefined;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
-public class ArcheTest {
+public class ArchUnitTest {
 
     private static final String ROOT = "com.undecided.projectTemplate";
     private static final String SHARED = "com.undecided.projectTemplate.shared";
@@ -20,6 +21,7 @@ public class ArcheTest {
 
     @SuppressWarnings("NonAsciiCharacters")
     @Test
+    @Tag("SMALL")
     void _moduleパッケージが公開インターフェイス以外の外部のモジュールに依存しないこと() {
         noClasses()
                 .should()
