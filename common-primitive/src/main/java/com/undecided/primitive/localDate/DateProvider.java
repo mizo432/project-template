@@ -1,10 +1,6 @@
 package com.undecided.primitive.localDate;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Year;
-import java.time.YearMonth;
+import java.time.*;
 import java.time.temporal.ChronoField;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -13,12 +9,20 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class DateProvider {
 
-    private static AtomicReference<DateProvider> dateProvider =
-        new AtomicReference<>(new DateProvider());
+    private final static AtomicReference<DateProvider> dateProvider =
+            new AtomicReference<>(new DateProvider());
 
     DateProvider() {
 
     }
+
+
+    public static long currentTimeMillis() {
+        LocalDateTime currentLocalDateTime = currentLocalDateTime();
+        Instant instant = currentLocalDateTime.atZone(ZoneId.systemDefault()).toInstant();
+        return instant.toEpochMilli();
+    }
+
 
     protected DateProvider(DateProvider aDateProvider) {
         DateProvider.setDateProvider(aDateProvider);

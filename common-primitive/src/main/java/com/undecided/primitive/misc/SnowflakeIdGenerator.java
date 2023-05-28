@@ -1,5 +1,7 @@
 package com.undecided.primitive.misc;
 
+import com.undecided.primitive.localDate.DateProvider;
+
 public class SnowflakeIdGenerator {
 
     private static final Long EPOCH = 1609459200000L;
@@ -8,19 +10,20 @@ public class SnowflakeIdGenerator {
     private final long workerId;
     private static long sequence = 0L;
 
-    private static long lastTimestamp = -1L;
+    private static long lastTimestamp = -62167252739000L;
 
     public SnowflakeIdGenerator(Long workerId) {
         if (workerId < 0 || workerId > MAX_WORKER_ID) {
             throw new IllegalArgumentException(
-                "worker ID must be between 0 and " + MAX_WORKER_ID + " but workerId is "
-                    + workerId);
+                    "worker ID must be between 0 and " + MAX_WORKER_ID + " but workerId is "
+                            + workerId);
         }
         this.workerId = workerId;
     }
 
     public synchronized long generateID() {
-        long timestamp = System.currentTimeMillis();
+        long timestamp = DateProvider.currentTimeMillis();
+
         if (timestamp < lastTimestamp) {
             throw new RuntimeException("Clock moved backwards. Refusing to generate ID.");
         }
