@@ -1,7 +1,9 @@
-node {
+pipeline {
+    agent any
     tools {
         jdk 'JDK17'
     }
+    stages {
    stage ('git clone'){
    git 'https://github.com/mizo432/project-template.git'
 
@@ -21,5 +23,7 @@ node {
         findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: '**/build/reports/findbugs/*.xml', unHealthy: ''
         warnings canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'Java Compiler (javac)'], [parserName: 'JavaDoc Tool']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''
    }
+
+    }
 
 }
