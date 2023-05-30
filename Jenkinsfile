@@ -1,4 +1,7 @@
 node {
+    tools {
+        jdk 'JDK17'
+    }
    stage ('git clone'){
    git 'https://github.com/mizo432/project-template.git'
 
