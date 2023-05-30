@@ -50,20 +50,19 @@ pipeline {
             // 並列処理の場合はparallelメソッドを使う
             parallel(
                'static analysis' : {
-                    gradlew 'check -x test'
-                    // dirメソッドでカレントディレクトリを指定できる
-                    recordIssues enabledForFailure: true, tools: [spotBugs(pattern: '**/build/reports/spotbugs/main.xml')]
-                    recordIssues enabledForFailure: true, tools: [pmdParser(pattern: '**/build/reports/pmd/main.xml')]
-                    recordIssues enabledForFailure: true, tools: [cpd(pattern: '**/build/reports/cpd/cpd.xml', reportEncoding: 'UTF-8', skipSymbolicLinks: true)]
-                },
-                task-scan': {
-                    recordIssues(tools: [taskScanner(highTags: 'FIXME', ignoreCase: true, includePattern: '**/src/main/java/**/*.java', lowTags: 'XXX', normalTags: 'TODO')])
-                }
-                )
-            }
-        }
+                   gradlew 'check -x test'
+                   // dirメソッドでカレントディレクトリを指定できる
+                   recordIssues enabledForFailure: true, tools: [spotBugs(pattern: '**/build/reports/spotbugs/main.xml')]
+                   recordIssues enabledForFailure: true, tools: [pmdParser(pattern: '**/build/reports/pmd/main.xml')]
+                   recordIssues enabledForFailure: true, tools: [cpd(pattern: '**/build/reports/cpd/cpd.xml', reportEncoding: 'UTF-8', skipSymbolicLinks: true)]
+               },
+               'task-scan': {
+                   recordIssues(tools: [taskScanner(highTags: 'FIXME', ignoreCase: true, includePattern: '**/src/main/java/**/*.java', lowTags: 'XXX', normalTags: 'TODO')])
+               }
+            )
+       }
 
-    }
+   }
 
 }
 
