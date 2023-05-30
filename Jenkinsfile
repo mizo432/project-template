@@ -4,25 +4,64 @@ pipeline {
         jdk 'JDK17'
     }
     stages {
-        stage ('git clone'){
-            git 'https://github.com/mizo432/project-template.git'
-
-   }
+        stage('Preparation') {
+            // 実際の処理はstepsブロック中に定義する
+            steps {
+                deleteDir()
+                // このJobをトリガーしてきたGithubのプロジェクトをチェックアウト
+                checkout scm
+                // ジョブ失敗の原因調査用にJenkinsfileとbuild.gradleは最初に保存する
+                archiveArtifacts "Jenkinsfile"
+                archiveArtifacts "build.gradle"
+                archiveArtifacts "settings.gradle"
+                // scriptブロックを使うと従来のScripted Pipelinesの記法も使える
+                script {
+                    // Permission deniedで怒られないために実行権限を付与する
+                    if(isUnix()) {
+                        sh 'chmod +x gradlew'
+                    }
+                }
+                gradlew 'clean'
+            }
+        }
 
    stage( 'clean'){
-       gradlew 'clean'
+       steps{
+           gradlew 'clean'
+       }
    }
 
-   stage( 'build'){
-       gradlew 'build'
-   }
+   stage( 'compile'){
+        steps {
+            gradlew 'classes testClasses'
+        }
+        post {
+            // alwaysブロックはstepsブロックの処理が失敗しても成功しても必ず実行される
+            always {
+                // JavaDoc生成時に実行するとJavaDocの警告も含まれてしまうので
+                // Javaコンパイル時の警告はコンパイル直後に収集する
+                recordIssues(enabledForFailure: true, tools: [java()])
+            }
+        }
+    }
 
    stage('assembles reports'){
-       jacoco exclusionPattern: '**/*Test*.class'
-       openTasks canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', high: 'FIXME', ignoreCase: true, low: 'XXX', normal: 'TODO', pattern: '**/*.java', unHealthy: ''
-       findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: '**/build/reports/findbugs/*.xml', unHealthy: ''
-       warnings canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'Java Compiler (javac)'], [parserName: 'JavaDoc Tool']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''
-   }
+       steps {
+            // 並列処理の場合はparallelメソッドを使う
+            parallel(
+               'static analysis' : {
+                    gradlew 'check -x test'
+                    // dirメソッドでカレントディレクトリを指定できる
+                    recordIssues enabledForFailure: true, tools: [spotBugs(pattern: '**/build/reports/spotbugs/main.xml')]
+                    recordIssues enabledForFailure: true, tools: [pmdParser(pattern: '**/build/reports/pmd/main.xml')]
+                    recordIssues enabledForFailure: true, tools: [cpd(pattern: '**/build/reports/cpd/cpd.xml', reportEncoding: 'UTF-8', skipSymbolicLinks: true)]
+                },
+                task-scan': {
+                    recordIssues(tools: [taskScanner(highTags: 'FIXME', ignoreCase: true, includePattern: '**/src/main/java/**/*.java', lowTags: 'XXX', normalTags: 'TODO')])
+                }
+                )
+            }
+        }
 
     }
 
