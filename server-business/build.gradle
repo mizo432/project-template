@@ -3,6 +3,7 @@ plugins {
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version '1.1.0'
     id 'java-library'
+//    id 'checkstyle'
 
 }
 
@@ -12,7 +13,6 @@ ext {
 
 apply plugin: 'idea'
 apply plugin: 'pmd'
-
 idea {
     module {
         outputDir file('build/classes/main')
@@ -99,6 +99,12 @@ compileTestJava {
     options.encoding = 'UTF-8'
 
 }
+
+// checkstyle {
+//    toolVersion = '10.3.3'
+//
+//}
+
 
 test {
     useJUnitPlatform()
