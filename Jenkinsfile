@@ -70,7 +70,7 @@ pipeline {
 def gradlew(command) {
     if(isUnix()) {
             sh "./gradlew ${command} --stacktrace --daemon"
-        } else {
+    } else {
             bat "./gradlew.bat ${command} --stacktrace  --daemon"
     }
 }
