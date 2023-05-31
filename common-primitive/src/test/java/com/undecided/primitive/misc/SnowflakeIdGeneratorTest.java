@@ -34,6 +34,7 @@ public class SnowflakeIdGeneratorTest {
         StaticDateTimeProvider.initialize(LocalDateTimes.MIN);
         System.out.println(DateProvider.currentTimeMillis());
         SnowflakeIdGenerator generator = new SnowflakeIdGenerator(1L);
+        generator.initialise();
         long id1 = generator.generateID();
         System.out.println(id1);
         long id2 = generator.generateID();

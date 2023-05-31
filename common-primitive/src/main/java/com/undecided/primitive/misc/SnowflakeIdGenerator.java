@@ -25,7 +25,7 @@ public class SnowflakeIdGenerator {
         long timestamp = DateProvider.currentTimeMillis();
 
         if (timestamp < lastTimestamp) {
-            throw new RuntimeException("Clock moved backwards. Refusing to generate ID.");
+            throw new RuntimeException("Clock moved backwards. Refusing to generate ID. timestamp:" + timestamp + ", lastTimestamp:" + lastTimestamp);
         }
         if (timestamp == lastTimestamp) {
             sequence = (sequence + 1) & 4095L;
@@ -48,4 +48,7 @@ public class SnowflakeIdGenerator {
         return timestamp;
     }
 
+    public void initialise() {
+        lastTimestamp = -62167252739000L;
+    }
 }
