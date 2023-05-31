@@ -24,6 +24,7 @@ pipeline {
                 gradlew 'clean'
             }
         }
+    }
 
    stage( 'clean'){
        steps{
@@ -48,7 +49,7 @@ pipeline {
    stage('assembles reports'){
        steps {
             // 並列処理の場合はparallelメソッドを使う
-            parallel(
+           parallel(
                'static analysis' : {
                    gradlew 'check -x test'
                    // dirメソッドでカレントディレクトリを指定できる
@@ -59,7 +60,7 @@ pipeline {
                'task-scan': {
                    recordIssues(tools: [taskScanner(highTags: 'FIXME', ignoreCase: true, includePattern: '**/src/main/java/**/*.java', lowTags: 'XXX', normalTags: 'TODO')])
                }
-            )
+           )
        }
 
    }
