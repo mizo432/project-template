@@ -24,33 +24,31 @@ pipeline {
                 gradlew 'clean'
             }
         }
-    }
 
-   stage( 'clean'){
-       steps{
-           gradlew 'clean'
-       }
-   }
-
-   stage( 'compile'){
-        steps {
-            gradlew 'classes testClasses'
-        }
-        post {
-            // alwaysブロックはstepsブロックの処理が失敗しても成功しても必ず実行される
-            always {
-                // JavaDoc生成時に実行するとJavaDocの警告も含まれてしまうので
-                // Javaコンパイル時の警告はコンパイル直後に収集する
-                recordIssues(enabledForFailure: true, tools: [java()])
+        stage( 'clean'){
+            steps{
+                gradlew 'clean'
             }
         }
-    }
 
-   stage('assembles reports'){
-       steps {
-            // 並列処理の場合はparallelメソッドを使う
-           parallel(
-               'static analysis' : {
+        stage( 'compile'){
+            steps {
+                gradlew 'classes testClasses'
+            }
+            post {
+                // alwaysブロックはstepsブロックの処理が失敗しても成功しても必ず実行される
+                always {
+                    // JavaDoc生成時に実行するとJavaDocの警告も含まれてしまうので
+                    // Javaコンパイル時の警告はコンパイル直後に収集する
+                    recordIssues(enabledForFailure: true, tools: [java()])
+                }
+            }
+        }
+
+        stage('assembles reports'){
+            steps {
+                // 並列処理の場合はparallelメソッドを使う
+               parallel('static analysis' : {
                    gradlew 'check -x test'
                    // dirメソッドでカレントディレクトリを指定できる
                    recordIssues enabledForFailure: true, tools: [spotBugs(pattern: '**/build/reports/spotbugs/main.xml')]
@@ -60,8 +58,9 @@ pipeline {
                'task-scan': {
                    recordIssues(tools: [taskScanner(highTags: 'FIXME', ignoreCase: true, includePattern: '**/src/main/java/**/*.java', lowTags: 'XXX', normalTags: 'TODO')])
                }
-           )
-       }
+               )
+            }
+        }
 
    }
 
