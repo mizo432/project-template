@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-        jdk 'myJDK'
-    }
     stages {
         stage('Preparation') {
             // 実際の処理はstepsブロック中に定義する
