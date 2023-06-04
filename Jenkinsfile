@@ -1,10 +1,7 @@
 pipeline {
     agent any
     tools {
-        jdk 'JDK'
-    }
-    environment {
-        JAVA_HOME = "/var/jenkins_home/tools/hudson.model.JDK/JDK/jdk-17.0.7+7-debug-image/jdk-17.0.7+7"
+        jdk 'myJDK'
     }
     stages {
         stage('Preparation') {
