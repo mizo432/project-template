@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.modules.project.domain.query.project;
+package com.undecided.projectTemplate.modules.project.appl.query.project;
 
 import com.undecided.projectTemplate.modules.project.domain.model.project.Project;
 import com.undecided.projectTemplate.modules.project.domain.model.project.ProjectRepository;

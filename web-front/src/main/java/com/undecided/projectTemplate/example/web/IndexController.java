@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.example.web;
 
+import com.undecided.projectTemplate.modules.project.appl.query.project.ProjectFetcher;
 import com.undecided.projectTemplate.modules.project.domain.model.project.Project;
-import com.undecided.projectTemplate.modules.project.domain.query.project.ProjectFetcher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
