@@ -8,6 +8,7 @@ import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
@@ -33,7 +34,7 @@ public class DefaultSecurityConfig {
     // @formatter:off
     @Bean
     @SuppressWarnings("DEPRECATED")
-S    UserDetailsService users() {
+    UserDetailsService users() {
         //noinspection deprecation
         UserDetails user = User.withDefaultPasswordEncoder()
             .username("user1")
