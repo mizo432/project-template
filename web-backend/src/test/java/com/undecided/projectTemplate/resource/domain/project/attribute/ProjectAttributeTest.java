@@ -4,7 +4,7 @@ import com.undecided.projectTemplate.modules.project.domain.model.project.attrib
 import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectCode;
 import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectName;
 import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.StoryCodePrefix;
-import com.undecided.projectTemplate.modules.story.domain.story.attribute.Description;
+import com.undecided.projectTemplate.shared.type.description.Description;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertSame;

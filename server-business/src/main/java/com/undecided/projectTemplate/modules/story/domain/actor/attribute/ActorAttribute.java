@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.modules.story.domain.actor.attribute;
 
-import com.undecided.projectTemplate.modules.story.domain.story.attribute.Description;
+import com.undecided.projectTemplate.shared.type.description.Description;
 import com.undecided.projectTemplate.shared.value.name.Name;
 import lombok.*;
 

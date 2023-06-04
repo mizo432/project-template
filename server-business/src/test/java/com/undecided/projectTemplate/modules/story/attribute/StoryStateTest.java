@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.modules.story.attribute;
 
-import com.undecided.projectTemplate.modules.story.domain.story.attribute.Description;
 import com.undecided.projectTemplate.modules.story.domain.story.attribute.StoryState;
+import com.undecided.projectTemplate.shared.type.description.Description;
 import com.undecided.projectTemplate.shared.value.ValueNotFoundException;
 import org.junit.jupiter.api.Test;
 

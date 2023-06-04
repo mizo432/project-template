@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.modules.story.domain.story.attribute;
+package com.undecided.projectTemplate.shared.type.description;
 
 import com.undecided.projectTemplate.shared.value.AbstractStringValue;
 import lombok.Getter;

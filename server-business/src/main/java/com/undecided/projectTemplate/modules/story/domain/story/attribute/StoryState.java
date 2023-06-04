@@ -1,5 +1,6 @@
 package com.undecided.projectTemplate.modules.story.domain.story.attribute;
 
+import com.undecided.projectTemplate.shared.type.description.Description;
 import com.undecided.projectTemplate.shared.value.ValueNotFoundException;
 import org.jetbrains.annotations.NotNull;
 

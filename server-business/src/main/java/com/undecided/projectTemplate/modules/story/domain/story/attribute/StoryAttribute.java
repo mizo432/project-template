@@ -1,5 +1,6 @@
 package com.undecided.projectTemplate.modules.story.domain.story.attribute;
 
+import com.undecided.projectTemplate.shared.type.description.Description;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
