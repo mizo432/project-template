@@ -66,8 +66,8 @@ pipeline {
 // Gradlewコマンドを実行する
 def gradlew(command) {
     if(isUnix()) {
-            sh "./gradlew ${command} --stacktrace --daemon"
+            sh "./gradlew ${command} --stacktrace --daemon --warning-mode all"
     } else {
-            bat "./gradlew.bat ${command} --stacktrace  --daemon"
+            bat "./gradlew.bat ${command} --stacktrace  --daemon --warning-mode all"
     }
 }
