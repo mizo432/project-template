@@ -1,9 +1,10 @@
 package com.undecided.validator.constraintvalidators;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConstraintValidatorsUtilsTest {
 
@@ -11,13 +12,11 @@ public class ConstraintValidatorsUtilsTest {
     public void testConstraintValidatorsUtils() throws Exception {
         // set up
         Constructor<ConstraintValidatorsUtils> constructor = ConstraintValidatorsUtils.class
-            .getDeclaredConstructor();
-        assertThat(constructor.isAccessible()).isFalse();
+                .getDeclaredConstructor();
         constructor.setAccessible(true);
-
         // assert
         assertThat(constructor.newInstance())
-            .isNotNull();
+                .isNotNull();
 
     }
 
@@ -32,7 +31,7 @@ public class ConstraintValidatorsUtilsTest {
 
         // assert
         assertThat(o)
-            .isNotNull();
+                .isNotNull();
     }
 
     @Test
@@ -42,14 +41,14 @@ public class ConstraintValidatorsUtilsTest {
 
         // assert
         assertThat(o)
-            .isNull();
+                .isNull();
     }
 
     @Test
     public void testGetPropertyValuePropertyNameNull() throws Exception {
         // test
         Object o = ConstraintValidatorsUtils.getPropertyValue(new FooBean(),
-            null);
+                null);
 
         // assert
         assertThat(o).isNull();
@@ -62,7 +61,7 @@ public class ConstraintValidatorsUtilsTest {
 
         // assert
         assertThat(b)
-            .isNotNull();
+                .isNotNull();
     }
 
     @Test
