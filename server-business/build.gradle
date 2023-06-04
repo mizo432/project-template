@@ -78,8 +78,7 @@ dependencies {
 
 pmd {
     ignoreFailures = true
-    consoleOutput = true
-
+    S consoleOutput = true
     ruleSetFiles = files(file("$rootProject.projectDir/src/config/pmd/pmdRules.xml"))
     pmdTest.enabled = false
 }
