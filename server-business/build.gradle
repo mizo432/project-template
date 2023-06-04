@@ -1,14 +1,15 @@
+import org.codehaus.groovy.runtime.GStringImpl
+
 plugins {
     id 'java'
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version '1.1.0'
     id 'java-library'
-//    id 'checkstyle'
 
 }
 
 ext {
-    domaResourcesDir = "${buildDir}/tmp/doma-resources"
+    domaResourcesDir = "${buildDir}/tmp/doma-resources" as GStringImpl
 }
 
 apply plugin: 'idea'
