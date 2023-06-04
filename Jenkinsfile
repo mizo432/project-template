@@ -3,6 +3,9 @@ pipeline {
     tools {
         jdk 'JDK'
     }
+    environment {
+        JAVA_HOME = "/var/jenkins_home/tools/hudson.model.JDK/JDK/jdk-17.0.7+7-debug-image/jdk-17.0.7+7"
+    }
     stages {
         stage('Preparation') {
             // 実際の処理はstepsブロック中に定義する
