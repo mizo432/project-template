@@ -12,13 +12,13 @@ import java.util.Date;
 public class AnyTimerTask {
 
     private static final Logger LOG = LoggerFactory.getLogger(AnyTimerTask.class);
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
     /**
      * 10分(600000ms)毎に起動される
      */
     @Scheduled(fixedRate = 600000)
     public void execute() {
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         LOG.info("The time is now {}", dateFormat.format(new Date()));
 
     }
