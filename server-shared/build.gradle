@@ -1,0 +1,114 @@
+import org.codehaus.groovy.runtime.GStringImpl
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'java-library'
+
+}
+
+ext {
+    domaResourcesDir = "${buildDir}/tmp/doma-resources" as GStringImpl
+}
+
+apply plugin: 'idea'
+apply plugin: 'pmd'
+idea {
+    module {
+        outputDir file('build/classes/main')
+        testOutputDir file('build/classes/test')
+    }
+}
+
+bootRun {
+    enabled = false
+}
+bootJar {
+    enabled = false
+}
+jar {
+    enabled = true
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+repositories {
+    mavenCentral()
+
+}
+sourceSets {
+    main {
+        output.resourcesDir = compileJava.destinationDirectory.asFile.get()
+    }
+}
+
+tasks.register('copyDomaResources', Copy) {
+    from domaResourcesDir
+    into compileJava.destinationDirectory
+}
+processResources.destinationDir = compileJava.destinationDirectory.asFile.get()
+copyDomaResources.dependsOn processResources
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok'
+    implementation platform("org.springframework.experimental:spring-modulith-bom:0.6.0")
+    implementation project(":common-precondition")
+    implementation project(":common-exception")
+    implementation project(":common-message")
+    implementation project(":common-primitive")
+    implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
+
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
+    testImplementation project(":common-test")
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation(group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: "${domaStarterVersion}")
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
+    implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
+    implementation 'org.springframework.session:spring-session-data-redis'
+    implementation group: 'org.springframework.retry', name: 'spring-retry', version: '2.0.0'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.14.2'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.2'
+    testImplementation 'ch.qos.logback:logback-core'
+    testImplementation 'ch.qos.logback:logback-classic'
+    implementation("org.springframework.experimental:spring-modulith-api")
+    testImplementation("org.springframework.experimental:spring-modulith-starter-test")
+}
+
+pmd {
+    ignoreFailures = true
+    consoleOutput = true
+    ruleSetFiles = files(file("$rootProject.projectDir/src/config/pmd/pmdRules.xml"))
+    pmdTest.enabled = false
+}
+
+compileJava {
+    options.compilerArgs = ['-Adoma.domain.converters=com.undecided.projectTemplate.shared.domaConverter.DomainConvertersProvider',
+                            '-Xlint:unchecked',
+                            '-Xlint:deprecation',
+                            '-parameters'
+    ]
+    options.encoding = 'UTF-8'
+    dependsOn copyDomaResources
+
+}
+compileTestJava {
+    options.compilerArgs = ['-proc:none']
+    options.encoding = 'UTF-8'
+
+}
+
+// checkstyle {
+//    toolVersion = '10.3.3'
+//
+//}
+
+
+test {
+    useJUnitPlatform()
+}
