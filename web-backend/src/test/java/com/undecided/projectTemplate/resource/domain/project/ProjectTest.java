@@ -21,7 +21,7 @@ class ProjectTest {
     @Test
     void testConstructor() {
         // Arrange
-        SnowflakeId<Project> newInstanceResult = SnowflakeId.newInstance();
+        SnowflakeId newInstanceResult = SnowflakeId.newInstance();
         String value = "42";
         ProjectName ofResult = ProjectName.of(value);
         String value1 = "42";
@@ -39,7 +39,7 @@ class ProjectTest {
         // Assert
         ProjectAttribute attribute = actualProject.getAttribute();
         assertSame(createResult, attribute);
-        SnowflakeId<Project> actualId = actualProject.getId();
+        SnowflakeId actualId = actualProject.getId();
         assertSame(newInstanceResult, actualId);
         StoryCodePrefix storyCodePrefix = attribute.getStoryCodePrefix();
         assertSame(ofResult2, storyCodePrefix);

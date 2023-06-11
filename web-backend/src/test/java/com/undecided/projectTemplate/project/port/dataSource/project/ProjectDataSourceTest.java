@@ -1,4 +1,4 @@
-package com.undecided.projectTemplate.resource.port.dao.projects;
+package com.undecided.projectTemplate.project.port.dataSource.project;
 
 import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectAttribute;
@@ -16,7 +16,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ProjectsDaoTest {
+class ProjectDataSourceTest {
 
     @SpringBootTest
     @Nested
@@ -24,16 +24,16 @@ class ProjectsDaoTest {
 
 
         @Autowired
-        ProjectsDao projectsDao;
+        ProjectDataSource projectDataSource;
 
         @Test
         @Transactional
         void insert() {
             Project project = Project.create(ProjectAttribute.create(ProjectName.of("ProjectName"),
                     ProjectCode.of("PRJ"), StoryCodePrefix.of("APL"), Description.of("description")));
-            projectsDao.insert(project);
+            projectDataSource.insert(project);
 
-            Project actualOptionalProject = projectsDao.findOneById(
+            Project actualOptionalProject = projectDataSource.findOneById(
                     project.getId());
             assertThat(actualOptionalProject).isNotNull();
             System.out.println(actualOptionalProject);
@@ -45,10 +45,10 @@ class ProjectsDaoTest {
         void update() {
             Project project = Project.create(ProjectAttribute.create(ProjectName.of("ProjectName"),
                     ProjectCode.of("PRJ"), StoryCodePrefix.of("APL"), Description.of("description")));
-            projectsDao.insert(project);
-            projectsDao.update(project);
+            projectDataSource.insert(project);
+            projectDataSource.update(project);
 
-            Project actualOptionalProject = projectsDao.findOneById(
+            Project actualOptionalProject = projectDataSource.findOneById(
                     project.getId());
             assertThat(actualOptionalProject).isNotNull();
             System.out.println(actualOptionalProject);
@@ -60,10 +60,10 @@ class ProjectsDaoTest {
         void delete() {
             Project project = Project.create(ProjectAttribute.create(ProjectName.of("ProjectName"),
                     ProjectCode.of("PRJ"), StoryCodePrefix.of("APL"), Description.of("description")));
-            projectsDao.insert(project);
-            projectsDao.delete(project.getId());
+            projectDataSource.insert(project);
+            projectDataSource.delete(project.getId());
 
-            Project actualOptionalProject = projectsDao.findOneById(
+            Project actualOptionalProject = projectDataSource.findOneById(
                     project.getId());
             assertThat(actualOptionalProject).isNull();
 
@@ -74,9 +74,9 @@ class ProjectsDaoTest {
         void selectAll() {
             Project project = Project.create(ProjectAttribute.create(ProjectName.of("ProjectName"),
                     ProjectCode.of("PRJ"), StoryCodePrefix.of("APL"), Description.of("description")));
-            projectsDao.insert(project);
+            projectDataSource.insert(project);
 
-            List<Project> actualProjects = projectsDao.selectAll();
+            List<Project> actualProjects = projectDataSource.selectAll();
             System.out.println(actualProjects);
             assertThat(actualProjects).isNotNull().hasSize(1);
 

@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.modules.resource.presentation.api.projects;
 
-import com.undecided.projectTemplate.product.appl.command.product.RegisterProductCommand;
+import com.undecided.projectTemplate.project.domain.appl.command.project.RegisterProjectCommand;
 import com.undecided.projectTemplate.project.domain.model.project.Project;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +13,10 @@ import java.net.URI;
 @RequestMapping("api")
 public class ProjectsRestController {
 
-    private final RegisterProductCommand registerProductCommand;
+    private final RegisterProjectCommand registerProjectCommand;
 
-    public ProjectsRestController(RegisterProductCommand registerProductCommand) {
-        this.registerProductCommand = registerProductCommand;
+    public ProjectsRestController(RegisterProjectCommand registerProductCommand) {
+        this.registerProjectCommand = registerProductCommand;
     }
 
     @GetMapping("v1.0/projects")
@@ -26,17 +26,17 @@ public class ProjectsRestController {
     }
 
     @GetMapping("v1.0/projects/{id}")
-    Project get(@PathVariable("id") SnowflakeId<Project> projectId) {
+    Project get(@PathVariable("id") SnowflakeId projectId) {
         return Project.empty();
 
     }
 
     @PostMapping("v1.0/projects")
     ResponseEntity<Project> post(@RequestBody Project project, UriComponentsBuilder uriBuilder) {
-        Project createdProject = registerProductCommand.register(project);
+        Project createdProject = registerProjectCommand.register(project);
 
         // Locationで設定するURLを作成する
-        URI location = uriBuilder.path("v1.0/products/{id}")    // c
+        URI location = uriBuilder.path("v1.0/projects/{id}")    // c
                 .buildAndExpand(createdProject.getId().asString())    // d
                 .toUri();
 
@@ -45,14 +45,14 @@ public class ProjectsRestController {
     }
 
     @DeleteMapping("v1.0/projects/{id}")
-    ResponseEntity<Void> delete(@PathVariable("id") SnowflakeId<Project> projectId) {
+    ResponseEntity<Void> delete(@PathVariable("id") SnowflakeId projectId) {
 
         // レスポンス情報を作成
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("v1.0/projects/{id}")
-    public ResponseEntity<Project> update(@PathVariable SnowflakeId<Project> id,
+    public ResponseEntity<Project> update(@PathVariable SnowflakeId id,
                                           @RequestBody Project sourceProject) {
 
         return ResponseEntity.ok(sourceProject);

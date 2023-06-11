@@ -63,6 +63,7 @@ dependencies {
     implementation project(':web-validation')
     implementation project(':web-common')
     implementation project(':server-business')
+    implementation project(':server-shared')
     implementation project(":common-primitive")
     // spring boot関連資材
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'

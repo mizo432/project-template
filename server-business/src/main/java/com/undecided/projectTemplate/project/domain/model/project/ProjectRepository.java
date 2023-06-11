@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProjectRepository {
 
-    Project findOneBy(SnowflakeId id);
+    Project findOneById(SnowflakeId id);
 
     List<Project> selectAll();
 

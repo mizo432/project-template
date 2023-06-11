@@ -24,7 +24,7 @@ public class ProjectFetcher {
     }
 
     public Project findOneBy(SnowflakeId projectId) {
-        return projectRepository.findOneBy(projectId);
+        return projectRepository.findOneById(projectId);
 
     }
 

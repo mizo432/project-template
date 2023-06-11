@@ -63,7 +63,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/showFormForUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") SnowflakeId<Employee> employeeId,
+    public String showFormForUpdate(@PathVariable(value = "id") SnowflakeId employeeId,
                                     Model model) {
         // get employee from the service
         Employee employee = fetchEmployeeQuery.findEmployeeById(employeeId);
@@ -75,7 +75,7 @@ public class EmployeeController {
 
     @GetMapping("/deleteEmployee/{id}")
 //    @TransactionTokenCheck(type = TransactionTokenType.CHECK)
-    public String deleteEmployee(@PathVariable(value = "id") SnowflakeId<Employee> id) {
+    public String deleteEmployee(@PathVariable(value = "id") SnowflakeId id) {
         // call delete employee method
         this.deleteEmployeeCommand.deleteEmployeeById(id);
         return "redirect:/employee";

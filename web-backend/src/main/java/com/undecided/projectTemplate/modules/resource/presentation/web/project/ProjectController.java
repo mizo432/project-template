@@ -53,7 +53,7 @@ public class ProjectController {
 
     @GetMapping("/delete/{projectId}")
     public String deleteEmployee(
-            @PathVariable(value = "projectId") SnowflakeId<Project> id) {
+            @PathVariable(value = "projectId") SnowflakeId id) {
         deleteProjectCommand.delete(id);
         return "redirect:/project";
 
@@ -61,7 +61,7 @@ public class ProjectController {
 
     @GetMapping("/showFormForUpdate/{projectId}")
     public String showFormForUpdate(
-            @PathVariable(value = "id") SnowflakeId<Project> id, Model model) {
+            @PathVariable(value = "projectId") SnowflakeId id, Model model) {
 
         Project project = projectFetcher.findOneBy(id);
 

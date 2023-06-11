@@ -5,6 +5,7 @@ import com.undecided.projectTemplate.project.domain.model.project.attribute.Proj
 import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectCode;
 import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectName;
 import com.undecided.projectTemplate.project.domain.model.project.attribute.StoryCodePrefix;
+import com.undecided.projectTemplate.project.port.dataSource.project.ProjectDataSource;
 import com.undecided.projectTemplate.shared.type.description.Description;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -36,7 +37,7 @@ class ProjectDataSourceTest {
                     ProjectCode.of("PRJ"), StoryCodePrefix.of("APL"), Description.of("description")));
             projectDataSource.insert(project);
 
-            Project actualOptionalProject = projectDataSource.findOneBy(
+            Project actualOptionalProject = projectDataSource.findOneById(
                     project.getId());
             assertThat(actualOptionalProject).isNotNull();
             System.out.println(actualOptionalProject);
@@ -51,7 +52,7 @@ class ProjectDataSourceTest {
             projectDataSource.insert(project);
             projectDataSource.update(project);
 
-            Project actualOptionalProject = projectDataSource.findOneBy(
+            Project actualOptionalProject = projectDataSource.findOneById(
                     project.getId());
             assertThat(actualOptionalProject).isNotNull();
             System.out.println(actualOptionalProject);
@@ -65,7 +66,7 @@ class ProjectDataSourceTest {
             projectDataSource.insert(project);
             projectDataSource.delete(project.getId());
 
-            Project actualOptionalProject = projectDataSource.findOneBy(
+            Project actualOptionalProject = projectDataSource.findOneById(
                     project.getId());
             assertThat(actualOptionalProject).isNull();
 

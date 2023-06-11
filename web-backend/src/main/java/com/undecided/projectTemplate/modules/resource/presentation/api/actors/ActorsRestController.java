@@ -27,7 +27,7 @@ public class ActorsRestController {
     }
 
     @GetMapping("v1.0/actors/{id}")
-    Project get(@PathVariable("id") SnowflakeId<Project> projectId) {
+    Project get(@PathVariable("id") SnowflakeId projectId) {
         return Project.empty();
 
     }
@@ -46,14 +46,14 @@ public class ActorsRestController {
     }
 
     @DeleteMapping("v1.0/actors/{id}")
-    ResponseEntity<Void> delete(@PathVariable("id") SnowflakeId<Actor> actorId) {
+    ResponseEntity<Void> delete(@PathVariable("id") SnowflakeId actorId) {
 
         // レスポンス情報を作成
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("v1.0/actors/{id}")
-    public ResponseEntity<Actor> update(@PathVariable SnowflakeId<Actor> id,
+    public ResponseEntity<Actor> update(@PathVariable SnowflakeId id,
                                         @RequestBody Actor sourceActor) {
 
         return ResponseEntity.ok(sourceActor);

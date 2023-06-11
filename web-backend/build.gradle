@@ -62,6 +62,7 @@ dependencies {
     implementation project(':web-validation')
     implementation project(":common-precondition")
     implementation project(':server-business')
+    implementation project(':server-shared')
     implementation project(':web-common')
     implementation project(':common-primitive')
     implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
