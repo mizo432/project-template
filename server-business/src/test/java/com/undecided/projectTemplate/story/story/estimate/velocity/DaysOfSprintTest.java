@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.story.story.estimate.velocity;
 
-import com.undecided.projectTemplate.story.domain.story.estimate.velocity.DaysOfSprint;
+import com.undecided.projectTemplate.modules.story.domain.model.estimate.velocity.DaysOfSprint;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

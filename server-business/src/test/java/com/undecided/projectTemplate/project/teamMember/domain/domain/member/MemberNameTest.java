@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.project.teamMember.domain.domain.member;
 
-import com.undecided.projectTemplate.project.domain.model.member.MemberName;
+import com.undecided.projectTemplate.modules.project.domain.model.member.MemberName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

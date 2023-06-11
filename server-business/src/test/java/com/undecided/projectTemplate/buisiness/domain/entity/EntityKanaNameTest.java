@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.buisiness.domain.entity;
 
-import com.undecided.projectTemplate.business.domain.model.entity.attribute.EntityKanaName;
+import com.undecided.projectTemplate.modules.product.domain.model.business.entity.attribute.EntityKanaName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

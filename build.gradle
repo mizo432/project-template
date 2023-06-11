@@ -15,6 +15,7 @@ buildscript {
         jedisVersion = '4.4.1'
         authorizationServerVersion = '1.1.0'
         springDependencyManagementVersion = '1.1.0'
+        archUnitVersion = '1.0.1'
     }
 
 }

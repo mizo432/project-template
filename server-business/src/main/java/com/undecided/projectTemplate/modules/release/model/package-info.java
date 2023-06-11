@@ -1,0 +1,1 @@
+package com.undecided.projectTemplate.modules.release.model;

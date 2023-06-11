@@ -62,7 +62,6 @@ dependencies {
     implementation project(':web-validation')
     implementation project(":common-precondition")
     implementation project(':server-business')
-    implementation project(':server-shared')
     implementation project(':web-common')
     implementation project(':common-primitive')
     implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
@@ -75,7 +74,6 @@ dependencies {
     implementation('org.axonframework:axon-spring-boot-starter:4.7.4') {
         exclude(group: 'com.thoughtworks.xstream')
     }
-    // modelmapper
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.11'
     runtimeOnly 'org.postgresql:postgresql:42.6.0'
 

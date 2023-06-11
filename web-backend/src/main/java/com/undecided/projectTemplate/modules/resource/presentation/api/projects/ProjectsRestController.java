@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.modules.resource.presentation.api.projects;
 
-import com.undecided.projectTemplate.project.domain.appl.command.project.RegisterProjectCommand;
-import com.undecided.projectTemplate.project.domain.model.project.Project;
+import com.undecided.projectTemplate.modules.project.domain.appl.command.project.RegisterProjectCommand;
+import com.undecided.projectTemplate.modules.project.domain.model.project.Project;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

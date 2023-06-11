@@ -1,6 +1,6 @@
 package com.undecided.projectTemplate.story.story.estimate.businessValue;
 
-import com.undecided.projectTemplate.story.domain.story.estimate.businessValue.Emotion;
+import com.undecided.projectTemplate.modules.story.domain.model.estimate.businessValue.Emotion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

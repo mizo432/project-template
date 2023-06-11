@@ -1,10 +1,10 @@
 package com.undecided.projectTemplate.resource.domain.project;
 
-import com.undecided.projectTemplate.project.domain.model.project.Project;
-import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectAttribute;
-import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectCode;
-import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectName;
-import com.undecided.projectTemplate.project.domain.model.project.attribute.StoryCodePrefix;
+import com.undecided.projectTemplate.modules.project.domain.model.project.Project;
+import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectAttribute;
+import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectCode;
+import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectName;
+import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.StoryCodePrefix;
 import com.undecided.projectTemplate.shared.entity.AuditInfo;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.shared.type.description.Description;

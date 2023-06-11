@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.story.story.attribute;
 
+import com.undecided.projectTemplate.modules.story.domain.model.attribute.*;
 import com.undecided.projectTemplate.shared.type.description.Description;
-import com.undecided.projectTemplate.story.domain.story.attribute.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
