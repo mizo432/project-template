@@ -50,19 +50,22 @@ processResources.destinationDir = compileJava.destinationDirectory.asFile.get()
 copyDomaResources.dependsOn processResources
 
 dependencies {
+    compileOnly 'org.projectlombok:lombok'
+    implementation platform("org.springframework.experimental:spring-modulith-bom:0.6.0")
     implementation project(":common-precondition")
     implementation project(":common-exception")
     implementation project(":common-message")
     implementation project(":common-primitive")
+    implementation project(":server-shared")
     implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
     testImplementation project(":common-test")
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
-    compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     implementation(group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: "${domaStarterVersion}")
+
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
@@ -74,7 +77,8 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.2'
     testImplementation 'ch.qos.logback:logback-core'
     testImplementation 'ch.qos.logback:logback-classic'
-
+    implementation("org.springframework.experimental:spring-modulith-api")
+    testImplementation("org.springframework.experimental:spring-modulith-starter-test")
 }
 
 pmd {

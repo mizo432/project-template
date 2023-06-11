@@ -1,10 +1,10 @@
 package com.undecided.projectTemplate.modules.example.presentation.web.employee;
 
-import com.undecided.projectTemplate.modules.example.appl.command.employee.DeleteEmployeeCommand;
-import com.undecided.projectTemplate.modules.example.appl.command.employee.InsertEmployeeCommand;
-import com.undecided.projectTemplate.modules.example.appl.command.employee.UpdateEmployeeCommand;
-import com.undecided.projectTemplate.modules.example.appl.query.employee.FetchEmployeeQuery;
-import com.undecided.projectTemplate.modules.example.domain.employee.Employee;
+import com.undecided.projectTemplate.example.appl.command.employee.DeleteEmployeeCommand;
+import com.undecided.projectTemplate.example.appl.command.employee.InsertEmployeeCommand;
+import com.undecided.projectTemplate.example.appl.command.employee.UpdateEmployeeCommand;
+import com.undecided.projectTemplate.example.appl.query.employee.FetchEmployeeQuery;
+import com.undecided.projectTemplate.example.domain.employee.Employee;
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

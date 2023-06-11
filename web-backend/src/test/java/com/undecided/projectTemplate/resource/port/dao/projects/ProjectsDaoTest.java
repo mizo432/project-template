@@ -1,11 +1,10 @@
 package com.undecided.projectTemplate.resource.port.dao.projects;
 
-import com.undecided.projectTemplate.modules.project.domain.model.project.Project;
-import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectAttribute;
-import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectCode;
-import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectName;
-import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.StoryCodePrefix;
-import com.undecided.projectTemplate.modules.resource.port.dao.projects.ProjectsDao;
+import com.undecided.projectTemplate.project.domain.model.project.Project;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectAttribute;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectCode;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectName;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.StoryCodePrefix;
 import com.undecided.projectTemplate.shared.type.description.Description;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

@@ -1,10 +1,10 @@
 package com.undecided.projectTemplate.example.web.project;
 
-import com.undecided.projectTemplate.modules.example.appl.command.employee.EntityNotFoundException;
-import com.undecided.projectTemplate.modules.project.appl.command.project.InsertProjectCommand;
-import com.undecided.projectTemplate.modules.project.appl.query.project.ProjectFetcher;
-import com.undecided.projectTemplate.modules.project.domain.model.project.Project;
-import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectCode;
+import com.undecided.projectTemplate.example.appl.command.employee.EntityNotFoundException;
+import com.undecided.projectTemplate.project.appl.command.project.InsertProjectCommand;
+import com.undecided.projectTemplate.project.appl.query.project.ProjectFetcher;
+import com.undecided.projectTemplate.project.domain.model.project.Project;
+import com.undecided.projectTemplate.project.domain.model.project.attribute.ProjectCode;
 import jakarta.websocket.server.PathParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatusCode;
