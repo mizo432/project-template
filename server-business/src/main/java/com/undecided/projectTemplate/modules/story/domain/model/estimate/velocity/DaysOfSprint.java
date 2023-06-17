@@ -7,6 +7,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+ * スプリントの日数
+ */
 @Getter
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)

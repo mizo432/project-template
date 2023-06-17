@@ -3,8 +3,16 @@ package com.undecided.projectTemplate.shared.relationshipMgmt.party.domain.organ
 import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import com.undecided.projectTemplate.shared.relationshipMgmt.party.domain.party.AbstractParty;
 
+/**
+ * 組織基底クラス.
+ */
 public class AbstractOrganization extends AbstractParty {
-    public AbstractOrganization(SnowflakeId id) {
+    /**
+     * コンストラクター.
+     *
+     * @param id ID
+     */
+    protected AbstractOrganization(SnowflakeId id) {
         super(id);
     }
 }
