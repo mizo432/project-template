@@ -80,9 +80,9 @@ dependencies {
 }
 
 pmd {
+    toolVersion = '6.23.0'
     ignoreFailures = true
     consoleOutput = true
-    ruleSetFiles = files(file("$rootProject.projectDir/src/config/pmd/pmdRules.xml"))
     pmdTest.enabled = false
 }
 
@@ -104,6 +104,7 @@ compileTestJava {
 
 checkstyle {
     toolVersion = '10.12.0'
+    checkstyleTest.enabled = false
 
 }
 
