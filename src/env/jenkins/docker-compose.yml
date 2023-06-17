@@ -2,7 +2,7 @@ version: "3"
 services:
   jenkins:
     container_name: jenkins
-    image: jenkins/jenkins:2.401.1-lts-jdk17
+    image: jenkins/jenkins:latest-jdk17
     ports:
       - 18080:8080
     volumes:
