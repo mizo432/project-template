@@ -1,4 +1,4 @@
 /**
  * プロジェクトルート.
  */
-package com.undecided.projectTemplate;
+package template;
