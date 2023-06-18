@@ -1,11 +1,11 @@
 package com.undecided.projectTemplate.resource.domain.project.attribute;
 
-import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectAttribute;
-import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectCode;
-import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.ProjectName;
-import com.undecided.projectTemplate.modules.project.domain.model.project.attribute.StoryCodePrefix;
-import com.undecided.projectTemplate.shared.type.description.Description;
 import org.junit.jupiter.api.Test;
+import template.modules.project.domain.model.project.attribute.ProjectAttribute;
+import template.modules.project.domain.model.project.attribute.ProjectCode;
+import template.modules.project.domain.model.project.attribute.ProjectName;
+import template.modules.project.domain.model.project.attribute.StoryCodePrefix;
+import template.shared.type.description.Description;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 

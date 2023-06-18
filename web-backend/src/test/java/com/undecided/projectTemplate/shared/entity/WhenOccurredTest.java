@@ -1,10 +1,12 @@
 package com.undecided.projectTemplate.shared.entity;
 
-import static org.junit.jupiter.api.Assertions.assertSame;
-
-import java.time.LocalDateTime;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import template.shared.entity.WhenOccurred;
+
+import java.time.LocalDateTime;
+
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 class WhenOccurredTest {
 

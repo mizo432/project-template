@@ -87,7 +87,7 @@ pmd {
 }
 
 compileJava {
-    options.compilerArgs = ['-Adoma.domain.converters=com.undecided.projectTemplate.shared.domaConverter.DomainConvertersProvider',
+    options.compilerArgs = ['-Adoma.domain.converters=template.shared.domaConverter.DomainConvertersProvider',
                             '-Xlint:unchecked',
                             '-Xlint:deprecation',
                             '-parameters'

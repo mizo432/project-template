@@ -1,1 +1,0 @@
-package com.undecided.projectTemplate.modules.story.domain.model.taskTemplate.details;

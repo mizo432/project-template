@@ -1,10 +1,10 @@
 package com.undecided.projectTemplate.modules.resource.presentation.events.registeredProduct;
 
-import com.undecided.projectTemplate.modules.project.domain.model.project.Project;
-import com.undecided.projectTemplate.modules.project.domain.model.project.RegisteredProjectEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
+import template.modules.project.domain.model.project.Project;
+import template.modules.project.domain.model.project.RegisteredProjectEvent;
 
 @Component
 @Slf4j

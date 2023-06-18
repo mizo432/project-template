@@ -1,11 +1,11 @@
 package com.undecided.projectTemplate.modules.resource.presentation.api.projects;
 
-import com.undecided.projectTemplate.modules.project.domain.appl.command.project.RegisterProjectCommand;
-import com.undecided.projectTemplate.modules.project.domain.model.project.Project;
-import com.undecided.projectTemplate.shared.entity.id.SnowflakeId;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+import template.modules.project.domain.appl.command.project.RegisterProjectCommand;
+import template.modules.project.domain.model.project.Project;
+import template.shared.entity.id.SnowflakeId;
 
 import java.net.URI;
 
