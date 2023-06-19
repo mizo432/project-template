@@ -7,7 +7,7 @@ spring:
   main:
     lazy-initialization: true
     allow-bean-definition-overriding: true
-  profiles.active: unit
+  profiles.active: local
   datasource:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/sample
@@ -26,10 +26,11 @@ spring:
     redis:
       namespace: spring:session # Namespace for keys used to store session.
       flush-mode: on_save # Session flush mode.
-  redis:
-    host: "localhost"
-    port: 6379
-    database: 0
+  data:
+    redis:
+      host: "localhost"
+      port: 6379
+      database: 0
   application:
     name: backend # アプリケーション名
   jackson:
@@ -39,8 +40,6 @@ spring:
       field: any
       getter: none
       setter: none
-  profiles:
-    active: develop
   devtools:
     restart:
       # 再起動のトリガーから除外するファイルを指定する
@@ -67,9 +66,5 @@ management:
     web:
       exposure:
         include: "*"
-  security:
-    enabled: false
   auditevents:
-    enabled: true
-  httpexchanges:
     enabled: true

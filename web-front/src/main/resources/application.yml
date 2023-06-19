@@ -24,7 +24,7 @@ spring:
       port: 6379
       database: 0
   application:
-    name: front2 # アプリケーション名
+    name: front # アプリケーション名
   jackson:
     #    time-zone: Asia/Tokyo
     visibility:

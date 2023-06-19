@@ -1,0 +1,1 @@
+package template.modules.resource.presentation.events.registeredProduct;
