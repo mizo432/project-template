@@ -9,7 +9,7 @@ import template.shared.entity.AuditInfo;
 import template.shared.entity.id.SnowflakeId;
 
 /**
- * アクタークラス
+ * アクタークラス.
  */
 @Getter
 @EqualsAndHashCode
@@ -23,7 +23,7 @@ public class Actor {
     private final ActorAttribute attribute;
 
     /**
-     * コンストラクター
+     * コンストラクター.
      *
      * @param id        ID
      * @param projectId プロジェクトID
@@ -41,7 +41,7 @@ public class Actor {
     }
 
     /**
-     * 空のアクターを取得する
+     * 空のアクターを取得する.
      *
      * @return アクター
      */
@@ -52,7 +52,7 @@ public class Actor {
     }
 
     /**
-     * 再生成
+     * 再生成.
      *
      * @param id        ID
      * @param auditInfo 監査証跡情報
@@ -69,15 +69,15 @@ public class Actor {
     }
 
     /**
-     * アクターを値として一致しているかを調べる
+     * アクターを値として一致しているかを調べる.
      *
      * @param other 対象の値
      * @return 一致している場合trueを返却する
      */
     public boolean sameValueAs(Actor other) {
-        return id.equals(other.id) &&
-                projectId.equals(other.projectId) &&
-                attribute.equals(other.attribute);
+        return id.equals(other.id)
+                && projectId.equals(other.projectId)
+                && attribute.equals(other.attribute);
     }
 
 }

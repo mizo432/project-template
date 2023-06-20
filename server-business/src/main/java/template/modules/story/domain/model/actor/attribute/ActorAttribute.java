@@ -5,7 +5,7 @@ import template.shared.type.description.Description;
 import template.shared.value.name.Name;
 
 /**
- * アクター属性クラス
+ * アクター属性クラス.
  */
 @Getter
 @EqualsAndHashCode
@@ -14,16 +14,16 @@ import template.shared.value.name.Name;
 public class ActorAttribute {
 
     /**
-     * 名称
+     * 名称.
      */
     private Name name;
     /**
-     * 詳細
+     * 詳細.
      */
     private Description description;
 
     /**
-     * 再生成
+     * 再生成.
      *
      * @param name        名前
      * @param description 詳細
@@ -34,7 +34,7 @@ public class ActorAttribute {
     }
 
     /**
-     * 再生成
+     * 再生成.
      *
      * @param name        名前
      * @param description 詳細
@@ -46,7 +46,7 @@ public class ActorAttribute {
     }
 
     /**
-     * 空のアクター属性を返却する
+     * 空のアクター属性を返却する.
      *
      * @return アクター属性
      */

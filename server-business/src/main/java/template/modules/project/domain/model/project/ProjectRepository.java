@@ -5,6 +5,9 @@ import template.shared.entity.id.SnowflakeId;
 
 import java.util.List;
 
+/**
+ * プロジェクトリポジトリー.
+ */
 public interface ProjectRepository {
 
     Project findOneById(SnowflakeId id);

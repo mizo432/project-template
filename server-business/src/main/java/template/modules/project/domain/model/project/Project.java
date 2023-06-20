@@ -15,6 +15,9 @@ import template.shared.value.AbstractListValue;
 
 import java.util.List;
 
+/**
+ * プロジェクト.
+ */
 @Getter
 @Entity(immutable = true)
 @Table(schema = "resource", name = "projects")
@@ -26,6 +29,9 @@ public class Project {
     private final ProjectAttribute attribute;
     private final AuditInfo auditInfo;
 
+    /**
+     * コンストラクター.
+     */
     public Project() {
         id = SnowflakeId.empty();
         auditInfo = AuditInfo.empty();
@@ -34,6 +40,13 @@ public class Project {
 
     }
 
+    /**
+     * コンストラクター.
+     *
+     * @param id        ID
+     * @param auditInfo 証跡
+     * @param attribute 属性
+     */
     public Project(SnowflakeId id,
                    AuditInfo auditInfo,
                    ProjectAttribute attribute) {
