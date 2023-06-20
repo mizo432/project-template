@@ -1,4 +1,4 @@
 /**
- * 要求ドメイン
+ * 要求ドメイン.
  */
 package template.shared;
