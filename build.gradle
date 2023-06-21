@@ -13,7 +13,7 @@ buildscript {
         assertjVersion = '3.24.2'
         postgresVersion = '42.5.1'
         jedisVersion = '4.4.1'
-        authorizationServerVersion = '1.1.0'
+        authorizationServerVersion = '1.1.1'
         springDependencyManagementVersion = '1.1.0'
         archUnitVersion = '1.0.1'
     }
