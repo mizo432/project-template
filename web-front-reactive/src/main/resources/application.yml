@@ -1,0 +1,38 @@
+server:
+  port: 8081
+spring:
+  r2dbc:
+    initialization-mode=always
+    url=r2dbc:h2:mem:///pocdb?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    name=sa
+    password=
+  boot:
+    admin:
+      client:
+        url: http://localhost:8090/admin
+        instance:
+          service-host-type: ip
+  application:
+    name: front-reactive # ?????????
+logging:
+  file:
+    name: ./build/logs/WebFrontReactive.log
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false
+  auditevents:
+    enabled: true
+  httpexchanges:
+    recording:
+      enabled: true
+      include: RESPONSE_HEADERS

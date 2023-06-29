@@ -13,4 +13,4 @@ include 'web-backend'
 include 'web-front'
 include 'web-admin'
 include 'client-project-application'
-
+include 'web-front-reactive'
