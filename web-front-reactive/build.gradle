@@ -1,12 +1,44 @@
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.1.1'
+    id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version '1.1.0'
+    id 'net.researchgate.release' version '3.0.2'
+    id 'java'
+    id 'idea'
+    id "com.github.ben-manes.versions" version '0.46.0'
+    id 'se.patrikerdes.use-latest-versions' version '0.2.18'
+    id "com.github.spotbugs" version "5.0.14"
+    id 'jacoco'
+    id 'java-library'
+    id 'org.flywaydb.flyway' version '9.18.0'
+    id 'com.gorylenko.gradle-git-properties' version '2.4.1'
+
 }
 
+apply plugin: 'idea'
+apply plugin: 'com.github.spotbugs'
+apply plugin: 'jacoco'
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'pmd'
 
-java {
-    sourceCompatibility = '17'
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+springBoot {
+    buildInfo()
+}
+bootJar {
+    enabled = true
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+jar {
+    enabled = false
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+idea {
+    module {
+        outputDir file('build/classes/main')
+        testOutputDir file('build/classes/test')
+    }
 }
 
 configurations {
@@ -20,22 +52,91 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation project(":common-primitive")
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.h2database:h2'
-    runtimeOnly 'io.r2dbc:r2dbc-h2'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'io.projectreactor:reactor-test'
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compileOnly("org.projectlombok:lombok")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    runtimeOnly("com.h2database:h2")
+    runtimeOnly("io.r2dbc:r2dbc-h2")
+    runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("org.postgresql:r2dbc-postgresql")
+    annotationProcessor("org.projectlombok:lombok")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.projectreactor:reactor-test")
     implementation("de.codecentric:spring-boot-admin-starter-client:3.0.2")
 
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+test {
+    // 失敗しても後続の処理を継続させる
+    ignoreFailures = true
+    useJUnitPlatform {
+        includeTags 'SMALL'
+        excludeTags('MEDIUM', 'LARGE')
+    }
+    reports {
+        junitXml.required = true
+    }
+}
+tasks.register("testMedium", Test) {
+    ignoreFailures = false
+    maxHeapSize("3g")
+    useJUnitPlatform {
+        includeTags('MEDIUM')
+        excludeTags('SMALL', 'LARGE')
+    }
+    reports {
+        junitXml.required = true
+    }
+}
+
+tasks.register("testLarge", Test) {
+    ignoreFailures = false
+    useJUnitPlatform {
+        includeTags('LARGE')
+        excludeTags('SMALL', 'MEDIUM')
+    }
+    reports {
+        junitXml.required = true
+    }
+
+}
+tasks.register("testReport", TestReport) {
+    reportOn subprojects.tasks.test.binResultsDir
+    fileTree(dir: it, exclude: ['**/*Test.class', '**/**test/*.class'])
+
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.required = true
+    }
+    afterEvaluate {
+        classDirectories.from(
+                files(classDirectories.files.collect {
+                    fileTree(dir: it, exclude: ['**/*Test.class', '**/**test/*.class'])
+                }))
+    }
+}
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA', 'JRE11'].any { it -> version.toUpperCase().contains(it) }
+    def unstableKeyword = ['PREVIEW', 'ALPHA', 'M', 'BETA', 'RC', 'RC-1'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return ((!stableKeyword) && (!(version ==~ regex))) || (unstableKeyword)
+} as Object
+
+dependencyUpdates {
+    // checkForGradleUpdate = true
+    // reject all non stable versions
+    rejectVersionIf {
+        isNonStable(it.candidate.version)
+    }
+
 }

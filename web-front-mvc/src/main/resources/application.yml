@@ -1,0 +1,55 @@
+server:
+  port: 8083
+  compression:
+    enabled: true
+    mime-types: text/html,text/css,application/javascript,application/json
+#  servlet:
+#    register-default-servlet: true
+spring:
+  profiles.default: unit
+  web.resources:
+    cache:
+      period: 86400
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+  main:
+    lazy-initialization: true
+    allow-bean-definition-overriding: true
+  data:
+    redis:
+      host: "localhost"
+      port: 6379
+      database: 0
+  application:
+    name: front-mvc # アプリケーション名
+  jackson:
+    #    time-zone: Asia/Tokyo
+    visibility:
+      field: any
+      getter: any
+      setter: any
+    serialization:
+      write-dates-as-timestamps: false
+      write-date-timestamps-as-nanoseconds: false
+      write-date-keys-as-timestamps: false
+      write-dates-with-context-time-zone: false
+      write-dates-with-zone-id: false
+  devtools:
+    restart:
+      # 再起動のトリガーから除外するファイルを指定する
+      exclude: static/**, public/**
+      # 再起動のトリガーから除外するファイルを追加で指定する
+      additional-exclude: java/**, test/**
+  boot:
+    admin:
+      client:
+        url: http://localhost:8090/admin
+        instance:
+          service-host-type: ip
+logging:
+  file:
+    name: ./build/logs/WebFront.log
+

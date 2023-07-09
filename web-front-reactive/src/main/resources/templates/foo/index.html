@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div id="title">
+            <h1>Spring WebFlux + Thymeleaf</h1>
+        </div>
+        <table class="table table-striped" id="allMovies">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="result" th:each="movie, elementStat : ${movies}">
+                <td th:text="${movie.name}"></td>
+                <td th:text="${movie.score}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

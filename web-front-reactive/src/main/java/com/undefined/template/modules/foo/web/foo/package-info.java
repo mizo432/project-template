@@ -1,0 +1,1 @@
+package com.undefined.template.modules.foo.web.foo;

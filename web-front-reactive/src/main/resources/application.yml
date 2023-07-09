@@ -12,8 +12,13 @@ spring:
         url: http://localhost:8090/admin
         instance:
           service-host-type: ip
+
+  thymeleaf:
+    reactive:
+      max-chunk-size=8192:
   application:
-    name: front-reactive # ?????????
+    name: front-reactive # WebFlux????????
+
 logging:
   file:
     name: ./build/logs/WebFrontReactive.log
