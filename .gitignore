@@ -40,3 +40,4 @@ gradle-app.setting
 /web-front2/build/
 /client-project-application/build/bootScripts/client-project-application
 /client-project-application/build/bootScripts/client-project-application.bat
+/web-front-reactive/.gitignore
