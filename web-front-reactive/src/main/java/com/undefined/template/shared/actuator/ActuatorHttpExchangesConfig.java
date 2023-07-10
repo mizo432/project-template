@@ -1,4 +1,4 @@
-package template.shared.actuator;
+package com.undefined.template.shared.actuator;
 
 import org.springframework.boot.actuate.web.exchanges.HttpExchangeRepository;
 import org.springframework.boot.actuate.web.exchanges.InMemoryHttpExchangeRepository;

@@ -9,10 +9,10 @@
 
     <appender name="APPLICATION_LOG_FILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender"> <!-- (3) -->
-        <file>${LOG_DIR}/WebFront.log</file> <!-- (4) -->
+        <file>${LOG_DIR}/WebFrontReactive.log</file> <!-- (4) -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>
-                ${LOG_DIR}/WebFront-%d{yyyy-MM-dd}.zip
+                ${LOG_DIR}/WebFrontReactive-%d{yyyy-MM-dd}.zip
             </fileNamePattern> <!-- (5) -->
             <maxHistory>7</maxHistory> <!-- (6) -->
         </rollingPolicy>
@@ -24,10 +24,10 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger level="debug" name="com.undecided.template.admin"/>
-    <logger level="debug" name="com.undecided.template.shared"/>
-    <logger level="debug" name="com.undecided.template"/>
-    <logger level="info" name="org.springframework"/>
+    <logger level="debug" name="com.undefined.template.modules"/>
+    <logger level="debug" name="com.undefined.template.shared"/>
+    <!-- logger level="info" name="org.springframework"/ -->
+    <logger level="debug" name="org.thymeleaf"/>
     <root level="warn"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
         <appender-ref ref="APPLICATION_LOG_FILE"/>

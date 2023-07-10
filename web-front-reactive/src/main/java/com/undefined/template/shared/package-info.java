@@ -1,4 +1,4 @@
 /**
  * ドメインを跨るコンポーネントを格納する
  */
-package com.undefined.shared;
+package com.undefined.template.shared;

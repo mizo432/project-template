@@ -1,11 +1,21 @@
 server:
   port: 8081
+
 spring:
   r2dbc:
-    initialization-mode=always
-    url=r2dbc:h2:mem:///pocdb?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    name=sa
-    password=
+    #    initialization-mode: always
+    url: r2dbc:h2:mem:///pocdb?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    name: sa
+    password:
+  thymeleaf:
+    reactive:
+      max-chunk-size: 8192
+  servlet:
+    multipart:
+      max-file-size: 512KB
+      max-request-size: 512KB
+  application:
+    name: front-reactive # WebFlux????????
   boot:
     admin:
       client:
@@ -13,11 +23,7 @@ spring:
         instance:
           service-host-type: ip
 
-  thymeleaf:
-    reactive:
-      max-chunk-size=8192:
-  application:
-    name: front-reactive # WebFlux????????
+
 
 logging:
   file:
