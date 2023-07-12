@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html layout:decorate="~{bar/fragments/layout.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="UTF-8">
-    <title>index1</title>
+    <title>Content page</title>
+    <!-- script src="content-script.js"></script -->
 </head>
 <body>
-<h1>index1</h1>
-
+<section layout:fragment="content">
+    <p>This is a paragraph from the content page</p>
+</section>
 </body>
 </html>

@@ -2,6 +2,7 @@ server:
   port: 8081
 
 spring:
+  profiles.default: unit
   r2dbc:
     #    initialization-mode: always
     url: r2dbc:h2:mem:///pocdb?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
