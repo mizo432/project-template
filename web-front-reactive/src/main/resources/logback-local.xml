@@ -26,8 +26,8 @@
     <!-- Application Loggers -->
     <logger level="debug" name="com.undefined.template.modules"/>
     <logger level="debug" name="com.undefined.template.shared"/>
-    <!-- logger level="info" name="org.springframework"/ -->
-    <logger level="debug" name="org.thymeleaf"/>
+    <logger level="info" name="org.springframework"/>
+    <logger level="info" name="org.thymeleaf"/>
     <root level="warn"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
         <appender-ref ref="APPLICATION_LOG_FILE"/>
