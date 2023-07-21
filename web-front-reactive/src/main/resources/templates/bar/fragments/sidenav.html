@@ -17,27 +17,27 @@
 <body>
 <header th:fragment="header">
     <div class="navbar-fixed">
-        <nav class="nav-extended">
+        <nav>
             <div class="nav-wrapper">
                 <a class="brand-logo" href="../index1.html" th:href="@{~/bar/index1}">Logo</a>
             </div>
         </nav>
+        <ul class="sidenav sidenav-fixed">
+            <li><a href="../index1.html" th:href="@{~/bar/index1}"><i class="material-icons">cloud</i>First Link With
+                Icon</a></li>
+            <li><a href="../index2.html" th:href="@{~/bar/index2}">Second Link</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="../index3.html" th:href="@{~/bar/index3}">Third Link With Waves</a></li>
+        </ul>
     </div>
 
-    <ul class="sidenav sidenav-fixed" id="slide-out">
-        <li><a href="../index1.html" th:href="@{~/bar/index1}"><i class="material-icons">cloud</i>First Link With
-            Icon</a></li>
-        <li><a href="../index2.html" th:href="@{~/bar/index2}">Second Link</a></li>
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li><a class="subheader">Subheader</a></li>
-        <li><a class="waves-effect" href="../index3.html" th:href="@{~/bar/index3}">Third Link With Waves</a></li>
-    </ul>
-    <a class="sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a>
 
 </header>
-</body>
+<div class="container">
+</div>
 <!--JavaScript at end of body for optimized loading-->
 <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.1-alpha/dist/js/materialize.min.js"
         type="text/javascript"></script>
@@ -46,4 +46,6 @@
 <script src="../../../static/js/bar/fragments/sidenav.js" th:fragment="sidebarjs"
         th:src="@{~/js/bar/fragments/sidenav.js}"
         type="text/javascript"></script>
+
+</body>
 </html>

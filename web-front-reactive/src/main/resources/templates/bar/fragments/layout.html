@@ -21,13 +21,14 @@
 <header th:replace="~{/bar/fragments/sidenav :: header}">
     <h1>My website</h1>
 </header>
-<section layout:fragment="content">
-    <p>Page content goes here</p>
-</section>
+<div class="container">
+    <section layout:fragment="content">
+        <p>Page content goes here</p>
+    </section>
+</div>
 <footer th:replace="~{/fragments/footer :: footer}">
 
 </footer>
-</body>
 <!--JavaScript at end of body for optimized loading-->
 <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.1-alpha/dist/js/materialize.min.js"
         type="text/javascript"></script>
@@ -35,5 +36,6 @@
         type="text/javascript"></script>
 <script src="../../../static/js/bar/fragments/sidenav.js" th:src="@{~/js/bar/fragments/sidenav.js}"
         type="text/javascript"></script>
+</body>
 
 </html>
