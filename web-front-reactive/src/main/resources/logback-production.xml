@@ -9,10 +9,10 @@
 
     <appender name="APPLICATION_LOG_FILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender"> <!-- (3) -->
-        <file>${LOG_DIR}/WebFront.log</file> <!-- (4) -->
+        <file>${LOG_DIR}/WebFrontReactiveApplication.log</file> <!-- (4) -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>
-                ${LOG_DIR}/WebFront-%d{yyyy-MM-dd}.zip
+                ${LOG_DIR}/WebFrontReactiveApplication-%d{yyyy-MM-dd}.zip
             </fileNamePattern> <!-- (5) -->
             <maxHistory>7</maxHistory> <!-- (6) -->
         </rollingPolicy>
@@ -24,9 +24,6 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger level="info" name="com.undecided.projectTemplate.admin"/>
-    <logger level="info" name="com.undecided.projectTemplate.shared"/>
-    <logger level="info" name="com.undecided.projectTemplate.example"/>
     <logger level="info" name="com.undecided.gfw.web.token.transaction"/>
     <logger level="info" name="com.undecided.gfw.common.exception.ExceptionLogger"/>
     <logger level="info" name="org.springframework"/>

@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class Strings2Test {
 
@@ -603,27 +605,35 @@ class Strings2Test {
     }
 
     /**
-     * Method under test: {@link Strings2#ifIsEmptyToNull(String)}
+     * Method under test: {@link Strings2#emptyToNull(String)}
      */
     @Nested
-    class ifIsEmptyToNull {
+    class emptyToNull {
 
         @Test
-        void _空文字列を渡すとnullが返却される() {
-            assertNull(Strings2.ifIsEmptyToNull(Strings2.EMPTY));
+        void _引数がnullの場合nullを返却する() {
+            // given, when and then
+            assertThat(Strings2.emptyToNull(null))
+                    .isNull();
 
         }
 
         @Test
-        void _空文字列ではないStrを渡すとnullが返却される() {
-            assertEquals("Str", Strings2.ifIsEmptyToNull("Str"));
+        void _引数がemptyの場合nullを返却する() {
+            // given, when and then
+            assertThat(Strings2.emptyToNull(Strings2.EMPTY))
+                    .isNull();
 
         }
 
         @Test
-        void _nullを渡すとnullが返却される() {
-            assertNull(Strings2.ifIsEmptyToNull(null));
+        void _引数がStrの場合Strを返却する() {
+            // given, when and then
+            assertThat(Strings2.emptyToNull("Str"))
+                    .isEqualTo("Str");
+
         }
+
 
     }
 

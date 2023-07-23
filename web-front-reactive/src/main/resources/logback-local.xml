@@ -26,6 +26,12 @@
     <!-- Application Loggers -->
     <logger level="debug" name="com.undefined.template.modules"/>
     <logger level="debug" name="com.undefined.template.shared"/>
+    <logger level="trace"
+            name="com.undecided.gfw.web.logging.HttpSessionEventLoggingListener"/> <!-- セッションを記録した場合にログに記録する -->
+    <logger level="trace"
+            name="com.undecided.gfw.web.logging.TraceLoggingInterceptor"/> <!-- コントローラーを開始終了処理時間をログに記録する -->
+    <logger level="trace" name="com.undecided.gfw.web.token.transaction"/> <!-- コントローラーを開始終了処理時間をログに記録する -->
+    <logger level="trace" name="com.undecided.gfw.common.exception.SystemExceptionLogger"/> <!-- システム例外ログ -->
     <logger level="info" name="org.springframework"/>
     <logger level="info" name="org.thymeleaf"/>
     <root level="warn"> <!-- (11) -->
