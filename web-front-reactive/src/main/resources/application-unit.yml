@@ -1,0 +1,48 @@
+spring:
+  devtools:
+    add-properties: true
+  # THYMELEAF (ThymeleafAutoConfiguration)
+  thymeleaf:
+    cache: false
+    mode: HTML
+  # INTERNATIONALIZATION (MessageSourceAutoConfiguration)
+  messages:
+    basename: messages
+    encoding: UTF-8
+    cache-duration: -1
+  datasource:
+    # JDBC
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sample
+    username: user
+    password: password
+  data:
+    redis:
+      host: "localhost"
+      port: 6379
+      database: 0
+  boot:
+    admin:
+      client:
+        url: http://localhost:8090/admin
+        instance:
+          service-host-type: ip
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false
+  auditevents:
+    enabled: true
+  httpexchanges:
+    recording:
+      enabled: true
+      include: RESPONSE_HEADERS

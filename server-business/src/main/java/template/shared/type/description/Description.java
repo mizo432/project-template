@@ -4,20 +4,31 @@ import lombok.Getter;
 import org.seasar.doma.Domain;
 import template.shared.value.AbstractStringValue;
 
-import static com.undecided.primitive.string.Strings2.ifIsEmptyToNull;
+import static com.undecided.primitive.string.Strings2.emptyToNull;
 
+/**
+ * 詳細
+ */
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class Description extends AbstractStringValue {
 
     private static final Description EMPTY = new Description();
 
+    /**
+     * コンストラクター
+     */
     private Description() {
         super();
     }
 
+    /**
+     * コンストラクター
+     *
+     * @param value 値
+     */
     Description(String value) {
-        super(ifIsEmptyToNull(value));
+        super(emptyToNull(value));
     }
 
     public static Description reconstruct(String value) {
@@ -36,6 +47,5 @@ public class Description extends AbstractStringValue {
     public static Description empty() {
         return EMPTY;
     }
-
 
 }

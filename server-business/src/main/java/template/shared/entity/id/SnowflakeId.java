@@ -21,12 +21,22 @@ public class SnowflakeId extends AbstractLongValue implements
     private static final SnowflakeId EMPTY = new SnowflakeId();
 
 
+    /**
+     * コンストラクター.
+     */
     public SnowflakeId() {
         super();
+
     }
 
-    public SnowflakeId(long value) {
+    /**
+     * コンストラクター.
+     *
+     * @param value 値
+     */
+    SnowflakeId(long value) {
         super(value);
+
     }
 
     public static SnowflakeId empty() {
@@ -54,7 +64,6 @@ public class SnowflakeId extends AbstractLongValue implements
      * @param value データベースから取得した値
      * @return 識別子オブジェクト
      */
-    @SuppressWarnings("unchecked")
     public static SnowflakeId reconstruct(Long value) {
         if (isNull(value)) {
             return EMPTY;
@@ -66,6 +75,7 @@ public class SnowflakeId extends AbstractLongValue implements
     @VisibleForTesting
     public static <E> SnowflakeId of(Long value) {
         return new SnowflakeId(value);
+
     }
 
 }

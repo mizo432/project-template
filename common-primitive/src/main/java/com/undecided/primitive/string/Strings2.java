@@ -134,6 +134,7 @@ public final class Strings2 {
      */
     public static boolean isEmpty(final String str) {
         return str == null || str.length() == 0;
+
     }
 
     /**
@@ -1171,8 +1172,15 @@ public final class Strings2 {
         return str == null ? EMPTY : str;
     }
 
+    /**
+     * 入力文字列が空文字の場合にnullを返却する
+     *
+     * @param str 入力文字列
+     * @return 返却文字列
+     */
     public static String emptyToNull(String str) {
         return isEmpty(str) ? null : str;
+
     }
 
     /**
@@ -2632,23 +2640,7 @@ public final class Strings2 {
 
         }
         return findFirstByNotEmpty(strings);
+
     }
-
-    /**
-     * 引数文字列が空文字の場合にnullに変換する.
-     * <pre>
-     *     モデルのファクトリーで使用できる事を想定しています。
-     * </pre>
-     *
-     * @param str 文字列
-     * @return 変換後文字列
-     */
-    public static String ifIsEmptyToNull(@Nullable String str) {
-        if (isEmpty(str))
-            return null;
-
-        return str;
-    }
-
 
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Layout page</title>
+    <script>
+        const theme = localStorage.getItem('theme');
+        if (theme) document.documentElement.setAttribute('theme', theme);
+    </script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.1-alpha/dist/css/materialize.min.css"
+          media="screen,projection"
+          rel="stylesheet"
+          type="text/css"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+</head>
+<body class="has-fixed-sidenav">
+<header th:replace="~{/bar/fragments/sidenav :: header}">
+    <h1>My website</h1>
+</header>
+<div class="container">
+    <section layout:fragment="content">
+        <p>Page content goes here</p>
+    </section>
+</div>
+<footer th:replace="~{/fragments/footer :: footer}">
+
+</footer>
+<!--JavaScript at end of body for optimized loading-->
+<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.1-alpha/dist/js/materialize.min.js"
+        type="text/javascript"></script>
+<script src="../../../static/js/init.js" th:src="@{~/js/init.js}"
+        type="text/javascript"></script>
+<script src="../../../static/js/bar/fragments/sidenav.js" th:src="@{~/js/bar/fragments/sidenav.js}"
+        type="text/javascript"></script>
+</body>
+
+</html>
