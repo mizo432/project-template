@@ -1,6 +1,5 @@
 server:
   port: 8081
-
 spring:
   profiles.default: unit
   r2dbc:
@@ -12,11 +11,16 @@ spring:
     reactive:
       max-chunk-size: 8192
   servlet:
+    #Tuning File Upload Limits
     multipart:
       max-file-size: 512KB
       max-request-size: 512KB
+  #to pretty-print JSON-Responses
+  jackson:
+    serialization:
+      indent-output: true
   application:
-    name: front-reactive # WebFlux????????
+    name: front-reactive #アプリケーション名
   boot:
     admin:
       client:
@@ -40,8 +44,6 @@ management:
     web:
       exposure:
         include: "*"
-  security:
-    enabled: false
   auditevents:
     enabled: true
   httpexchanges:

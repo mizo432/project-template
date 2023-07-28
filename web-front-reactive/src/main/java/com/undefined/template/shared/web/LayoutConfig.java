@@ -9,6 +9,6 @@ public class LayoutConfig {
     @Bean
     public LayoutDialect layoutDialect() {
         return new LayoutDialect();
-        
+
     }
 }

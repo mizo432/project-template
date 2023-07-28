@@ -5,7 +5,6 @@ import com.undefined.template.modules.foo.models.foo.FooRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class FooDataSource implements FooRepository {
 
     @Override
     public Flux<Foo> findAll() {
-        return Flux.fromIterable(movies).delayElements(Duration.ofSeconds(2));
+        return Flux.fromIterable(movies);
 
     }
 }

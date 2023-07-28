@@ -29,7 +29,15 @@ public class ControllerExceptionHandler {
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler({Exception.class})
-    public String handleBadNumberValue(Exception e, Model model) {
+    public String handleException(Exception e, Model model) {
+        log.error(e.getMessage());
+        model.addAttribute("exception", e);
+        return "error/500";
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler({RuntimeException.class})
+    public String handleRuntimeException(RuntimeException e, Model model) {
         log.error(e.getMessage());
         model.addAttribute("exception", e);
         return "error/500";
