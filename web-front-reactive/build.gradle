@@ -94,6 +94,13 @@ spotbugsMain {
         reportsDir.set(file("$buildDir/reports/spotbugs"))
     }
 }
+pmd {
+    ignoreFailures = true
+    consoleOutput = true
+
+    ruleSetFiles = files(file("$rootProject.projectDir/src/config/pmd/pmdRules.xml"))
+    pmdTest.enabled = false
+}
 
 test {
     // 失敗しても後続の処理を継続させる
