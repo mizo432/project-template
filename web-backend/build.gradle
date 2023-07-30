@@ -56,7 +56,9 @@ pmd {
     consoleOutput = true
 
     ruleSetFiles = files(file("$rootProject.projectDir/src/config/pmd/pmdRules.xml"))
+    ruleSets = []
     pmdTest.enabled = false
+    toolVersion = '6.21.0'
 }
 dependencies {
     implementation project(':web-validation')
