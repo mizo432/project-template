@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.thymeleaf.exceptions.TemplateInputException;
 
+/**
+ * コントローラーで発生する例外をここでハンドリングする為のクラス
+ */
 @Slf4j
 @ControllerAdvice
 public class ControllerExceptionHandler {
