@@ -1,1 +1,0 @@
-package com.undefined.template.modules.foo.appl.query.foo;
