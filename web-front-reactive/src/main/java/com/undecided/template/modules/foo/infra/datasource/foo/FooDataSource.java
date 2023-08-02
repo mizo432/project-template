@@ -1,7 +1,7 @@
 package com.undecided.template.modules.foo.infra.datasource.foo;
 
-import com.undecided.template.modules.foo.models.foo.FooRepository;
 import com.undecided.template.modules.foo.models.foo.Foo;
+import com.undecided.template.modules.foo.models.foo.FooRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public class FooDataSource implements FooRepository {
-    private static List<Foo> movies = new ArrayList<>();
+    private static final List<Foo> movies = new ArrayList<>();
 
     static {
         movies.add(new Foo("Polar (2019)", 64));
