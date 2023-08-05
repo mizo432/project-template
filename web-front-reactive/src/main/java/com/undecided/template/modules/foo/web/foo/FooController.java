@@ -19,10 +19,10 @@ public class FooController {
     @RequestMapping
     public String index(final Model model) {
         Flux<Foo> foos = fetchingFoo.selectAll();
-        IReactiveDataDriverContextVariable reactiveDataDrivenMode =
+        IReactiveDataDriverContextVariable reactiveDataDrivenModel =
                 new ReactiveDataDriverContextVariable(foos, 1);
 
-        model.addAttribute("movies", reactiveDataDrivenMode);
+        model.addAttribute("movies", reactiveDataDrivenModel);
 
         return "foo/index";
     }

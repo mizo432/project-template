@@ -1,0 +1,1 @@
+package com.undecided.template.shared.user.models;

@@ -52,10 +52,11 @@ repositories {
 }
 
 dependencies {
+    implementation project(path: ':common-primitive')
+    implementation project(path: ':common-precondition')
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-    implementation project(path: ':common-primitive')
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.h2database:h2")
@@ -67,6 +68,7 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     implementation("de.codecentric:spring-boot-admin-starter-client:3.0.2")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.2.0")
+    implementation("org.springframework.boot:spring-boot-starter-security")
 }
 compileJava {
     options.compilerArgs = ['-Xlint:unchecked',
