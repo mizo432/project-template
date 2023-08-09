@@ -26,11 +26,6 @@ spring:
     url: jdbc:h2:file:./build/db/testDb
     # migrationファイルの配置ディレクトリー
     locations: classpath:db/migration
-  h2:
-    console:
-      path: /h2-console
-      settings.trace: false
-      settings.web-allow-others: false
   data:
     redis:
       host: "localhost"
