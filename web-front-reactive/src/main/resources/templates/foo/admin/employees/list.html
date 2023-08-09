@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -13,20 +13,21 @@
 <form>
     <table>
         <tr>
-            <th>jaName</th>
-            <th>name</th>
-            <th>jaKanaName</th>
-            <th>action</th>
+            <th>苗字</th>
+            <th>名前</th>
+            <th>かな名称</th>
+            <th/>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <th></th>
+        <tr data-th-each="employee : ${employees}">
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.firstName}"></td>
+            <th th:text="${employee.kanaName}"></th>
             <th>
-                <input name="employeeId[0]" type="hidden">
+                <input data-th-value="${employee.id}" name="employeeId[0]" th:remove="all" type="hidden">
+                <a th:href="@{/foo/admin/employees/updataForm(${employee.id.value})}">変更したい</a>
             </th>
         </tr>
-        <tr>
+        <tr th:rename="all">
             <td></td>
             <td></td>
             <th></th>

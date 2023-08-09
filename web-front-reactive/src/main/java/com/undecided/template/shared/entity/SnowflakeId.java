@@ -22,4 +22,8 @@ public class SnowflakeId {
 
     }
 
+    public static SnowflakeId of(Long value) {
+        return new SnowflakeId(value);
+
+    }
 }

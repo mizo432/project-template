@@ -28,18 +28,23 @@ public class SecurityConfiguration {
                         .principalExtractor(principalExtractor)
                         .authenticationManager(authenticationManager)
                 )
+//                .csrf(csrf -> csrf.csrfTokenRepository(CookieServerCsrfTokenRepository.withHttpOnlyFalse()))
+                .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(exchanges -> exchanges
-                        .matchers(
-                                new PathPatternParserServerWebExchangeMatcher("/css/**")).permitAll()
-                        .matchers(
-                                new PathPatternParserServerWebExchangeMatcher("/js/**")).permitAll()
-                        .matchers(
-                                new PathPatternParserServerWebExchangeMatcher("/img/**")).permitAll()
-                        .matchers(
-                                new PathPatternParserServerWebExchangeMatcher("/actuator/**")).permitAll()
-                        .matchers(
-                                new PathPatternParserServerWebExchangeMatcher("/actuator")).permitAll()
-                        .anyExchange().permitAll()
+                                .matchers(
+                                        new PathPatternParserServerWebExchangeMatcher("/css/**")).permitAll()
+                                .matchers(
+                                        new PathPatternParserServerWebExchangeMatcher("/js/**")).permitAll()
+                                .matchers(
+                                        new PathPatternParserServerWebExchangeMatcher("/img/**")).permitAll()
+                                .matchers(
+                                        new PathPatternParserServerWebExchangeMatcher("/actuator/**")).permitAll()
+                                .matchers(
+                                        new PathPatternParserServerWebExchangeMatcher("/actuator")).permitAll()
+                                .matchers(
+                                        new PathPatternParserServerWebExchangeMatcher("/h2-console")).permitAll()
+                                .anyExchange().permitAll()
+//                        .anyExchange().authenticated()
                 );
         return http.build();
     }

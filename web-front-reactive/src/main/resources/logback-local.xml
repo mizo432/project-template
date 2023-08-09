@@ -34,6 +34,7 @@
     <logger level="trace" name="com.undecided.gfw.common.exception.SystemExceptionLogger"/> <!-- システム例外ログ -->
     <logger level="info" name="org.springframework"/>
     <logger level="info" name="org.thymeleaf"/>
+    <logger level="info" name="org.flywaydb.core"/>
     <root level="warn"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
         <appender-ref ref="APPLICATION_LOG_FILE"/>
