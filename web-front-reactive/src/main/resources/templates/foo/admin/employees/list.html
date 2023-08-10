@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button>
+    <a class="waves-effect waves-light btn" href="insertForm.html"
+       th:href="@{/foo/admin/employees/insertForm}">新規追加</a>
+</button>
+<form>
+    <table>
+        <tr>
+            <th>苗字</th>
+            <th>名前</th>
+            <th>かな名称</th>
+            <th/>
+        </tr>
+        <tr data-th-each="employee : ${employees}">
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.firstName}"></td>
+            <th th:text="${employee.kanaName}"></th>
+            <th>
+                <input data-th-value="${employee.id}" name="employeeId[0]" th:remove="all" type="hidden">
+                <a th:href="@{/foo/admin/employees/updataForm(${employee.id.value})}">変更したい</a>
+            </th>
+        </tr>
+        <tr th:rename="all">
+            <td></td>
+            <td></td>
+            <th></th>
+            <th>
+                <input name="employeeId[1]" type="hidden">
+            </th>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

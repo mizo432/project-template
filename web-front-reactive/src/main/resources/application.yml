@@ -1,22 +1,41 @@
 server:
-  port: 8081
-
+  port: 8082
 spring:
   profiles.default: unit
+  main:
+    web-application-type: reactive
   r2dbc:
+    #     url: jdbc:postgresql://localhost:5432/sample
+    #    username: user
+    #    password: password
     #    initialization-mode: always
-    url: r2dbc:h2:mem:///pocdb?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: r2dbc:h2:file:///./build/db/testDb
     name: sa
     password:
+    # url: r2dbc:postgresql://localhost:5432/sample
+    # username: user
+    # password: password
+  flyway:
+    # url: jdbc:postgresql://localhost:5432/sample
+    url: jdbc:h2:file:./build/db/testDb
+    # url: jdbc:h2:file:~/IdeaProjects/project-template/build/db/testDb?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
+    # migrationファイルの配置ディレクトリー
+    locations: classpath:db/migration
+
   thymeleaf:
     reactive:
       max-chunk-size: 8192
   servlet:
+    #Tuning File Upload Limits
     multipart:
       max-file-size: 512KB
       max-request-size: 512KB
+  #to pretty-print JSON-Responses
+  jackson:
+    serialization:
+      indent-output: true
   application:
-    name: front-reactive # WebFlux????????
+    name: front-reactive #アプリケーション名
   boot:
     admin:
       client:
@@ -40,8 +59,6 @@ management:
     web:
       exposure:
         include: "*"
-  security:
-    enabled: false
   auditevents:
     enabled: true
   httpexchanges:

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<html lang="jp">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -19,9 +19,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="result" th:each="movie, elementStat : ${movies}">
-                <td th:text="${movie.name}"></td>
-                <td th:text="${movie.score}"></td>
+            <tr class="result" data-th-each="movie : ${movies}">
+                <td>[[${movie.name}]]</td>
+                <td>[[${movie.score}]]</td>
             </tr>
             </tbody>
         </table>

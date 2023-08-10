@@ -1,0 +1,1 @@
+package com.undecided.template.modules.foo.appl.command;

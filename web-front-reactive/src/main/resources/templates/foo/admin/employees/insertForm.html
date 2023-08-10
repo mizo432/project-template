@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" method="post" th:action="@{./insert}" th:object="${form}">
+    <label for="lastName">苗字</label>
+    <input id="lastName" name="lastName" th:field="*{lastName}" type="text"/>
+    <label for="firstName">名前</label>
+    <input id="firstName" name="firstName" th:field="*{firstName}" type="text"/>
+    <label for="kanaName">かな名</label>
+    <input id="kanaName" name="kanaName" th:field="*{kanaName}" type="text"/>
+    <a class="waves-effect waves-light btn" href="list.html" th:href="@{/foo/admin/employees}"
+       th:remove="all">登録する</a>
+    <input type="submit" value="従業員を追加する">
+    <a class="waves-effect waves-light btn" href="list.html" th:href="@{/foo/admin/employees}">キャンセルする</a>
+
+</form>
+
+</body>
+</html>

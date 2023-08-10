@@ -16,6 +16,7 @@ buildscript {
         authorizationServerVersion = '1.1.1'
         springDependencyManagementVersion = '1.1.0'
         archUnitVersion = '1.0.1'
+        flywayCoreVersion = '9.21.1'
     }
 
 }

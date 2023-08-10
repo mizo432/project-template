@@ -52,8 +52,9 @@ repositories {
 }
 
 dependencies {
+    implementation project(path: ':common-primitive')
+    implementation project(path: ':common-precondition')
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
-    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     compileOnly("org.projectlombok:lombok")
@@ -67,6 +68,44 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     implementation("de.codecentric:spring-boot-admin-starter-client:3.0.2")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.2.0")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.flywaydb:flyway-core:${flywayCoreVersion}")
+}
+compileJava {
+    options.compilerArgs = ['-Xlint:unchecked',
+                            '-Xlint:deprecation',
+                            '-parameters'
+    ]
+    options.encoding = 'UTF-8'
+
+}
+compileTestJava {
+    options.compilerArgs = ['-proc:none']
+    options.encoding = 'UTF-8'
+
+}
+spotbugs {
+    toolVersion.set('4.7.3')
+    excludeFilter.set(file("$rootProject.projectDir/src/config/spotbugs/excludeFilter.xml"))
+    ignoreFailures.set(true)
+    maxHeapSize.set('2048m')
+    spotbugsTest.enabled = false
+    showStackTraces = false
+}
+spotbugsMain {
+
+    reports {
+        reportsDir.set(file("$buildDir/reports/spotbugs"))
+    }
+}
+pmd {
+    ignoreFailures = true
+    consoleOutput = false
+
+    ruleSetFiles = files(file("$rootProject.projectDir/src/config/pmd/pmdRules.xml"))
+    ruleSets = []
+    pmdTest.enabled = false
+    toolVersion = '6.21.0'
 }
 
 test {
@@ -77,7 +116,7 @@ test {
         excludeTags('MEDIUM', 'LARGE')
     }
     reports {
-        junitXml.required = true
+        junitXml.required.set(true)
     }
 }
 tasks.register("testMedium", Test) {
@@ -88,7 +127,7 @@ tasks.register("testMedium", Test) {
         excludeTags('SMALL', 'LARGE')
     }
     reports {
-        junitXml.required = true
+        junitXml.required.set(true)
     }
 }
 
@@ -99,7 +138,7 @@ tasks.register("testLarge", Test) {
         excludeTags('SMALL', 'MEDIUM')
     }
     reports {
-        junitXml.required = true
+        junitXml.required.set(true)
     }
 
 }
@@ -108,7 +147,11 @@ tasks.register("testReport", TestReport) {
     fileTree(dir: it, exclude: ['**/*Test.class', '**/**test/*.class'])
 
 }
-
+flyway {
+    url = 'jdbc:h2:file:./build/db/testDb?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL'
+    user = 'sa'
+    password = ''
+}
 jacoco {
     toolVersion = "0.8.7"
 }
