@@ -7,7 +7,7 @@ spring:
   main:
     lazy-initialization: true
     allow-bean-definition-overriding: true
-  profiles.active: local
+  profiles.active: unit
   datasource:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/sample
@@ -56,8 +56,6 @@ spring:
   #    user:
   #      name: user
   #      password: user
-
-
 logging:
   file:
     name: ./build/logs/WebBackend.log

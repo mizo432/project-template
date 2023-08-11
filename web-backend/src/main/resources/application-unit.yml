@@ -52,21 +52,14 @@ spring:
       field: any
       getter: none
       setter: none
-  profiles:
-    active: unit
   devtools:
     restart:
       exclude: static/**, public/**
       additional-exclude: java/**, test/**
-    security:
-      user:
-        name: user
-        password: user
-
-
-logging:
-  file:
-    name: ../build/logs/application.log
+  security:
+    user:
+      name: user
+      password: user
 
 management:
   endpoint:
@@ -76,5 +69,3 @@ management:
     web:
       exposure:
         include: "*"
-  security:
-    enabled: false

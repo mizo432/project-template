@@ -1,4 +1,4 @@
-<included>
+<configuration>
     <property name="LOG_DIR" value="./build/logs"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> <!-- (1) -->
         <encoder>
@@ -38,5 +38,4 @@
         <appender-ref ref="STDOUT"/> <!-- (12) -->
         <appender-ref ref="APPLICATION_LOG_FILE"/>
     </root>
-
-</included>
+</configuration>

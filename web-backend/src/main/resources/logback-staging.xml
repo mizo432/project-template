@@ -8,7 +8,7 @@
     </appender>
 
     <appender name="APPLICATION_LOG_FILE"
-      class="ch.qos.logback.core.rolling.RollingFileAppender"> <!-- (3) -->
+              class="ch.qos.logback.core.rolling.RollingFileAppender"> <!-- (3) -->
         <file>../logs/application.log</file> <!-- (4) -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>
@@ -24,17 +24,9 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="com.undecided"> <!-- (9) -->
-        <level value="debug"/>
-    </logger>
+    <logger level="debug" name="template"/> <!-- (9) -->
 
-    <logger name="org.springframework">
-        <level value="warn"/>
-    </logger>
-
-    <logger name="org.springframework.web.servlet">
-        <level value="info"/>
-    </logger>
+    <logger level="debug" name="org.springframework.web.servlet"/>
 
     <root level="warn"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
