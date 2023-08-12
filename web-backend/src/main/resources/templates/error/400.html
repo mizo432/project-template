@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+</head>
+<body style="text-align: center;font-family: sans-serif;">
+<div class="text-center" style="text-align: center;display: inline-grid;">
+    <!--/*@thymesVar id="exception" type="java.lang.Exception"*/-->
+    <h1 style="display: inline-block;color: crimson;" th:text="${exception.getMessage()}"></h1>
+</div>
+
+</body>
+</html>
