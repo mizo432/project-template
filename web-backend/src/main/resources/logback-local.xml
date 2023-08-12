@@ -34,7 +34,7 @@
     <!--logger name="org.springframework.web.servlet">
         <level value="info"/>
     </logger -->
-    <root level="warn"> <!-- (11) -->
+    <root level="debug"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
         <appender-ref ref="APPLICATION_LOG_FILE"/>
     </root>

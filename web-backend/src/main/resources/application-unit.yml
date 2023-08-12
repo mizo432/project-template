@@ -1,7 +1,5 @@
 server:
   port: 8080
-#  servlet:
-#    context-path: /api
 
 spring:
   thymeleaf:
@@ -45,13 +43,6 @@ spring:
         url: http://localhost:8090/admin
         instance:
           service-host-type: ip
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss.SSS
-    time-zone: Asia/Tokyo
-    visibility:
-      field: any
-      getter: none
-      setter: none
   devtools:
     restart:
       exclude: static/**, public/**

@@ -4,9 +4,8 @@ server:
     enabled: true
     mime-types: text/html,text/css,application/javascript,application/json
 spring:
-  main:
-    lazy-initialization: true
-    allow-bean-definition-overriding: true
+  #  main:
+  #    lazy-initialization: true
   profiles.active: unit
   datasource:
     driverClassName: org.postgresql.Driver
@@ -32,7 +31,7 @@ spring:
       port: 6379
       database: 0
   application:
-    name: backend # アプリケーション名
+    name: WebBackend # アプリケーション名
   boot:
     admin:
       client:
@@ -52,6 +51,9 @@ spring:
       exclude: static/**, public/**
       # 再起動のトリガーから除外するファイルを追加で指定する
       additional-exclude: java/**, test/**
+  thymeleaf:
+    mode: HTML
+    cache: true
   #  security:
   #    user:
   #      name: user

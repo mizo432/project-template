@@ -1,14 +1,16 @@
-package template.shared.api;
+package template.shared.presentation.web;
 
 import com.undecided.gfw.web.logging.TraceLoggingInterceptor;
 import com.undecided.gfw.web.token.transaction.TransactionTokenInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 @Configuration
 public class WebMvcConfigSupport extends
-        org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport {
+        WebMvcConfigurationSupport {
 
     /**
      * {@inheritDoc}
@@ -20,11 +22,14 @@ public class WebMvcConfigSupport extends
 
     }
 
-    private HandlerInterceptor transactionTokenInterceptor() {
+    @Bean
+    protected HandlerInterceptor transactionTokenInterceptor() {
         return new TransactionTokenInterceptor();
+
     }
 
-    private HandlerInterceptor traceLoggingInterceptor() {
+    @Bean
+    protected HandlerInterceptor traceLoggingInterceptor() {
         return new TraceLoggingInterceptor();
 
     }
