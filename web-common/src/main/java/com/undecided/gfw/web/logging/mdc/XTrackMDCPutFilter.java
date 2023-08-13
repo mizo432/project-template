@@ -2,10 +2,12 @@ package com.undecided.gfw.web.logging.mdc;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 import java.util.regex.Pattern;
 
+@Component
 public class XTrackMDCPutFilter extends AbstractMDCPutFilter {
 
     private static final Pattern UUID_REPLACE_PATTERN = Pattern.compile("-");

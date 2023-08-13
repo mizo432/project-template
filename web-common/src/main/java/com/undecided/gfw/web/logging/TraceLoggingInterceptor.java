@@ -2,40 +2,40 @@ package com.undecided.gfw.web.logging;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-@Component
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+
 public class TraceLoggingInterceptor implements HandlerInterceptor {
 
     private static final Logger logger = LoggerFactory.getLogger(
-        TraceLoggingInterceptor.class);
+            TraceLoggingInterceptor.class);
 
     private static final String START_ATTR = TraceLoggingInterceptor.class
-        .getName() + ".startTime";
+            .getName() + ".startTime";
 
     private static final String HANDLING_ATTR = TraceLoggingInterceptor.class
-        .getName() + ".handlingTime";
+            .getName() + ".handlingTime";
 
     private static final long DEFAULT_WARN_NANOS = TimeUnit.SECONDS.toNanos(3);
 
     private long warnHandlingNanos = DEFAULT_WARN_NANOS;
 
     @Override
-    public boolean preHandle(HttpServletRequest request,
-        HttpServletResponse response, Object handler) {
+    public boolean preHandle(@NotNull HttpServletRequest request,
+                             @NotNull HttpServletResponse response, @NotNull Object handler) {
         if (!(handler instanceof HandlerMethod)) {
             return true;
         }
@@ -44,11 +44,11 @@ public class TraceLoggingInterceptor implements HandlerInterceptor {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Method m = handlerMethod.getMethod();
             logger.trace("[START CONTROLLER] {}.{}({}) {} {}",
-                m.getDeclaringClass().getSimpleName(),
-                m.getName(),
-                buildMethodParams(handlerMethod),
-                request.getMethod(),
-                request.getRequestURI());
+                    m.getDeclaringClass().getSimpleName(),
+                    m.getName(),
+                    buildMethodParams(handlerMethod),
+                    request.getMethod(),
+                    request.getRequestURI());
         }
         long startTime = System.nanoTime();
         request.setAttribute(START_ATTR, startTime);
@@ -57,10 +57,10 @@ public class TraceLoggingInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(@NotNull HttpServletRequest request,
-        @NotNull HttpServletResponse response, @NotNull Object handler,
-        ModelAndView modelAndView) {
+                           @NotNull HttpServletResponse response, @NotNull Object handler,
+                           ModelAndView modelAndView) {
 
-        if (!(handler instanceof HandlerMethod)) {
+        if (!(handler instanceof HandlerMethod handlerMethod)) {
             return;
         }
 
@@ -79,7 +79,6 @@ public class TraceLoggingInterceptor implements HandlerInterceptor {
             return;
         }
 
-        HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method m = handlerMethod.getMethod();
         Object view = null;
         Map<String, Object> model = null;
@@ -92,24 +91,24 @@ public class TraceLoggingInterceptor implements HandlerInterceptor {
         }
 
         logger.trace("[END CONTROLLER  ] {}.{}({})-> view={}, model={}, status={}",
-            m.getDeclaringClass().getSimpleName(),
-            m.getName(), buildMethodParams(handlerMethod), view,
-            model,
-            response.getStatus());
+                m.getDeclaringClass().getSimpleName(),
+                m.getName(), buildMethodParams(handlerMethod), view,
+                model,
+                response.getStatus());
         String handlingTimeMessage = "[HANDLING TIME   ] {}.{}({})-> {} ns";
         if (isWarnHandling) {
             logger.warn(handlingTimeMessage + " > {}",
-                m.getDeclaringClass().getSimpleName(),
-                m.getName(),
-                buildMethodParams(handlerMethod),
-                formattedHandlingTime,
-                warnHandlingNanos);
+                    m.getDeclaringClass().getSimpleName(),
+                    m.getName(),
+                    buildMethodParams(handlerMethod),
+                    formattedHandlingTime,
+                    warnHandlingNanos);
         } else {
             logger.trace(handlingTimeMessage,
-                m.getDeclaringClass().getSimpleName(),
-                m.getName(),
-                buildMethodParams(handlerMethod),
-                formattedHandlingTime);
+                    m.getDeclaringClass().getSimpleName(),
+                    m.getName(),
+                    buildMethodParams(handlerMethod),
+                    formattedHandlingTime);
         }
     }
 

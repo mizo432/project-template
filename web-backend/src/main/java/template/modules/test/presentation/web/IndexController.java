@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(path = "/hello")
-public class HelloController {
+@RequestMapping(path = {"/", "/index"})
+public class IndexController {
     @GetMapping()
-    public String hello(Model model) {
+    public String get(Model model) {
         model.addAttribute("message", "Hello Thymeleaf!!");
         return "fragments/fragments";
     }
