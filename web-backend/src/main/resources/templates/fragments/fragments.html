@@ -20,10 +20,10 @@
 <body>
 <nav>
     <div class="nav-wrapper" th:fragment="navi-bar">
-        <a class="brand-logo" href="/">テンプレートシステム</a>
+        <a class="brand-logo" href="/" th:href="index">テンプレートシステム</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="badges.html">一般</a></li>
-            <li><a href="sass.html">システム管理</a></li>
+            <li><a href="../admin/index.html" th:href="@{/admin}">システム管理</a></li>
         </ul>
     </div>
 </nav>
@@ -36,26 +36,28 @@
         </div>
     </div>
 </nav>
-<ul class="sidenav" id="slide-out">
-    <!-- li>
-        <div class="user-view">
-            <div class="background">
-                <img src="images/office.jpg">
+<th:block>
+    <ul class="sidenav" id="slide-out">
+        <!-- li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="images/office.jpg">
+                </div>
+                <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+                <a href="#name"><span class="white-text name">John Doe</span></a>
+                <a href="#email"><span class="white-text email">jdoe@example.com</span></a>
             </div>
-            <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-            <a href="#name"><span class="white-text name">John Doe</span></a>
-            <a href="#email"><span class="white-text email">jdoe@example.com</span></a>
-        </div>
-    </li-->
-    <li><a class="waves-effect" href="#"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a class="waves-effect" href="#">Second Link</a></li>
-    <li>
-        <div class="divider"></div>
-    </li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#">Third Link With Waves</a></li>
-</ul>
-<a class="sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a>
+        </li-->
+        <li><a class="waves-effect" href="#"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+        <li><a class="waves-effect" href="#">Second Link</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader">Subheader</a></li>
+        <li><a class="waves-effect" href="#">Third Link With Waves</a></li>
+    </ul>
+    <a class="sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a>
+</th:block>
 <h1 th:text="${message}">メッセージ</h1>
 <ul class="pagination">
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
