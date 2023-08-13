@@ -3,9 +3,12 @@ package com.undecided.gfw.common.exception;
 import com.undecided.gfw.common.message.ResultMessage;
 import com.undecided.gfw.common.message.ResultMessages;
 
-public class ResourceNotFoundException extends
-    ResultMessagesNotificationException {
+import java.io.Serial;
 
+public class ResourceNotFoundException extends
+        ResultMessagesNotificationException {
+
+    @Serial
     private static final long serialVersionUID = 1L;
 
     public ResourceNotFoundException(String message) {

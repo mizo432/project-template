@@ -2,10 +2,10 @@ package com.undecided.gfw.common.message;
 
 import com.undecided.primitive.array.Arrays2;
 import com.undecided.primitive.object.Objects2;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+
+import java.io.*;
+
+import static com.undecided.primitive.object.Objects2.isNull;
 
 public class ResultMessage implements Serializable {
 
@@ -35,6 +35,8 @@ public class ResultMessage implements Serializable {
     }
 
     private static void checkNotNull(Object reference, String message) {
+        if (isNull(reference))
+            throw new IllegalArgumentException(message);
 
     }
 
@@ -95,15 +97,17 @@ public class ResultMessage implements Serializable {
     @Override
     public String toString() {
         return "ResultMessage [code=" + code + ", args=" + Arrays2.toString(args)
-            + ", text=" + text + "]";
+                + ", text=" + text + "]";
     }
 
+    @Serial
     private void writeObject(ObjectOutputStream out) throws IOException {
         out.defaultWriteObject();
     }
 
+    @Serial
     private void readObject(
-        ObjectInputStream in) throws IOException, ClassNotFoundException {
+            ObjectInputStream in) throws IOException, ClassNotFoundException {
         in.defaultReadObject();
     }
 }

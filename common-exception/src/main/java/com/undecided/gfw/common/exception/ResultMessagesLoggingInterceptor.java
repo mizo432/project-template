@@ -2,10 +2,11 @@ package com.undecided.gfw.common.exception;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.InitializingBean;
 
 public class ResultMessagesLoggingInterceptor implements MethodInterceptor,
-    InitializingBean {
+        InitializingBean {
 
     private final ThreadLocal<MethodInvocation> startingPoint = new ThreadLocal<MethodInvocation>();
 
@@ -17,7 +18,7 @@ public class ResultMessagesLoggingInterceptor implements MethodInterceptor,
 
     @Override
     public Object invoke(
-        MethodInvocation invocation) throws Throwable, ResultMessagesNotificationException {
+            @NotNull MethodInvocation invocation) throws Throwable, ResultMessagesNotificationException {
 
         // set starting point.
         if (startingPoint.get() == null) {
@@ -60,7 +61,7 @@ public class ResultMessagesLoggingInterceptor implements MethodInterceptor,
     }
 
     protected void logResultMessagesNotificationException(
-        ResultMessagesNotificationException e) {
+            ResultMessagesNotificationException e) {
         exceptionLogger.warn(e);
     }
 

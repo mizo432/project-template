@@ -1,15 +1,13 @@
 package com.undecided.gfw.common.message;
 
-import static com.undecided.primitive.list.Lists2.newArrayList;
-
 import com.undecided.primitive.string.Strings2;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+
+import java.io.*;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+
+import static com.undecided.primitive.list.Lists2.newArrayList;
 
 public class ResultMessages implements Serializable, Iterable<ResultMessage> {
 
@@ -21,7 +19,7 @@ public class ResultMessages implements Serializable, Iterable<ResultMessage> {
     private final List<ResultMessage> list = newArrayList();
 
     public static final String DEFAULT_MESSAGES_ATTRIBUTE_NAME = Strings2
-        .uncapitalize(ResultMessages.class.getSimpleName());
+            .uncapitalize(ResultMessages.class.getSimpleName());
 
     public ResultMessages(ResultMessageType type) {
         this(type, (ResultMessage[]) null);
@@ -100,56 +98,71 @@ public class ResultMessages implements Serializable, Iterable<ResultMessage> {
 
     public static ResultMessages success() {
         return new ResultMessages(StandardResultMessageType.SUCCESS);
+
     }
 
     public static ResultMessages info() {
         return new ResultMessages(StandardResultMessageType.INFO);
+
     }
 
     public static ResultMessages warning() {
         return new ResultMessages(StandardResultMessageType.WARNING);
+
     }
 
     public static ResultMessages error() {
         return new ResultMessages(StandardResultMessageType.ERROR);
+
     }
 
     public static ResultMessages danger() {
         return new ResultMessages(StandardResultMessageType.DANGER);
+
     }
 
     public static ResultMessages primary() {
         return new ResultMessages(StandardResultMessageType.PRIMARY);
+
     }
 
     public static ResultMessages secondary() {
         return new ResultMessages(StandardResultMessageType.SECONDARY);
+
     }
 
     public static ResultMessages light() {
         return new ResultMessages(StandardResultMessageType.LIGHT);
+
     }
 
     public static ResultMessages dark() {
         return new ResultMessages(StandardResultMessageType.DARK);
+
     }
 
     @Override
     public Iterator<ResultMessage> iterator() {
         return list.iterator();
+
     }
 
     @Override
     public String toString() {
         return "ResultMessages [type=" + type + ", list=" + list + "]";
+
     }
 
+    @Serial
     private void writeObject(ObjectOutputStream out) throws IOException {
         out.defaultWriteObject();
+
     }
 
+    @Serial
     private void readObject(
-        ObjectInputStream in) throws IOException, ClassNotFoundException {
+            ObjectInputStream in) throws IOException, ClassNotFoundException {
         in.defaultReadObject();
+
     }
 }
