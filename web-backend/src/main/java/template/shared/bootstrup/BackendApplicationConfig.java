@@ -1,4 +1,4 @@
-package template.modules;
+package template.shared.bootstrup;
 
 import org.springframework.context.annotation.Configuration;
 

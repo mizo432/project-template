@@ -1,4 +1,4 @@
-package template.modules;
+package template.shared.presentation.scheduled;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;

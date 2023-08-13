@@ -1,4 +1,4 @@
-package template.modules;
+package template.shared.presentation.web;
 
 
 import org.springframework.web.bind.WebDataBinder;

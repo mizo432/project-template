@@ -62,6 +62,7 @@ pmd {
 }
 dependencies {
     implementation project(':web-validation')
+    implementation project(":common-exception")
     implementation project(":common-precondition")
     implementation project(':server-business')
     implementation project(':web-common')

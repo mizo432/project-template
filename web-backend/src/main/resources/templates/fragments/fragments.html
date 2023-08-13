@@ -10,6 +10,7 @@
     <!--Import materialize.css-->
     <link href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/css/materialize.min.css"
           media="screen,projection"
+          th:href="@{/css/materialize.min.css}"
           rel="stylesheet">
     <link href="../../static/css/application.css" rel="stylesheet" th:href="@{~/css/application.css}">
 
@@ -36,6 +37,7 @@
 <h1 th:text="${message}">メッセージ</h1>
 </body>
 <!-- Compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/js/materialize.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/js/materialize.min.js"
+        th:src="@{/js/materialize.min.js}"></script>
 <script src="../../static/js/init.js" th:src="@{~/js/init.js}"></script>
 </html>
