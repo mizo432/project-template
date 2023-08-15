@@ -4,7 +4,6 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version '1.1.0'
-    id 'java-library'
 
 }
 
@@ -50,6 +49,8 @@ processResources.destinationDir = compileJava.destinationDirectory.asFile.get()
 copyDomaResources.dependsOn processResources
 
 dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'junit:junit:4.13.1'
     compileOnly 'org.projectlombok:lombok'
     implementation project(":common-precondition")
     implementation project(":common-exception")
@@ -62,11 +63,12 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation(group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: "${domaStarterVersion}")
+    implementation "org.seasar.doma.boot:doma-spring-boot-starter:${domaStarterVersion}"
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    runtimeOnly 'org.postgresql:postgresql:42.6.0'
     runtimeOnly "org.seasar.doma:doma-core:${domaVersion}"
     annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
@@ -75,7 +77,7 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.14.2'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.2'
     testImplementation 'ch.qos.logback:logback-core'
-    testImplementation 'ch.qos.logback:logback-classic'
+    testRuntimeOnly 'ch.qos.logback:logback-classic'
     testImplementation "com.tngtech.archunit:archunit-junit5:${archUnitVersion}"
 }
 

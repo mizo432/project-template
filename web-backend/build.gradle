@@ -1,3 +1,5 @@
+import org.codehaus.groovy.runtime.GStringImpl
+
 plugins {
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version '1.1.0'
@@ -22,6 +24,9 @@ apply plugin: 'pmd'
 
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
+ext {
+    domaResourcesDir = "${buildDir}/tmp/doma-resources" as GStringImpl
+}
 
 springBoot {
     buildInfo()
@@ -40,6 +45,12 @@ idea {
         testOutputDir file('build/classes/test')
     }
 }
+tasks.register('copyDomaResources', Copy) {
+    from domaResourcesDir
+    into compileJava.destinationDirectory
+}
+processResources.destinationDir = compileJava.destinationDirectory.asFile.get()
+copyDomaResources.dependsOn processResources
 
 configurations {
     compileOnly {
@@ -92,6 +103,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: "${domaStarterVersion}"
     runtimeOnly "org.seasar.doma:doma-core:${domaVersion}"
+    annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
+
 }
 
 flyway {

@@ -1,5 +1,4 @@
 <included>
-    <property name="LOG_DIR" value="./build/logs"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>
@@ -8,11 +7,11 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="com.undecided.projectTemplate">
+    <logger name="template">
         <level value="debug"/>
     </logger>
 
-    <logger name="com.undecided.projectTemplate.shared">
+    <logger name="template.shared">
         <level value="trace"/>
     </logger>
 
