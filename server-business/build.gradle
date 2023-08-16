@@ -1,18 +1,15 @@
-import org.codehaus.groovy.runtime.GStringImpl
-
 plugins {
     id 'java'
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version '1.1.0'
+    id "org.domaframework.doma.compile" version "2.0.0" apply false
 
-}
-
-ext {
-    domaResourcesDir = "${buildDir}/tmp/doma-resources" as GStringImpl
 }
 
 apply plugin: 'idea'
 apply plugin: 'pmd'
+apply plugin: "org.domaframework.doma.compile"
+
 idea {
     module {
         outputDir file('build/classes/main')
@@ -35,18 +32,6 @@ repositories {
     mavenCentral()
 
 }
-sourceSets {
-    main {
-        output.resourcesDir = compileJava.destinationDirectory.asFile.get()
-    }
-}
-
-tasks.register('copyDomaResources', Copy) {
-    from domaResourcesDir
-    into compileJava.destinationDirectory
-}
-processResources.destinationDir = compileJava.destinationDirectory.asFile.get()
-copyDomaResources.dependsOn processResources
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
@@ -95,7 +80,6 @@ compileJava {
                             '-parameters'
     ]
     options.encoding = 'UTF-8'
-    dependsOn copyDomaResources
 
 }
 compileTestJava {

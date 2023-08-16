@@ -45,18 +45,6 @@ idea {
         testOutputDir file('build/classes/test')
     }
 }
-tasks.register('copyDomaResources', Copy) {
-    from domaResourcesDir
-    into compileJava.destinationDirectory
-}
-processResources.destinationDir = compileJava.destinationDirectory.asFile.get()
-copyDomaResources.dependsOn processResources
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
 
 repositories {
     mavenCentral()
@@ -103,7 +91,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: "${domaStarterVersion}"
     runtimeOnly "org.seasar.doma:doma-core:${domaVersion}"
-    annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
 
 }
 

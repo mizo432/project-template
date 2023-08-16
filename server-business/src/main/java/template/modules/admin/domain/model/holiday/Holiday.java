@@ -7,7 +7,6 @@ import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
 import org.seasar.doma.Id;
 import org.seasar.doma.Table;
-import org.seasar.doma.boot.ConfigAutowireable;
 import template.shared.entity.id.SnowflakeId;
 import template.shared.value.AbstractListValue;
 import template.shared.value.name.Name;
@@ -22,7 +21,7 @@ import java.util.List;
 @Entity(immutable = true)
 @Table(schema = "admin", name = "holiday")
 @AllArgsConstructor
-@ConfigAutowireable
+//@ConfigAutowireable
 @ToString
 public class Holiday {
 
