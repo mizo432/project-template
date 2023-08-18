@@ -1,17 +1,15 @@
-import org.codehaus.groovy.runtime.GStringImpl
-
 plugins {
     id 'org.springframework.boot' version "${springBootVersion}"
-    id 'io.spring.dependency-management' version '1.1.0'
+    id 'io.spring.dependency-management' version '1.1.3'
     id 'net.researchgate.release' version '3.0.2'
     id 'java'
     id 'idea'
-    id "com.github.ben-manes.versions" version '0.46.0'
+    id "com.github.ben-manes.versions" version '0.47.0'
     id 'se.patrikerdes.use-latest-versions' version '0.2.18'
-    id "com.github.spotbugs" version "5.0.14"
+    id "com.github.spotbugs" version "5.1.3"
     id 'jacoco'
     id 'java-library'
-    id 'org.flywaydb.flyway' version '9.18.0'
+    id 'org.flywaydb.flyway' version '9.21.1'
     id 'com.gorylenko.gradle-git-properties' version '2.4.1'
 
 }
@@ -24,9 +22,6 @@ apply plugin: 'pmd'
 
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
-ext {
-    domaResourcesDir = "${buildDir}/tmp/doma-resources" as GStringImpl
-}
 
 springBoot {
     buildInfo()
@@ -70,21 +65,21 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-    implementation "org.flywaydb:flyway-core:9.18.0"
+    implementation "org.flywaydb:flyway-core:9.21.1"
     implementation 'org.springframework.session:spring-session-data-redis'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.11'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.18'
     runtimeOnly 'org.postgresql:postgresql:42.6.0'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.0.1'
     implementation "de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}"
-    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "3.0.6"
+    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "3.1.2"
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
+    implementation group: 'org.springframework.retry', name: 'spring-retry', version: "2.0.2"
 
-    implementation group: 'redis.clients', name: 'jedis', version: '4.4.1'
+    implementation group: 'redis.clients', name: 'jedis', version: "${jedisVersion}"
     compileOnly group: 'org.jetbrains', name: 'annotations', version: "24.0.1"
 
     compileOnly 'org.projectlombok:lombok'

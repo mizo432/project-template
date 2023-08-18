@@ -6,7 +6,7 @@ buildscript {
         thymeleafLayoutDialectVersion = '3.2.0'
         springModulithVersion = '0.5'
         actuatorVersion = '3.0.6'
-        domaVersion = '2.53.3'
+        domaVersion = '2.54.0'
         domaStarterVersion = '1.7.0'
         jetbrainsAnnotationsVersion = '23.1.0'
         guavaVersion = '31.1-jre'
@@ -14,9 +14,9 @@ buildscript {
         postgresVersion = '42.5.1'
         jedisVersion = '4.4.1'
         authorizationServerVersion = '1.1.1'
-        springDependencyManagementVersion = '1.1.0'
-        archUnitVersion = '1.0.1'
+        springDependencyManagementVersion = '1.1.3'
         flywayCoreVersion = '9.21.1'
+        springRetryVersion = '2.0.0'
     }
 
 }
