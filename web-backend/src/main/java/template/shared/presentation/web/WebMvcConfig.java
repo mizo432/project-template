@@ -9,6 +9,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Web用の共通構成
+ */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
@@ -31,5 +34,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Bean
     protected HandlerInterceptor traceLoggingInterceptor() {
         return new TraceLoggingInterceptor();
+
     }
 }
