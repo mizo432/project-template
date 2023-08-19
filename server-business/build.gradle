@@ -48,12 +48,12 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation "org.seasar.doma.boot:doma-spring-boot-starter:${domaStarterVersion}"
+    implementation("org.seasar.doma.boot:doma-spring-boot-starter:${domaStarterVersion}")
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    runtimeOnly 'org.postgresql:postgresql:42.6.0'
+    runtimeOnly "org.postgresql:postgresql:${postgresVersion}"
     runtimeOnly "org.seasar.doma:doma-core:${domaVersion}"
     annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
@@ -63,6 +63,7 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.2'
     testImplementation 'ch.qos.logback:logback-core'
     testRuntimeOnly 'ch.qos.logback:logback-classic'
+    implementation "org.seasar.doma:doma-slf4j:${domaVersion}"
 }
 
 pmd {

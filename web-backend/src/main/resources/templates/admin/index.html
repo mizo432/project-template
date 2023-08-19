@@ -19,7 +19,7 @@
 </head>
 <body>
 <nav>
-    <div class="nav-wrapper" th:replace="fragments/fragments :: navi-bar">
+    <div class="nav-wrapper" th:replace="~{fragments/fragments :: navi-bar}">
         <a class="brand-logo" href="/">テンプレートシステム</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="badges.html">一般</a></li>
@@ -27,7 +27,7 @@
         </ul>
     </div>
 </nav>
-<th:block th:replace="admin/fragments/fragments :: side-navi">
+<th:block th:replace="~{admin/fragments/fragments :: side-navi}">
     <ul class="sidenav" id="slide-out">
         <li><a class="waves-effect" href="#"><i class="material-icons">cloud</i>First Link With Icon</a></li>
         <li><a class="waves-effect" href="#">Second Link</a></li>

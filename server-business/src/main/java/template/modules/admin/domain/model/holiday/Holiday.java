@@ -21,7 +21,6 @@ import java.util.List;
 @Entity(immutable = true)
 @Table(schema = "admin", name = "holiday")
 @AllArgsConstructor
-//@ConfigAutowireable
 @ToString
 public class Holiday {
 

@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * 祝日リポジトリ
  */
-@Dao
 @ConfigAutowireable
+@Dao
 public interface HolidayRepository {
     @Select
     List<Holiday> selectAll();
