@@ -2,9 +2,11 @@ package template.shared.value.name;
 
 import com.undecided.primitive.string.Strings2;
 import lombok.Getter;
+import org.seasar.doma.Domain;
 import template.shared.value.AbstractStringValue;
 
 @Getter
+@Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class Name extends AbstractStringValue {
 
     private static final Name EMPTY = new Name();

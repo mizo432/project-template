@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
-    <property name="LOG_DIR" value="./build/logs"/>
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> <!-- (1) -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>
                 <![CDATA[date:%d{yyyy-MM-dd HH:mm:ss}\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-40logger{40}\tmessage:%replace(%msg){'(\r\n|\r|\n)','$1  '}%n%replace(%replace(%xEx){'(\r\n|\r|\n)','$1  '}){'  $',''}%nopex]]></pattern> <!-- (2) -->
@@ -9,18 +8,18 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="com.undecided.projectTemplate"> <!-- (9) -->
-        <level value="info"/>
+    <logger name="template">
+        <level value="debug"/>
     </logger>
 
-    <logger name="com.undecided.projectTemplate.shared"> <!-- (9) -->
+    <logger name="template.shared">
         <level value="trace"/>
     </logger>
 
-    <logger name="com.undecided.gfw.web.token.transaction"> <!-- (9) -->
+    <logger name="com.undecided.gfw.web.token.transaction">
         <level value="info"/>
     </logger>
-    <logger name="com.undecided.gfw.common.exception.ExceptionLogger"> <!-- (9) -->
+    <logger name="com.undecided.gfw.common.exception.ExceptionLogger">
         <level value="info"/>
     </logger>
 

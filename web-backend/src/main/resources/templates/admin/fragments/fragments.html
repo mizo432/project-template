@@ -27,9 +27,12 @@
         </ul>
     </div>
 </nav>
-<th:block th:replace="~{admin/fragments/fragments :: side-navi}">
+
+<th:block th:fragment="side-navi">
     <ul class="sidenav" id="slide-out">
-        <li><a class="waves-effect" href="#"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+        <li><a class="waves-effect" href="../holiday/list.html" th:href="@{/admin/holiday}"><i
+                class="material-icons">cloud</i>休日カレンダー</a>
+        </li>
         <li><a class="waves-effect" href="#">Second Link</a></li>
         <li>
             <div class="divider"></div>
@@ -39,13 +42,11 @@
     </ul>
     <a class="sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a>
 </th:block>
-<h4>システム管理トップ</h4>
-
 
 </body>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/js/materialize.min.js"
         th:src="@{/js/materialize.min.js}"></script>
-<script src="../../static/js/init.js" th:src="@{~/js/init.js}"></script>
+<script src="../../../static/js/init.js" th:src="@{~/js/init.js}"></script>
 
 </html>

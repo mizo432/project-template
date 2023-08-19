@@ -4,12 +4,12 @@ plugins {
     id 'net.researchgate.release' version '3.0.2'
     id 'java'
     id 'idea'
-    id "com.github.ben-manes.versions" version '0.46.0'
+    id "com.github.ben-manes.versions" version '0.47.0'
     id 'se.patrikerdes.use-latest-versions' version '0.2.18'
-    id "com.github.spotbugs" version "5.0.14"
+    id "com.github.spotbugs" version "5.1.3"
     id 'jacoco'
     id 'java-library'
-    id 'org.flywaydb.flyway' version '9.18.0'
+    id 'org.flywaydb.flyway' version '9.21.1'
     id 'com.gorylenko.gradle-git-properties' version '2.4.1'
 
 }
@@ -68,11 +68,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation "org.springframework.boot:spring-boot-starter-web"
-    implementation 'org.flywaydb:flyway-core:9.18.0'
+    implementation 'org.flywaydb:flyway-core:9.21.1'
     implementation 'org.springframework.session:spring-session-data-redis'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     implementation "de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}"
-    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "3.0.6"
+    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "3.1.2"
     implementation 'com.zaxxer:HikariCP'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -82,10 +82,10 @@ dependencies {
 
     runtimeOnly "org.postgresql:postgresql:${postgresVersion}"
 
-    testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.0.1'
+    testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5', version: '1.1.0'
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
 
-    implementation group: 'redis.clients', name: 'jedis', version: "4.4.1"
+    implementation group: 'redis.clients', name: 'jedis', version: "4.4.3"
     compileOnly group: 'org.jetbrains', name: 'annotations', version: "24.0.1"
 
     compileOnly 'org.projectlombok:lombok'

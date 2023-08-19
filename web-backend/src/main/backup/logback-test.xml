@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <included>
     <property name="LOG_DIR" value="./build/logs"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> <!-- (1) -->
@@ -5,16 +6,6 @@
             <pattern>
                 <![CDATA[date:%d{yyyy-MM-dd HH:mm:ss}\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-40logger{40}\tmessage:%replace(%msg){'(\r\n|\r|\n)','$1  '}%n%replace(%replace(%xEx){'(\r\n|\r|\n)','$1  '}){'  $',''}%nopex]]></pattern> <!-- (2) -->
         </encoder>
-    </appender>
-
-    <appender name="APPLICATION_LOG_FILE" class="ch.qos.logback.core.FileAppender"> <!-- (3) -->
-        <file>${LOG_DIR}/WebBackend.log</file> <!-- (4) -->
-        <encoder>
-            <charset>UTF-8</charset> <!-- (7) -->
-            <pattern>
-                <![CDATA[date:%d{yyyy-MM-dd HH:mm:ss}\tX-Track:%X{X-Track}\tlevel:%-5level\tlogger:%-40logger{40}\tmessage:%replace(%msg){'(\r\n|\r|\n)','$1  '}%n%replace(%replace(%xEx){'(\r\n|\r|\n)','$1  '}){'  $',''}%nopex]]></pattern>
-        </encoder>
-        <append>false</append>
     </appender>
 
     <!-- Application Loggers -->
@@ -36,7 +27,6 @@
     </logger -->
     <root level="debug"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
-        <appender-ref ref="APPLICATION_LOG_FILE"/>
     </root>
 
 </included>

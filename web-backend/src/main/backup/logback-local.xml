@@ -1,4 +1,5 @@
-<configuration>
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
     <property name="LOG_DIR" value="./build/logs"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> <!-- (1) -->
         <encoder>
@@ -34,8 +35,9 @@
     <!--logger name="org.springframework.web.servlet">
         <level value="info"/>
     </logger -->
-    <root level="warn"> <!-- (11) -->
+    <root level="debug"> <!-- (11) -->
         <appender-ref ref="STDOUT"/> <!-- (12) -->
         <appender-ref ref="APPLICATION_LOG_FILE"/>
     </root>
-</configuration>
+
+</included>
