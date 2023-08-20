@@ -60,33 +60,35 @@ dependencies {
     implementation project(':server-business')
     implementation project(':web-common')
     implementation project(':common-primitive')
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation "org.flywaydb:flyway-core:9.21.1"
-    implementation 'org.springframework.session:spring-session-data-redis'
+    implementation "org.springframework.session:spring-session-data-redis:${springSessionDataRedisVersion}"
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.18'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.19'
     runtimeOnly "org.postgresql:postgresql:${postgresVersion}"
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     implementation "de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}"
-    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "3.1.2"
+    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "${actuatorVersion}"
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
     implementation group: 'org.springframework.retry', name: 'spring-retry', version: "2.0.2"
 
-    implementation group: 'redis.clients', name: 'jedis', version: "4.4.3"
+    implementation group: 'redis.clients', name: 'jedis', version: "${jedisVersion}"
     compileOnly group: 'org.jetbrains', name: 'annotations', version: "24.0.1"
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: "${domaStarterVersion}"
     runtimeOnly "org.seasar.doma:doma-core:${domaVersion}"
-    implementation 'ch.qos.logback:logback-core'
-    runtimeOnly 'ch.qos.logback:logback-classic'
+    implementation "ch.qos.logback:logback-core:${logbackVersion}"
+    runtimeOnly "ch.qos.logback:logback-classic:${logbackVersion}"
 
 
 }
@@ -136,7 +138,7 @@ test {
         excludeTags('MEDIUM', 'LARGE')
     }
     reports {
-        junitXml.required = true
+        junitXml.required.set(true)
     }
 }
 tasks.register("testMedium", Test) {
@@ -147,7 +149,7 @@ tasks.register("testMedium", Test) {
         excludeTags('SMALL', 'LARGE')
     }
     reports {
-        junitXml.required = true
+        junitXml.required.set(true)
     }
 }
 
@@ -158,7 +160,7 @@ tasks.register("testLarge", Test) {
         excludeTags('SMALL', 'MEDIUM')
     }
     reports {
-        junitXml.required = true
+        junitXml.required.set(true)
     }
 
 }
