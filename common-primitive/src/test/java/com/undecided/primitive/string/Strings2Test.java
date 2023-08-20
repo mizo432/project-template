@@ -1,7 +1,7 @@
 package com.undecided.primitive.string;
 
+import com.undecided.test.size.SmallTest;
 import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -15,7 +15,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#contains(String, char)}
      */
-    @Test
+    @SmallTest
     void testContains() {
         // Arrange
         String str = null;
@@ -32,7 +32,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#contains(String, char)}
      */
-    @Test
+    @SmallTest
     void testContains2() {
         // Arrange
         String str = Strings2.EMPTY;
@@ -49,7 +49,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#contains(String, char)}
      */
-    @Test
+    @SmallTest
     void testContains3() {
         // Arrange
         String str = ".";
@@ -66,7 +66,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#contains(String, String)}
      */
-    @Test
+    @SmallTest
     void testContains4() {
         // Arrange
         String str = "Str";
@@ -83,7 +83,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#contains(String, String)}
      */
-    @Test
+    @SmallTest
     void testContains5() {
         // Arrange
         String str = null;
@@ -100,7 +100,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#contains(String, String)}
      */
-    @Test
+    @SmallTest
     void testContains6() {
         // Arrange
         String str = "Str";
@@ -117,7 +117,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#contains(String, String)}
      */
-    @Test
+    @SmallTest
     void testContains7() {
         // Arrange
         String str = "Str";
@@ -134,7 +134,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#defaultIfEmpty(String, String)}
      */
-    @Test
+    @SmallTest
     void testDefaultIfEmpty() {
         // Arrange
         String str = "Str";
@@ -151,7 +151,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#defaultIfEmpty(String, String)}
      */
-    @Test
+    @SmallTest
     void testDefaultIfEmpty2() {
         // Arrange
         String str = null;
@@ -168,7 +168,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#defaultIfEmpty(String, String)}
      */
-    @Test
+    @SmallTest
     void testDefaultIfEmpty3() {
         // Arrange
         String str = Strings2.EMPTY;
@@ -185,7 +185,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#defaultObjectIfEmpty(String, Function, Supplier)}
      */
-    @Test
+    @SmallTest
     void testDefaultObjectIfEmpty() {
         // Arrange
         String str = "Str";
@@ -200,7 +200,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#decamelize(String)}
      */
-    @Test
+    @SmallTest
     void testDecamelize() {
         // Arrange
         String s = "foo";
@@ -216,7 +216,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#decamelize(String)}
      */
-    @Test
+    @SmallTest
     void testDecamelize2() {
         // Arrange
         String s = null;
@@ -232,7 +232,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#decamelize(String)}
      */
-    @Test
+    @SmallTest
     void testDecamelize3() {
         // Arrange
         String s = ".";
@@ -248,7 +248,7 @@ class Strings2Test {
     /**
      * Method under test: {@link Strings2#decamelize(String)}
      */
-    @Test
+    @SmallTest
     void testDecamelize4() {
         // Arrange
         String s = "findFirstByNotEmpty";
@@ -265,9 +265,9 @@ class Strings2Test {
      * Method under test: {@link Strings2#findFirstByNotEmptySilently(String[])}
      */
     @Nested
-    class findFirstByNotEmptySilently {
+    class findFirstByNotEmptySilentlyTest {
 
-        @Test
+        @SmallTest
         void findFirstByNotEmptySilently() {
             // Arrange
             String string = "Strings";
@@ -283,7 +283,7 @@ class Strings2Test {
                     actualFindFirstByNotEmptySilentlyResult);
         }
 
-        @Test
+        @SmallTest
         void findFirstByNotEmptySilently2() {
             // Arrange
             String[] strings = null;
@@ -298,7 +298,7 @@ class Strings2Test {
                     actualFindFirstByNotEmptySilentlyResult);
         }
 
-        @Test
+        @SmallTest
         void findFirstByNotEmptySilently3() {
             // Arrange
             String string = null;
@@ -314,7 +314,7 @@ class Strings2Test {
                     actualFindFirstByNotEmptySilentlyResult);
         }
 
-        @Test
+        @SmallTest
         void findFirstByNotEmptySilently4() {
             // Arrange
             String string = Strings2.EMPTY;
@@ -338,7 +338,7 @@ class Strings2Test {
     @Nested
     class checkNotNull {
 
-        @Test
+        @SmallTest
         void _参照値にnullを指定した場合に引数誤り例外を投げる() {
             // Arrange
             Object reference = null;
@@ -355,9 +355,9 @@ class Strings2Test {
      * Method under test: {@link Strings2#checkAllEntityNotNull(Object[], String)}
      */
     @Nested
-    class checkAllEntityNotNull {
+    class checkAllEntityNotNullTest {
 
-        @Test
+        @SmallTest
         void _参照値にnullとインデスクすを指定した場合に引数誤り例外を投げる() {
             // Arrange
             Object[] reference = new Object[]{null};
@@ -375,9 +375,9 @@ class Strings2Test {
      */
 
     @Nested
-    class concat {
+    class concatTest {
 
-        @Test
+        @SmallTest
         void testConcat() {
             // Arrange
             String string = "Strings";
@@ -394,7 +394,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#concat(String[])}
          */
-        @Test
+        @SmallTest
         void testConcat2() {
             // Arrange
             String[] strings = null;
@@ -406,7 +406,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#concat(String[])}
          */
-        @Test
+        @SmallTest
         void testConcat3() {
             // Arrange
             String string = null;
@@ -424,7 +424,7 @@ class Strings2Test {
     @Nested
     class isZenkakuAllCharacters {
 
-        @Test
+        @SmallTest
         void testIsZenkakuAllCharacters() {
             // Arrange
             String aString = "A String";
@@ -440,7 +440,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#isZenkakuAllCharacters(String)}
          */
-        @Test
+        @SmallTest
         void testIsZenkakuAllCharacters2() {
             // Arrange
             String aString = null;
@@ -456,7 +456,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#isZenkakuAllCharacters(String)}
          */
-        @Test
+        @SmallTest
         void testIsZenkakuAllCharacters3() {
             // Arrange
             String aString = Strings2.EMPTY;
@@ -472,7 +472,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#isZenkakuAllCharacters(String)}
          */
-        @Test
+        @SmallTest
         void testIsZenkakuAllCharacters4() {
             // Arrange
             String aString = "引数emptySupplierがnullです。null以外の値を指定してください";
@@ -488,7 +488,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#isZenkakuAllCharacters(String)}
          */
-        @Test
+        @SmallTest
         void testIsZenkakuAllCharacters5() {
             // Arrange
             String aString = "．";
@@ -504,7 +504,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#isZenkakuAllCharacters(String)}
          */
-        @Test
+        @SmallTest
         void testIsZenkakuAllCharacters6() {
             // Arrange
             String aString = "ｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾊﾋﾌﾍﾎ";
@@ -525,7 +525,7 @@ class Strings2Test {
     @Nested
     class isHankakuAllCharacters {
 
-        @Test
+        @SmallTest
         void testIsHankakuAllCharacters() {
             // Arrange
             String aString = "A String";
@@ -541,7 +541,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#isHankakuAllCharacters(String)}
          */
-        @Test
+        @SmallTest
         void testIsHankakuAllCharacters2() {
             // Arrange
             String aString = null;
@@ -557,7 +557,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#isHankakuAllCharacters(String)}
          */
-        @Test
+        @SmallTest
         void testIsHankakuAllCharacters3() {
             // Arrange
             String aString = Strings2.EMPTY;
@@ -573,7 +573,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#isHankakuAllCharacters(String)}
          */
-        @Test
+        @SmallTest
         void testIsHankakuAllCharacters4() {
             // Arrange
             String aString = "引数emptySupplierがnullです。null以外の値を指定してください";
@@ -589,7 +589,7 @@ class Strings2Test {
         /**
          * Method under test: {@link Strings2#isHankakuAllCharacters(String)}
          */
-        @Test
+        @SmallTest
         void testIsHankakuAllCharacters5() {
             // Arrange
             String aString = "ｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾊﾋﾌﾍﾎ";
@@ -610,7 +610,7 @@ class Strings2Test {
     @Nested
     class emptyToNull {
 
-        @Test
+        @SmallTest
         void _引数がnullの場合nullを返却する() {
             // given, when and then
             assertThat(Strings2.emptyToNull(null))
@@ -618,7 +618,7 @@ class Strings2Test {
 
         }
 
-        @Test
+        @SmallTest
         void _引数がemptyの場合nullを返却する() {
             // given, when and then
             assertThat(Strings2.emptyToNull(Strings2.EMPTY))
@@ -626,7 +626,7 @@ class Strings2Test {
 
         }
 
-        @Test
+        @SmallTest
         void _引数がStrの場合Strを返却する() {
             // given, when and then
             assertThat(Strings2.emptyToNull("Str"))
