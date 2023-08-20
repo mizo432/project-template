@@ -32,6 +32,18 @@ public class Holiday {
 
     private final Name name;
 
+    /**
+     * インサートようのファクトリー
+     *
+     * @param holiday 祝日
+     * @param name    祝日名称
+     * @return 祝日
+     */
+    public static Holiday create(LocalDate holiday, String name) {
+        return new Holiday(SnowflakeId.newInstance(), holiday, Name.of(name));
+
+    }
+
     public static class Holidays extends AbstractListValue<Holiday> {
         public Holidays(List<Holiday> value) {
             super(value);

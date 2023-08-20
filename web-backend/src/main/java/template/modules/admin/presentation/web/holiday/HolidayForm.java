@@ -24,6 +24,10 @@ public class HolidayForm {
 
     }
 
+    public Holiday convertToInsertModel() {
+        return Holiday.create(holiday, name);
+    }
+
 
     public static class HolidayFormList {
         public static List<HolidayForm> reconstruct(Holidays holidays) {
