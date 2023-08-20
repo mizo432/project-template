@@ -85,6 +85,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: "${domaStarterVersion}"
     runtimeOnly "org.seasar.doma:doma-core:${domaVersion}"
+    implementation 'ch.qos.logback:logback-core'
+    runtimeOnly 'ch.qos.logback:logback-classic'
+
 
 }
 
