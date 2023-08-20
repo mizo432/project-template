@@ -1,33 +1,31 @@
 package com.undecided.gfw.common.exception;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import com.undecided.gfw.common.message.ResultMessage;
 import com.undecided.gfw.common.message.ResultMessages;
-import org.junit.jupiter.api.Test;
+import com.undecided.test.size.SmallTest;
+
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.*;
 
 class BusinessExceptionTest {
 
     /**
      * Method under test: {@link BusinessException#BusinessException(ResultMessages)}
      */
-    @Test
+    @SmallTest
     void testConstructor() {
         assertEquals("ResultMessages [type=danger, list=[]]",
-            (new BusinessException(ResultMessages.danger())).getMessage());
+                (new BusinessException(ResultMessages.danger())).getMessage());
     }
 
     /**
      * Method under test: {@link BusinessException#BusinessException(ResultMessages)}
      */
-    @Test
+    @SmallTest
     void testConstructor2() {
         assertThatThrownBy(() -> {
-                throw new BusinessException((ResultMessages) null);
-            }
+                    throw new BusinessException((ResultMessages) null);
+                }
         ).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -35,21 +33,21 @@ class BusinessExceptionTest {
     /**
      * Method under test: {@link BusinessException#BusinessException(ResultMessages, Throwable)}
      */
-    @Test
+    @SmallTest
     void testConstructor3() {
         ResultMessages messages = ResultMessages.danger();
         assertEquals("ResultMessages [type=danger, list=[]]",
-            (new BusinessException(messages, new Throwable())).getLocalizedMessage());
+                (new BusinessException(messages, new Throwable())).getLocalizedMessage());
     }
 
     /**
      * Method under test: {@link BusinessException#BusinessException(ResultMessages, Throwable)}
      */
-    @Test
+    @SmallTest
     void testConstructor4() {
         assertThatThrownBy(() -> {
-                throw new BusinessException(null, new Throwable());
-            }
+                    throw new BusinessException(null, new Throwable());
+                }
         ).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -57,12 +55,12 @@ class BusinessExceptionTest {
     /**
      * Method under test: {@link BusinessException#BusinessException(String)}
      */
-    @Test
+    @SmallTest
     void testConstructor5() {
         BusinessException actualBusinessException = new BusinessException("An error occurred");
         assertEquals(
-            "ResultMessages [type=error, list=[ResultMessage [code=null, args=[], text=An error occurred]]]",
-            actualBusinessException.getMessage());
+                "ResultMessages [type=error, list=[ResultMessage [code=null, args=[], text=An error occurred]]]",
+                actualBusinessException.getMessage());
         ResultMessages resultMessages = actualBusinessException.getResultMessages();
         assertTrue(resultMessages.isNotEmpty());
         ResultMessage getResult = resultMessages.getList().get(0);

@@ -41,6 +41,7 @@ dependencies {
     implementation project(":common-exception")
     implementation project(":common-message")
     implementation project(":common-primitive")
+    testImplementation project(":common-test")
     implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
