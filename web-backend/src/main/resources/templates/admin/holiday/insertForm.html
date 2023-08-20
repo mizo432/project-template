@@ -2,7 +2,7 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>システム管理トップ</title>
+    <title>祝日を追加する</title>
     <!-- Compiled and minified CSS -->
 
     <!--Import Google Icon Font-->
@@ -39,32 +39,25 @@
     </ul>
     <a class="sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a>
 </th:block>
-<h4>祝日カレンダー</h4>
-<form>
-    <a class="waves-effect waves-light btn" href="insertForm.html" th:href="@{/admin/holiday/insertForm}"><i
-            class="material-icons left">new_label</i>新規追加</a>
-
-    <table>
-        <tr>
-            <th>祝日日付</th>
-            <th>祝日名称</th>
-            <th>アクション</th>
-        </tr>
-        <tr th:each="form : ${formList}">
-            <td th:text="${form.holiday}">2023/01/01</td>
-            <td th:text="${form.name}">元旦</td>
-            <td>
-
-                <a class="waves-effect waves-light btn"><i class="material-icons left">edit_calendar</i>変更</a>
-                <button class="btn waves-effect waves-light" name="delete" type="submit">削除
-                    <i class="material-icons right">delete</i>
-                </button>
-            </td>
-        </tr>
-    </table>
-
-</form>
-
+<h4>祝日追加</h4>
+<div class="row" style="gap: 5px;">
+    <form action="#" class="col xl6" method="post" th:action="@{insert}" th:object="${form}">
+        <div class="row">
+            <div class="input-field outlined col xl12">
+                <input class="validate" id="first_name" placeholder="日付をyyy/MM/dd形式で入力してください" required
+                       th:field="*{holiday}" type="text">
+                <label for="first_name">祝日<span class="text-accent-1">*</span></label>
+            </div>
+            <div class="input-field outlined col xl12">
+                <input class="validate" id="last_name" placeholder="祝日の名称を入力してください" required th:field="*{name}"
+                       type="text">
+                <label for="last_name">名称<span class="text-accent-1">*</span></label>
+            </div>
+        </div>
+        <input type="submit" value="送信する"/>
+        <a href="list.html" th:href="@{/admin/holiday}">キャンセル</a>
+    </form>
+</div>
 </body>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/js/materialize.min.js"
