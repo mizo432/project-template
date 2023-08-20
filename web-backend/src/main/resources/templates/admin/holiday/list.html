@@ -40,30 +40,32 @@
     <a class="sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a>
 </th:block>
 <h4>祝日カレンダー</h4>
-<form>
-    <a class="waves-effect waves-light btn" href="insertForm.html" th:href="@{/admin/holiday/insertForm}"><i
-            class="material-icons left">new_label</i>新規追加</a>
+<a class="waves-effect waves-light btn" href="insertForm.html" th:href="@{/admin/holiday/insertForm}"><i
+        class="material-icons left">new_label</i>新規追加</a>
 
-    <table>
-        <tr>
-            <th>祝日日付</th>
-            <th>祝日名称</th>
-            <th>アクション</th>
-        </tr>
-        <tr th:each="form : ${formList}">
-            <td th:text="${form.holiday}">2023/01/01</td>
-            <td th:text="${form.name}">元旦</td>
-            <td>
+<table>
+    <tr>
+        <th>祝日日付</th>
+        <th>祝日名称</th>
+        <th>アクション</th>
+    </tr>
+    <tr th:each="form : ${formList}">
+        <td th:text="${form.holiday}">2023/01/01</td>
+        <td th:text="${form.name}">元旦</td>
+        <td>
 
-                <a class="waves-effect waves-light btn"><i class="material-icons left">edit_calendar</i>変更</a>
-                <button class="btn waves-effect waves-light" name="delete" type="submit">削除
-                    <i class="material-icons right">delete</i>
+            <form method="post" th:action="@{holiday/delete}">
+                <a class="waves-effect waves-light btn"><i class="material-icons left">edit</i>変更</a>
+                <input name="id" th:value="${form.getHolidayId()}" type="hidden">
+                <button class="btn waves-effect waves-light" name="action" type="submit">削除
+                    <i class="material-icons left">delete</i>
                 </button>
-            </td>
-        </tr>
-    </table>
+            </form>
 
-</form>
+        </td>
+    </tr>
+</table>
+
 
 </body>
 <!-- Compiled and minified JavaScript -->

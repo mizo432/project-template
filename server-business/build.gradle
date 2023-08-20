@@ -34,8 +34,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-    testImplementation 'junit:junit:4.13.1'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
     compileOnly 'org.projectlombok:lombok'
     implementation project(":common-precondition")
     implementation project(":common-exception")
@@ -51,9 +54,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     implementation("org.seasar.doma.boot:doma-spring-boot-starter:${domaStarterVersion}")
 
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
     runtimeOnly "org.postgresql:postgresql:${postgresVersion}"
     runtimeOnly "org.seasar.doma:doma-core:${domaVersion}"
     annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
@@ -98,5 +98,41 @@ javadoc {
 
 
 test {
-    useJUnitPlatform()
+    // 失敗しても後続の処理を継続させる
+    ignoreFailures = true
+    useJUnitPlatform {
+        includeTags 'SMALL'
+        excludeTags('MEDIUM', 'LARGE')
+    }
+    reports {
+        junitXml.required.set(true)
+    }
+}
+tasks.register("testMedium", Test) {
+    ignoreFailures = false
+    maxHeapSize("3g")
+    useJUnitPlatform {
+        includeTags('MEDIUM')
+        excludeTags('SMALL', 'LARGE')
+    }
+    reports {
+        junitXml.required.set(true)
+    }
+}
+
+tasks.register("testLarge", Test) {
+    ignoreFailures = false
+    useJUnitPlatform {
+        includeTags('LARGE')
+        excludeTags('SMALL', 'MEDIUM')
+    }
+    reports {
+        junitXml.required.set(true)
+    }
+
+}
+tasks.register("testReport", TestReport) {
+    reportOn subprojects.tasks.test.binResultsDir
+    fileTree(dir: it, exclude: ['**/*Test.class', '**/**test/*.class'])
+
 }

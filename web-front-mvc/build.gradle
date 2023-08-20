@@ -69,10 +69,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation 'org.flywaydb:flyway-core:9.21.1'
-    implementation 'org.springframework.session:spring-session-data-redis'
+    implementation "org.springframework.session:spring-session-data-redis:${springSessionDataRedisVersion}"
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     implementation "de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}"
-    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "3.1.2"
+    implementation group: 'org.springframework.boot', name: 'spring-boot-actuator', version: "${actuatorVersion}"
     implementation 'com.zaxxer:HikariCP'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'

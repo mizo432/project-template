@@ -1,6 +1,7 @@
 package template.modules.admin.domain.model.holiday;
 
 import org.seasar.doma.Dao;
+import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.boot.ConfigAutowireable;
@@ -25,5 +26,8 @@ public interface HolidayRepository {
      */
     @Insert
     Result<Holiday> insert(Holiday holiday);
+
+    @Delete
+    Result<Holiday> delete(Holiday holiday);
 
 }

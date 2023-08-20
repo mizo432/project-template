@@ -44,6 +44,10 @@ public class Holiday {
 
     }
 
+    public static Holiday create(SnowflakeId id) {
+        return new Holiday(id, null, Name.empty());
+    }
+
     public static class Holidays extends AbstractListValue<Holiday> {
         public Holidays(List<Holiday> value) {
             super(value);
