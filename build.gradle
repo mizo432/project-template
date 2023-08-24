@@ -13,7 +13,7 @@ buildscript {
         assertjVersion = '3.24.2'
         postgresVersion = '42.6.0'
         jedisVersion = '4.4.3'
-        authorizationServerVersion = '1.1.1'
+        authorizationServerVersion = '1.1.2'
         springDependencyManagementVersion = '1.1.3'
         flywayCoreVersion = '9.21.1'
         springRetryVersion = '2.0.0'
