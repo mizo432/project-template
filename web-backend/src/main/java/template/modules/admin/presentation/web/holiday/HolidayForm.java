@@ -9,6 +9,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 祝日フォーム
+ */
 @Data
 public class HolidayForm {
     private Long holidayId;
@@ -26,10 +29,12 @@ public class HolidayForm {
 
     public Holiday convertToInsertModel() {
         return Holiday.create(holiday, name);
+
     }
 
     public Holiday convertToUpdateModel() {
         return Holiday.create(holidayId, holiday, name);
+
     }
 
 

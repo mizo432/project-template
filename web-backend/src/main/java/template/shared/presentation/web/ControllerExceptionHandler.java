@@ -1,5 +1,7 @@
 package template.shared.presentation.web;
 
+import com.undecided.gfw.common.exception.BusinessException;
+import com.undecided.gfw.common.exception.SystemException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
@@ -19,6 +21,22 @@ public class ControllerExceptionHandler {
         log.info(e.getMessage(), e);
         model.addAttribute("exception", e);
         return "error/400";
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler({BusinessException.class})
+    public String handleBusinessException(BusinessException e, Model model) {
+        log.info(e.getMessage(), e);
+        model.addAttribute("exception", e);
+        return "error/400";
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler({SystemException.class})
+    public String handleSystemException(SystemException e, Model model) {
+        log.error(e.getMessage(), e);
+        model.addAttribute("exception", e);
+        return "error/500";
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
