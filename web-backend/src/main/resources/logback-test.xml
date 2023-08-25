@@ -27,6 +27,7 @@
     <logger level="trace" name="com.undecided.gfw.web.logging.TraceLoggingInterceptor"/> <!-- (9) -->
     <logger level="info" name="com.undecided.gfw.web.token.transaction"/> <!-- (9) -->
     <logger level="info" name="com.undecided.gfw.common.exception.ExceptionLogger"/> <!-- (9) -->
+    <logger level="trace" name="com.undecided.gfw.common.exception.ExceptionLogger.Monitoring"/>
 
     <logger level="info" name="org.springframework"/>
     <logger level="info" name="org.thymeleaf"/>

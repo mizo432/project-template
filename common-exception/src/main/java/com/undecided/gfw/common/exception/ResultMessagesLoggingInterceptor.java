@@ -8,7 +8,7 @@ import org.springframework.beans.factory.InitializingBean;
 public class ResultMessagesLoggingInterceptor implements MethodInterceptor,
         InitializingBean {
 
-    private final ThreadLocal<MethodInvocation> startingPoint = new ThreadLocal<MethodInvocation>();
+    private final ThreadLocal<MethodInvocation> startingPoint = new ThreadLocal<>();
 
     private ExceptionLogger exceptionLogger = null;
 
