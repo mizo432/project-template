@@ -28,6 +28,10 @@ public class HolidayForm {
         return Holiday.create(holiday, name);
     }
 
+    public Holiday convertToUpdateModel() {
+        return Holiday.create(holidayId, holiday, name);
+    }
+
 
     public static class HolidayFormList {
         public static List<HolidayForm> reconstruct(Holidays holidays) {

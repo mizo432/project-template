@@ -48,6 +48,10 @@ public class Holiday {
         return new Holiday(id, null, Name.empty());
     }
 
+    public static Holiday create(Long holidayId, LocalDate holiday, String name) {
+        return new Holiday(SnowflakeId.of(holidayId), holiday, Name.of(name));
+    }
+
     public static class Holidays extends AbstractListValue<Holiday> {
         public Holidays(List<Holiday> value) {
             super(value);

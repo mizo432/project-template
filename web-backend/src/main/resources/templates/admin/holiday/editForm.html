@@ -2,7 +2,7 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>システム管理トップ</title>
+    <title>祝日を変更</title>
     <!-- Compiled and minified CSS -->
 
     <!--Import Google Icon Font-->
@@ -39,34 +39,29 @@
     </ul>
     <a class="sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a>
 </th:block>
-<h4>祝日カレンダー</h4>
-<a class="waves-effect waves-light btn" href="insertForm.html" th:href="@{/admin/holiday/insertForm}"><i
-        class="material-icons left">new_label</i>新規追加</a>
-
-<table>
-    <tr>
-        <th>祝日日付</th>
-        <th>祝日名称</th>
-        <th>アクション</th>
-    </tr>
-    <tr th:each="form : ${formList}">
-        <td th:text="${form.holiday}">2023/01/01</td>
-        <td th:text="${form.name}">元旦</td>
-        <td>
-
-            <form method="post" th:action="@{holiday/delete}">
-                <a class="waves-effect waves-light btn" th:href="@{/admin/holiday/editForm(holidayId=${form.holidayId})}"><i class="material-icons left">edit</i>変更</a>
-                <input name="id" th:value="${form.getHolidayId()}" type="hidden">
-                <button class="btn waves-effect waves-light" name="action" type="submit">削除
-                    <i class="material-icons left">delete</i>
-                </button>
-            </form>
-
-        </td>
-    </tr>
-</table>
-
-
+<h4>祝日変更</h4>
+<div class="row" style="gap: 5px;">
+    <form action="#" class="col xl6" method="post" th:action="@{update}" th:object="${form}">
+        <div class="row">
+            <div class="input-field outlined col xl12">
+                <input class="validate" id="holidayId" type="hidden"
+                       th:field="*{holidayId}">
+            </div>
+            <div class="input-field outlined col xl12">
+                <input class="validate" id="first_name" placeholder="日付をyyy/MM/dd形式で入力してください" required
+                       th:field="*{holiday}" type="text">
+                <label for="first_name">祝日<span class="text-accent-1">*</span></label>
+            </div>
+            <div class="input-field outlined col xl12">
+                <input class="validate" id="last_name" placeholder="祝日の名称を入力してください" required th:field="*{name}"
+                       type="text">
+                <label for="last_name">名称<span class="text-accent-1">*</span></label>
+            </div>
+        </div>
+        <input type="submit" value="送信する"/>
+        <a href="list.html" th:href="@{/admin/holiday}">キャンセル</a>
+    </form>
+</div>
 </body>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/js/materialize.min.js"
