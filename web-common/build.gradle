@@ -28,7 +28,9 @@ repositories {
     mavenCentral()
 
 }
-
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
 dependencies {
     implementation project(":common-precondition")
     implementation project(":common-exception")
