@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import template.modules.admin.domain.model.holiday.Holiday;
 import template.modules.admin.domain.model.holiday.HolidayRepository;
+import template.shared.entity.id.SnowflakeId;
 
 @Service
 @AllArgsConstructor
@@ -13,5 +14,9 @@ public class HolidayQuery {
     public Holiday.Holidays selectAll() {
         return Holiday.Holidays.reconstruct(holidayRepository.selectAll());
 
+    }
+
+    public Holiday findOneBy(SnowflakeId holidayId) {
+        return holidayRepository.findOneBy(holidayId);
     }
 }
