@@ -1,0 +1,16 @@
+{
+  "production": {
+    "allowAnonymous": false,
+    "allowAnonymousEdits": false,
+    "defaultPermission": "editable",
+    "email": true,
+    "db": {
+      "username": "hackmd",
+      "password": "hackmdpass",
+      "database": "hackmd",
+      "host": "database",
+      "port": "5432",
+      "dialect": "postgres"
+    },
+    "imageUploadType": "filesystem"
+  },

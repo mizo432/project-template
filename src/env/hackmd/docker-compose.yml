@@ -1,0 +1,24 @@
+version: '2'
+services:
+  hackmd:
+    image: hackmdio/hackmd:latest
+    environment:
+      - CMD_DB_URL=mysql://root:hackmd@db:3306/hackmd
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: mariadb:10.3
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    container_name: "mysql-db"
+    volumes:
+      - "db-data:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: hackmd
+      MYSQL_ROOT_PASSWORD: hackmd
+volumes:
+  db-data:
+    driver: local
