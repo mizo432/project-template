@@ -4,7 +4,8 @@ server:
     enabled: true
     mime-types: text/html,text/css,application/javascript,application/json
 spring:
-  #  main:
+  main:
+    allow-bean-definition-overriding: true
   #    lazy-initialization: true
   profiles.active: unit
   datasource:

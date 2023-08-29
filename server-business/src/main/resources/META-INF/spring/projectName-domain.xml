@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx https://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <tx:annotation-driven/>
+
+    <!--
+        <import resource="classpath:META-INF/spring/projectName-infra.xml"/>
+    -->
+    <!--
+        <import resource="classpath*:META-INF/spring/**/*-codelist.xml"/>
+    -->
+
+    <!--
+        <context:component-scan base-package="com.undecided.projectTemplate"/>
+    -->
+
+    <!-- AOP. -->
+    <bean id="resultMessagesLoggingInterceptor"
+          class="com.undecided.gfw.common.exception.ResultMessagesLoggingInterceptor">
+    </bean>
+    <aop:config>
+        <aop:advisor advice-ref="resultMessagesLoggingInterceptor"
+                     pointcut="@within(org.springframework.stereotype.Service)"/>
+    </aop:config>
+</beans>

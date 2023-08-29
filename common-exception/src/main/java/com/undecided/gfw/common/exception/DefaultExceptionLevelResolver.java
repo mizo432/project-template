@@ -11,21 +11,22 @@ public class DefaultExceptionLevelResolver implements ExceptionLevelResolver {
     }
 
     public DefaultExceptionLevelResolver(
-        ExceptionCodeResolver exceptionCodeResolver) {
+            ExceptionCodeResolver exceptionCodeResolver) {
         setExceptionCodeResolver(exceptionCodeResolver);
     }
 
     public void setExceptionCodeResolver(
-        ExceptionCodeResolver exceptionCodeResolver) {
+            ExceptionCodeResolver exceptionCodeResolver) {
         this.exceptionCodeResolver = exceptionCodeResolver;
     }
 
     @Override
     public ExceptionLevel resolveExceptionLevel(Exception ex) {
         String exceptionCode = resolveExceptionCode(ex);
-        if (!Strings2.isEmpty(exceptionCode)) {
+        if (Strings2.isEmpty(exceptionCode)) {
             return ExceptionLevel.ERROR;
         }
+
         String exceptionCodePrefix = exceptionCode.substring(0, 1);
         if ("e".equalsIgnoreCase(exceptionCodePrefix)) {
             return ExceptionLevel.ERROR;

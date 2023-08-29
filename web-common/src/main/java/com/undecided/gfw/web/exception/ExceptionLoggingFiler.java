@@ -1,6 +1,8 @@
 package com.undecided.gfw.web.exception;
 
+import com.undecided.gfw.common.exception.BusinessException;
 import com.undecided.gfw.common.exception.ExceptionLogger;
+import com.undecided.gfw.common.exception.ResourceNotFoundException;
 import jakarta.servlet.*;
 
 import java.io.IOException;
@@ -18,6 +20,9 @@ public class ExceptionLoggingFiler extends GenericFilter {
             chain.doFilter(request, response);
         } catch (IOException e) {
             logIOException(e, request, response);
+            throw e;
+
+        } catch (BusinessException | ResourceNotFoundException e) {
             throw e;
 
         } catch (ServletException e) {

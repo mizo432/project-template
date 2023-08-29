@@ -1,12 +1,13 @@
 package com.undecided.gfw.common.exception;
 
 import com.undecided.primitive.string.Strings2;
-import java.text.MessageFormat;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
+
+import java.text.MessageFormat;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ExceptionLogger implements InitializingBean {
 
@@ -16,7 +17,7 @@ public class ExceptionLogger implements InitializingBean {
 
     private final Logger monitoringLogger;
 
-    private final Map<ExceptionLevel, LogLevelWrappingLogger> exceptionLevelLoggers = new ConcurrentHashMap<ExceptionLevel, LogLevelWrappingLogger>();
+    private final Map<ExceptionLevel, LogLevelWrappingLogger> exceptionLevelLoggers = new ConcurrentHashMap<>();
 
     private final InfoLogger infoLogger;
 
@@ -33,7 +34,7 @@ public class ExceptionLogger implements InitializingBean {
     private final String PLACEHOLDER_OF_EXCEPTION_MESSAGE = "{1}";
 
     private String logMessageFormat = String.format("[%s] %s",
-        PLACEHOLDER_OF_EXCEPTION_CODE, PLACEHOLDER_OF_EXCEPTION_MESSAGE);
+            PLACEHOLDER_OF_EXCEPTION_CODE, PLACEHOLDER_OF_EXCEPTION_MESSAGE);
 
     private String defaultCode = "UNDEFINED-CODE";
 
@@ -43,24 +44,25 @@ public class ExceptionLogger implements InitializingBean {
 
     public ExceptionLogger() {
         this(ExceptionLogger.class.getName());
+        this.exceptionLevelResolver = new DefaultExceptionLevelResolver();
     }
 
     public ExceptionLogger(String name) {
         this.applicationLogger = LoggerFactory.getLogger(name);
         this.monitoringLogger = LoggerFactory.getLogger(name
-            + MONITORING_LOG_LOGGER_SUFFIX);
+                + MONITORING_LOG_LOGGER_SUFFIX);
         this.infoLogger = new InfoLogger();
         this.warnLogger = new WarnLogger();
         this.errorLogger = new ErrorLogger();
     }
 
     public void setExceptionCodeResolver(
-        ExceptionCodeResolver exceptionCodeResolver) {
+            ExceptionCodeResolver exceptionCodeResolver) {
         this.exceptionCodeResolver = exceptionCodeResolver;
     }
 
     public void setExceptionLevelResolver(
-        ExceptionLevelResolver exceptionLevelResolver) {
+            ExceptionLevelResolver exceptionLevelResolver) {
         this.exceptionLevelResolver = exceptionLevelResolver;
     }
 
@@ -119,12 +121,12 @@ public class ExceptionLogger implements InitializingBean {
 
     protected void validateLogMessageFormat(String logMessageFormat) {
         if (logMessageFormat == null || !logMessageFormat.contains(
-            PLACEHOLDER_OF_EXCEPTION_CODE) || !logMessageFormat.contains(
-            PLACEHOLDER_OF_EXCEPTION_MESSAGE)) {
+                PLACEHOLDER_OF_EXCEPTION_CODE) || !logMessageFormat.contains(
+                PLACEHOLDER_OF_EXCEPTION_MESSAGE)) {
             String message = "logMessageFormat must have placeholder({0} and {1})."
-                + " {0} is replaced with exception code."
-                + " {1} is replaced with exception message. current logMessageFormat is \""
-                + logMessageFormat + "\".";
+                    + " {0} is replaced with exception code."
+                    + " {1} is replaced with exception message. current logMessageFormat is \""
+                    + logMessageFormat + "\".";
             throw new IllegalArgumentException(message);
         }
     }
@@ -143,7 +145,7 @@ public class ExceptionLogger implements InitializingBean {
     }
 
     protected String formatLogMessage(String exceptionCode,
-        String exceptionMessage) {
+                                      String exceptionMessage) {
 
         String bindingExceptionCode = exceptionCode;
         String bindingExceptionMessage = exceptionMessage;
@@ -155,7 +157,7 @@ public class ExceptionLogger implements InitializingBean {
         }
 
         String message = MessageFormat.format(logMessageFormat,
-            bindingExceptionCode, bindingExceptionMessage);
+                bindingExceptionCode, bindingExceptionMessage);
         if (trimLogMessage) {
             message = message.trim();
         }
@@ -163,7 +165,7 @@ public class ExceptionLogger implements InitializingBean {
     }
 
     protected void registerExceptionLevelLoggers(ExceptionLevel level,
-        LogLevelWrappingLogger logger) {
+                                                 LogLevelWrappingLogger logger) {
         this.exceptionLevelLoggers.put(level, logger);
     }
 
@@ -207,7 +209,7 @@ public class ExceptionLogger implements InitializingBean {
         @Override
         public boolean isEnabled() {
             return monitoringLogger.isInfoEnabled() || applicationLogger
-                .isInfoEnabled();
+                    .isInfoEnabled();
         }
 
         @Override
@@ -226,7 +228,7 @@ public class ExceptionLogger implements InitializingBean {
         @Override
         public boolean isEnabled() {
             return monitoringLogger.isWarnEnabled() || applicationLogger
-                .isWarnEnabled();
+                    .isWarnEnabled();
         }
 
         @Override
@@ -245,7 +247,7 @@ public class ExceptionLogger implements InitializingBean {
         @Override
         public boolean isEnabled() {
             return monitoringLogger.isErrorEnabled() || applicationLogger
-                .isErrorEnabled();
+                    .isErrorEnabled();
         }
 
         @Override

@@ -1,23 +1,31 @@
 package com.undecided.gfw.common.exception;
 
 import com.undecided.primitive.map.Maps2;
-import java.util.LinkedHashMap;
-import java.util.Map.Entry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.LinkedHashMap;
+import java.util.Map.Entry;
+
 public class SimpleMappingExceptionCodeResolver implements
-    ExceptionCodeResolver {
+        ExceptionCodeResolver {
 
     private static final Logger logger = LoggerFactory.getLogger(
-        SimpleMappingExceptionCodeResolver.class);
+            SimpleMappingExceptionCodeResolver.class);
 
     private LinkedHashMap<String, String> exceptionMappings;
 
+    public SimpleMappingExceptionCodeResolver() {
+        this.exceptionMappings = new LinkedHashMap<>();
+        this.exceptionMappings.put("ResourceNotFoundException", "e.xx.fw.5001");
+        this.exceptionMappings.put("InvalidTransactionTokenException", "e.xx.fw.7001");
+        this.exceptionMappings.put("BusinessException", "e.xx.fw.8001");
+        this.exceptionMappings.put("DataAccessException", "e.xx.fw.9002");
+    }
+
     private String defaultExceptionCode;
 
-    public void setExceptionMappings(
-        LinkedHashMap<String, String> exceptionMappings) {
+    public void setExceptionMappings(LinkedHashMap<String, String> exceptionMappings) {
         this.exceptionMappings = exceptionMappings;
     }
 
@@ -30,7 +38,7 @@ public class SimpleMappingExceptionCodeResolver implements
 
         if (ex == null) {
             logger.warn(
-                "target exception is null. return defaultExceptionCode.");
+                    "target exception is null. return defaultExceptionCode.");
             return defaultExceptionCode;
         }
 

@@ -1,6 +1,5 @@
 package template.modules.admin.presentation.web.holiday;
 
-import com.undecided.gfw.common.exception.BusinessException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,6 @@ import template.modules.admin.domain.model.holiday.Holiday;
 import template.shared.entity.id.SnowflakeId;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * 祝日コントローラー
@@ -39,9 +37,6 @@ public class AdminHolidayController {
     public String get(Model model) {
         List<HolidayForm> formList = HolidayForm.HolidayFormList.reconstruct(holidayQuery.selectAll());
         model.addAttribute("formList", formList);
-        if (new Random().nextBoolean()) {
-            throw new BusinessException("dummy");
-        }
         return "admin/holiday/list";
 
     }

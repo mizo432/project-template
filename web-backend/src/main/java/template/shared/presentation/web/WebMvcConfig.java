@@ -1,7 +1,5 @@
 package template.shared.presentation.web;
 
-import com.undecided.gfw.common.exception.ExceptionLogger;
-import com.undecided.gfw.common.exception.ResultMessagesLoggingInterceptor;
 import com.undecided.gfw.web.logging.TraceLoggingInterceptor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.context.annotation.Bean;
@@ -39,14 +37,4 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     }
 
-    @Bean
-    protected ResultMessagesLoggingInterceptor resultMessagesLoggingInterceptor() {
-
-        ExceptionLogger exceptionLogger = new ExceptionLogger();
-        ResultMessagesLoggingInterceptor resultMessagesLoggingInterceptor = new ResultMessagesLoggingInterceptor();
-        resultMessagesLoggingInterceptor.setExceptionLogger(exceptionLogger);
-        return new ResultMessagesLoggingInterceptor();
-
-
-    }
 }

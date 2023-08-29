@@ -9,7 +9,7 @@
     <!--/*@thymesVar id="exception" type="java.lang.Exception"*/-->
     <h1 style="display: inline-block;color: crimson;" th:if="${exception!=null}"
         th:text="${exception.getMessage()}"></h1>
-    <h1 style="display: inline-block;color: crimson;" th:if="${exception==null}" th:text="#{notFound}"></h1>
+    <h1 style="display: inline-block;color: crimson;" th:if="${exception==null}" th:text="notFound"></h1>
 </div>
 
 </body>
