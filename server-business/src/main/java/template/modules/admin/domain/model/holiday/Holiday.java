@@ -52,6 +52,17 @@ public class Holiday {
         return new Holiday(SnowflakeId.of(holidayId), holiday, Name.of(name));
     }
 
+    /**
+     * IDが一致しているかを返却します。
+     *
+     * @param other 検索対象祝日
+     * @return 一致している場合trueを返却する
+     */
+    public boolean sameIdentifierAs(final Holiday other) {
+        return holidayId.equals(other.holidayId);
+
+    }
+
     public static class Holidays extends AbstractListValue<Holiday> {
         public Holidays(List<Holiday> value) {
             super(value);
