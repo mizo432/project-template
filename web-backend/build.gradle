@@ -92,7 +92,8 @@ dependencies {
     runtimeOnly "ch.qos.logback:logback-classic:${logbackVersion}"
     implementation("org.aspectj:aspectjrt:1.9.19")
     implementation 'org.aspectj:aspectjweaver:1.9.19'
-
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 
 }
 

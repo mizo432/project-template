@@ -2,10 +2,12 @@ package template.shared.user.attribbute;
 
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;
 import lombok.Getter;
+import org.seasar.doma.Domain;
 import template.shared.value.AbstractStringValue;
 import template.shared.value.CodeValue;
 
 @Getter
+@Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class UserCode extends AbstractStringValue implements CodeValue {
 
 

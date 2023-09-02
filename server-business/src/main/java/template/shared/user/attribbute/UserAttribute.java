@@ -1,6 +1,7 @@
 package template.shared.user.attribbute;
 
 import lombok.*;
+import template.shared.value.MultiValue;
 import template.shared.value.email.EmailAddress;
 import template.shared.value.name.Name;
 
@@ -8,7 +9,7 @@ import template.shared.value.name.Name;
 @EqualsAndHashCode
 @ToString
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class UserAttribute {
+public class UserAttribute implements MultiValue<UserAttribute> {
 
     private UserCode code;
 
@@ -29,4 +30,8 @@ public class UserAttribute {
         return new UserAttribute(code, emailAddress, name);
     }
 
+    @Override
+    public boolean isEmpty() {
+        return code.isEmpty() && name.isEmpty() && emailAddress.isEmpty();
+    }
 }
