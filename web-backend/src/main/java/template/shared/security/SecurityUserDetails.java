@@ -1,20 +1,25 @@
 package template.shared.security;
 
+import com.undecided.primitive.set.Sets2;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import template.modules.security.appl.model.user.UserAttribute;
 import template.modules.security.appl.query.authUser.AuthUser;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "reconstruct")
 @ToString
 public class SecurityUserDetails implements UserDetails {
     private AuthUser user;
+
+    private final Set<String> roles = Sets2.newHashSet("ADMIN");
 
     public static SecurityUserDetails createFrom(final AuthUser user) {
         return SecurityUserDetails.reconstruct(user);
@@ -22,7 +27,7 @@ public class SecurityUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return new HashSet<>();
+        return roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
 
     }
 
