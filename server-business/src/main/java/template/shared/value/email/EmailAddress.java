@@ -3,10 +3,12 @@ package template.shared.value.email;
 import com.undecided.primitive.string.Strings2;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import org.seasar.doma.Domain;
 import template.shared.value.AbstractStringValue;
 
-@Getter
+@Getter()
 @EqualsAndHashCode(callSuper = false)
+@Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class EmailAddress extends AbstractStringValue {
 
     private static final EmailAddress EMPTY = new EmailAddress(null);
