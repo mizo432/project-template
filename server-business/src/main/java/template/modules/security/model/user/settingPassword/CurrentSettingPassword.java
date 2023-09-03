@@ -1,4 +1,4 @@
-package template.modules.security.appl.model.user;
+package template.modules.security.model.user.settingPassword;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,22 +8,15 @@ import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 import template.shared.entity.id.SnowflakeId;
 
-/**
- * ユーザー.
- */
 @Getter
 @Entity(immutable = true)
-@Table(schema = "security", name = "user")
+@Table(schema = "security", name = "current_setting_password")
 @AllArgsConstructor
 @ToString
-public class User {
-
+public class CurrentSettingPassword {
     @Id
     private final SnowflakeId userId;
 
-    private final UserAttribute userAttribute;
+    private final EncodedPassword encodedPassword;
 
-    public boolean isEmpty() {
-        return userId.isEmpty() && userAttribute.isEmpty();
-    }
 }

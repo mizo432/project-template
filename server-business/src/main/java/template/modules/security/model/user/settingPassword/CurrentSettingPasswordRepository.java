@@ -1,4 +1,4 @@
-package template.modules.security.appl.model.user.settingPassword;
+package template.modules.security.model.user.settingPassword;
 
 import org.seasar.doma.Dao;
 import org.seasar.doma.Select;

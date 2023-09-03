@@ -1,5 +1,6 @@
 package template.shared.entity;
 
+import com.undecided.primitive.localDate.StaticDateProvider;
 import com.undecided.primitive.object.Objects2;
 import lombok.Getter;
 import org.seasar.doma.Domain;
@@ -21,6 +22,11 @@ public class WhenOccurred extends AbstractDateTimeValue {
 
     public static WhenOccurred reconstruct(LocalDateTime value) {
         return new WhenOccurred(value);
+
+    }
+
+    public static WhenOccurred current() {
+        return new WhenOccurred(StaticDateProvider.currentLocalDateTime());
 
     }
 

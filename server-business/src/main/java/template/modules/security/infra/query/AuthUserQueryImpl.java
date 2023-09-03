@@ -2,12 +2,12 @@ package template.modules.security.infra.query;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import template.modules.security.appl.model.user.User;
-import template.modules.security.appl.model.user.UserRepository;
-import template.modules.security.appl.model.user.settingPassword.CurrentSettingPassword;
-import template.modules.security.appl.model.user.settingPassword.CurrentSettingPasswordRepository;
 import template.modules.security.appl.query.authUser.AuthUser;
 import template.modules.security.appl.query.authUser.AuthUserQuery;
+import template.modules.security.model.user.User;
+import template.modules.security.model.user.UserRepository;
+import template.modules.security.model.user.settingPassword.CurrentSettingPassword;
+import template.modules.security.model.user.settingPassword.CurrentSettingPasswordRepository;
 import template.shared.user.attribbute.UserCode;
 
 @Service

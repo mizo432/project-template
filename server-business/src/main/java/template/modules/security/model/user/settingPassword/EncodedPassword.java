@@ -1,6 +1,7 @@
-package template.modules.security.appl.model.user.settingPassword;
+package template.modules.security.model.user.settingPassword;
 
 import org.seasar.doma.Domain;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import template.shared.value.AbstractStringValue;
 
 
@@ -14,6 +15,11 @@ public class EncodedPassword extends AbstractStringValue {
 
     public static EncodedPassword reconstruct(String value) {
         return new EncodedPassword(value);
+
+    }
+
+    public static EncodedPassword initialize(PasswordEncoder passwordEncoder) {
+        return new EncodedPassword(passwordEncoder.encode("password"));
 
     }
 }

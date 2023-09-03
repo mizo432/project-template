@@ -7,8 +7,8 @@ import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import template.modules.security.appl.model.user.UserAttribute;
 import template.modules.security.appl.query.authUser.AuthUser;
+import template.modules.security.model.user.UserAttribute;
 
 import java.util.Collection;
 import java.util.Set;
