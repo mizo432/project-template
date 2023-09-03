@@ -67,6 +67,7 @@ dependencies {
     testImplementation 'ch.qos.logback:logback-core'
     testRuntimeOnly 'ch.qos.logback:logback-classic'
     implementation "org.seasar.doma:doma-slf4j:${domaVersion}"
+    implementation 'org.springframework.security:spring-security-crypto'
 }
 
 pmd {

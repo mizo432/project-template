@@ -3,8 +3,8 @@ package template.modules.security.appl.query.authUser;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
-import template.modules.security.appl.model.user.User;
-import template.modules.security.appl.model.user.settingPassword.EncodedPassword;
+import template.modules.security.model.user.User;
+import template.modules.security.model.user.settingPassword.EncodedPassword;
 import template.shared.value.MultiValue;
 
 @AllArgsConstructor

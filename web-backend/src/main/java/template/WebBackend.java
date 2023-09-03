@@ -1,5 +1,6 @@
 package template;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,8 +14,8 @@ import org.springframework.context.annotation.ImportResource;
 @ComponentScans
         ({@ComponentScan("com.undecided")})
 @ImportResource({"classpath:META-INF/spring/applicationContext.xml"})
+@Slf4j
 public class WebBackend {
-
     /**
      * 起動用ブートストラップ
      *
