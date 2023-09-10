@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>テンプレートシステム</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="no" name="application-tap-highlight">
+    <meta content="" name="description">
     <!-- Compiled and minified CSS -->
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/css/materialize.min.css"
+    <link href="../../static/css/materialize.css"
           media="screen,projection"
           rel="stylesheet"
           th:href="@{/css/materialize.min.css}">
@@ -18,139 +22,345 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 </head>
 <body>
-<div class="container">
+<header>
+    <div class="navbar-fixed">
+        <nav class="navbar white">
+            <div class="nav-wrapper">
+                <a class="brand-logo grey-text text-darken-4" href="#"><i class="material-icons">home</i>テンプレートシステム</a>
+                <ul class="right" id="nav-mobile">
+                    <li class="hide-on-med-and-down"><a class="dropdown-trigger waves-effect black-text"
+                                                        data-target="dropdown1"
+                                                        href="#!"><i
+                            class="material-icons">notifications</i></a>
+                    </li>
+                    <li><a class="dropdown-trigger waves-effect black-text" data-target="chat-dropdown"
+                           href="#"><i
+                            class="material-icons">settings</i></a></li>
+                </ul>
+                <a class="sidenav-trigger left" data-target="sidenav-left" href="#!"><i
+                        class="material-icons black-text">menu</i></a>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="sidenav-left">
+        <li><a class="logo-container" href="#">Admin<i class="material-icons left">spa</i></a></li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold waves-effect active"><a class="collapsible-header">Pages<i
+                        class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect active" href="#">Dashboard<i class="material-icons">web</i></a>
+                            </li>
+                            <li><a class="waves-effect" href="pages-fixed-chart.html">Fixed Chart<i
+                                    class="material-icons">list</i></a></li>
+                            <li><a class="waves-effect" href="pages-grid.html">Grid<i
+                                    class="material-icons">dashboard</i></a></li>
+                            <li><a class="waves-effect" href="pages-chat.html">Chat<i
+                                    class="material-icons">chat</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Charts<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="line-charts.html">Line Charts<i class="material-icons">show_chart</i></a>
+                            </li>
+                            <li><a class="waves-effect" href="bar-charts.html">Bar Charts<i class="material-icons">equalizer</i></a>
+                            </li>
+                            <li><a class="waves-effect" href="area-charts.html">Area Charts<i class="material-icons">multiline_chart</i></a>
+                            </li>
+                            <li><a class="waves-effect" href="doughnut-charts.html">Doughnut Charts<i
+                                    class="material-icons">pie_chart</i></a></li>
+                            <li><a class="waves-effect" href="financial-charts.html">Financial Charts<i
+                                    class="material-icons">euro_symbol</i></a></li>
+                            <li><a class="waves-effect" href="interactive-charts.html">Interactive Charts<i
+                                    class="material-icons">touch_app</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Tables<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="fullscreen-table.html">Fullscreen with Chart<i
+                                    class="material-icons">show_chart</i></a></li>
+                            <li><a class="waves-effect" href="table-custom-elements.html">Table with Custom Elements<i
+                                    class="material-icons">settings</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Calendar<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="calendar.html">Calendar<i class="material-icons">cloud</i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Headers<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="header-tabbed.html">Tabbed<i
+                                    class="material-icons">tab</i></a></li>
+                            <li><a class="waves-effect" href="header-metrics.html">Metrics<i
+                                    class="material-icons">web</i></a></li>
+                            <li><a class="waves-effect" href="header-search.html">Search<i
+                                    class="material-icons">search</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Account<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="log-in.html">Log In<i
+                                    class="material-icons">person</i></a></li>
+                            <li><a class="waves-effect" href="settings.html">Settings<i
+                                    class="material-icons">settings</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="dropdown-content notifications" id="dropdown1">
+        <div class="notifications-title">notifications</div>
+        <div class="card">
+            <div class="card-content"><span class="card-title">Joe Smith made a purchase</span>
+                <p>Content</p>
+            </div>
+            <div class="card-action"><a href="#!">view</a><a href="#!">dismiss</a></div>
+        </div>
+        <div class="card">
+            <div class="card-content"><span class="card-title">Daily Traffic Update</span>
+                <p>Content</p>
+            </div>
+            <div class="card-action"><a href="#!">view</a><a href="#!">dismiss</a></div>
+        </div>
+        <div class="card">
+            <div class="card-content"><span class="card-title">New User Joined</span>
+                <p>Content</p>
+            </div>
+            <div class="card-action"><a href="#!">view</a><a href="#!">dismiss</a></div>
+        </div>
+    </div>
+    <div class="nav-content">
+        <ul class="tabs">
+            <li class="tab col s3 xl3"><a class="active" href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3 disabled"><a href="../admin/index.html"
+                                                   th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+        </ul>
+    </div>
+</header>
+<main class="container">
+    <h3 th:text="${message}">メッセージ</h3>
     <!-- Page Content goes here -->
     <div class="row">
-        <div class="col s2 xl2 z-depth-2">
-            <nav>
-                <ul class="sidenav">
-                    <li>
-                        <div class="col s12 m6">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Card Title</span>
-                                    <p>I am a very simple card. I am good at containing small bits of information.
-                                        I am convenient because I require little markup to use effectively.</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#">This is a link</a>
-                                    <a href="#">This is a link</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a class="waves-effect" href="#"><i class="material-icons">cloud</i>First Link With Icon</a>
-                    </li>
-                    <li><a class="waves-effect" href="#">Second Link</a></li>
-                    <li>
-                        <div class="divider"></div>
-                    </li>
-                    <li><a class="subheader">Subheader</a></li>
-                    <li><a class="waves-effect" href="#">Third Link With Waves</a></li>
-                </ul>
-
-            </nav>
-        </div>
-        <div class="col s10 xl10">
-            <nav class="col s12 xl12">
-                <div class="nav-wrapper" th:fragment="navi-bar">
-                    <a class="brand-logo" href="/"><i class="material-icons">home</i>テンプレートシステム</a>
-                </div>
-            </nav>
-            <nav class="col s12 xl12">
-                <div class="nav-wrapper">
-                    <div class="col s12 xl12">
-                        <a class="breadcrumb" href="/">First</a>
-                        <a class="breadcrumb" href="/">Second</a>
-                        <span class="breadcrumb">Third</span>
-                    </div>
-                </div>
-            </nav>
+        <nav class="nav-wrapper col s12 xl12">
+            <a class="breadcrumb" href="/">First</a>
+            <a class="breadcrumb" href="/">Second</a>
+            <span class="breadcrumb">Third</span>
+        </nav>
+        <div class="col s12 xl12">
+            <ul class="pagination">
+                <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li class="waves-effect"><a href="#">2</a></li>
+                <li class="waves-effect"><a href="#">3</a></li>
+                <li class="waves-effect"><a href="#">4</a></li>
+                <li class="waves-effect"><a href="#">5</a></li>
+                <li class="waves-effect"><a href="#"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
             <div class="col s12 xl12">
-                <ul class="tabs">
-                    <li class="tab col s3 xl3"><a href="../admin/index.html"
-                                                  th:href="@{/admin}">システム管理</a></li>
-                    <li class="tab col s3 xl3"><a href="../admin/index.html"
-                                                  th:href="@{/admin}">システム管理</a></li>
-                    <li class="tab col s3 xl3"><a href="../admin/index.html"
-                                                  th:href="@{/admin}">システム管理</a></li>
-                    <li class="tab col s3 xl3" disabled><a href="../admin/index.html"
-                                                           th:href="@{/admin}">システム管理</a></li>
-                    <li class="tab col s3 xl3"><a href="../admin/index.html"
-                                                  th:href="@{/admin}">システム管理</a></li>
-                    <li class="tab col s3 xl3"><a href="../admin/index.html"
-                                                  th:href="@{/admin}">システム管理</a></li>
-                    <li class="tab col s3 xl3"><a href="../admin/index.html"
-                                                  th:href="@{/admin}">システム管理</a></li>
-                    <li class="tab col s3 xl3"><a href="../admin/index.html"
-                                                  th:href="@{/admin}">システム管理</a></li>
+                <ul class="pagination">
+                    <li class="active"><a href="#">2024</a></li>
+                    <li class="waves-effect"><a href="#">2023</a></li>
+                    <li class="waves-effect"><a href="#">2022</a></li>
+                    <li class="waves-effect"><a href="#">2021</a></li>
+                    <li class="waves-effect"><a href="#">2020</a></li>
                 </ul>
-            </div>
-            <div class="col s12 xl12">
-                <h3 th:text="${message}">メッセージ</h3>
             </div>
             <div class="col s12 xl12">
                 <ul class="pagination">
-                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                    <li class="active"><a href="#!">1</a></li>
-                    <li class="waves-effect"><a href="#!">2</a></li>
-                    <li class="waves-effect"><a href="#!">3</a></li>
-                    <li class="waves-effect"><a href="#!">4</a></li>
-                    <li class="waves-effect"><a href="#!">5</a></li>
-                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                    <li class="active"><a href="#">2023-08</a></li>
+                    <li class="waves-effect"><a href="#">2023-07</a></li>
+                    <li class="waves-effect"><a href="#">2023-06</a></li>
+                    <li class="waves-effect"><a href="#">2023-05</a></li>
+                    <li class="waves-effect"><a href="#">2023-04</a></li>
                 </ul>
-                <div class="col s12 xl12">
-                    <ul class="pagination">
-                        <li class="active"><a href="#">2024</a></li>
-                        <li class="waves-effect"><a href="#">2023</a></li>
-                        <li class="waves-effect"><a href="#">2022</a></li>
-                        <li class="waves-effect"><a href="#">2021</a></li>
-                        <li class="waves-effect"><a href="#">2020</a></li>
-                    </ul>
-                </div>
-                <div class="col s12 xl12">
-                    <ul class="pagination">
-                        <li class="active"><a href="#">2023-08</a></li>
-                        <li class="waves-effect"><a href="#">2023-07</a></li>
-                        <li class="waves-effect"><a href="#">2023-06</a></li>
-                        <li class="waves-effect"><a href="#">2023-05</a></li>
-                        <li class="waves-effect"><a href="#">2023-04</a></li>
-                    </ul>
-                </div>
-                <div class="col s12 xl12">
-                    <ul class="pagination">
-                        <li class="active"><a href="#">2023-03-02</a></li>
-                        <li class="waves-effect"><a href="#">2023-03-01</a></li>
-                        <li class="waves-effect"><a href="#">2023-03-28</a></li>
-                        <li class="waves-effect"><a href="#">2023-03-27</a></li>
-                        <li class="waves-effect"><a href="#">2023-03-26</a></li>
-                        <li class="waves-effect"><a href="#">2023-03-25</a></li>
-                        <li class="waves-effect"><a href="#">2023-03-24</a></li>
-                    </ul>
-                </div>
-                <div class="col s12 xl12">
-                    <ul class="pagination">
-                        <li class="active"><a href="#">あ</a></li>
-                        <li class="waves-effect"><a href="#">か</a></li>
-                        <li class="waves-effect"><a href="#">さ</a></li>
-                        <li class="waves-effect"><a href="#">た</a></li>
-                        <li class="waves-effect"><a href="#">な</a></li>
-                        <li class="waves-effect"><a href="#">は</a></li>
-                        <li class="waves-effect"><a href="#">ま</a></li>
-                        <li class="waves-effect"><a href="#">や</a></li>
-                        <li class="waves-effect"><a href="#">ら</a></li>
-                        <li class="waves-effect"><a href="#">わ</a></li>
-                    </ul>
-                </div>
+            </div>
+            <div class="col s12 xl12">
+                <ul class="pagination">
+                    <li class="active"><a href="#">2023-03-02</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-01</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-28</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-27</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-26</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-25</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-24</a></li>
+                </ul>
+            </div>
+            <div class="col s12 xl12">
+                <ul class="pagination">
+                    <li class="active"><a href="#">あ</a></li>
+                    <li class="waves-effect"><a href="#">か</a></li>
+                    <li class="waves-effect"><a href="#">さ</a></li>
+                    <li class="waves-effect"><a href="#">た</a></li>
+                    <li class="waves-effect"><a href="#">な</a></li>
+                    <li class="waves-effect"><a href="#">は</a></li>
+                    <li class="waves-effect"><a href="#">ま</a></li>
+                    <li class="waves-effect"><a href="#">や</a></li>
+                    <li class="waves-effect"><a href="#">ら</a></li>
+                    <li class="waves-effect"><a href="#">わ</a></li>
+                </ul>
             </div>
         </div>
-
     </div>
-</div>
+    <form>
+        <div class="input-field outlined error">
+            <div class="suffix"><i class="material-icons">error</i></div>
+            <input id="inp-error" placeholder="email" required type="email" value="$%/'#sdf">
+            <label for="inp-error">E-mail</label>
+            <span class="supporting-text">Invalid characters! Please use 0-9 only.</span>
+        </div>
+        <br/>
+        <div class="input-field outlined error">
+            <div class="suffix"><i class="material-icons">error</i></div>
+            <input class="validate" id="password" placeholder="Passwordを入力してください" type="password"
+                   value="$%/'#sdf">
+            <label for="password">Password</label>
+            <span class="supporting-text">Invalid characters! Please use 0-9 only.</span>
+        </div>
+        <br/>
+        <div class="input-field outlined">
+            <!--            <div class="suffix"><i class="material-icons">error</i></div>-->
+            <input class="validate" id="password2" placeholder="Passwordを入力してください" type="password">
+            <label for="password2">Password</label>
+            <span class="supporting-text">Invalid characters! Please use 0-9 only.</span>
+        </div>
+        <div class="input-field col s12">
+            <select id="form-select-1">
+                <option disabled selected value="">Choose your option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <label for="form-select-1">Materialize Select</label>
+        </div>
+        <br/>
+        <div class="input-field col s12">
+            <select id="form-select-2" multiple>
+                <option disabled selected value="">Choose your option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <label for="form-select-2">Materialize Multiple Select</label>
+        </div>
+        <p>
+            <label>
+                <input checked name="group1" type="radio"/>
+                <span>Red</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input name="group1" type="radio"/>
+                <span>Yellow</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input class="with-gap" name="group1" type="radio"/>
+                <span>Green</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input disabled="disabled" name="group1" type="radio"/>
+                <span>Brown</span>
+            </label>
+        </p>
+        <div class="input-field col s12">
+            <textarea class="materialize-textarea" id="textarea1" placeholder=" "></textarea>
+            <label for="textarea1">Textarea</label>
+        </div>
+        <br/>
+        <h4>表のタイトル</h4>
+        <table class="responsive-table" title="表のタイトル">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Item Name</th>
+                <th>Item Price</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Alvin</td>
+                <td>Eclair</td>
+                <td>$0.87</td>
+            </tr>
+            <tr>
+                <td>Alan</td>
+                <td>Jellybean</td>
+                <td>$3.76</td>
+            </tr>
+            <tr>
+                <td>Jonathan</td>
+                <td>Lollipop</td>
+                <td>$7.00</td>
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+        <h4>表のタイトル</h4>
+        <table class="striped　responsive-table" title="表のタイトル">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Item Name</th>
+                <th>Item Price</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Alvin</td>
+                <td>Eclair</td>
+                <td>$0.87</td>
+            </tr>
+            <tr>
+                <td>Alan</td>
+                <td>Jellybean</td>
+                <td>$3.76</td>
+            </tr>
+            <tr>
+                <td>Jonathan</td>
+                <td>Lollipop</td>
+                <td>$7.00</td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</main>
 
 </body>
 <!-- Compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/js/materialize.min.js"
+<script src="../../static/js/materialize.js"
         th:src="@{/js/materialize.min.js}"></script>
 <script src="../../static/js/init.js" th:src="@{~/js/init.js}"></script>
 </html>
