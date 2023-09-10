@@ -21,7 +21,7 @@ public class ControllerExceptionHandler {
     @ExceptionHandler({ResourceNotFoundException.class})
     public String handleResourceNotFoundException(ResourceNotFoundException e, Model model) {
         model.addAttribute("exception", e);
-        return "error/404";
+        return "/error/404";
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
