@@ -65,6 +65,7 @@ httpStatus
 | GET    | Ok(200)         | Bad request(400) |
 | POST   | Created(201)    |                  |
 | PUT    | Ok(200)         |                  |
+| PATCH  | Ok(200)         | エンティティの一部更新 |
 | DELETE | No content(204) |                  |
 
 PUTとDELETEはリソースの{identifier}が必須
