@@ -1,15 +1,15 @@
-package template.modules.project.domain.model.project;
+package template.modules.admin.domain.model.project;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.undecided.primitive.object.Objects2;
 import lombok.Getter;
 import lombok.ToString;
+import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
 import org.seasar.doma.Table;
 import org.seasar.doma.boot.ConfigAutowireable;
-import template.modules.project.domain.model.project.attribute.ProjectAttribute;
-import template.shared.entity.AuditInfo;
+import template.modules.admin.domain.model.project.attribute.ProjectAttribute;
 import template.shared.entity.id.SnowflakeId;
 import template.shared.value.AbstractListValue;
 
@@ -20,21 +20,21 @@ import java.util.List;
  */
 @Getter
 @Entity(immutable = true)
-@Table(schema = "resource", name = "projects")
+@Table(schema = "admin", name = "project")
 @ConfigAutowireable
 @ToString
 public class Project {
-    private final SnowflakeId id;
+
+    @Column(name = "project_id")
+    private final SnowflakeId projectTd;
 
     private final ProjectAttribute attribute;
-    private final AuditInfo auditInfo;
 
     /**
      * コンストラクター.
      */
     public Project() {
-        id = SnowflakeId.empty();
-        auditInfo = AuditInfo.empty();
+        projectTd = SnowflakeId.empty();
         attribute = ProjectAttribute.empty();
 
 
@@ -43,15 +43,12 @@ public class Project {
     /**
      * コンストラクター.
      *
-     * @param id        ID
-     * @param auditInfo 証跡
+     * @param projectTd ID
      * @param attribute 属性
      */
-    public Project(SnowflakeId id,
-                   AuditInfo auditInfo,
+    public Project(SnowflakeId projectTd,
                    ProjectAttribute attribute) {
-        this.id = id;
-        this.auditInfo = auditInfo;
+        this.projectTd = projectTd;
         this.attribute = attribute;
     }
 
@@ -64,21 +61,21 @@ public class Project {
     @JsonCreator
     public static Project create(@JsonProperty("id") SnowflakeId id,
                                  @JsonProperty("attribute") ProjectAttribute attribute) {
-        return new Project(id, AuditInfo.empty(), attribute);
+        return new Project(id, attribute);
 
     }
 
     public static Project create(Project project) {
-        return new Project(SnowflakeId.newInstance(), AuditInfo.empty(), project.attribute);
+        return new Project(SnowflakeId.newInstance(), project.attribute);
 
     }
 
     public static Project newInstance() {
-        return new Project(SnowflakeId.newInstance(), AuditInfo.empty(), ProjectAttribute.empty());
+        return new Project(SnowflakeId.newInstance(), ProjectAttribute.empty());
     }
 
     public static Project empty() {
-        return new Project(SnowflakeId.empty(), AuditInfo.empty(), ProjectAttribute.empty());
+        return new Project(SnowflakeId.empty(), ProjectAttribute.empty());
     }
 
     public boolean sameValueAs(Project other) {
@@ -88,7 +85,7 @@ public class Project {
     }
 
     public boolean sameIdAs(Project other) {
-        return id.equals(other.id);
+        return projectTd.equals(other.projectTd);
 
     }
 
@@ -103,12 +100,12 @@ public class Project {
         if (!super.equals(o)) {
             return false;
         }
-        return id.equals(project.id) && attribute.equals(project.attribute);
+        return projectTd.equals(project.projectTd) && attribute.equals(project.attribute);
     }
 
     @Override
     public int hashCode() {
-        return Objects2.hash(getClass(), id, auditInfo, attribute);
+        return Objects2.hash(getClass(), projectTd, attribute);
 
     }
 

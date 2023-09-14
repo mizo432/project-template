@@ -3,8 +3,8 @@ package template.modules.resource.presentation.api.projects;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+import template.modules.admin.domain.model.project.Project;
 import template.modules.project.domain.appl.command.project.RegisterProjectCommand;
-import template.modules.project.domain.model.project.Project;
 import template.shared.entity.id.SnowflakeId;
 
 import java.net.URI;
@@ -37,7 +37,7 @@ public class ProjectsRestController {
 
         // Locationで設定するURLを作成する
         URI location = uriBuilder.path("v1.0/projects/{id}")    // c
-                .buildAndExpand(createdProject.getId().asString())    // d
+                .buildAndExpand(createdProject.getProjectTd().asString())    // d
                 .toUri();
 
         // レスポンス情報を作成

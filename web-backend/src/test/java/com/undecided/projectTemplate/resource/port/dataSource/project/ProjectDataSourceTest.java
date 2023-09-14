@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import template.modules.project.domain.model.project.Project;
-import template.modules.project.domain.model.project.attribute.ProjectAttribute;
-import template.modules.project.domain.model.project.attribute.ProjectCode;
-import template.modules.project.domain.model.project.attribute.ProjectName;
-import template.modules.project.domain.model.project.attribute.StoryCodePrefix;
+import template.modules.admin.domain.model.project.Project;
+import template.modules.admin.domain.model.project.attribute.ProjectAttribute;
+import template.modules.admin.domain.model.project.attribute.ProjectCode;
+import template.modules.admin.domain.model.project.attribute.ProjectName;
+import template.modules.admin.domain.model.project.attribute.StoryCodePrefix;
 import template.modules.project.port.dataSource.project.ProjectDataSource;
 import template.shared.type.description.Description;
 
@@ -38,7 +38,7 @@ class ProjectDataSourceTest {
             projectDataSource.insert(project);
 
             Project actualOptionalProject = projectDataSource.findOneById(
-                    project.getId());
+                    project.getProjectTd());
             assertThat(actualOptionalProject).isNotNull();
             System.out.println(actualOptionalProject);
 
@@ -53,7 +53,7 @@ class ProjectDataSourceTest {
             projectDataSource.update(project);
 
             Project actualOptionalProject = projectDataSource.findOneById(
-                    project.getId());
+                    project.getProjectTd());
             assertThat(actualOptionalProject).isNotNull();
             System.out.println(actualOptionalProject);
         }
@@ -64,10 +64,10 @@ class ProjectDataSourceTest {
             Project project = Project.create(ProjectAttribute.create(ProjectName.of("ProjectName"),
                     ProjectCode.of("PRJ"), StoryCodePrefix.of("APL"), Description.of("description")));
             projectDataSource.insert(project);
-            projectDataSource.delete(project.getId());
+            projectDataSource.delete(project.getProjectTd());
 
             Project actualOptionalProject = projectDataSource.findOneById(
-                    project.getId());
+                    project.getProjectTd());
             assertThat(actualOptionalProject).isNull();
 
         }

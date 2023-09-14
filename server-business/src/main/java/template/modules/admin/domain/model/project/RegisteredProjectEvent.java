@@ -1,4 +1,4 @@
-package template.modules.project.domain.model.project;
+package template.modules.admin.domain.model.project;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

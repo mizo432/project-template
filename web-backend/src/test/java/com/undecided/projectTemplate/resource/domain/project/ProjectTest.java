@@ -1,11 +1,11 @@
 package com.undecided.projectTemplate.resource.domain.project;
 
 import org.junit.jupiter.api.Test;
-import template.modules.project.domain.model.project.Project;
-import template.modules.project.domain.model.project.attribute.ProjectAttribute;
-import template.modules.project.domain.model.project.attribute.ProjectCode;
-import template.modules.project.domain.model.project.attribute.ProjectName;
-import template.modules.project.domain.model.project.attribute.StoryCodePrefix;
+import template.modules.admin.domain.model.project.Project;
+import template.modules.admin.domain.model.project.attribute.ProjectAttribute;
+import template.modules.admin.domain.model.project.attribute.ProjectCode;
+import template.modules.admin.domain.model.project.attribute.ProjectName;
+import template.modules.admin.domain.model.project.attribute.StoryCodePrefix;
 import template.shared.entity.AuditInfo;
 import template.shared.entity.id.SnowflakeId;
 import template.shared.type.description.Description;
@@ -39,7 +39,7 @@ class ProjectTest {
         // Assert
         ProjectAttribute attribute = actualProject.getAttribute();
         assertSame(createResult, attribute);
-        SnowflakeId actualId = actualProject.getId();
+        SnowflakeId actualId = actualProject.getProjectTd();
         assertSame(newInstanceResult, actualId);
         StoryCodePrefix storyCodePrefix = attribute.getStoryCodePrefix();
         assertSame(ofResult2, storyCodePrefix);

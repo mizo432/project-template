@@ -1,4 +1,4 @@
-package template.modules.project.domain.model.project.attribute;
+package template.modules.admin.domain.model.project.attribute;
 
 import com.undecided.primitive.string.Strings2;
 import com.undecided.projectTemplate.shared.precondition.string.StringPreconditions;

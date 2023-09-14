@@ -2,8 +2,8 @@ package template.modules.project.appl.command.project;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import template.modules.project.domain.model.project.Project;
-import template.modules.project.domain.model.project.ProjectRepository;
+import template.modules.admin.domain.model.project.Project;
+import template.modules.admin.domain.model.project.ProjectRepository;
 
 @Service
 public class InsertProjectCommand {

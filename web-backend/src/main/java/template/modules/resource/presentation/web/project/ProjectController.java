@@ -3,11 +3,11 @@ package template.modules.resource.presentation.web.project;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import template.modules.admin.domain.model.project.Project;
 import template.modules.project.appl.command.project.DeleteProjectCommand;
 import template.modules.project.appl.command.project.InsertProjectCommand;
 import template.modules.project.appl.command.project.UpdateProjectCommand;
 import template.modules.project.appl.query.project.ProjectFetcher;
-import template.modules.project.domain.model.project.Project;
 import template.shared.entity.id.SnowflakeId;
 
 @Controller

@@ -2,7 +2,7 @@ package template.modules.project.appl.command.project;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import template.modules.project.domain.model.project.ProjectRepository;
+import template.modules.admin.domain.model.project.ProjectRepository;
 import template.shared.entity.id.SnowflakeId;
 
 @Service
@@ -16,7 +16,7 @@ public class DeleteProjectCommand {
 
     @Transactional
     public void delete(SnowflakeId projectId) {
-        projectRepository.delete(projectId);
+        projectRepository.deleteById(projectId);
 
     }
 }
