@@ -3,7 +3,7 @@ package template.modules.resource.presentation.api.actors;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-import template.modules.project.domain.model.project.Project;
+import template.modules.admin.domain.model.project.Project;
 import template.modules.story.appl.command.actor.RegisterActorCommand;
 import template.modules.story.domain.model.actor.Actor;
 import template.shared.entity.id.SnowflakeId;

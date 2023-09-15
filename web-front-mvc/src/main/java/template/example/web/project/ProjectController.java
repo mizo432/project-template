@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import template.modules.admin.domain.model.project.Project;
+import template.modules.admin.domain.model.project.attribute.ProjectCode;
 import template.modules.example.appl.command.employee.EntityNotFoundException;
 import template.modules.project.appl.command.project.InsertProjectCommand;
 import template.modules.project.appl.query.project.ProjectFetcher;
-import template.modules.project.domain.model.project.Project;
-import template.modules.project.domain.model.project.attribute.ProjectCode;
 
 @Controller
 @RequestMapping("/projects")

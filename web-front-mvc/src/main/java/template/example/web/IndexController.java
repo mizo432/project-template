@@ -4,8 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import template.modules.admin.domain.model.project.Project;
 import template.modules.project.appl.query.project.ProjectFetcher;
-import template.modules.project.domain.model.project.Project;
 
 @Controller
 @RequestMapping("/")

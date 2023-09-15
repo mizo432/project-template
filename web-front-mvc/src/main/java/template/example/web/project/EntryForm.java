@@ -3,7 +3,7 @@ package template.example.web.project;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import template.modules.project.domain.model.project.Project;
+import template.modules.admin.domain.model.project.Project;
 
 @Getter
 @Setter
