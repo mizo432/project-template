@@ -1,111 +1,537 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<html lang="ja" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>テンプレートシステム</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!--Let browser know website is optimized for mobile-->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="no" name="application-tap-highlight">
+    <meta content="" name="description">
     <!-- Compiled and minified CSS -->
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/css/materialize.min.css"
+    <link href="../../static/css/materialize.css"
           media="screen,projection"
-          th:href="@{/css/materialize.min.css}"
-          rel="stylesheet">
+          rel="stylesheet"
+          th:href="@{/css/materialize.min.css}">
+    <link href="../../static/css/mstepper.css" rel="stylesheet" th:href="@{~/css/mstepper.min.css}">
+    <link href="../../static/css/appl-materialize.min.css" rel="stylesheet" th:href="@{~/css/appl-materialize.min.css}">
     <link href="../../static/css/application.css" rel="stylesheet" th:href="@{~/css/application.css}">
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 </head>
 <body>
-<nav>
-    <div class="nav-wrapper" th:fragment="navi-bar">
-        <a class="brand-logo" href="/">テンプレートシステム</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="badges.html">一般</a></li>
-            <li><a href="../admin/index.html" th:href="@{/admin}">システム管理</a></li>
-        </ul>
+<header>
+    <div class="navbar-fixed">
+        <nav class="navbar white">
+            <div class="nav-wrapper">
+                <a class="sidenav-trigger left show-on-large" data-target="sidenav-left" href="#"><i
+                        class="material-icons black-text">menu</i></a>
+                <a class="brand-logo grey-text text-darken-4" href="#"><i class="material-icons">home</i>テンプレートシステム</a>
+                <ul class="right" id="nav-mobile">
+                    <li class="hide-on-med-and-down"><a class="dropdown-trigger waves-effect black-text"
+                                                        data-target="dropdown1" href="#"><i class="material-icons">notifications</i></a>
+                    </li>
+                    <li><a class="dropdown-trigger waves-effect black-text" data-target="chat-dropdown"
+                           href="#"><i class="material-icons">settings</i></a></li>
+                </ul>
+
+            </div>
+        </nav>
     </div>
-</nav>
-<nav>
-    <div class="nav-wrapper">
-        <div class="col s12">
-            <a class="breadcrumb" href="#!">First</a>
-            <a class="breadcrumb" href="#!">Second</a>
-            <a class="breadcrumb" href="#!">Third</a>
+    <ul class="sidenav teal lighten-2" id="sidenav-left">
+        <li><a class="logo-container" href="#"><i class="material-icons left">home</i>システム管理</a></li>
+        <li>
+            <div class="user-view" th:fragment="userView">
+                <!--
+                                <div class="background">
+                                    <img alt="officeの写真" src="images/office.jpg">
+                                </div>
+                -->
+                <!--
+                                <img alt="ユーザーの写真" class="circle" src="images/yuna.jpg">
+                -->
+                <span class="white-text name" sec:authentication="name">John Doe</span>
+                <!--                <span class="white-text email"-->
+                <!--                      sec:authentication="mailAddress">jdoe@example.com</span>-->
+            </div>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold waves-effect active"><a class="collapsible-header">Pages<i
+                        class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect active" href="#"><i class="material-icons">web</i>Dashboard</a>
+                            </li>
+                            <li><a class="waves-effect" href="./fragments.html">Fixed Chart<i
+                                    class="material-icons">list</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Grid<i
+                                    class="material-icons">dashboard</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Chat<i
+                                    class="material-icons">chat</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Charts<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="./fragments.html">Line Charts<i class="material-icons">show_chart</i></a>
+                            </li>
+                            <li><a class="waves-effect" href="./fragments.html">Bar Charts<i class="material-icons">equalizer</i></a>
+                            </li>
+                            <li><a class="waves-effect" href="./fragments.html">Area Charts<i class="material-icons">multiline_chart</i></a>
+                            </li>
+                            <li><a class="waves-effect" href="./fragments.html">Doughnut Charts<i
+                                    class="material-icons">pie_chart</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Financial Charts<i
+                                    class="material-icons">euro_symbol</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Interactive Charts<i
+                                    class="material-icons">touch_app</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Tables<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="./fragments.html">Fullscreen with Chart<i
+                                    class="material-icons">show_chart</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Table with Custom Elements<i
+                                    class="material-icons">settings</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Calendar<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="./fragments.html">Calendar<i
+                                    class="material-icons">cloud</i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Headers<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="./fragments.html">Tabbed<i
+                                    class="material-icons">tab</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Metrics<i
+                                    class="material-icons">web</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Search<i
+                                    class="material-icons">search</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Account<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="./fragments.html">Log In<i
+                                    class="material-icons">person</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Settings<i
+                                    class="material-icons">settings</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="dropdown-content notifications" id="dropdown1">
+        <div class="notifications-title">notifications</div>
+        <div class="card">
+            <div class="card-content"><span class="card-title">Joe Smith made a purchase</span>
+                <p>Content</p>
+            </div>
+            <div class="card-action"><a href="#">view</a><a href="#">dismiss</a></div>
+        </div>
+        <div class="card">
+            <div class="card-content"><span class="card-title">Daily Traffic Update</span>
+                <p>Content</p>
+            </div>
+            <div class="card-action"><a href="#">view</a><a href="#">dismiss</a></div>
+        </div>
+        <div class="card">
+            <div class="card-content"><span class="card-title">New User Joined</span>
+                <p>Content</p>
+            </div>
+            <div class="card-action"><a href="#">view</a><a href="#">dismiss</a></div>
         </div>
     </div>
-</nav>
-<th:block>
-    <ul class="sidenav" id="slide-out">
-        <!-- li>
-            <div class="user-view">
-                <div class="background">
-                    <img src="images/office.jpg">
-                </div>
-                <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-                <a href="#name"><span class="white-text name">John Doe</span></a>
-                <a href="#email"><span class="white-text email">jdoe@example.com</span></a>
+    <div class="nav-content">
+        <ul class="tabs">
+            <li class="tab col s3 xl3"><a class="active" href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3 disabled"><a href="../admin/index.html"
+                                                   th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+        </ul>
+    </div>
+</header>
+<main class="container">
+    <h3 th:text="${message}">メッセージ</h3>
+    <!-- Page Content goes here -->
+    <div class="row">
+        <nav class="nav-wrapper col s12 xl12">
+            <a class="breadcrumb" href="/">First</a>
+            <a class="breadcrumb" href="/">Second</a>
+            <span class="breadcrumb">Third</span>
+        </nav>
+        <div class="col s12 xl12">
+            <ul class="pagination">
+                <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li class="waves-effect"><a href="#">2</a></li>
+                <li class="waves-effect"><a href="#">3</a></li>
+                <li class="waves-effect"><a href="#">4</a></li>
+                <li class="waves-effect"><a href="#">5</a></li>
+                <li class="waves-effect"><a href="#"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+            <div class="col s12 xl12">
+                <ul class="pagination">
+                    <li class="active"><a href="#">2024</a></li>
+                    <li class="waves-effect"><a href="#">2023</a></li>
+                    <li class="waves-effect"><a href="#">2022</a></li>
+                    <li class="waves-effect"><a href="#">2021</a></li>
+                    <li class="waves-effect"><a href="#">2020</a></li>
+                </ul>
             </div>
-        </li-->
-        <li><a class="waves-effect" href="#"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-        <li><a class="waves-effect" href="#">Second Link</a></li>
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li><a class="subheader">Subheader</a></li>
-        <li><a class="waves-effect" href="#">Third Link With Waves</a></li>
-    </ul>
-    <a class="sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a>
-</th:block>
-<h1 th:text="${message}">メッセージ</h1>
-<ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-</ul>
-<ul class="pagination">
-    <li class="active"><a href="#">2024</a></li>
-    <li class="waves-effect"><a href="#">2023</a></li>
-    <li class="waves-effect"><a href="#">2022</a></li>
-    <li class="waves-effect"><a href="#">2021</a></li>
-    <li class="waves-effect"><a href="#">2020</a></li>
-</ul>
-<ul class="pagination">
-    <li class="active"><a href="#">2023-08</a></li>
-    <li class="waves-effect"><a href="#">2023-07</a></li>
-    <li class="waves-effect"><a href="#">2023-06</a></li>
-    <li class="waves-effect"><a href="#">2023-05</a></li>
-    <li class="waves-effect"><a href="#">2023-04</a></li>
-</ul>
-<ul class="pagination">
-    <li class="active"><a href="#">2023-03-02</a></li>
-    <li class="waves-effect"><a href="#">2023-03-01</a></li>
-    <li class="waves-effect"><a href="#">2023-03-28</a></li>
-    <li class="waves-effect"><a href="#">2023-03-27</a></li>
-    <li class="waves-effect"><a href="#">2023-03-26</a></li>
-    <li class="waves-effect"><a href="#">2023-03-25</a></li>
-    <li class="waves-effect"><a href="#">2023-03-24</a></li>
-</ul>
-<ul class="pagination">
-    <li class="active"><a href="#">あ</a></li>
-    <li class="waves-effect"><a href="#">か</a></li>
-    <li class="waves-effect"><a href="#">さ</a></li>
-    <li class="waves-effect"><a href="#">た</a></li>
-    <li class="waves-effect"><a href="#">な</a></li>
-    <li class="waves-effect"><a href="#">は</a></li>
-    <li class="waves-effect"><a href="#">ま</a></li>
-    <li class="waves-effect"><a href="#">や</a></li>
-    <li class="waves-effect"><a href="#">ら</a></li>
-    <li class="waves-effect"><a href="#">わ</a></li>
-</ul>
+            <div class="col s12 xl12">
+                <ul class="pagination">
+                    <li class="active"><a href="#">2023-08</a></li>
+                    <li class="waves-effect"><a href="#">2023-07</a></li>
+                    <li class="waves-effect"><a href="#">2023-06</a></li>
+                    <li class="waves-effect"><a href="#">2023-05</a></li>
+                    <li class="waves-effect"><a href="#">2023-04</a></li>
+                </ul>
+            </div>
+            <div class="col s12 xl12">
+                <ul class="pagination">
+                    <li class="active"><a href="#">2023-03-02</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-01</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-28</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-27</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-26</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-25</a></li>
+                    <li class="waves-effect"><a href="#">2023-03-24</a></li>
+                </ul>
+            </div>
+            <div class="col s12 xl12">
+                <ul class="pagination">
+                    <li class="active"><a href="#">あ</a></li>
+                    <li class="waves-effect"><a href="#">か</a></li>
+                    <li class="waves-effect"><a href="#">さ</a></li>
+                    <li class="waves-effect"><a href="#">た</a></li>
+                    <li class="waves-effect"><a href="#">な</a></li>
+                    <li class="waves-effect"><a href="#">は</a></li>
+                    <li class="waves-effect"><a href="#">ま</a></li>
+                    <li class="waves-effect"><a href="#">や</a></li>
+                    <li class="waves-effect"><a href="#">ら</a></li>
+                    <li class="waves-effect"><a href="#">わ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <form>
+        <div class="input-field outlined error">
+            <div class="suffix"><i class="material-icons">error</i></div>
+            <input id="inp-error" placeholder="email" required type="email" value="$%/'#sdf">
+            <label for="inp-error">E-mail</label>
+            <span class="supporting-text">Invalid characters! Please use 0-9 only.</span>
+        </div>
+        <br/>
+        <div class="input-field outlined error">
+            <div class="suffix"><i class="material-icons">error</i></div>
+            <input class="validate" id="password" placeholder="Passwordを入力してください" type="password"
+                   value="$%/'#sdf">
+            <label for="password">Password</label>
+            <span class="supporting-text">Invalid characters! Please use 0-9 only.</span>
+        </div>
+        <br/>
+        <div class="input-field outlined">
+            <!--            <div class="suffix"><i class="material-icons">error</i></div>-->
+            <input class="validate" id="subject" placeholder="件名を入力してください" required type="text">
+            <label for="subject">件名<span class="red-text">*</span></label>
+            <span class="supporting-text">Invalid characters! Please use 0-9 only.</span>
+        </div>
+        <br/>
+        <div class="input-field outlined">
+            <!--            <div class="suffix"><i class="material-icons">error</i></div>-->
+            <input class="validate" id="password2" placeholder="Passwordを入力してください" type="password">
+            <label for="password2">Password</label>
+            <span class="supporting-text">Invalid characters! Please use 0-9 only.</span>
+        </div>
+        <div class="input-field col s12">
+            <select id="form-select-1">
+                <option disabled selected value="">Choose your option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <label for="form-select-1">Materialize Select</label>
+        </div>
+        <br/>
+        <div class="input-field col s12">
+            <select id="form-select-2" multiple>
+                <option disabled selected value="">Choose your option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <label for="form-select-2">Materialize Multiple Select<span class="red-text">*</span></label>
+        </div>
+        <p>
+            <label>
+                <input checked name="group1" type="radio"/>
+                <span>Red</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input name="group1" type="radio"/>
+                <span>Yellow</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input class="with-gap" name="group1" type="radio"/>
+                <span>Green</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input disabled="disabled" name="group1" type="radio"/>
+                <span>Brown</span>
+            </label>
+        </p>
+        <div class="input-field col s12">
+            <textarea class="materialize-textarea" id="textarea1" placeholder=" "></textarea>
+            <label for="textarea1">Textarea</label>
+        </div>
+        <br/>
+        <h4>表のタイトル</h4>
+        <table class="responsive-table" title="表のタイトル">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Item Name</th>
+                <th>Item Price</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Alvin</td>
+                <td>Eclair</td>
+                <td>$0.87</td>
+            </tr>
+            <tr>
+                <td>Alan</td>
+                <td>Jellybean</td>
+                <td>$3.76</td>
+            </tr>
+            <tr>
+                <td>Jonathan</td>
+                <td>Lollipop</td>
+                <td>$7.00</td>
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+        <h4>表のタイトル</h4>
+        <table class="striped　responsive-table" title="表のタイトル">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Item Name</th>
+                <th>Item Price</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Alvin</td>
+                <td>Eclair</td>
+                <td>$0.87</td>
+            </tr>
+            <tr>
+                <td>Alan</td>
+                <td>Jellybean</td>
+                <td>$3.76</td>
+            </tr>
+            <tr>
+                <td>Jonathan</td>
+                <td>Lollipop</td>
+                <td>$7.00</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="xl6">
+                <div class="collection">
+                    <a class="collection-item" href="#"><span class="badge">1</span>Alan</a>
+                    <a class="collection-item" href="#"><span class="new badge">4</span>Alan</a>
+                    <a class="collection-item" href="#">Alan</a>
+                    <a class="collection-item" href="#"><span class="badge">14</span>Alan</a>
+                </div>
+
+            </div>
+            <div class="col s12 m6 xl6">
+            </div>
+            <div class="col s12 m6 xl6 collection">
+                <div class="collection">
+                    <a class="collection-item" href="#">Alvin</a>
+                    <a class="collection-item active" href="#">Alvin</a>
+                    <a class="collection-item" href="#">Alvin</a>
+                    <a class="collection-item" href="#">Alvin</a>
+                </div>
+                <div class="col s12 m6 xl6">
+                </div>
+            </div>
+        </div>
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+        </ul>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li class="active">
+                <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col s6 m6　xl6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Card Title</span>
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 m6 xl6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">サンプル</span>
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <ul class="stepper horizontal" id="horizStepper">
+            <!--
+                    <ul class="stepper">
+            -->
+            <li class="step active">
+                <div class="step-title waves-effect waves-dark" data-step-label="対象データ選択">Step 1</div>
+                <div class="step-content">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input class="validate" id="horizontal_email" name="horizontal_email" required type="email">
+                            <label for="horizontal_email">Your e-mail</label>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn blue next-step">CONTINUE</button>
+                    </div>
+                </div>
+            </li>
+            <li class="step">
+                <div class="step-title waves-effect waves-dark" data-step-label="変更内容入力">Step 2</div>
+                <div class="step-content">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input class="validate" id="horizontal_password" name="horizontal_password" required
+                                   type="password">
+                            <label for="horizontal_password">Your password</label>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <div class="col m4 s12 mb-3">
+                            <button class=" btn btn-primary next-step">
+                                Next
+                                <i class="material-icons right">arrow_forward</i>
+                            </button>
+                        </div>
+                        <div class="col m4 s12 mb-3">
+                            <button class="btn btn-light previous-step">
+                                <i class="material-icons left">arrow_back</i>
+                                Prev
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="step">
+                <div class="step-title waves-effect waves-dark">Step 3</div>
+                <div class="step-content">
+                    Finish!
+                    <div class="step-actions">
+                        <button class="btn blue" type="submit">送信<i class="material-icons">send</i>
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <br/>
+    </form>
+</main>
+
 </body>
 <!-- Compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/js/materialize.min.js"
+<script src="../../static/js/materialize.js"
         th:src="@{/js/materialize.min.js}"></script>
+<script src="../../static/js/mstepper.js" th:src="@{~/js/mstepper.min.js}"></script>
 <script src="../../static/js/init.js" th:src="@{~/js/init.js}"></script>
 </html>
