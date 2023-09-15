@@ -42,4 +42,7 @@ public class ProjectAttribute implements Serializable {
         return EMPTY;
     }
 
+    public static ProjectAttribute create(final String projectName, final String projectCode, final String storyCodePrefix) {
+        return create(ProjectName.of(projectName), ProjectCode.of(projectCode), StoryCodePrefix.of(storyCodePrefix));
+    }
 }
