@@ -1,5 +1,4 @@
 package com.undecided.test.size;
 
-
-public @interface SmallTest {
+public @interface LargeTest {
 }

@@ -3,6 +3,7 @@ plugins {
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version '1.1.0'
     id "org.domaframework.doma.compile" version "2.0.0" apply false
+    id 'org.flywaydb.flyway' version '9.21.1'
 
 }
 
@@ -40,7 +41,9 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        exclude group: 'junit', module: 'junit'
     }
+    testImplementation "org.assertj:assertj-db:${assertjDbVersion}"
     compileOnly 'org.projectlombok:lombok'
     implementation project(":common-precondition")
     implementation project(":common-exception")
@@ -57,6 +60,7 @@ dependencies {
     implementation("org.seasar.doma.boot:doma-spring-boot-starter:${domaStarterVersion}")
 
     runtimeOnly "org.postgresql:postgresql:${postgresVersion}"
+    testRuntimeOnly "com.h2database:h2:${h2Version}"
     runtimeOnly "org.seasar.doma:doma-core:${domaVersion}"
     annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
@@ -68,6 +72,8 @@ dependencies {
     testRuntimeOnly 'ch.qos.logback:logback-classic'
     implementation "org.seasar.doma:doma-slf4j:${domaVersion}"
     implementation 'org.springframework.security:spring-security-crypto'
+    implementation "org.flywaydb:flyway-core:9.21.1"
+
 }
 
 pmd {
