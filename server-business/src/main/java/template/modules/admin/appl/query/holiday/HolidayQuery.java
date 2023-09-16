@@ -1,6 +1,7 @@
 package template.modules.admin.appl.query.holiday;
 
 import lombok.AllArgsConstructor;
+import lombok.NonNull;
 import org.springframework.stereotype.Service;
 import template.modules.admin.domain.model.holiday.Holiday;
 import template.modules.admin.domain.model.holiday.HolidayRepository;
@@ -16,7 +17,7 @@ public class HolidayQuery {
 
     }
 
-    public Holiday findOneBy(SnowflakeId holidayId) {
+    public Holiday findOneBy(@NonNull final SnowflakeId holidayId) {
         return holidayRepository.findOneBy(holidayId);
     }
 }

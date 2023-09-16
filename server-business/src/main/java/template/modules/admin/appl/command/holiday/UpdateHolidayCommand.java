@@ -2,6 +2,7 @@ package template.modules.admin.appl.command.holiday;
 
 import com.undecided.gfw.common.exception.BusinessException;
 import lombok.AllArgsConstructor;
+import lombok.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import template.modules.admin.domain.model.holiday.Holiday;
@@ -15,8 +16,8 @@ public class UpdateHolidayCommand {
     private final HolidayRepository holidayRepository;
 
     @Transactional
-    public void execute(Holiday holiday) {
-        Holiday found = holidayRepository.findOneByHoliday(holiday.getDate());
+    public void execute(@NonNull Holiday holiday) {
+        final Holiday found = holidayRepository.findOneByHoliday(holiday.getDate());
         if (isNull(found) && holiday.sameIdentifierAs(found)) {
             holidayRepository.update(holiday);
 
