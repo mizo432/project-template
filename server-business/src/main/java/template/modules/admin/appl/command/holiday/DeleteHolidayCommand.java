@@ -22,7 +22,7 @@ public class DeleteHolidayCommand {
      * @param holidayId 祝日ID
      */
     @Transactional
-    public void execute(@NonNull SnowflakeId holidayId) {
+    public void execute(@NonNull final SnowflakeId holidayId) {
         final Holiday entity = Holiday.create(holidayId);
         holidayRepository.delete(entity);
 

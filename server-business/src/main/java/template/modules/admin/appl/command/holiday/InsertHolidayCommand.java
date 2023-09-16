@@ -24,7 +24,7 @@ public class InsertHolidayCommand {
      * @param holiday 祝日
      */
     @Transactional
-    public void execute(@NonNull Holiday holiday) {
+    public void execute(@NonNull final Holiday holiday) {
         final Holiday found = holidayRepository.findOneByHoliday(holiday.getDate());
         if (isNull(found)) {
             holidayRepository.insert(holiday);
