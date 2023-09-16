@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 import template.modules.security.appl.query.authUser.AuthUser;
 import template.modules.security.appl.query.authUser.AuthUserQuery;
 import template.modules.security.model.user.User;
+import template.modules.security.model.user.UserCode;
 import template.modules.security.model.user.UserRepository;
 import template.modules.security.model.user.settingPassword.CurrentSettingPassword;
 import template.modules.security.model.user.settingPassword.CurrentSettingPasswordRepository;
-import template.shared.user.attribbute.UserCode;
 
 @Service
 @AllArgsConstructor

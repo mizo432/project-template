@@ -1,7 +1,7 @@
 package com.undecided.projectTemplate.resource.domain.partyRole.user.attribbute;
 
 import org.junit.jupiter.api.Test;
-import template.shared.user.attribbute.UserCode;
+import template.modules.security.model.user.UserCode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

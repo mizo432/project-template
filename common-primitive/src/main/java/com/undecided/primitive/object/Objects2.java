@@ -30,4 +30,11 @@ public class Objects2 {
 
         return function.apply(value);
     }
+
+    public static <T> T ifNull(final T o, final T defaultValue) {
+        if (isNull(o))
+            return defaultValue;
+
+        return o;
+    }
 }

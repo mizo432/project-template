@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.ToString;
 import org.seasar.doma.Column;
 import org.seasar.doma.Embeddable;
-import template.shared.user.attribbute.UserCode;
 import template.shared.value.MultiValue;
 import template.shared.value.email.EmailAddress;
 import template.shared.value.name.Name;

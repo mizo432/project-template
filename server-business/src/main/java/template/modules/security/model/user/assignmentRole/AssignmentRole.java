@@ -11,9 +11,9 @@ import org.seasar.doma.Table;
 import template.modules.security.model.role.Role;
 import template.modules.security.model.role.RoleCode;
 import template.modules.security.model.user.User;
+import template.modules.security.model.user.UserCode;
 import template.shared.entity.WhenOccurred;
 import template.shared.entity.id.SnowflakeId;
-import template.shared.user.attribbute.UserCode;
 import template.shared.value.AbstractListValue;
 
 import java.util.Collection;

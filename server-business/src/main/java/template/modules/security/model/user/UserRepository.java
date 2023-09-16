@@ -5,7 +5,6 @@ import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.boot.ConfigAutowireable;
 import org.seasar.doma.jdbc.Result;
-import template.shared.user.attribbute.UserCode;
 
 @Dao
 @ConfigAutowireable
@@ -16,5 +15,5 @@ public interface UserRepository {
 
     @Insert
     Result<User> insert(User user);
-    
+
 }
