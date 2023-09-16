@@ -8,9 +8,9 @@ import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import template.modules.security.appl.query.authUser.AuthUser;
+import template.modules.security.appl.query.authuser.AuthUser;
 import template.modules.security.model.user.User;
-import template.modules.security.model.user.settingPassword.EncodedPassword;
+import template.modules.security.model.user.settingpassword.EncodedPassword;
 
 import java.io.Serializable;
 import java.util.Collection;

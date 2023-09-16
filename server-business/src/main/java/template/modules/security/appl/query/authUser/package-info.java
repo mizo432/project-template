@@ -1,1 +1,0 @@
-package template.modules.security.appl.query.authUser;

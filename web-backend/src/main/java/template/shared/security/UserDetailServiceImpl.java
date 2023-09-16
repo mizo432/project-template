@@ -3,8 +3,8 @@ package template.shared.security;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import template.modules.security.appl.query.authUser.AuthUser;
-import template.modules.security.appl.query.authUser.AuthUserQuery;
+import template.modules.security.appl.query.authuser.AuthUser;
+import template.modules.security.appl.query.authuser.AuthUserQuery;
 import template.modules.security.model.user.UserCode;
 
 @AllArgsConstructor
