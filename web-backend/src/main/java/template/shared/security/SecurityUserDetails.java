@@ -1,5 +1,6 @@
 package template.shared.security;
 
+import com.undecided.primitive.object.Objects2;
 import com.undecided.primitive.set.Sets2;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -8,22 +9,30 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import template.modules.security.appl.query.authUser.AuthUser;
-import template.modules.security.model.user.UserAttribute;
+import template.modules.security.model.user.User;
+import template.modules.security.model.user.settingPassword.EncodedPassword;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "reconstruct")
 @ToString
-public class SecurityUserDetails implements UserDetails {
-    private AuthUser user;
+public class SecurityUserDetails implements UserDetails, Serializable {
+    private final Set<String> roles = Sets2.newHashSet("ADMIN", "USER");
+    private String username;
+    private String password;
+    private String mailAddress;
+    private Boolean accountNonExpired;
+    private Boolean accountNonLocked;
+    private Boolean credentialsNonExpired;
+    private Boolean enabled;
 
-    private final Set<String> roles = Sets2.newHashSet("ADMIN");
+    public SecurityUserDetails() {
 
-    public static SecurityUserDetails createFrom(final AuthUser user) {
-        return SecurityUserDetails.reconstruct(user);
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -31,38 +40,48 @@ public class SecurityUserDetails implements UserDetails {
 
     }
 
-    @Override
-    public String getPassword() {
-        return user.getEncodedPassword().asString();
-
+    public static SecurityUserDetails reconstruct(final AuthUser user) {
+        return reconstruct(user.getUser(), user.getEncodedPassword());
     }
 
-    UserAttribute getUserAttribute() {
-        return user.getUser().getUserAttribute();
+    private static SecurityUserDetails reconstruct(final User user, final EncodedPassword encodedPassword) {
+        return reconstruct(user.getUserAttribute().getEmailAddress().asString()
+                , encodedPassword.asString(),
+                user.getUserAttribute().getEmailAddress().asString(),
+                Boolean.TRUE,
+                Boolean.TRUE,
+                Boolean.TRUE,
+                Boolean.TRUE);
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+
     }
 
     @Override
     public String getUsername() {
-        return getUserAttribute().getUserCode().asString();
+        return username;
     }
 
     public boolean isAccountNonExpired() {
-        return true;
+        return Objects2.ifNull(accountNonExpired, true);
 
     }
 
     public boolean isAccountNonLocked() {
-        return true;
+        return Objects2.ifNull(accountNonLocked, true);
 
     }
 
     public boolean isCredentialsNonExpired() {
-        return true;
+        return Objects2.ifNull(credentialsNonExpired, true);
 
     }
 
     public boolean isEnabled() {
-        return true;
+        return Objects2.ifNull(enabled, true);
 
     }
 

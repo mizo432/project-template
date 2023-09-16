@@ -44,7 +44,13 @@ public class SecurityConfig {
  //               .loginPage("/login")
  //               .failureForwardUrl("/login-error")
 
-        );
+        ).logout(logoutConfigurer->{
+            logoutConfigurer
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/login")
+                    .deleteCookies("JSESSIONID")
+                    .invalidateHttpSession(true);
+                });
         return http.build();
     }
     // @formatter:on

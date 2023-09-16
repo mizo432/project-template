@@ -1,6 +1,7 @@
 package template.modules.security.appl.query.authUser;
 
-import template.shared.user.attribbute.UserCode;
+
+import template.modules.security.model.user.UserCode;
 
 public interface AuthUserQuery {
     AuthUser findByUserCode(UserCode userCode);

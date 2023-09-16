@@ -9,7 +9,6 @@ import org.seasar.doma.Entity;
 import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 import template.shared.entity.id.SnowflakeId;
-import template.shared.user.attribbute.UserCode;
 import template.shared.value.AbstractListValue;
 
 import java.util.Collection;
