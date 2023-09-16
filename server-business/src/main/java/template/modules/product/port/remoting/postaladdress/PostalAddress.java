@@ -1,4 +1,4 @@
-package template.modules.product.port.remoting.postalAddress;
+package template.modules.product.port.remoting.postaladdress;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

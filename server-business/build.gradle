@@ -82,6 +82,7 @@ pmd {
     consoleOutput = true
     ruleSets = []                                      // Ignore the default rules. The ones this config
     pmdTest.enabled = false
+
 }
 compileJava {
     options.compilerArgs = ['-Adoma.domain.converters=template.shared.doma.converter.DomainConvertersProvider',
