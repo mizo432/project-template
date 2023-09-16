@@ -16,9 +16,14 @@ import template.shared.entity.id.SnowflakeId;
 public class DeleteHolidayCommand {
     private final HolidayRepository holidayRepository;
 
+    /**
+     * 祝日削除を実行する
+     *
+     * @param holidayId 祝日ID
+     */
     @Transactional
-    public void execute(@NonNull SnowflakeId id) {
-        final Holiday entity = Holiday.create(id);
+    public void execute(@NonNull SnowflakeId holidayId) {
+        final Holiday entity = Holiday.create(holidayId);
         holidayRepository.delete(entity);
 
     }

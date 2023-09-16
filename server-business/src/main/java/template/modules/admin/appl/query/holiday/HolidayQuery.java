@@ -15,6 +15,11 @@ import template.shared.entity.id.SnowflakeId;
 public class HolidayQuery {
     private final HolidayRepository holidayRepository;
 
+    /**
+     * 祝日を全建取得する
+     *
+     * @return 祝日ファストクラスコレクション
+     */
     public Holiday.Holidays selectAll() {
         return Holiday.Holidays.reconstruct(holidayRepository.selectAll());
 

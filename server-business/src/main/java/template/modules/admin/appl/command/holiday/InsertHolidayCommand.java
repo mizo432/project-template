@@ -18,6 +18,11 @@ import static com.undecided.primitive.object.Objects2.isNull;
 public class InsertHolidayCommand {
     private final HolidayRepository holidayRepository;
 
+    /**
+     * 祝日登録を実行する
+     *
+     * @param holiday 祝日
+     */
     @Transactional
     public void execute(@NonNull Holiday holiday) {
         final Holiday found = holidayRepository.findOneByHoliday(holiday.getDate());

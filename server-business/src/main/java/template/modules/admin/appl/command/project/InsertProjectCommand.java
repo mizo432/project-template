@@ -11,7 +11,7 @@ import template.modules.admin.domain.model.project.ProjectRepository;
 import static com.undecided.primitive.object.Objects2.isNull;
 
 /**
- * 祝日登録コマンドサービス.
+ * プロジェクト登録コマンドサービス.
  */
 @Service
 @AllArgsConstructor
@@ -19,6 +19,11 @@ public class InsertProjectCommand {
 
     private final ProjectRepository projectRepository;
 
+    /**
+     * プロジェクト登録を実行する
+     *
+     * @param project プロジェクト
+     */
     @Transactional
     public void execute(@NonNull final Project project) {
 
