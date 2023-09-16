@@ -76,7 +76,7 @@ dependencies {
 }
 
 pmd {
-    toolVersion = '6.23.0'
+    toolVersion = '6.55.0'
     ruleSetFiles = files("../src/config/pmd/pmd.xml")         // The location of the configuration file.
     ignoreFailures = true
     consoleOutput = true
