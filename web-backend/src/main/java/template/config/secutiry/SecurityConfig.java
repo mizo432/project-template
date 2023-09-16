@@ -58,7 +58,8 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
+    // @Bean
+    @SuppressWarnings({})
     public UserDetailsService users() {
         PasswordEncoder passwordEncoder = passwordEncoder();
         // The builder will ensure the passwords are encoded before saving in memory

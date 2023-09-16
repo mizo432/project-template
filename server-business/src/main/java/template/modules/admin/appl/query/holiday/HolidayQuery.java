@@ -7,6 +7,9 @@ import template.modules.admin.domain.model.holiday.Holiday;
 import template.modules.admin.domain.model.holiday.HolidayRepository;
 import template.shared.entity.id.SnowflakeId;
 
+/**
+ * 祝日クエリーサービス.
+ */
 @Service
 @AllArgsConstructor
 public class HolidayQuery {

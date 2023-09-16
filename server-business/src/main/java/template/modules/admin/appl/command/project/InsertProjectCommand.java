@@ -10,6 +10,9 @@ import template.modules.admin.domain.model.project.ProjectRepository;
 
 import static com.undecided.primitive.object.Objects2.isNull;
 
+/**
+ * 祝日登録コマンドサービス.
+ */
 @Service
 @AllArgsConstructor
 public class InsertProjectCommand {
