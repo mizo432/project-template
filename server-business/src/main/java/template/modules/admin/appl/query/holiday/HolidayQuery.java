@@ -25,6 +25,12 @@ public class HolidayQuery {
 
     }
 
+    /**
+     * 祝日IDを検索条件に祝日を検索する
+     *
+     * @param holidayId 祝日ID
+     * @return 検索結果の祝日
+     */
     public Holiday findOneBy(@NonNull final SnowflakeId holidayId) {
         return holidayRepository.findOneBy(holidayId);
     }
