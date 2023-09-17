@@ -14,6 +14,11 @@ import java.util.List;
 @ConfigAutowireable
 @Dao
 public interface HolidayRepository {
+    /**
+     * 祝日を全件取得する
+     *
+     * @return 祝日のリスト
+     */
     @Select
     List<Holiday> selectAll();
 
@@ -44,6 +49,12 @@ public interface HolidayRepository {
     @Select
     Holiday findOneBy(SnowflakeId holidayId);
 
+    /**
+     * 祝日を更新する
+     *
+     * @param holiday 祝日
+     * @return 更新結果
+     */
     @Update
     Result<Holiday> update(Holiday holiday);
 
