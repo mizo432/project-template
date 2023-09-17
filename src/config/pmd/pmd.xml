@@ -65,12 +65,12 @@
     </rule>
 
     <rule ref="category/java/documentation.xml"/>
-    <!--    <rule ref="category/java/documentation.xml/CommentRequired">-->
-    <!--        <properties>-->
-    <!--            &lt;!&ndash; Field comments can clutter the code. &ndash;&gt;-->
-    <!--            <property name="fieldCommentRequirement" value="Ignored"/>-->
-    <!--        </properties>-->
-    <!--    </rule>-->
+    <rule ref="category/java/documentation.xml/CommentRequired">
+        <properties>
+            <!-- Field comments can clutter the code. -->
+            <property name="fieldCommentRequirement" value="Ignored"/>
+        </properties>
+    </rule>
     <rule ref="category/java/documentation.xml/CommentSize">
         <properties>
             <!-- 6 lines is too restrictive for comment length as it includes the Javadoc comments. -->
