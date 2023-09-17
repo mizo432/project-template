@@ -18,6 +18,12 @@ public class HolidayForm {
     private LocalDate holiday;
     private String name;
 
+    /**
+     * ファクトリーメソッド
+     *
+     * @param holiday 祝日
+     * @return 祝日フォーム
+     */
     public static HolidayForm reconstruct(Holiday holiday) {
         HolidayForm form = new HolidayForm();
         form.setHolidayId(holiday.getHolidayId().getValue());
@@ -27,17 +33,30 @@ public class HolidayForm {
 
     }
 
+    /**
+     * 新規登録用モデルに変換する
+     *
+     * @return 祝日
+     */
     public Holiday convertToInsertModel() {
         return Holiday.create(holiday, name);
 
     }
 
+    /**
+     * 更新用モデルに変換する
+     *
+     * @return 祝日
+     */
     public Holiday convertToUpdateModel() {
         return Holiday.create(holidayId, holiday, name);
 
     }
 
 
+    /**
+     * 祝日フォームのファーストクラスコレクション
+     */
     public static class HolidayFormList {
         public static List<HolidayForm> reconstruct(Holidays holidays) {
             ArrayList<HolidayForm> holidayList = Lists2.newArrayList();
