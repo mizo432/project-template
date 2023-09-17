@@ -6,7 +6,6 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,7 +16,6 @@ import org.springframework.security.web.SecurityFilterChain;
 /**
  * セキュリティ構成
  */
-@SuppressWarnings("deprecation")
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
@@ -60,11 +58,11 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
+    // @Bean
+    @SuppressWarnings({})
     public UserDetailsService users() {
         PasswordEncoder passwordEncoder = passwordEncoder();
         // The builder will ensure the passwords are encoded before saving in memory
-        UserBuilder users = User.withDefaultPasswordEncoder();
         UserDetails user = User.withUsername("user")
                 .password(passwordEncoder.encode("password"))
                 .roles("USER")

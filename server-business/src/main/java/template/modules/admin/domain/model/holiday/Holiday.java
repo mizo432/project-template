@@ -44,10 +44,24 @@ public class Holiday {
 
     }
 
-    public static Holiday create(SnowflakeId id) {
-        return new Holiday(id, null, Name.empty());
+    /**
+     * ファクトリーメソッド
+     *
+     * @param holidayId 祝日ID
+     * @return 祝日
+     */
+    public static Holiday create(SnowflakeId holidayId) {
+        return new Holiday(holidayId, null, Name.empty());
     }
 
+    /**
+     * ファクトリーメソッド
+     *
+     * @param holidayId 祝日ID
+     * @param holiday   祝日日付
+     * @param name      祝日名称
+     * @return 祝日
+     */
     public static Holiday create(Long holidayId, LocalDate holiday, String name) {
         return new Holiday(SnowflakeId.of(holidayId), holiday, Name.of(name));
     }
@@ -63,6 +77,9 @@ public class Holiday {
 
     }
 
+    /**
+     * 祝日ファーストクラスコレクション
+     */
     public static class Holidays extends AbstractListValue<Holiday> {
         public Holidays(List<Holiday> value) {
             super(value);

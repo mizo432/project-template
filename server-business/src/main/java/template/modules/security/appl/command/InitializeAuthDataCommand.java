@@ -11,9 +11,9 @@ import template.modules.security.model.user.User.Users;
 import template.modules.security.model.user.UserRepository;
 import template.modules.security.model.user.assignmentRole.AssignmentRole;
 import template.modules.security.model.user.assignmentRole.AssignmentRoleRepository;
-import template.modules.security.model.user.settingPassword.EncodedPassword;
-import template.modules.security.model.user.settingPassword.SettingPassword;
-import template.modules.security.model.user.settingPassword.SettingPasswordRepository;
+import template.modules.security.model.user.settingpassword.EncodedPassword;
+import template.modules.security.model.user.settingpassword.SettingPassword;
+import template.modules.security.model.user.settingpassword.SettingPasswordRepository;
 
 @Service
 @AllArgsConstructor

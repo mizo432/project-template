@@ -17,7 +17,7 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
     compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
 

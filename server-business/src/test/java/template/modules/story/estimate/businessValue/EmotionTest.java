@@ -1,7 +1,7 @@
 package template.modules.story.estimate.businessValue;
 
 import org.junit.jupiter.api.Test;
-import template.modules.story.domain.model.estimate.businessValue.Emotion;
+import template.modules.story.domain.model.estimate.businessvalue.Emotion;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
