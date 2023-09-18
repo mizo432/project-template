@@ -56,7 +56,7 @@ pipeline {
             steps {
                 // 並列処理の場合はparallelメソッドを使う
                parallel('medium test' : {
-                   gradlew ':server-business:mediumTest --spring.profiles.active=mediumUnit -x compileJava '
+                   gradlew ':server-business:testMedium --spring.profiles.active=mediumUnit -x compileJava '
                }
                )
             }
