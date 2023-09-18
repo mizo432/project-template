@@ -8,6 +8,9 @@ import template.shared.value.AbstractStringValue;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * プロジェクトコード
+ */
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class ProjectCode extends AbstractStringValue implements Serializable {
