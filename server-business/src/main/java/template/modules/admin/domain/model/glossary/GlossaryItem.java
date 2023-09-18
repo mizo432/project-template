@@ -26,26 +26,26 @@ public class GlossaryItem {
     @Column(name = "glossary_item_id")
     private final SnowflakeId glossaryItemId;
 
-    private final GlossaryItemAttribute glossaryItemAttribute;
+    private final GlossaryItemAttribute attribute;
 
     /**
      * コンストラクター
      */
     public GlossaryItem() {
         glossaryItemId = SnowflakeId.empty();
-        glossaryItemAttribute = GlossaryItemAttribute.empty();
+        attribute = GlossaryItemAttribute.empty();
 
     }
 
     /**
      * コンストラクター
      *
-     * @param glossaryItemId        用語辞書アイテムID
-     * @param glossaryItemAttribute 用語辞書アイテム属性
+     * @param glossaryItemId 用語辞書アイテムID
+     * @param attribute      用語辞書アイテム属性
      */
-    /* default */GlossaryItem(SnowflakeId glossaryItemId, GlossaryItemAttribute glossaryItemAttribute) {
+    /* default */GlossaryItem(final SnowflakeId glossaryItemId, final GlossaryItemAttribute attribute) {
         this.glossaryItemId = glossaryItemId;
-        this.glossaryItemAttribute = glossaryItemAttribute;
+        this.attribute = attribute;
 
     }
 
@@ -64,10 +64,10 @@ public class GlossaryItem {
     /**
      * ファクトリーメソッド
      *
-     * @param glossaryItemAttribute 用語辞書アイテム属性
+     * @param attribute 用語辞書アイテム属性
      * @return 用語辞書即成
      */
-    private static GlossaryItem create(final GlossaryItemAttribute glossaryItemAttribute) {
-        return new GlossaryItem(SnowflakeId.newInstance(), glossaryItemAttribute);
+    private static GlossaryItem create(final GlossaryItemAttribute attribute) {
+        return new GlossaryItem(SnowflakeId.newInstance(), attribute);
     }
 }
