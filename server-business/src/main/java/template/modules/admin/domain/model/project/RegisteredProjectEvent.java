@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.ToString;
 import org.springframework.context.ApplicationEvent;
 
+import java.io.Serial;
+
 /**
  * プロジェクトを登録したアプリケーションイベント
  */
@@ -13,6 +15,8 @@ import org.springframework.context.ApplicationEvent;
 @EqualsAndHashCode(callSuper = false)
 public class RegisteredProjectEvent extends
         ApplicationEvent {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     /**
      * 登録したプロジェクト
