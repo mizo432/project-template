@@ -7,6 +7,7 @@ import org.seasar.doma.Embeddable;
 import template.shared.type.description.Description;
 import template.shared.value.Value;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -16,6 +17,9 @@ import java.io.Serializable;
 @Embeddable
 @ToString
 public class GlossaryItemAttribute implements Value, Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private final static GlossaryItemAttribute EMPTY_VALUE = new GlossaryItemAttribute();
 
     @Column(name = "word")

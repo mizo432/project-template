@@ -8,6 +8,7 @@ import org.seasar.doma.Domain;
 import template.shared.entity.Identifier;
 import template.shared.value.AbstractLongValue;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import static com.undecided.primitive.object.Objects2.isNull;
@@ -19,7 +20,8 @@ import static com.undecided.primitive.object.Objects2.isNull;
 @Domain(valueType = Long.class, factoryMethod = "reconstruct")
 public class SnowflakeId extends AbstractLongValue implements
         Identifier<SnowflakeId>, Serializable {
-
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     private static final SnowflakeId EMPTY = new SnowflakeId();
 

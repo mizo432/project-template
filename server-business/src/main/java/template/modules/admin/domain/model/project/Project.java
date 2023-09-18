@@ -13,6 +13,7 @@ import template.modules.admin.domain.model.project.attribute.ProjectAttribute;
 import template.shared.entity.id.SnowflakeId;
 import template.shared.value.AbstractListValue;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
@@ -26,6 +27,8 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 public class Project implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Column(name = "project_id")
     private final SnowflakeId projectTd;
