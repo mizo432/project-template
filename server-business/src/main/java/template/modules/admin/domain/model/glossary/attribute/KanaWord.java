@@ -10,7 +10,7 @@ import template.shared.value.AbstractStringValue;
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class KanaWord extends AbstractStringValue {
-    private static final KanaWord EMPTY = new KanaWord();
+    private static final KanaWord EMPTY_VALUE = new KanaWord();
 
     /**
      * コンストラクター
@@ -35,7 +35,7 @@ public class KanaWord extends AbstractStringValue {
      * @return 用語読み
      */
     public static KanaWord empty() {
-        return EMPTY;
+        return EMPTY_VALUE;
 
     }
 

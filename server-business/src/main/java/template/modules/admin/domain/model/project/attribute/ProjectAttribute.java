@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Embeddable
 @ToString
 public class ProjectAttribute implements Serializable {
-    private static final ProjectAttribute EMPTY = new ProjectAttribute();
+    private static final ProjectAttribute EMPTY_VALUE = new ProjectAttribute();
 
     @Column(name = "project_name")
     private final ProjectName projectName;
@@ -73,7 +73,7 @@ public class ProjectAttribute implements Serializable {
      * @return プロジェクト属性
      */
     public static ProjectAttribute empty() {
-        return EMPTY;
+        return EMPTY_VALUE;
     }
 
     /**

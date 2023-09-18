@@ -9,22 +9,22 @@ import template.shared.value.AbstractStringValue;
  */
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
-public class Word extends AbstractStringValue {
-    private static final Word EMPTY = new Word();
+public class WordValue extends AbstractStringValue {
+    private static final WordValue EMPTY_VALUE = new WordValue();
 
     /**
      * コンストラクター
      *
      * @param value 値
      */
-    /* default */Word(final String value) {
+    /* default */WordValue(final String value) {
         super(value);
     }
 
     /**
      * コンストラクター
      */
-    public Word() {
+    public WordValue() {
         super();
 
     }
@@ -34,8 +34,8 @@ public class Word extends AbstractStringValue {
      *
      * @return 用語
      */
-    public static Word empty() {
-        return EMPTY;
+    public static WordValue empty() {
+        return EMPTY_VALUE;
 
     }
 
@@ -45,8 +45,8 @@ public class Word extends AbstractStringValue {
      * @param value 値
      * @return 用語
      */
-    public static Word reconstruct(final String value) {
-        return new Word(value);
+    public static WordValue reconstruct(final String value) {
+        return new WordValue(value);
 
     }
 
@@ -56,8 +56,8 @@ public class Word extends AbstractStringValue {
      * @param value 値
      * @return 用語
      */
-    public static Word of(final String value) {
-        return new Word(value);
+    public static WordValue of(final String value) {
+        return new WordValue(value);
 
     }
 }

@@ -13,7 +13,7 @@ import template.shared.value.AbstractStringValue;
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class ProjectName extends AbstractStringValue {
 
-    private static final ProjectName EMPTY = new ProjectName();
+    private static final ProjectName EMPTY_VALUE = new ProjectName();
 
     /**
      * コンストラクター
@@ -40,7 +40,7 @@ public class ProjectName extends AbstractStringValue {
      * @return プロジェクト名
      */
     public static ProjectName empty() {
-        return EMPTY;
+        return EMPTY_VALUE;
     }
 
     /**
@@ -63,7 +63,7 @@ public class ProjectName extends AbstractStringValue {
      */
     public static ProjectName reconstruct(final String value) {
         if (Strings2.isEmpty(value))
-            return EMPTY;
+            return EMPTY_VALUE;
         return new ProjectName(value);
 
 
