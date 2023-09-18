@@ -36,6 +36,11 @@ public class ProjectCode extends AbstractStringValue implements Serializable {
 
     }
 
+    /**
+     * 空オブジェクト
+     *
+     * @return プロジェクトコード
+     */
 
     public static ProjectCode empty() {
         return EMPTY_VALUE;
