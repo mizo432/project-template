@@ -28,6 +28,11 @@ public class KanaWord extends AbstractStringValue {
 
     }
 
+    /**
+     * 空オブジェクト生成
+     *
+     * @return 用語読み
+     */
     public static KanaWord empty() {
         return EMPTY;
 
