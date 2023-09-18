@@ -46,9 +46,17 @@ public class Word extends AbstractStringValue {
      */
     public static Word reconstruct(final String value) {
         return new Word(value);
+
     }
 
+    /**
+     * ファクトリーメソッド
+     *
+     * @param value 値
+     * @return 用語
+     */
     public static Word of(final String value) {
         return new Word(value);
+
     }
 }
