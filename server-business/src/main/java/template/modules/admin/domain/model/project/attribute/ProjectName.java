@@ -6,12 +6,14 @@ import lombok.Getter;
 import org.seasar.doma.Domain;
 import template.shared.value.AbstractStringValue;
 
+import java.io.Serializable;
+
 /**
  * プロジェクト名
  */
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
-public class ProjectName extends AbstractStringValue {
+public class ProjectName extends AbstractStringValue implements Serializable {
 
     private static final ProjectName EMPTY_VALUE = new ProjectName();
 

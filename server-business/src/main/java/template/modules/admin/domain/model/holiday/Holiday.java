@@ -11,6 +11,7 @@ import template.shared.entity.id.SnowflakeId;
 import template.shared.value.AbstractListValue;
 import template.shared.value.name.Name;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -22,7 +23,7 @@ import java.util.List;
 @Table(schema = "admin", name = "holiday")
 @AllArgsConstructor
 @ToString
-public class Holiday {
+public class Holiday implements Serializable {
 
     @Id
     private final SnowflakeId holidayId;
@@ -86,10 +87,21 @@ public class Holiday {
 
         }
 
+        /**
+         * 再生成
+         *
+         * @param value 値
+         * @return 祝日ファーストクラスコレクション
+         */
         public static Holidays reconstruct(final List<Holiday> value) {
             return new Holidays(value);
         }
 
+        /**
+         * 文字列表現を取得する
+         *
+         * @return 文字列
+         */
         @Override
         public String asString() {
             return toString();

@@ -7,13 +7,15 @@ import org.seasar.doma.Embeddable;
 import template.shared.type.description.Description;
 import template.shared.value.Value;
 
+import java.io.Serializable;
+
 /**
  * 用語集アイテムの属性
  */
 @Getter
 @Embeddable
 @ToString
-public class GlossaryItemAttribute implements Value {
+public class GlossaryItemAttribute implements Value, Serializable {
     private final static GlossaryItemAttribute EMPTY_VALUE = new GlossaryItemAttribute();
 
     @Column(name = "word")

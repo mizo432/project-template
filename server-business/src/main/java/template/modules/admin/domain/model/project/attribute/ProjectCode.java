@@ -5,9 +5,11 @@ import lombok.Getter;
 import org.seasar.doma.Domain;
 import template.shared.value.AbstractStringValue;
 
+import java.io.Serializable;
+
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
-public class ProjectCode extends AbstractStringValue {
+public class ProjectCode extends AbstractStringValue implements Serializable {
 
     private static final ProjectCode EMPTY_VALUE = new ProjectCode();
 
