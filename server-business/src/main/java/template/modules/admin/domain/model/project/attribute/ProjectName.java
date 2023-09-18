@@ -20,7 +20,7 @@ public class ProjectName extends AbstractStringValue {
      *
      * @param value 値
      */
-    ProjectName(final String value) {
+    /* default */ProjectName(final String value) {
         super(value);
 
     }

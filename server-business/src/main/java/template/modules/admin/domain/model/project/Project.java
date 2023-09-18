@@ -47,8 +47,8 @@ public class Project {
      * @param projectTd ID
      * @param attribute 属性
      */
-    public Project(final SnowflakeId projectTd,
-                   final ProjectAttribute attribute) {
+    /* default */ Project(final SnowflakeId projectTd,
+                          final ProjectAttribute attribute) {
         this.projectTd = projectTd;
         this.attribute = attribute;
     }

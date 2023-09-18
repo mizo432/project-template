@@ -17,7 +17,7 @@ public class KanaWord extends AbstractStringValue {
      *
      * @param value 値
      */
-    KanaWord(final String value) {
+    /* default */KanaWord(final String value) {
         super(value);
     }
 

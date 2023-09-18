@@ -19,7 +19,7 @@ public class StoryCodePrefix extends AbstractStringValue {
      *
      * @param value 値
      */
-    StoryCodePrefix(final String value) {
+    /* default */StoryCodePrefix(final String value) {
         super(value);
     }
 

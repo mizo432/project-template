@@ -23,9 +23,9 @@ public class GlossaryItemAttribute implements Value {
     @Column(name = "description")
     private final Description description;
 
-    GlossaryItemAttribute(final Word word,
-                          final KanaWord kanaWord,
-                          final Description description) {
+    /* default */GlossaryItemAttribute(final Word word,
+                                       final KanaWord kanaWord,
+                                       final Description description) {
         this.word = word;
         this.kanaWord = kanaWord;
         this.description = description;
