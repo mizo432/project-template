@@ -17,7 +17,7 @@ public class Word extends AbstractStringValue {
      *
      * @param value 値
      */
-    Word(final String value) {
+    /* default */Word(final String value) {
         super(value);
     }
 

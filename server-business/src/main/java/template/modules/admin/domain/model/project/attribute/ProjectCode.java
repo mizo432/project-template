@@ -16,7 +16,7 @@ public class ProjectCode extends AbstractStringValue {
      *
      * @param value 値
      */
-    ProjectCode(final String value) {
+    /* default */ProjectCode(final String value) {
         super(value);
     }
 

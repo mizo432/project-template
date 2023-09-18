@@ -28,20 +28,6 @@ public class ProjectAttribute implements Serializable {
 
     /**
      * コンストラクター
-     *
-     * @param projectName     プロジェクト名
-     * @param projectCode     プロジェクトコード
-     * @param storyCodePrefix ストーリーコードプレフィックス
-     */
-    ProjectAttribute(final ProjectName projectName, final ProjectCode projectCode,
-                     final StoryCodePrefix storyCodePrefix) {
-        this.projectName = projectName;
-        this.projectCode = projectCode;
-        this.storyCodePrefix = storyCodePrefix;
-    }
-
-    /**
-     * コンストラクター
      */
     public ProjectAttribute() {
         this.projectName = ProjectName.empty();
@@ -49,6 +35,21 @@ public class ProjectAttribute implements Serializable {
         this.storyCodePrefix = StoryCodePrefix.empty();
 
     }
+
+    /**
+     * コンストラクター
+     *
+     * @param projectName     プロジェクト名
+     * @param projectCode     プロジェクトコード
+     * @param storyCodePrefix ストーリーコードプレフィックス
+     */
+    /* default */ ProjectAttribute(final ProjectName projectName, final ProjectCode projectCode,
+                                   final StoryCodePrefix storyCodePrefix) {
+        this.projectName = projectName;
+        this.projectCode = projectCode;
+        this.storyCodePrefix = storyCodePrefix;
+    }
+
 
     /**
      * ファクトリーメソッド

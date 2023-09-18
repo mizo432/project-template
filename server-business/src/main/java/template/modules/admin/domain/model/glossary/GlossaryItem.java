@@ -43,7 +43,7 @@ public class GlossaryItem {
      * @param glossaryItemId        用語辞書アイテムID
      * @param glossaryItemAttribute 用語辞書アイテム属性
      */
-    GlossaryItem(SnowflakeId glossaryItemId, GlossaryItemAttribute glossaryItemAttribute) {
+    /* default */GlossaryItem(SnowflakeId glossaryItemId, GlossaryItemAttribute glossaryItemAttribute) {
         this.glossaryItemId = glossaryItemId;
         this.glossaryItemAttribute = glossaryItemAttribute;
 
