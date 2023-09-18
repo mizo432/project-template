@@ -9,7 +9,7 @@ import template.shared.value.AbstractStringValue;
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class ProjectCode extends AbstractStringValue {
 
-    private static final ProjectCode EMPTY = new ProjectCode();
+    private static final ProjectCode EMPTY_VALUE = new ProjectCode();
 
     /**
      * コンストラクター
@@ -30,7 +30,7 @@ public class ProjectCode extends AbstractStringValue {
 
 
     public static ProjectCode empty() {
-        return EMPTY;
+        return EMPTY_VALUE;
     }
 
 

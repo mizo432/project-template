@@ -14,10 +14,10 @@ import template.shared.value.Value;
 @Embeddable
 @ToString
 public class GlossaryItemAttribute implements Value {
-    private final static GlossaryItemAttribute EMPTY = new GlossaryItemAttribute();
+    private final static GlossaryItemAttribute EMPTY_VALUE = new GlossaryItemAttribute();
 
     @Column(name = "word")
-    private final Word word;
+    private final WordValue word;
     @Column(name = "kana_word")
     private final KanaWord kanaWord;
     @Column(name = "description")
@@ -30,7 +30,7 @@ public class GlossaryItemAttribute implements Value {
      * @param kanaWord    用語かな
      * @param description 詳細
      */
-    /* default */GlossaryItemAttribute(final Word word,
+    /* default */GlossaryItemAttribute(final WordValue word,
                                        final KanaWord kanaWord,
                                        final Description description) {
         this.word = word;
@@ -43,7 +43,7 @@ public class GlossaryItemAttribute implements Value {
      * コンストラクター
      */
     public GlossaryItemAttribute() {
-        this.word = Word.empty();
+        this.word = WordValue.empty();
         this.kanaWord = KanaWord.empty();
         this.description = Description.empty();
 
@@ -55,7 +55,7 @@ public class GlossaryItemAttribute implements Value {
      * @return 用語辞書アイテム属性
      */
     public static GlossaryItemAttribute empty() {
-        return EMPTY;
+        return EMPTY_VALUE;
     }
 
     /**
@@ -67,7 +67,7 @@ public class GlossaryItemAttribute implements Value {
      * @return 用語辞書アイテム属性
      */
     public static GlossaryItemAttribute create(final String word, final String kanaWord, final String description) {
-        return create(Word.of(word), KanaWord.of(kanaWord), Description.of(description));
+        return create(WordValue.of(word), KanaWord.of(kanaWord), Description.of(description));
     }
 
     /**
@@ -78,7 +78,7 @@ public class GlossaryItemAttribute implements Value {
      * @param description 詳細
      * @return 用語辞書アイテム属性
      */
-    private static GlossaryItemAttribute create(final Word word, final KanaWord kanaWord, final Description description) {
+    private static GlossaryItemAttribute create(final WordValue word, final KanaWord kanaWord, final Description description) {
         return new GlossaryItemAttribute(word, kanaWord, description);
     }
 
@@ -89,6 +89,6 @@ public class GlossaryItemAttribute implements Value {
      */
     @Override
     public boolean isEmpty() {
-        return EMPTY.equals(this);
+        return EMPTY_VALUE.equals(this);
     }
 }

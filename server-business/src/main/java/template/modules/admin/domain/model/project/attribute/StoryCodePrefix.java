@@ -12,7 +12,7 @@ import template.shared.value.AbstractStringValue;
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class StoryCodePrefix extends AbstractStringValue {
 
-    private static final StoryCodePrefix EMPTY = new StoryCodePrefix();
+    private static final StoryCodePrefix EMPTY_VALUE = new StoryCodePrefix();
 
     /**
      * コンストラクター
@@ -37,7 +37,7 @@ public class StoryCodePrefix extends AbstractStringValue {
      * @return ストーリーコードプレフィックス
      */
     public static StoryCodePrefix empty() {
-        return EMPTY;
+        return EMPTY_VALUE;
     }
 
 
