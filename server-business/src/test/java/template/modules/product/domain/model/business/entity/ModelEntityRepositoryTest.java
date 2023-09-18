@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+import template.modules.project.domain.model.business.entity.ModelEntity;
+import template.modules.project.domain.model.business.entity.ModelEntityRepository;
 import template.shared.entity.id.SnowflakeId;
 
 import java.util.Optional;
