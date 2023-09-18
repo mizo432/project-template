@@ -11,6 +11,7 @@ import template.shared.entity.id.SnowflakeId;
 import template.shared.value.AbstractListValue;
 import template.shared.value.name.Name;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -24,6 +25,8 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 public class Holiday implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     private final SnowflakeId holidayId;

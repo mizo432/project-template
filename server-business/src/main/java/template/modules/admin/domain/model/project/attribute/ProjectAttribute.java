@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.seasar.doma.Column;
 import org.seasar.doma.Embeddable;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -16,6 +17,9 @@ import java.io.Serializable;
 @Embeddable
 @ToString
 public class ProjectAttribute implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private static final ProjectAttribute EMPTY_VALUE = new ProjectAttribute();
 
     @Column(name = "project_name")
