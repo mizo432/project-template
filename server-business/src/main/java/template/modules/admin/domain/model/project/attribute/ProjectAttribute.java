@@ -23,8 +23,8 @@ public class ProjectAttribute implements Serializable {
     private static final ProjectAttribute EMPTY = new ProjectAttribute(ProjectName.empty(),
             ProjectCode.empty(), StoryCodePrefix.empty());
 
-    public ProjectAttribute(ProjectName projectName, ProjectCode projectCode,
-                            StoryCodePrefix storyCodePrefix) {
+    public ProjectAttribute(final ProjectName projectName, final ProjectCode projectCode,
+                            final StoryCodePrefix storyCodePrefix) {
         this.projectName = projectName;
         this.projectCode = projectCode;
         this.storyCodePrefix = storyCodePrefix;
@@ -33,8 +33,8 @@ public class ProjectAttribute implements Serializable {
     @JsonCreator
     public static ProjectAttribute create(
             @JsonProperty("projectName") final ProjectName projectName,
-            @JsonProperty("projectCode") ProjectCode projectCode,
-            @JsonProperty("storyCodePrefix") StoryCodePrefix storyCodePrefix) {
+            @JsonProperty("projectCode") final ProjectCode projectCode,
+            @JsonProperty("storyCodePrefix") final StoryCodePrefix storyCodePrefix) {
         return new ProjectAttribute(projectName, projectCode, storyCodePrefix);
     }
 
