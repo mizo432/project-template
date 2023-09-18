@@ -1,11 +1,13 @@
 package template.modules.story.domain.model.attribute;
 
+import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 import template.shared.type.description.Description;
 import template.shared.value.ValueNotFoundException;
 
 import static com.undecided.projectTemplate.shared.precondition.object.ObjectPreconditions.checkNotNull;
 
+@Getter
 public enum StoryState {
     SUGGESTED(1, "sandbox", Description.of("検討中、業務的価値を検討中")),
     ACCEPTED(2, "backlog", Description.of("見積り中、対応確定、見積り中")),
@@ -19,14 +21,6 @@ public enum StoryState {
     private final String boxName;
     private final Integer id;
     private final Description description;
-
-    public String getBoxName() {
-        return boxName;
-    }
-
-    public Description getDescription() {
-        return description;
-    }
 
     StoryState(Integer id, String boxName, Description description) {
         this.id = id;
