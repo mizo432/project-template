@@ -11,6 +11,8 @@ import org.seasar.doma.boot.ConfigAutowireable;
 import template.modules.admin.domain.model.glossary.attribute.GlossaryItemAttribute;
 import template.shared.entity.id.SnowflakeId;
 
+import java.io.Serializable;
+
 /**
  * 用語辞書の1アイテム
  */
@@ -20,7 +22,7 @@ import template.shared.entity.id.SnowflakeId;
 @ConfigAutowireable
 @ToString
 @EqualsAndHashCode
-public class GlossaryItem {
+public class GlossaryItem implements Serializable {
 
     @Id
     @Column(name = "glossary_item_id")

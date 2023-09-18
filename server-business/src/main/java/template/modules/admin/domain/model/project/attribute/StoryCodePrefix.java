@@ -5,12 +5,14 @@ import lombok.Getter;
 import org.seasar.doma.Domain;
 import template.shared.value.AbstractStringValue;
 
+import java.io.Serializable;
+
 /**
  * ストリーコードプレフィックス
  */
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
-public class StoryCodePrefix extends AbstractStringValue {
+public class StoryCodePrefix extends AbstractStringValue implements Serializable {
 
     private static final StoryCodePrefix EMPTY_VALUE = new StoryCodePrefix();
 

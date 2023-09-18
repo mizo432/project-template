@@ -13,6 +13,7 @@ import template.modules.admin.domain.model.project.attribute.ProjectAttribute;
 import template.shared.entity.id.SnowflakeId;
 import template.shared.value.AbstractListValue;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ import java.util.List;
 @ConfigAutowireable
 @ToString
 @EqualsAndHashCode
-public class Project {
+public class Project implements Serializable {
 
     @Column(name = "project_id")
     private final SnowflakeId projectTd;
@@ -59,7 +60,6 @@ public class Project {
      * @param attribute 属性
      * @return プロジェクト
      */
-
     public static Project create(final ProjectAttribute attribute) {
         return create(SnowflakeId.newInstance(), attribute);
 
@@ -126,7 +126,7 @@ public class Project {
      * @param other プロジェクト
      * @return 一致している場合trueを返却する
      */
-    public boolean sameIdAs(Project other) {
+    public boolean sameIdAs(final Project other) {
         return projectTd.equals(other.projectTd);
 
     }
@@ -136,14 +136,14 @@ public class Project {
      */
     public static class Projects extends AbstractListValue<Project> {
 
-        private static final Projects EMPTY = new Projects();
+        private static final Projects EMPTY_VALUE = new Projects();
 
         /**
          * コンストラクター
          *
          * @param value 値
          */
-        Projects(final List<Project> value) {
+        /* default */Projects(final List<Project> value) {
             super(value);
         }
 
@@ -151,6 +151,7 @@ public class Project {
          * コンストラクター
          */
         public Projects() {
+            super();
 
         }
 
@@ -161,7 +162,7 @@ public class Project {
          * @return プロジェクツ
          */
         public static Projects empty() {
-            return EMPTY;
+            return EMPTY_VALUE;
         }
 
         /**

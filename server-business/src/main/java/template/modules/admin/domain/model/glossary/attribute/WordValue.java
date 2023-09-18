@@ -4,12 +4,14 @@ import lombok.Getter;
 import org.seasar.doma.Domain;
 import template.shared.value.AbstractStringValue;
 
+import java.io.Serializable;
+
 /**
  * 用語
  */
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
-public class WordValue extends AbstractStringValue {
+public class WordValue extends AbstractStringValue implements Serializable {
     private static final WordValue EMPTY_VALUE = new WordValue();
 
     /**
