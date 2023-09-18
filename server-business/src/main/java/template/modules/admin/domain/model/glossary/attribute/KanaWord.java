@@ -43,6 +43,12 @@ public class KanaWord extends AbstractStringValue {
         return new KanaWord(value);
     }
 
+    /**
+     * ファクトリーメソッド
+     *
+     * @param value 値
+     * @return 用語読み
+     */
     public static KanaWord of(final String value) {
         return new KanaWord(value);
     }
