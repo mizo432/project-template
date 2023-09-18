@@ -23,6 +23,13 @@ public class GlossaryItemAttribute implements Value {
     @Column(name = "description")
     private final Description description;
 
+    /**
+     * コンストラクター
+     *
+     * @param word        用語
+     * @param kanaWord    用語かな
+     * @param description 詳細
+     */
     /* default */GlossaryItemAttribute(final Word word,
                                        final KanaWord kanaWord,
                                        final Description description) {
@@ -42,18 +49,44 @@ public class GlossaryItemAttribute implements Value {
 
     }
 
+    /**
+     * 空オブジェクト取得
+     *
+     * @return 用語辞書アイテム属性
+     */
     public static GlossaryItemAttribute empty() {
         return EMPTY;
     }
 
+    /**
+     * ファクトリー
+     *
+     * @param word        用語
+     * @param kanaWord    用語かな
+     * @param description 詳細
+     * @return 用語辞書アイテム属性
+     */
     public static GlossaryItemAttribute create(final String word, final String kanaWord, final String description) {
         return create(Word.of(word), KanaWord.of(kanaWord), Description.of(description));
     }
 
+    /**
+     * ファクトリー
+     *
+     * @param word        用語
+     * @param kanaWord    用語かな
+     * @param description 詳細
+     * @return 用語辞書アイテム属性
+     */
     private static GlossaryItemAttribute create(final Word word, final KanaWord kanaWord, final Description description) {
         return new GlossaryItemAttribute(word, kanaWord, description);
     }
 
+    /**
+     * 空かどうかを判定する
+     *
+     * @return 空の場合true
+     */
     @Override
     public boolean isEmpty() {
         return EMPTY.equals(this);

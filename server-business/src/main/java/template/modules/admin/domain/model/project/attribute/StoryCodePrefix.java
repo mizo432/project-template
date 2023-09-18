@@ -27,6 +27,7 @@ public class StoryCodePrefix extends AbstractStringValue {
      * コンストラクター
      */
     public StoryCodePrefix() {
+        super();
 
     }
 

@@ -24,6 +24,7 @@ public class ProjectCode extends AbstractStringValue {
      * コンストラクター
      */
     public ProjectCode() {
+        super();
 
     }
 
