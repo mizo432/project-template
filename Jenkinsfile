@@ -52,6 +52,15 @@ pipeline {
                )
             }
         }
+       stage('test'){
+            steps {
+                // 並列処理の場合はparallelメソッドを使う
+               parallel('medium test' : {
+                   gradlew 'mediumTest --spring.profiles.active=mediumUnit -x compileJava '
+               }
+               )
+            }
+        }
 
    }
 
