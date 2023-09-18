@@ -93,7 +93,7 @@ public class Project {
     /**
      * 新しいインスタンスを作成する
      *
-     * @return
+     * @return プロジェクト
      */
     public static Project newInstance() {
         return new Project(SnowflakeId.newInstance(), ProjectAttribute.empty());
