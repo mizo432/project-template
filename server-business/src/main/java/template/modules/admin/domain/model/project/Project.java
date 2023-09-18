@@ -2,7 +2,7 @@ package template.modules.admin.domain.model.project;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.undecided.primitive.object.Objects2;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import org.seasar.doma.Column;
@@ -23,6 +23,7 @@ import java.util.List;
 @Table(schema = "admin", name = "project")
 @ConfigAutowireable
 @ToString
+@EqualsAndHashCode
 public class Project {
 
     @Column(name = "project_id")
@@ -46,90 +47,138 @@ public class Project {
      * @param projectTd ID
      * @param attribute 属性
      */
-    public Project(SnowflakeId projectTd,
-                   ProjectAttribute attribute) {
+    public Project(final SnowflakeId projectTd,
+                   final ProjectAttribute attribute) {
         this.projectTd = projectTd;
         this.attribute = attribute;
     }
 
+    /**
+     * ファクトリーメソッド
+     *
+     * @param attribute 属性
+     * @return プロジェクト
+     */
 
-    public static Project create(ProjectAttribute attribute) {
+    public static Project create(final ProjectAttribute attribute) {
         return create(SnowflakeId.newInstance(), attribute);
 
     }
 
+    /**
+     * ファクトリーメソッド
+     *
+     * @param projectId ID
+     * @param attribute 属性
+     * @return プロジェクト
+     */
     @JsonCreator
-    public static Project create(@JsonProperty("id") SnowflakeId id,
-                                 @JsonProperty("attribute") ProjectAttribute attribute) {
-        return new Project(id, attribute);
+    public static Project create(final @JsonProperty("id") SnowflakeId projectId,
+                                 final @JsonProperty("attribute") ProjectAttribute attribute) {
+        return new Project(projectId, attribute);
 
     }
 
-    public static Project create(Project project) {
+    /**
+     * ファクトリーメソッド
+     *
+     * @param project プロジェクト
+     * @return プロジェクト
+     */
+    public static Project create(final Project project) {
         return new Project(SnowflakeId.newInstance(), project.attribute);
 
     }
 
+    /**
+     * 新しいインスタンスを作成する
+     *
+     * @return
+     */
     public static Project newInstance() {
         return new Project(SnowflakeId.newInstance(), ProjectAttribute.empty());
     }
 
+    /**
+     * nullオブジェクトを作成する
+     *
+     * @return プロジェクト
+     */
     public static Project empty() {
         return new Project(SnowflakeId.empty(), ProjectAttribute.empty());
     }
 
-    public boolean sameValueAs(Project other) {
+    /**
+     * プロジェクトが引数のプロジェクトと値として一致しているかを返却する
+     *
+     * @param other プロジェクト
+     * @return 一致している場合trueを返却する
+     */
+    public boolean sameValueAs(final Project other) {
         return sameIdAs(other)
                 && attribute.equals(other.attribute);
 
     }
 
+    /**
+     * プロジェクトが引数のプロジェクトとIDが一致しているかを返却する
+     *
+     * @param other プロジェクト
+     * @return 一致している場合trueを返却する
+     */
     public boolean sameIdAs(Project other) {
         return projectTd.equals(other.projectTd);
 
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Project project)) {
-            return false;
-        }
-        if (!super.equals(o)) {
-            return false;
-        }
-        return projectTd.equals(project.projectTd) && attribute.equals(project.attribute);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects2.hash(getClass(), projectTd, attribute);
-
-    }
-
+    /**
+     * プロジェクトのファストクラスコレクション
+     */
     public static class Projects extends AbstractListValue<Project> {
 
         private static final Projects EMPTY = new Projects();
 
-        Projects(List<Project> value) {
+        /**
+         * コンストラクター
+         *
+         * @param value 値
+         */
+        Projects(final List<Project> value) {
             super(value);
         }
 
+        /**
+         * コンストラクター
+         */
         public Projects() {
 
         }
 
 
+        /**
+         * 空のプロジェクツ
+         *
+         * @return プロジェクツ
+         */
         public static Projects empty() {
             return EMPTY;
         }
 
-        public static Projects reconstruct(List<Project> value) {
+        /**
+         * 再生成する
+         *
+         * @param value 値
+         * @return プロジェクツ
+         */
+        public static Projects reconstruct(final List<Project> value) {
             return new Projects(value);
         }
 
+        /**
+         * 文字列表現を作成する
+         *
+         * @return 文字列表現
+         */
         @Override
         public String asString() {
             return value.toString();
