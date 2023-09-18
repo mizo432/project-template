@@ -64,21 +64,23 @@
         <exclude name="LoosePackageCoupling"/>
     </rule>
 
-    <rule ref="category/java/documentation.xml"/>
-    <rule ref="category/java/documentation.xml/CommentRequired">
-        <properties>
-            <!-- Field comments can clutter the code. -->
-            <property name="fieldCommentRequirement" value="Ignored"/>
-        </properties>
-    </rule>
-    <rule ref="category/java/documentation.xml/CommentSize">
-        <properties>
-            <!-- 6 lines is too restrictive for comment length as it includes the Javadoc comments. -->
-            <property name="maxLines" value="30"/>
-            <!-- I want the line size to match the code requirement. -->
-            <property name="maxLineLength" value="150"/>
-        </properties>
-    </rule>
+    <!--
+        <rule ref="category/java/documentation.xml"/>
+        <rule ref="category/java/documentation.xml/CommentRequired">
+            <properties>
+                &lt;!&ndash; Field comments can clutter the code. &ndash;&gt;
+                <property name="fieldCommentRequirement" value="Ignored"/>
+            </properties>
+        </rule>
+        <rule ref="category/java/documentation.xml/CommentSize">
+            <properties>
+                &lt;!&ndash; 6 lines is too restrictive for comment length as it includes the Javadoc comments. &ndash;&gt;
+                <property name="maxLines" value="30"/>
+                &lt;!&ndash; I want the line size to match the code requirement. &ndash;&gt;
+                <property name="maxLineLength" value="150"/>
+            </properties>
+        </rule>
+    -->
 
     <rule ref="category/java/multithreading.xml"/>
 
