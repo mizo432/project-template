@@ -28,22 +28,45 @@ public class GlossaryItem {
 
     private final GlossaryItemAttribute glossaryItemAttribute;
 
-    GlossaryItem() {
+    /**
+     * コンストラクター
+     */
+    public GlossaryItem() {
         glossaryItemId = SnowflakeId.empty();
         glossaryItemAttribute = GlossaryItemAttribute.empty();
 
     }
 
+    /**
+     * コンストラクター
+     *
+     * @param glossaryItemId        用語辞書アイテムID
+     * @param glossaryItemAttribute 用語辞書アイテム属性
+     */
     GlossaryItem(SnowflakeId glossaryItemId, GlossaryItemAttribute glossaryItemAttribute) {
         this.glossaryItemId = glossaryItemId;
         this.glossaryItemAttribute = glossaryItemAttribute;
 
     }
 
+    /**
+     * ファクトリーメソッド
+     *
+     * @param word        用語
+     * @param kanaWord    かな用語
+     * @param description 詳細
+     * @return 用語辞書即成
+     */
     public static GlossaryItem create(final String word, final String kanaWord, final String description) {
         return create(GlossaryItemAttribute.create(word, kanaWord, description));
     }
 
+    /**
+     * ファクトリーメソッド
+     *
+     * @param glossaryItemAttribute 用語辞書アイテム属性
+     * @return 用語辞書即成
+     */
     private static GlossaryItem create(final GlossaryItemAttribute glossaryItemAttribute) {
         return new GlossaryItem(SnowflakeId.newInstance(), glossaryItemAttribute);
     }
