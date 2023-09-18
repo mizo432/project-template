@@ -25,6 +25,7 @@ public class Word extends AbstractStringValue {
      * コンストラクター
      */
     public Word() {
+        super();
 
     }
 

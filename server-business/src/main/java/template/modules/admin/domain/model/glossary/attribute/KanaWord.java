@@ -25,6 +25,7 @@ public class KanaWord extends AbstractStringValue {
      * コンストラクター
      */
     public KanaWord() {
+        super();
 
     }
 

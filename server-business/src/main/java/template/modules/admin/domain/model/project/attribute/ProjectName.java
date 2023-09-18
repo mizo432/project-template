@@ -29,6 +29,7 @@ public class ProjectName extends AbstractStringValue {
      * コンストラクター
      */
     public ProjectName() {
+        super();
 
     }
 
