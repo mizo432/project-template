@@ -1,1 +1,0 @@
-package template.modules.product.appl.command;
