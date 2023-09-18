@@ -85,6 +85,11 @@ public class Holiday implements Serializable {
      * 祝日ファーストクラスコレクション
      */
     public static class Holidays extends AbstractListValue<Holiday> {
+        /**
+         * コンストラクター
+         *
+         * @param value 値
+         */
         public Holidays(final List<Holiday> value) {
             super(value);
 

@@ -67,8 +67,9 @@ public class ProjectName extends AbstractStringValue implements Serializable {
      * @return プロおジェクト名
      */
     public static ProjectName reconstruct(final String value) {
-        if (Strings2.isEmpty(value))
+        if (Strings2.isEmpty(value)) {
             return EMPTY_VALUE;
+        }
         return new ProjectName(value);
 
 
