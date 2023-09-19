@@ -1,4 +1,4 @@
 /**
- * 祝日取得クエリーを格納
+ * 祝日クエリー実装を格納
  */
 package template.modules.admin.appl.query.holiday;
