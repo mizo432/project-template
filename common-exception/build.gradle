@@ -20,11 +20,11 @@ dependencies {
     implementation project(":common-primitive")
     implementation project(":common-message")
     testImplementation project(':common-test')
-    implementation "org.springframework:spring-context:6.0.7"
+    implementation 'org.springframework:spring-context:6.0.9'
     implementation group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
-    testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '5.2.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
     compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
     testImplementation group: 'org.assertj', name: 'assertj-core', version: "${assertjVersion}"
     implementation "org.slf4j:slf4j-api:2.0.6"
