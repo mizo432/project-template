@@ -9,7 +9,7 @@ import template.shared.value.AbstractStringValue;
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class EntityName extends AbstractStringValue {
 
-    private static final EntityName EMPTY = new EntityName();
+    public static final EntityName EMPTY_VALUE = new EntityName();
 
 
     public EntityName() {
@@ -23,7 +23,7 @@ public class EntityName extends AbstractStringValue {
 
     public static EntityName of(String value) {
         if (Strings2.isEmpty(value)) {
-            return EntityName.EMPTY;
+            return EntityName.EMPTY_VALUE;
         }
 
         return new EntityName(value);
@@ -31,14 +31,10 @@ public class EntityName extends AbstractStringValue {
 
     public static EntityName reconstruct(String value) {
         if (Strings2.isEmpty(value)) {
-            return EntityName.EMPTY;
+            return EntityName.EMPTY_VALUE;
         }
 
         return new EntityName(value);
-    }
-
-    public static EntityName empty() {
-        return EMPTY;
     }
 
 

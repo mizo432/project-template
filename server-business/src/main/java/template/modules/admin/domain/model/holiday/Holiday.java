@@ -55,7 +55,7 @@ public class Holiday implements Serializable {
      * @return 祝日
      */
     public static Holiday create(final SnowflakeId holidayId) {
-        return new Holiday(holidayId, null, Name.empty());
+        return new Holiday(holidayId, null, Name.EMPTY_VALUE);
     }
 
     /**

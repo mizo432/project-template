@@ -11,10 +11,14 @@ import java.time.LocalDateTime;
 @Domain(valueType = LocalDateTime.class, factoryMethod = "reconstruct")
 public class WhenNoticed extends AbstractDateTimeValue {
 
-    private static final WhenNoticed EMPTY = new WhenNoticed(null);
+    public static final WhenNoticed EMPTY_VALUE = new WhenNoticed();
 
     WhenNoticed(LocalDateTime value) {
         super(value);
+    }
+
+    public WhenNoticed() {
+        super();
     }
 
     public static WhenNoticed reconstruct(LocalDateTime value) {
@@ -27,7 +31,4 @@ public class WhenNoticed extends AbstractDateTimeValue {
 
     }
 
-    public static WhenNoticed empty() {
-        return EMPTY;
-    }
 }

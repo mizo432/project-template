@@ -17,7 +17,7 @@ import static com.undecided.primitive.string.Strings2.emptyToNull;
 public class Description extends AbstractStringValue implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    private static final Description EMPTY_VALUE = new Description();
+    public static final Description EMPTY_VALUE = new Description();
 
     /**
      * コンストラクター
@@ -31,7 +31,7 @@ public class Description extends AbstractStringValue implements Serializable {
      *
      * @param value 値
      */
-    /* default */ Description(String value) {
+    /* default */ Description(final String value) {
         super(emptyToNull(value));
     }
 
@@ -41,7 +41,7 @@ public class Description extends AbstractStringValue implements Serializable {
      * @param value 値
      * @return 詳細
      */
-    public static Description reconstruct(String value) {
+    public static Description reconstruct(final String value) {
         Description description = new Description(value);
         if (EMPTY_VALUE.equals(description)) {
             return EMPTY_VALUE;
@@ -56,17 +56,8 @@ public class Description extends AbstractStringValue implements Serializable {
      * @param value 値
      * @return 詳細
      */
-    public static Description of(String value) {
+    public static Description of(final String value) {
         return new Description(value);
-    }
-
-    /**
-     * 空オブジェクトを取得する
-     *
-     * @return 詳細
-     */
-    public static Description empty() {
-        return EMPTY_VALUE;
     }
 
 }

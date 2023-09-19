@@ -10,12 +10,18 @@ import template.shared.value.AbstractStringValue;
 @EqualsAndHashCode(callSuper = false)
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class EmailAddress extends AbstractStringValue {
+    /**
+     * nullオブジェクト
+     */
+    public static final EmailAddress EMPTY_VALUE = new EmailAddress();
 
-    private static final EmailAddress EMPTY = new EmailAddress(null);
-
-    public EmailAddress(String value) {
+    EmailAddress(final String value) {
         super(value);
 
+    }
+
+    public EmailAddress() {
+        super();
     }
 
     @Override
@@ -26,7 +32,7 @@ public class EmailAddress extends AbstractStringValue {
     public static EmailAddress of(String value) {
 
         if (Strings2.isEmpty(value)) {
-            return EMPTY;
+            return EMPTY_VALUE;
         }
 
         return new EmailAddress(value);
@@ -35,7 +41,7 @@ public class EmailAddress extends AbstractStringValue {
 
     public static EmailAddress reconstruct(String value) {
         if (Strings2.isEmpty(value)) {
-            return EMPTY;
+            return EMPTY_VALUE;
         }
         return new EmailAddress(value);
 

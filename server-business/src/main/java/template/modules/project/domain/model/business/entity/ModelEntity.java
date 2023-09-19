@@ -19,6 +19,8 @@ import template.shared.value.ValuePreconditions;
 @Table(schema = "business", name = "model_entities")
 public class ModelEntity {
 
+    public static final ModelEntity EMPTY_ENTITY = new ModelEntity();
+    
     private final SnowflakeId id;
 
     private final EntityAttribute attribute;
@@ -27,10 +29,10 @@ public class ModelEntity {
     private final SnowflakeId projectId;
 
     public ModelEntity() {
-        this(SnowflakeId.empty(),
-                SnowflakeId.empty(),
-                AuditInfo.empty(),
-                EntityAttribute.empty());
+        this(SnowflakeId.EMPTY_VALUE,
+                SnowflakeId.EMPTY_VALUE,
+                AuditInfo.EMPTY_VALUE,
+                EntityAttribute.EMPTY_VALUE);
     }
 
     @VisibleForTesting
@@ -47,12 +49,8 @@ public class ModelEntity {
 
     public static ModelEntity create(@NotNull EntityAttribute attribute, SnowflakeId id) {
         return new ModelEntity(SnowflakeId.newInstance(),
-                id, AuditInfo.empty(), attribute);
+                id, AuditInfo.EMPTY_VALUE, attribute);
 
-    }
-
-    public static ModelEntity empty() {
-        return new ModelEntity();
     }
 
     public boolean isEmpty() {

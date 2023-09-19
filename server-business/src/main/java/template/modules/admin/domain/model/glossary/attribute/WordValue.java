@@ -4,7 +4,6 @@ import lombok.Getter;
 import org.seasar.doma.Domain;
 import template.shared.value.AbstractStringValue;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -13,10 +12,10 @@ import java.io.Serializable;
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class WordValue extends AbstractStringValue implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
-    private static final WordValue EMPTY_VALUE = new WordValue();
+    /**
+     * nullオブジェクト
+     */
+    public static final WordValue EMPTY_VALUE = new WordValue();
 
     /**
      * コンストラクター
@@ -32,16 +31,6 @@ public class WordValue extends AbstractStringValue implements Serializable {
      */
     public WordValue() {
         super();
-
-    }
-
-    /**
-     * 空オブジェクト作成
-     *
-     * @return 用語
-     */
-    public static WordValue empty() {
-        return EMPTY_VALUE;
 
     }
 

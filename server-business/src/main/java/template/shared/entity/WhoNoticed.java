@@ -11,7 +11,7 @@ import static com.undecided.primitive.object.Objects2.isNull;
 @Domain(valueType = Long.class, factoryMethod = "reconstruct")
 public class WhoNoticed extends AbstractLongValue {
 
-    private static final WhoNoticed EMPTY = new WhoNoticed(null);
+    public static final WhoNoticed EMPTY_VALUE = new WhoNoticed(null);
 
     public WhoNoticed(Long value) {
         super(value);
@@ -19,14 +19,11 @@ public class WhoNoticed extends AbstractLongValue {
 
     public static WhoNoticed reconstruct(Long value) {
         if (isNull(value)) {
-            return EMPTY;
+            return EMPTY_VALUE;
         }
         return new WhoNoticed(value);
     }
 
-    public static WhoNoticed empty() {
-        return EMPTY;
-    }
 
     public static WhoNoticed of(SnowflakeId value) {
         return new WhoNoticed(value.getValue());

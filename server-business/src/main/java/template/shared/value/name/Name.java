@@ -16,8 +16,10 @@ import java.io.Serializable;
 public class Name extends AbstractStringValue implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-
-    private static final Name EMPTY_VALUE = new Name();
+    /**
+     * nullオブジェクト
+     */
+    public static final Name EMPTY_VALUE = new Name();
 
     /**
      * コンストラクター
@@ -62,15 +64,6 @@ public class Name extends AbstractStringValue implements Serializable {
         }
         return new Name(value);
 
-    }
-
-    /**
-     * 空オブジェクトを取得する
-     *
-     * @return 名称
-     */
-    public static Name empty() {
-        return EMPTY_VALUE;
     }
 
 }

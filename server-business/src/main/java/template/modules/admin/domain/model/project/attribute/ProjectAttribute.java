@@ -20,7 +20,10 @@ public class ProjectAttribute implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private static final ProjectAttribute EMPTY_VALUE = new ProjectAttribute();
+    /**
+     * nullオブジェクト
+     */
+    public static final ProjectAttribute EMPTY_VALUE = new ProjectAttribute();
 
     @Column(name = "project_name")
     private final ProjectName projectName;
@@ -34,9 +37,9 @@ public class ProjectAttribute implements Serializable {
      * コンストラクター
      */
     public ProjectAttribute() {
-        this.projectName = ProjectName.empty();
-        this.projectCode = ProjectCode.empty();
-        this.storyCodePrefix = StoryCodePrefix.empty();
+        this.projectName = ProjectName.EMPTY_VALUE;
+        this.projectCode = ProjectCode.EMPTY_VALUE;
+        this.storyCodePrefix = StoryCodePrefix.EMPTY_VALUE;
 
     }
 
@@ -69,15 +72,6 @@ public class ProjectAttribute implements Serializable {
             @JsonProperty("projectCode") final ProjectCode projectCode,
             @JsonProperty("storyCodePrefix") final StoryCodePrefix storyCodePrefix) {
         return new ProjectAttribute(projectName, projectCode, storyCodePrefix);
-    }
-
-    /**
-     * nullオブジェクト取得
-     *
-     * @return プロジェクト属性
-     */
-    public static ProjectAttribute empty() {
-        return EMPTY_VALUE;
     }
 
     /**

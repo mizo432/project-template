@@ -17,7 +17,10 @@ public class StoryCodePrefix extends AbstractStringValue implements Serializable
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private static final StoryCodePrefix EMPTY_VALUE = new StoryCodePrefix();
+    /**
+     * nullオブジェクト
+     */
+    public static final StoryCodePrefix EMPTY_VALUE = new StoryCodePrefix();
 
     /**
      * コンストラクター
@@ -35,16 +38,6 @@ public class StoryCodePrefix extends AbstractStringValue implements Serializable
         super();
 
     }
-
-    /**
-     * nullオブジェクト取得
-     *
-     * @return ストーリーコードプレフィックス
-     */
-    public static StoryCodePrefix empty() {
-        return EMPTY_VALUE;
-    }
-
 
     /**
      * ファクトリーメソッド

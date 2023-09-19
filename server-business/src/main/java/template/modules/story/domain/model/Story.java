@@ -39,7 +39,7 @@ public class Story implements DddEntity<Story> {
     }
 
     public static Story create(SnowflakeId projectId, StoryAttribute attribute) {
-        return new Story(SnowflakeId.newInstance(), AuditInfo.empty(), projectId,
+        return new Story(SnowflakeId.newInstance(), AuditInfo.EMPTY_VALUE, projectId,
                 attribute);
 
     }

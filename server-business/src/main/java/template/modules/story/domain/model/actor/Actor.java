@@ -46,9 +46,9 @@ public class Actor {
      * @return アクター
      */
     public static Actor empty() {
-        return new Actor(SnowflakeId.empty(), SnowflakeId.empty(),
-                AuditInfo.empty(),
-                ActorAttribute.empty());
+        return new Actor(SnowflakeId.EMPTY_VALUE, SnowflakeId.EMPTY_VALUE,
+                AuditInfo.EMPTY_VALUE,
+                ActorAttribute.EMPTY_VALUE);
     }
 
     /**

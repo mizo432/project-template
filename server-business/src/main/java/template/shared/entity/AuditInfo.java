@@ -21,6 +21,7 @@ import java.time.LocalDateTime;
 @ToString
 @Embeddable
 public class AuditInfo {
+    public static final AuditInfo EMPTY_VALUE = new AuditInfo();
 
     @Column(name = "created_at", insertable = false, updatable = false)
     private final WhenNoticed whenNoticed;
@@ -31,8 +32,8 @@ public class AuditInfo {
      * コンストラクター
      */
     public AuditInfo() {
-        this.whenNoticed = WhenNoticed.empty();
-        this.whoNoticed = WhoNoticed.empty();
+        this.whenNoticed = WhenNoticed.EMPTY_VALUE;
+        this.whoNoticed = WhoNoticed.EMPTY_VALUE;
     }
 
     /**
@@ -81,15 +82,6 @@ public class AuditInfo {
         return new AuditInfo(WhenNoticed.now(),
                 whoNoticed);
 
-    }
-
-    /**
-     * 空オブジェクトを生成する
-     *
-     * @return 監査証跡
-     */
-    public static AuditInfo empty() {
-        return new AuditInfo(WhenNoticed.empty(), WhoNoticed.empty());
     }
 
     /**
