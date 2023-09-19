@@ -1,10 +1,12 @@
 package template.shared.value;
 
 import com.undecided.primitive.object.Objects2;
+import lombok.Getter;
 
 /**
  * Long型を保持する値オブジェクトの基底クラス
  */
+@Getter
 public abstract class AbstractLongValue extends AbstractValue<Long> implements LongValue {
 
     /**
@@ -17,7 +19,7 @@ public abstract class AbstractLongValue extends AbstractValue<Long> implements L
      *
      * @param value 値
      */
-    protected AbstractLongValue(Long value) {
+    protected AbstractLongValue(final Long value) {
         this.value = value;
 
     }
@@ -28,10 +30,6 @@ public abstract class AbstractLongValue extends AbstractValue<Long> implements L
     protected AbstractLongValue() {
         value = null;
 
-    }
-
-    public Long getValue() {
-        return value;
     }
 
     @Override
