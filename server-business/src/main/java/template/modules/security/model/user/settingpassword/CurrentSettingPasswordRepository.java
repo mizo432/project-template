@@ -8,7 +8,13 @@ import template.shared.entity.id.SnowflakeId;
 @Dao
 @ConfigAutowireable
 public interface CurrentSettingPasswordRepository {
+    /**
+     * ユーザーIDにより現在パスワードセッティングを検索する
+     *
+     * @param userId ユーザーID
+     * @return 現在パスワードセッティング
+     */
     @Select
-    CurrentSettingPassword findOneById(final SnowflakeId userId);
+    CurrentSettingPassword findOneByUserId(final SnowflakeId userId);
 
 }
