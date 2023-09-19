@@ -5,7 +5,7 @@ import lombok.ToString;
 import org.seasar.doma.Column;
 import org.seasar.doma.Embeddable;
 import template.shared.type.description.Description;
-import template.shared.value.Value;
+import template.shared.value.MultiValue;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -16,11 +16,14 @@ import java.io.Serializable;
 @Getter
 @Embeddable
 @ToString
-public class GlossaryItemAttribute implements Value, Serializable {
+public class GlossaryItemAttribute implements MultiValue<GlossaryItemAttribute>, Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private final static GlossaryItemAttribute EMPTY_VALUE = new GlossaryItemAttribute();
+    /**
+     * nullオブジェクト
+     */
+    public final static GlossaryItemAttribute EMPTY_VALUE = new GlossaryItemAttribute();
 
     @Column(name = "word")
     private final WordValue word;
@@ -49,19 +52,10 @@ public class GlossaryItemAttribute implements Value, Serializable {
      * コンストラクター
      */
     public GlossaryItemAttribute() {
-        this.word = WordValue.empty();
-        this.kanaWord = KanaWord.empty();
-        this.description = Description.empty();
+        this.word = WordValue.EMPTY_VALUE;
+        this.kanaWord = KanaWord.EMPTY_VALUE;
+        this.description = Description.EMPTY_VALUE;
 
-    }
-
-    /**
-     * 空オブジェクト取得
-     *
-     * @return 用語辞書アイテム属性
-     */
-    public static GlossaryItemAttribute empty() {
-        return EMPTY_VALUE;
     }
 
     /**
@@ -95,6 +89,6 @@ public class GlossaryItemAttribute implements Value, Serializable {
      */
     @Override
     public boolean isEmpty() {
-        return EMPTY_VALUE.equals(this);
+        return word.isEmpty() && kanaWord.isEmpty() && description.isEmpty();
     }
 }

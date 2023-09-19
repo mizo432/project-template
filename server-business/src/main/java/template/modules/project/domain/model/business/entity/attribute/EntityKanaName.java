@@ -13,7 +13,7 @@ import template.shared.value.AbstractStringValue;
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class EntityKanaName extends AbstractStringValue {
 
-    private static final EntityKanaName EMPTY = new EntityKanaName();
+    public static final EntityKanaName EMPTY_VALUE = new EntityKanaName();
 
 
     private EntityKanaName(String value) {
@@ -28,7 +28,7 @@ public class EntityKanaName extends AbstractStringValue {
 
     public static EntityKanaName of(String value) {
         if (Strings2.isEmpty(value)) {
-            return EMPTY;
+            return EMPTY_VALUE;
         }
         return new EntityKanaName(value);
 
@@ -36,14 +36,9 @@ public class EntityKanaName extends AbstractStringValue {
 
     public static EntityKanaName reconstruct(String value) {
         if (Strings2.isEmpty(value)) {
-            return EMPTY;
+            return EMPTY_VALUE;
         }
         return new EntityKanaName(value);
-
-    }
-
-    public static EntityKanaName empty() {
-        return EMPTY;
 
     }
 

@@ -17,8 +17,10 @@ import java.io.Serializable;
 public class ProjectName extends AbstractStringValue implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-
-    private static final ProjectName EMPTY_VALUE = new ProjectName();
+    /**
+     * nullオブジェクト
+     */
+    public static final ProjectName EMPTY_VALUE = new ProjectName();
 
     /**
      * コンストラクター
@@ -36,16 +38,6 @@ public class ProjectName extends AbstractStringValue implements Serializable {
     public ProjectName() {
         super();
 
-    }
-
-
-    /**
-     * ヌルオブジェクトを取得する
-     *
-     * @return プロジェクト名
-     */
-    public static ProjectName empty() {
-        return EMPTY_VALUE;
     }
 
     /**

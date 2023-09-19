@@ -3,6 +3,7 @@ package template.modules.admin.domain.model.glossary;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import org.jetbrains.annotations.NotNull;
 import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
 import org.seasar.doma.Id;
@@ -10,9 +11,11 @@ import org.seasar.doma.Table;
 import org.seasar.doma.boot.ConfigAutowireable;
 import template.modules.admin.domain.model.glossary.attribute.GlossaryItemAttribute;
 import template.shared.entity.id.SnowflakeId;
+import template.shared.value.AbstractListValue;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Collection;
 
 /**
  * 用語辞書の1アイテム
@@ -37,8 +40,8 @@ public class GlossaryItem implements Serializable {
      * コンストラクター
      */
     public GlossaryItem() {
-        glossaryItemId = SnowflakeId.empty();
-        attribute = GlossaryItemAttribute.empty();
+        glossaryItemId = SnowflakeId.EMPTY_VALUE;
+        attribute = GlossaryItemAttribute.EMPTY_VALUE;
 
     }
 
@@ -64,6 +67,7 @@ public class GlossaryItem implements Serializable {
      */
     public static GlossaryItem create(final String word, final String kanaWord, final String description) {
         return create(GlossaryItemAttribute.create(word, kanaWord, description));
+
     }
 
     /**
@@ -72,7 +76,62 @@ public class GlossaryItem implements Serializable {
      * @param attribute 用語辞書アイテム属性
      * @return 用語辞書即成
      */
-    private static GlossaryItem create(final GlossaryItemAttribute attribute) {
-        return new GlossaryItem(SnowflakeId.newInstance(), attribute);
+    public static GlossaryItem create(final GlossaryItemAttribute attribute) {
+        return create(SnowflakeId.newInstance(), attribute);
     }
+
+    /**
+     * ファクトリーメソッド
+     *
+     * @param glossaryItemId        用語辞書アイテムID
+     * @param glossaryItemAttribute 用語辞書アイテム属性
+     * @return 用語辞書即成
+     */
+    public static GlossaryItem create(final Long glossaryItemId, final GlossaryItemAttribute glossaryItemAttribute) {
+        return create(SnowflakeId.of(glossaryItemId), glossaryItemAttribute);
+    }
+
+    /**
+     * ファクトリーメソッド
+     *
+     * @param glossaryItemId        用語辞書アイテムID
+     * @param glossaryItemAttribute 用語辞書アイテム属性
+     * @return 用語辞書即成
+     */
+    private static GlossaryItem create(final SnowflakeId glossaryItemId, final GlossaryItemAttribute glossaryItemAttribute) {
+        return new GlossaryItem(glossaryItemId, glossaryItemAttribute);
+    }
+
+    /**
+     * 用語辞書
+     */
+    public static class Glossary extends AbstractListValue<GlossaryItem> {
+
+        /**
+         * コンストラクター
+         *
+         * @param value 値
+         */
+        /* default */Glossary(@NotNull final Collection<GlossaryItem> value) {
+            super(value);
+        }
+
+        /**
+         * 再生成
+         *
+         * @param value 値
+         * @return 用語辞書
+         */
+        public static @NotNull Glossary reconstruct(@NotNull final Collection<GlossaryItem> value) {
+            return new Glossary(value);
+
+        }
+
+        @Override
+        public String asString() {
+            return toString();
+
+        }
+    }
+
 }

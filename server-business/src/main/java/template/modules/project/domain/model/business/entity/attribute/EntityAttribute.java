@@ -10,14 +10,14 @@ import template.shared.value.Value;
 @EqualsAndHashCode
 @Embeddable
 public class EntityAttribute implements Value {
-
+    public static EntityAttribute EMPTY_VALUE = new EntityAttribute();
     private final EntityName name;
     private final EntityKanaName kanaName;
 
     private final EntityType type;
 
     public EntityAttribute() {
-        this(EntityName.empty(), EntityKanaName.empty(), EntityType.UNKNOWN);
+        this(EntityName.EMPTY_VALUE, EntityKanaName.EMPTY_VALUE, EntityType.UNKNOWN);
 
     }
 

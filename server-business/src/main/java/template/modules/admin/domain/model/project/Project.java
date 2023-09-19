@@ -27,6 +27,7 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 public class Project implements Serializable {
+    public static final Project EMPTY_ENTITY = new Project();
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -39,8 +40,8 @@ public class Project implements Serializable {
      * コンストラクター.
      */
     public Project() {
-        projectTd = SnowflakeId.empty();
-        attribute = ProjectAttribute.empty();
+        projectTd = SnowflakeId.EMPTY_VALUE;
+        attribute = ProjectAttribute.EMPTY_VALUE;
 
 
     }
@@ -99,16 +100,7 @@ public class Project implements Serializable {
      * @return プロジェクト
      */
     public static Project newInstance() {
-        return new Project(SnowflakeId.newInstance(), ProjectAttribute.empty());
-    }
-
-    /**
-     * nullオブジェクトを作成する
-     *
-     * @return プロジェクト
-     */
-    public static Project empty() {
-        return new Project(SnowflakeId.empty(), ProjectAttribute.empty());
+        return new Project(SnowflakeId.newInstance(), ProjectAttribute.EMPTY_VALUE);
     }
 
     /**

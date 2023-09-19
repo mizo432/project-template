@@ -16,7 +16,10 @@ public class KanaWord extends AbstractStringValue implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private static final KanaWord EMPTY_VALUE = new KanaWord();
+    /**
+     * nullオブジェクト
+     */
+    public static final KanaWord EMPTY_VALUE = new KanaWord();
 
     /**
      * コンストラクター
@@ -32,16 +35,6 @@ public class KanaWord extends AbstractStringValue implements Serializable {
      */
     public KanaWord() {
         super();
-
-    }
-
-    /**
-     * 空オブジェクト生成
-     *
-     * @return 用語読み
-     */
-    public static KanaWord empty() {
-        return EMPTY_VALUE;
 
     }
 

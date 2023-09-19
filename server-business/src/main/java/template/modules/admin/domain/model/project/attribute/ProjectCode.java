@@ -17,7 +17,10 @@ public class ProjectCode extends AbstractStringValue implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private static final ProjectCode EMPTY_VALUE = new ProjectCode();
+    /**
+     * nullオブジェクト
+     */
+    public static final ProjectCode EMPTY_VALUE = new ProjectCode();
 
     /**
      * コンストラクター
@@ -35,17 +38,6 @@ public class ProjectCode extends AbstractStringValue implements Serializable {
         super();
 
     }
-
-    /**
-     * 空オブジェクト
-     *
-     * @return プロジェクトコード
-     */
-
-    public static ProjectCode empty() {
-        return EMPTY_VALUE;
-    }
-
 
     /**
      * ファクトリーメソッド

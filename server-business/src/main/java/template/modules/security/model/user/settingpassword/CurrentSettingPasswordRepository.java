@@ -9,6 +9,6 @@ import template.shared.entity.id.SnowflakeId;
 @ConfigAutowireable
 public interface CurrentSettingPasswordRepository {
     @Select
-    CurrentSettingPassword findOneById(SnowflakeId userId);
+    CurrentSettingPassword findOneById(final SnowflakeId userId);
 
 }
