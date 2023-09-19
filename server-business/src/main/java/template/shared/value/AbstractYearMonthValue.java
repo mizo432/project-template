@@ -2,37 +2,38 @@ package template.shared.value;
 
 import com.undecided.primitive.object.Objects2;
 
-import java.time.LocalDateTime;
+import java.time.YearMonth;
 
 /**
- * 日時の値オブジェクトの基底クラス
+ * 年月の値オブジェクトの基底クラス
  */
-public abstract class AbstractDateTimeValue extends AbstractValue<LocalDateTime> implements
-        DateTimeValue {
+public abstract class AbstractYearMonthValue extends AbstractValue<YearMonth> implements YearMonthValue {
 
     /**
      * 値
      */
-    protected final LocalDateTime value;
+    protected final YearMonth value;
 
     /**
      * コンストラクター
      *
      * @param value 値
      */
-    protected AbstractDateTimeValue(final LocalDateTime value) {
+    protected AbstractYearMonthValue(final YearMonth value) {
         this.value = value;
+
     }
 
     /**
      * コンストラクター
      */
-    protected AbstractDateTimeValue() {
+    protected AbstractYearMonthValue() {
         value = null;
+
     }
 
     @Override
-    public LocalDateTime getValue() {
+    public YearMonth getValue() {
         return value;
     }
 
