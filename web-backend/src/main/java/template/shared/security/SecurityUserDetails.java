@@ -11,6 +11,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import template.modules.security.appl.query.authuser.AuthUser;
 import template.modules.security.model.user.User;
 import template.modules.security.model.user.settingpassword.EncodedPassword;
+import template.modules.security.model.user.statics.AccountNonExpired;
+import template.modules.security.model.user.statics.AccountNonLocked;
+import template.modules.security.model.user.statics.CredentialsNonExpired;
+import template.modules.security.model.user.statics.UserEnabled;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -45,13 +49,23 @@ public class SecurityUserDetails implements UserDetails, Serializable {
     }
 
     private static SecurityUserDetails reconstruct(final User user, final EncodedPassword encodedPassword) {
-        return reconstruct(user.getUserAttribute().getEmailAddress().asString()
+        return reconstruct(user,
+                encodedPassword,
+                AccountNonExpired.有効期限内,
+                AccountNonLocked.非ロック,
+                CredentialsNonExpired.有効期限内,
+                UserEnabled.有効);
+    }
+
+    private static SecurityUserDetails reconstruct(final User user, final EncodedPassword encodedPassword, AccountNonExpired accountNonExpired, AccountNonLocked accountNonLocked, CredentialsNonExpired credentialsNonExpired, UserEnabled userEnabled) {
+        return reconstruct(user.getUserAttribute().getUserCode().asString()
                 , encodedPassword.asString(),
                 user.getUserAttribute().getEmailAddress().asString(),
-                Boolean.TRUE,
-                Boolean.TRUE,
-                Boolean.TRUE,
-                Boolean.TRUE);
+                accountNonExpired.isNonExpired(),
+                accountNonLocked.isNonLocked(),
+                credentialsNonExpired.isNonExpired(),
+                userEnabled.isEnabled());
+
     }
 
     @Override
