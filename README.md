@@ -60,13 +60,13 @@ DELETE リソースの削除
 
 httpStatus
 
-| メソッド   | 正常時ステータスコード     | パラメータエラー         |
-|--------|-----------------|------------------|
-| GET    | Ok(200)         | Bad request(400) |
-| POST   | Created(201)    |                  |
-| PUT    | Ok(200)         |                  |
-| PATCH  | Ok(200)         | エンティティの一部更新 |
-| DELETE | No content(204) |                  |
+| メソッド   | 正常時ステータスコード     | パラメータエラー         | 摘要          |
+|--------|-----------------|------------------|-------------|
+| GET    | Ok(200)         | Bad request(400) |             |
+| POST   | Created(201)    |                  |             |
+| PUT    | Ok(200)         |                  |             |
+| PATCH  | Ok(200)         |                  | エンティティの一部更新 |
+| DELETE | No content(204) |                  |             |
 
 PUTとDELETEはリソースの{identifier}が必須
 GETは必要な情報に合わせて{identifier}が必須。{identifier}つけない場合、クエリーパラメーターで検索条件を付与する
@@ -116,4 +116,4 @@ application -> api
 
 https://github.com/materializecss/materialize
 
-##           
+##             
