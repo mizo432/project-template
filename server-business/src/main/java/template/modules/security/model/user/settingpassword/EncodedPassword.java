@@ -13,12 +13,12 @@ public class EncodedPassword extends AbstractStringValue {
 
     }
 
-    public static EncodedPassword reconstruct(String value) {
+    public static EncodedPassword reconstruct(final String value) {
         return new EncodedPassword(value);
 
     }
 
-    public static EncodedPassword initialize(PasswordEncoder passwordEncoder) {
+    public static EncodedPassword initialize(final PasswordEncoder passwordEncoder) {
         return new EncodedPassword(passwordEncoder.encode("password"));
 
     }
