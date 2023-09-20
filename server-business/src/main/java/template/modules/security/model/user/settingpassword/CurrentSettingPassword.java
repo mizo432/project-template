@@ -9,6 +9,9 @@ import org.seasar.doma.Table;
 import template.shared.entity.WhenOccurred;
 import template.shared.entity.id.SnowflakeId;
 
+/**
+ * 現在パスワード設定
+ */
 @Getter
 @Entity(immutable = true)
 @Table(schema = "security", name = "current_setting_password")

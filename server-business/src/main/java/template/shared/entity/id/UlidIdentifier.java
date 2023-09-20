@@ -11,25 +11,21 @@ import template.shared.value.StringValue;
 import java.io.Serializable;
 
 @Getter
-@Deprecated
 public class UlidIdentifier extends AbstractStringValue implements
         StringValue, Serializable, Identifier<UlidIdentifier> {
 
-    private static final UlidIdentifier EMPTY = new UlidIdentifier();
+    private static final UlidIdentifier EMPTY_VALUE = new UlidIdentifier();
 
 
     public UlidIdentifier() {
         super();
     }
 
-    UlidIdentifier(String value) {
+    /* default*/UlidIdentifier(final String value) {
         super(value);
     }
 
     @SuppressWarnings("unchecked")
-    public static <E> UlidIdentifier empty() {
-        return (UlidIdentifier) EMPTY;
-    }
 
     public static <E> UlidIdentifier newInstance() {
         return new UlidIdentifier(new ULID().nextValue().toString());
@@ -44,15 +40,15 @@ public class UlidIdentifier extends AbstractStringValue implements
      * @return 識別子オブジェクト
      */
     @SuppressWarnings("unchecked")
-    public static <E> UlidIdentifier reconstruct(String value) {
+    public static <E> UlidIdentifier reconstruct(final String value) {
         if (Strings2.isEmpty(value)) {
-            return EMPTY;
+            return EMPTY_VALUE;
         }
         return new UlidIdentifier(value);
 
     }
 
-    public static UlidIdentifier of(String value) {
+    public static UlidIdentifier of(final String value) {
         StringPreconditions.checkLength(value, 26,
                 () -> new IllegalArgumentException("識別子は" + 26 + "桁でなければいけません。 value=" + value));
 

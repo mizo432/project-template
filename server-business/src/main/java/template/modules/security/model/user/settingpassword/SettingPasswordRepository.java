@@ -8,7 +8,14 @@ import org.seasar.doma.jdbc.Result;
 @Dao
 @ConfigAutowireable
 public interface SettingPasswordRepository {
+
+    /**
+     * パスワード設定をインサートする
+     *
+     * @param settingPassword パスワード設定
+     * @return 登録済みパスワード設定
+     */
     @Insert
-    Result<SettingPassword> insert(SettingPassword settingPassword);
+    Result<SettingPassword> insert(final SettingPassword settingPassword);
 
 }
