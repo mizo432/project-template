@@ -22,6 +22,6 @@ public interface HolidayQuery {
      * @param holidayId 祝日ID
      * @return 検索結果の祝日
      */
-    Holiday findOneBy(@NonNull final SnowflakeId holidayId);
+    Holiday findOneBy(@NonNull SnowflakeId holidayId);
 
 }
