@@ -2,17 +2,21 @@ package com.undecided.test.size;
 
 
 import org.junit.jupiter.api.Tag;
-import org.junit.platform.commons.annotation.Testable;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
-import java.lang.annotation.*;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * 1000ms
  */
+@Target(value = {ElementType.TYPE, ElementType.METHOD})
 @Retention(value = RetentionPolicy.RUNTIME)
-@Target(value = {ElementType.METHOD, ElementType.TYPE})
-@Testable
-@Documented
+@Test
 @Tag("MEDIUM")
+@Timeout(1L)
 public @interface MediumTest {
 }
