@@ -100,10 +100,10 @@ compileTestJava {
 }
 
 javadoc {
-//    title = "My JavaDoc"
     failOnError = false
+    options.locale = "ja_JP"
+    options.encoding = 'UTF-8'
     options.showFromProtected()
-
 }
 
 
