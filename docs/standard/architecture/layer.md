@@ -1,5 +1,6 @@
 レイヤー分け
 =====
+
 ```puml
 @startuml
 title 概要図
@@ -22,7 +23,7 @@ note right of Comp2
 end note
 
 }
-component [ユースケース層] as Comp3
+component [アプリケーション層] as Comp3
 component [ドメイン層] as Comp4
 Comp1 -[hidden] Comp2
 Comp1 --> Comp3
