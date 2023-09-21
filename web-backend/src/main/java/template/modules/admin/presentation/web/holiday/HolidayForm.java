@@ -24,7 +24,7 @@ public class HolidayForm {
      * @param holiday 祝日
      * @return 祝日フォーム
      */
-    public static HolidayForm reconstruct(Holiday holiday) {
+    public static HolidayForm reconstruct(final Holiday holiday) {
         HolidayForm form = new HolidayForm();
         form.setHolidayId(holiday.getHolidayId().getValue());
         form.setHoliday(holiday.getDate());
@@ -58,7 +58,7 @@ public class HolidayForm {
      * 祝日フォームのファーストクラスコレクション
      */
     public static class HolidayFormList {
-        public static List<HolidayForm> reconstruct(Holidays holidays) {
+        public static List<HolidayForm> reconstruct(final Holidays holidays) {
             ArrayList<HolidayForm> holidayList = Lists2.newArrayList();
             for (Holiday holiday : holidays.getValue()) {
                 holidayList.add(HolidayForm.reconstruct(holiday));

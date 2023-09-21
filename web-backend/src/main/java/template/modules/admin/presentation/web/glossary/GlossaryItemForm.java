@@ -24,7 +24,7 @@ public class GlossaryItemForm {
      * @param glossaryItem 祝日
      * @return 祝日フォーム
      */
-    public static GlossaryItemForm reconstruct(GlossaryItem glossaryItem) {
+    public static GlossaryItemForm reconstruct(final GlossaryItem glossaryItem) {
         GlossaryItemForm form = new GlossaryItemForm();
         form.setGlossaryItemId(glossaryItem.getGlossaryItemId().getValue());
         form.setWord(glossaryItem.getAttribute().getWord().getValue());
@@ -59,7 +59,7 @@ public class GlossaryItemForm {
      * 祝日フォームのファーストクラスコレクション
      */
     public static class GlossaryItemFormList {
-        public static List<GlossaryItemForm> reconstruct(GlossaryItem.Glossary glossary) {
+        public static List<GlossaryItemForm> reconstruct(final GlossaryItem.Glossary glossary) {
             ArrayList<GlossaryItemForm> glossaryItemFormList = Lists2.newArrayList();
             for (GlossaryItem glossaryItem : glossary.getValue()) {
                 glossaryItemFormList.add(GlossaryItemForm.reconstruct(glossaryItem));
