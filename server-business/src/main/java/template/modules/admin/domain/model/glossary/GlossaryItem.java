@@ -83,23 +83,23 @@ public class GlossaryItem implements Serializable {
     /**
      * ファクトリーメソッド
      *
-     * @param glossaryItemId        用語辞書アイテムID
-     * @param glossaryItemAttribute 用語辞書アイテム属性
+     * @param glossaryItemId 用語辞書アイテムID
+     * @param attribute      用語辞書アイテム属性
      * @return 用語辞書即成
      */
-    public static GlossaryItem create(final Long glossaryItemId, final GlossaryItemAttribute glossaryItemAttribute) {
-        return create(SnowflakeId.of(glossaryItemId), glossaryItemAttribute);
+    public static GlossaryItem create(final Long glossaryItemId, final GlossaryItemAttribute attribute) {
+        return create(SnowflakeId.of(glossaryItemId), attribute);
     }
 
     /**
      * ファクトリーメソッド
      *
-     * @param glossaryItemId        用語辞書アイテムID
-     * @param glossaryItemAttribute 用語辞書アイテム属性
+     * @param glossaryItemId 用語辞書アイテムID
+     * @param attribute      用語辞書アイテム属性
      * @return 用語辞書即成
      */
-    private static GlossaryItem create(final SnowflakeId glossaryItemId, final GlossaryItemAttribute glossaryItemAttribute) {
-        return new GlossaryItem(glossaryItemId, glossaryItemAttribute);
+    private static GlossaryItem create(final SnowflakeId glossaryItemId, final GlossaryItemAttribute attribute) {
+        return new GlossaryItem(glossaryItemId, attribute);
     }
 
     /**
