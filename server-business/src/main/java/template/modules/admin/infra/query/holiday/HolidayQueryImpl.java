@@ -21,6 +21,7 @@ public class HolidayQueryImpl implements HolidayQuery {
      *
      * @return 祝日ファストクラスコレクション
      */
+    @Override
     public Holiday.Holidays selectAll() {
         return Holiday.Holidays.reconstruct(holidayRepository.selectAll());
 
@@ -32,6 +33,7 @@ public class HolidayQueryImpl implements HolidayQuery {
      * @param holidayId 祝日ID
      * @return 検索結果の祝日
      */
+    @Override
     public Holiday findOneBy(@NonNull final SnowflakeId holidayId) {
         return holidayRepository.findOneBy(holidayId);
 
