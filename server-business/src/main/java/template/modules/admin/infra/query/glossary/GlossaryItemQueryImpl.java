@@ -11,7 +11,7 @@ import template.modules.admin.domain.model.glossary.GlossaryItemRepository;
 @AllArgsConstructor
 public class GlossaryItemQueryImpl implements GlossaryItemQuery {
 
-    private final GlossaryItemRepository glossaryItemRepository;
+    private final GlossaryItemRepository glossaryRepository;
 
     /**
      * 全権検索
@@ -20,7 +20,7 @@ public class GlossaryItemQueryImpl implements GlossaryItemQuery {
      */
     @Override
     public @NotNull Glossary selectAll() {
-        return Glossary.reconstruct(glossaryItemRepository.selectAll());
+        return Glossary.reconstruct(glossaryRepository.selectAll());
 
     }
 }
