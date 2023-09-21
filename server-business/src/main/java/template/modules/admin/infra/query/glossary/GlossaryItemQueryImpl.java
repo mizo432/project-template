@@ -9,6 +9,7 @@ import template.modules.admin.domain.model.glossary.GlossaryItemRepository;
 
 @Service
 @AllArgsConstructor
+@SuppressWarnings("PMD")
 public class GlossaryItemQueryImpl implements GlossaryItemQuery {
 
     private final GlossaryItemRepository glossaryRepository;
