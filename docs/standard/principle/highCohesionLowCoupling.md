@@ -5,9 +5,11 @@
 これは、アーキテクチャー設計でも、各レイヤーのクラス設計でも非常に意識するべき原則です。この後のすべての解説における前提知識として必要なため、本アーキテクチャー固有の話ではありませんがここで解説します。
 
 # 凝集度・結合度について
+
 凝集度・結合度とはソフトウェアの品質を表す指標（メトリクス）で1970年代に提唱され、以後ソフトウェア工学の標準用語となりました。
 
 高凝集・低結合にすると一般に以下のようにソフトウェアの特性が改善します。
+
 * Understandability(理解容易性): コードを読んで理解しやすくなる
 * Flexibility(拡張性): コードを修正、拡張しやすくなる
 * Reliability(信頼性): 修正時にバグを埋め込みにくくなる
@@ -19,6 +21,7 @@
 凝集度・結合度は「モジュール」毎に考えます。モジュールとは、機能をひとまとまりで捉えた単位で、クラス、アーキテクチャーのレイヤー、アプリケーションなどのさまざまな粒度があります。本項ではイメージしやすいように、モジュールを「クラス」という記述で解説します。レイヤー、アプリケーションといった粒度の設計時には、都度読み替えてください。
 
 ## 定義
+
 凝集度とは、1つのクラスについて「責務、データ、ふるまいの関連の強さ」の尺度です。高い方がいいものであり、基本的に高凝集な実装を目指します。
 
 責務とは、「このクラスは何をするクラスか？」という問いに対する答えです。この問いかけは非常に重要です。設計をする際には常に考える必要があります。
@@ -26,20 +29,21 @@
 この問いに答えられない場合は、責務が曖昧なので悪い設計になりがちです。責務を明確に定義したあと、その責務とクラスが持つデータ、メソッドがきちんと関連しているかを考えます。
 
 ## 低凝集な実装
-低凝集な実装とはどの様な実装でしょうか。極端な例ですが、したのリストを見てみましょう。
+
+低凝集な実装とはどの様な実装でしょうか。極端な例ですが、下のリストを見てみましょう。
 
 ```java
 public class OperationUtil { // 責務が曖昧なクラス
-   private int count = 0;
-   
-   public void increment() { // 何らかの数値をインクリメント
-       count++;
-   }
-   
-   public static void greet() { // 保持している数値と関係ない挨拶
-       System.out.println("hello.");
-   }
-    
+    private int count = 0;
+
+    public void increment() { // 何らかの数値をインクリメント
+        count++;
+    }
+
+    public static void greet() { // 保持している数値と関係ない挨拶
+        System.out.println("hello.");
+    }
+
 }
 ```
 
@@ -48,19 +52,21 @@ public class OperationUtil { // 責務が曖昧なクラス
 そして、責務が曖昧なクラスに対して、保持するデータとメソッドに関連性がありません、このようなクラスは、不用意に関連性の無いメソッドが追加され、徐々にメンテナンスしにくいクラスになっていきます。
 
 ## 高凝集な実装
+
 高凝集な実装の例を見てみましょう。
+
 ```java
 public class Counter { // 責務が明確なクラス
-   private int count = 0; // クラス名と関連が明白なデータ
-   
-   public void increment() { // クラス名データと関連が明白なデータ
-       count++;
-   }
-   
-   public static int getCurrentCount() { // クラス名データと関連が明白なデータ
-       return count;
-   }
-   
+    private int count = 0; // クラス名と関連が明白なデータ
+
+    public void increment() { // クラス名データと関連が明白なデータ
+        count++;
+    }
+
+    public static int getCurrentCount() { // クラス名データと関連が明白なデータ
+        return count;
+    }
+
 }
 
 ```
@@ -70,17 +76,21 @@ public class Counter { // 責務が明確なクラス
 クラスの責務に対して、保存するデータは管理対象のカウント、メソッドもカウントを増加させるメソッドと現在の値を取得するメソッド、ときちんと関連性が強い物になっています。このようなクラスは、可読性や保守性が高くなります。
 
 # 結合度
+
 ## 定義
+
 結合度とは、複数のクラス同士が依存している度合いの尺度です。凝集度は1クラス内の尺度、結合度は複数クラス間における尺度となります。
 
 こちらは凝集度とは反対に低い方がよいものです。結合度が高いと、依存先クラスの振る舞いや修正の影響を受けやすくなります。
 
 また、特定の実現したい処理を、多くのクラスを組み合わせないと実現できない場合も結合度が高いと考えることができます。
 
-
 ## 高結合な実装
+
 高結合な実装の例を見てみましょう。
+
 ### 高結合なクラス
+
 ```java
 public class Printer {
     public static void print() {
@@ -90,23 +100,26 @@ public class Printer {
 
 public class Counter {
     public static int number = 0;
-    public static void increment(){
+
+    public static void increment() {
         number++;
     }
 }
 ```
+
 ### 高結合なクラスを呼び出す記述
+
 ```java
-    public class Application{
-        public static void main(String[] args) {
-            Printer.print(); // 0が出力される
-            Counter.increment();
-            Printer.print(); // 1が出力される → この振る舞いは外部から想像が難しい
-    
-        } 
-    
+    public class Application {
+    public static void main(String[] args) {
+        Printer.print(); // 0が出力される
+        Counter.increment();
+        Printer.print(); // 1が出力される → この振る舞いは外部から想像が難しい
+
     }
-  
+
+}
+
 ```
 
 Printerのprint メソッドの出力結果が、Counterの内部状態に依存しています。この結合は内容結合と呼ばれ、もっとも結合度が高い状態です。
@@ -114,8 +127,11 @@ Printerのprint メソッドの出力結果が、Counterの内部状態に依存
 このような状況では、Printer,Counterどちらの実装を変更する場合も、注意深く関係するクラスを辿っていかなとバグを生んでしまう可能性があります。
 
 ## 低結合な実装
+
 低結合な実装はどのような物でしょうか？
+
 ### 低結合なクラス
+
 ```java
 public class Printer {
     public static void print(int number) {
@@ -125,26 +141,31 @@ public class Printer {
 
 public class Counter {
     private static int number = 0;
+
     public static int getNumber() {
         return number;
     }
 }
 ```
+
 ### 低結合なクラスを呼び出す記述
+
 ```java
-    public class Application{
-        public static void main(String[] args) {
-            Printer.print(Counter.getNumber());
-    
-        } 
-    
+    public class Application {
+    public static void main(String[] args) {
+        Printer.print(Counter.getNumber());
+
     }
-  
+
+}
+
 ```
+
 ここではPrinterとCounterは受け渡す引数でのみ関係があり。それぞれの実装が変更になっても大きく影響を受けない、結合度が低い状態になっています。
 高結合なクラスを呼び出す記述と比較すると、低結合の方が可読性、保守性が高いことがわかります。
 
 # まとめ
+
 冒頭で話した通り、アーキテクチャもクラスも、「高凝集・低結合」は設計時に必ず意識するべき原則です。そのためには責務を明確にすることが必要です。
 
 今後、「責務」について数多く言及がありますが、それはこの原則に基づいた物です。そこを意識すると設計意図が読み解きやすくなりますので、ぜひ意識しながら読み進めてください。
