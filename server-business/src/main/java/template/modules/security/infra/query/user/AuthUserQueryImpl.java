@@ -1,10 +1,10 @@
-package template.modules.security.infra.query;
+package template.modules.security.infra.query.user;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import template.modules.security.appl.query.authuser.AuthUser;
-import template.modules.security.appl.query.authuser.AuthUserQuery;
+import template.modules.security.appl.query.user.AuthUser;
+import template.modules.security.appl.query.user.AuthUserQuery;
 import template.modules.security.model.user.User;
 import template.modules.security.model.user.UserCode;
 import template.modules.security.model.user.UserRepository;
@@ -35,6 +35,6 @@ public class AuthUserQueryImpl implements AuthUserQuery {
         AuthUser authUser = AuthUser.reconstruct(user, cup.getEncodedPassword());
         log.debug(authUser.toString());
         return authUser;
-        
+
     }
 }
