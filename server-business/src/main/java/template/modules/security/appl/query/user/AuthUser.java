@@ -37,6 +37,7 @@ public class AuthUser implements MultiValue<AuthUser> {
      *
      * @return 空の場合true
      */
+    @Override
     public boolean isEmpty() {
         return user.isEmpty() && encodedPassword.isEmpty();
     }
