@@ -44,5 +44,14 @@ public class CurrentAssignmentRole extends AbstractStringValue {
             }
             return result;
         }
+
+        public String[] roleStringArray() {
+            String[] result = new String[getValue().size()];
+            for (int i = 0; i < getValue().size(); i++) {
+                final CurrentAssignmentRole assignmentRole = getValue().get(i);
+                result[i] = assignmentRole.getRoleCode().asString();
+            }
+            return result;
+        }
     }
 }

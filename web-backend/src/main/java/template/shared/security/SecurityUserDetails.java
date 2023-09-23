@@ -2,6 +2,7 @@ package template.shared.security;
 
 import com.undecided.primitive.object.Objects2;
 import com.undecided.primitive.set.Sets2;
+import lombok.Getter;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,6 +24,8 @@ import java.util.stream.Collectors;
 @ToString(exclude = "password")
 public class SecurityUserDetails implements UserDetails, Serializable {
     private String username;
+    @Getter
+    private String name;
     private String password;
     private String mailAddress;
     private Boolean accountNonExpired;
@@ -36,8 +39,9 @@ public class SecurityUserDetails implements UserDetails, Serializable {
 
     }
 
-    /* default */ SecurityUserDetails(final String username, final String password, final String mailAddress, final Boolean accountNonExpired, final Boolean accountNonLocked, final Boolean credentialsNonExpired, final Boolean enabled, final Collection<String> roles) {
+    /* default */ SecurityUserDetails(final String username, final String name, final String password, final String mailAddress, final Boolean accountNonExpired, final Boolean accountNonLocked, final Boolean credentialsNonExpired, final Boolean enabled, final Collection<String> roles) {
         this.username = username;
+        this.name = name;
         this.password = password;
         this.mailAddress = mailAddress;
         this.accountNonExpired = accountNonExpired;
@@ -70,6 +74,7 @@ public class SecurityUserDetails implements UserDetails, Serializable {
 
     private static SecurityUserDetails reconstruct(final User user, final EncodedPassword encodedPassword, AccountNonExpired accountNonExpired, AccountNonLocked accountNonLocked, CredentialsNonExpired credentialsNonExpired, UserEnabled userEnabled, final AssignmentRoles roles) {
         return reconstruct(user.getUserAttribute().getUserCode().asString()
+                , user.getUserAttribute().getName().asString()
                 , encodedPassword.asString(),
                 user.getUserAttribute().getEmailAddress().asString(),
                 accountNonExpired.isNonExpired(),
@@ -79,8 +84,8 @@ public class SecurityUserDetails implements UserDetails, Serializable {
 
     }
 
-    private static SecurityUserDetails reconstruct(final String username, final String password, final String mailAddress, final Boolean accountNonExpired, final Boolean accountNonLocked, final Boolean credentialsNonExpired, final Boolean enabled, final Collection<String> roles) {
-        return new SecurityUserDetails(username, password, mailAddress, accountNonExpired, accountNonLocked, credentialsNonExpired, enabled, roles);
+    private static SecurityUserDetails reconstruct(final String username, final String name, final String password, final String mailAddress, final Boolean accountNonExpired, final Boolean accountNonLocked, final Boolean credentialsNonExpired, final Boolean enabled, final Collection<String> roles) {
+        return new SecurityUserDetails(username, name, password, mailAddress, accountNonExpired, accountNonLocked, credentialsNonExpired, enabled, roles);
     }
 
     @Override

@@ -2,6 +2,8 @@ package template.shared.security;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -21,12 +23,17 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private final CurrentAssignmentRoleQuery currentAssignmentRoleQuery;
 
     @Override
-    public SecurityUserDetails loadUserByUsername(final String userCode) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(final String userCode) throws UsernameNotFoundException {
         final AuthUser authUser = authUserQuery.findByUserCode(UserCode.of(userCode));
-        if (authUser.isEmpty())
+        if (authUser.isEmpty()) {
             throw new UsernameNotFoundException("操作員が見つかりません");
+        }
         CurrentAssignmentRole.AssignmentRoles roles = currentAssignmentRoleQuery.selectByUserId(authUser.userId());
-        SecurityUserDetails user = SecurityUserDetails.reconstruct(authUser, roles);
+        UserDetails user = User.withUsername(authUser.getUser().getUserAttribute().getUserCode().asString())
+                .password(authUser.getEncodedPassword().asString())
+                .roles(roles.roleStringArray())
+                .build();
+
         log.debug(user.toString());
         return user;
     }

@@ -29,26 +29,29 @@ public class SecurityConfig {
                         .requestMatchers("/actuator").permitAll()
                         .requestMatchers("/css/**").permitAll()
                         .requestMatchers("/image/**").permitAll()
+                        .requestMatchers("/img/**").permitAll()
                         .requestMatchers("/js/**").permitAll()
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/hello").permitAll()
                         .requestMatchers("/login-error").permitAll()
                         .requestMatchers("/error").permitAll()
+                        .requestMatchers("/error/**").permitAll()
                         .requestMatchers("/admin/**").hasAnyRole("ADMIN")
+                        .requestMatchers("/logout").hasRole("USER")
                         .requestMatchers("/**").hasRole("USER")
 //                        .requestMatchers("/**").permitAll()
                 ).httpBasic(Customizer.withDefaults())
-                .formLogin(Customizer.withDefaults()
- //       formLogin((formLogin)-> formLogin
- //               .loginPage("/login")
- //               .failureForwardUrl("/login-error")
 
-        ).logout(logoutConfigurer->{
-            logoutConfigurer
-                    .logoutUrl("/logout")
-                    .logoutSuccessUrl("/login")
-                    .deleteCookies("JSESSIONID")
-                    .invalidateHttpSession(true);
-                });
+//                .formLogin(Customizer.withDefaults()
+                .formLogin((formLogin)->
+                        formLogin.loginPage("/login")
+                                .failureForwardUrl("/login-error"))
+                .logout(logoutConfigurer-> logoutConfigurer
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login")
+                        .deleteCookies("JSESSIONID")
+                        .invalidateHttpSession(true)
+                );
         return http.build();
     }
     // @formatter:on
