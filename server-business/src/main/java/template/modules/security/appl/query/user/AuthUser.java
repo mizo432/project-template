@@ -1,4 +1,4 @@
-package template.modules.security.appl.query.authuser;
+package template.modules.security.appl.query.user;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.ToString;
 import template.modules.security.model.user.User;
 import template.modules.security.model.user.settingpassword.EncodedPassword;
+import template.shared.entity.id.SnowflakeId;
 import template.shared.value.MultiValue;
 
 /**
@@ -38,5 +39,9 @@ public class AuthUser implements MultiValue<AuthUser> {
      */
     public boolean isEmpty() {
         return user.isEmpty() && encodedPassword.isEmpty();
+    }
+
+    public SnowflakeId userId() {
+        return user.getUserId();
     }
 }
