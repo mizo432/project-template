@@ -13,6 +13,8 @@ import template.shared.value.name.Name;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class ActorAttribute {
 
+    public static final ActorAttribute EMPTY_VALUE = new ActorAttribute();
+
     /**
      * 名称.
      */
@@ -21,6 +23,12 @@ public class ActorAttribute {
      * 詳細.
      */
     private Description description;
+
+    public ActorAttribute() {
+        name = Name.EMPTY_VALUE;
+        description = Description.EMPTY_VALUE;
+
+    }
 
     /**
      * 再生成.
@@ -51,6 +59,6 @@ public class ActorAttribute {
      * @return アクター属性
      */
     public static ActorAttribute empty() {
-        return new ActorAttribute(Name.empty(), Description.empty());
+        return new ActorAttribute(Name.EMPTY_VALUE, Description.EMPTY_VALUE);
     }
 }

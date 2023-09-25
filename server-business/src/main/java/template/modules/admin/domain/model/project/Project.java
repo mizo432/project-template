@@ -2,7 +2,7 @@ package template.modules.admin.domain.model.project;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.undecided.primitive.object.Objects2;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import org.seasar.doma.Column;
@@ -13,6 +13,8 @@ import template.modules.admin.domain.model.project.attribute.ProjectAttribute;
 import template.shared.entity.id.SnowflakeId;
 import template.shared.value.AbstractListValue;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -23,7 +25,11 @@ import java.util.List;
 @Table(schema = "admin", name = "project")
 @ConfigAutowireable
 @ToString
-public class Project {
+@EqualsAndHashCode
+public class Project implements Serializable {
+    public static final Project EMPTY_ENTITY = new Project();
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Column(name = "project_id")
     private final SnowflakeId projectTd;
@@ -34,8 +40,8 @@ public class Project {
      * コンストラクター.
      */
     public Project() {
-        projectTd = SnowflakeId.empty();
-        attribute = ProjectAttribute.empty();
+        projectTd = SnowflakeId.EMPTY_VALUE;
+        attribute = ProjectAttribute.EMPTY_VALUE;
 
 
     }
@@ -46,90 +52,129 @@ public class Project {
      * @param projectTd ID
      * @param attribute 属性
      */
-    public Project(SnowflakeId projectTd,
-                   ProjectAttribute attribute) {
+    /* default */ Project(final SnowflakeId projectTd,
+                          final ProjectAttribute attribute) {
         this.projectTd = projectTd;
         this.attribute = attribute;
     }
 
-
-    public static Project create(ProjectAttribute attribute) {
+    /**
+     * ファクトリーメソッド
+     *
+     * @param attribute 属性
+     * @return プロジェクト
+     */
+    public static Project create(final ProjectAttribute attribute) {
         return create(SnowflakeId.newInstance(), attribute);
 
     }
 
+    /**
+     * ファクトリーメソッド
+     *
+     * @param projectId ID
+     * @param attribute 属性
+     * @return プロジェクト
+     */
     @JsonCreator
-    public static Project create(@JsonProperty("id") SnowflakeId id,
-                                 @JsonProperty("attribute") ProjectAttribute attribute) {
-        return new Project(id, attribute);
+    public static Project create(final @JsonProperty("id") SnowflakeId projectId,
+                                 final @JsonProperty("attribute") ProjectAttribute attribute) {
+        return new Project(projectId, attribute);
 
     }
 
-    public static Project create(Project project) {
+    /**
+     * ファクトリーメソッド
+     *
+     * @param project プロジェクト
+     * @return プロジェクト
+     */
+    public static Project create(final Project project) {
         return new Project(SnowflakeId.newInstance(), project.attribute);
 
     }
 
+    /**
+     * 新しいインスタンスを作成する
+     *
+     * @return プロジェクト
+     */
     public static Project newInstance() {
-        return new Project(SnowflakeId.newInstance(), ProjectAttribute.empty());
+        return new Project(SnowflakeId.newInstance(), ProjectAttribute.EMPTY_VALUE);
     }
 
-    public static Project empty() {
-        return new Project(SnowflakeId.empty(), ProjectAttribute.empty());
-    }
-
-    public boolean sameValueAs(Project other) {
+    /**
+     * プロジェクトが引数のプロジェクトと値として一致しているかを返却する
+     *
+     * @param other プロジェクト
+     * @return 一致している場合trueを返却する
+     */
+    public boolean sameValueAs(final Project other) {
         return sameIdAs(other)
                 && attribute.equals(other.attribute);
 
     }
 
-    public boolean sameIdAs(Project other) {
+    /**
+     * プロジェクトが引数のプロジェクトとIDが一致しているかを返却する
+     *
+     * @param other プロジェクト
+     * @return 一致している場合trueを返却する
+     */
+    public boolean sameIdAs(final Project other) {
         return projectTd.equals(other.projectTd);
 
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Project project)) {
-            return false;
-        }
-        if (!super.equals(o)) {
-            return false;
-        }
-        return projectTd.equals(project.projectTd) && attribute.equals(project.attribute);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects2.hash(getClass(), projectTd, attribute);
-
-    }
-
+    /**
+     * プロジェクトのファストクラスコレクション
+     */
     public static class Projects extends AbstractListValue<Project> {
 
-        private static final Projects EMPTY = new Projects();
+        private static final Projects EMPTY_VALUE = new Projects();
 
-        Projects(List<Project> value) {
+        /**
+         * コンストラクター
+         *
+         * @param value 値
+         */
+        /* default */Projects(final List<Project> value) {
             super(value);
         }
 
+        /**
+         * コンストラクター
+         */
         public Projects() {
+            super();
 
         }
 
 
+        /**
+         * 空のプロジェクツ
+         *
+         * @return プロジェクツ
+         */
         public static Projects empty() {
-            return EMPTY;
+            return EMPTY_VALUE;
         }
 
-        public static Projects reconstruct(List<Project> value) {
+        /**
+         * 再生成する
+         *
+         * @param value 値
+         * @return プロジェクツ
+         */
+        public static Projects reconstruct(final List<Project> value) {
             return new Projects(value);
         }
 
+        /**
+         * 文字列表現を作成する
+         *
+         * @return 文字列表現
+         */
         @Override
         public String asString() {
             return value.toString();

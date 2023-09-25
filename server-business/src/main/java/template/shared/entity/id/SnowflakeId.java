@@ -8,6 +8,9 @@ import org.seasar.doma.Domain;
 import template.shared.entity.Identifier;
 import template.shared.value.AbstractLongValue;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 import static com.undecided.primitive.object.Objects2.isNull;
 
 /**
@@ -16,9 +19,11 @@ import static com.undecided.primitive.object.Objects2.isNull;
 @Getter
 @Domain(valueType = Long.class, factoryMethod = "reconstruct")
 public class SnowflakeId extends AbstractLongValue implements
-        Identifier<SnowflakeId> {
+        Identifier<SnowflakeId>, Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
-    private static final SnowflakeId EMPTY = new SnowflakeId();
+    public static final SnowflakeId EMPTY_VALUE = new SnowflakeId();
 
 
     /**
@@ -34,13 +39,8 @@ public class SnowflakeId extends AbstractLongValue implements
      *
      * @param value 値
      */
-    SnowflakeId(long value) {
+    /* default */SnowflakeId(final long value) {
         super(value);
-
-    }
-
-    public static SnowflakeId empty() {
-        return EMPTY;
 
     }
 
@@ -64,16 +64,16 @@ public class SnowflakeId extends AbstractLongValue implements
      * @param value データベースから取得した値
      * @return 識別子オブジェクト
      */
-    public static SnowflakeId reconstruct(Long value) {
+    public static SnowflakeId reconstruct(final Long value) {
         if (isNull(value)) {
-            return EMPTY;
+            return EMPTY_VALUE;
         }
         return new SnowflakeId(value);
 
     }
 
     @VisibleForTesting
-    public static <E> SnowflakeId of(Long value) {
+    public static <E> SnowflakeId of(final Long value) {
         return new SnowflakeId(value);
 
     }

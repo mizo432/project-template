@@ -20,7 +20,7 @@ public abstract class AbstractDateTimeValue extends AbstractValue<LocalDateTime>
      *
      * @param value 値
      */
-    protected AbstractDateTimeValue(LocalDateTime value) {
+    protected AbstractDateTimeValue(final LocalDateTime value) {
         this.value = value;
     }
 

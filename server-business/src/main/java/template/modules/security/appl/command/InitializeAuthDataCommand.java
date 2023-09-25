@@ -15,6 +15,9 @@ import template.modules.security.model.user.settingpassword.EncodedPassword;
 import template.modules.security.model.user.settingpassword.SettingPassword;
 import template.modules.security.model.user.settingpassword.SettingPasswordRepository;
 
+/**
+ * 認証ユーザーを初期化登録する
+ */
 @Service
 @AllArgsConstructor
 @Slf4j
@@ -28,6 +31,9 @@ public class InitializeAuthDataCommand {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     private final PasswordEncoder passwordEncoder;
 
+    /**
+     * 認証ユーザーを初期化登録実行
+     */
     @Transactional
     public void execute() {
         Roles roles = Roles.of(roleRepository.selectAll());

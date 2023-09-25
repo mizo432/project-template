@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用語辞書</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!--Let browser know website is optimized for mobile-->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="no" name="application-tap-highlight">
+    <meta content="" name="description">
+    <!-- Compiled and minified CSS -->
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link href="../../../static/css/materialize.css"
+          media="screen,projection"
+          rel="stylesheet"
+          th:href="@{/css/materialize.min.css}">
+    <link href="../../../static/css/mstepper.css" rel="stylesheet" th:href="@{~/css/mstepper.min.css}">
+    <link href="../../../static/css/appl-materialize.min.css" rel="stylesheet"
+          th:href="@{~/css/appl-materialize.min.css}">
+    <link href="../../../static/css/application.css" rel="stylesheet" th:href="@{~/css/application.css}">
+</head>
+<body>
+<header>
+    <div class="navbar-fixed">
+        <nav class="navbar white">
+            <div class="nav-wrapper">
+                <a class="sidenav-trigger left show-on-large" data-target="sidenav-left" href="#"><i
+                        class="material-icons black-text">menu</i></a>
+                <a class="brand-logo grey-text text-darken-4" href="/"><i class="material-icons">home</i>テンプレートシステム</a>
+                <ul class="right" id="nav-mobile">
+                    <li class="hide-on-med-and-down"><a class="dropdown-trigger waves-effect black-text"
+                                                        data-target="dropdown1" href="#"><i class="material-icons">notifications</i></a>
+                    </li>
+                    <li><a class="dropdown-trigger waves-effect black-text" data-target="chat-dropdown"
+                           href="#"><i class="material-icons">settings</i></a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav teal lighten-2" id="sidenav-left" th:replace="~{/admin/fragments/fragments::sideView}">
+        <li><a class="logo-container" href="#"><i class="material-icons left">home</i>システム管理</a></li>
+        <li>
+            <div class="user-view">
+            </div>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold waves-effect active"><a class="collapsible-header">Pages<i
+                        class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect active" href="./list.html" th:href="@{~/admin/holiday}"><i
+                                    class="material-icons">calendar_month</i>祝日カレンダー</a>
+                            </li>
+                            <li><a class="waves-effect" href="./fragments.html">Fixed Chart<i
+                                    class="material-icons">list</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Grid<i
+                                    class="material-icons">dashboard</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Chat<i
+                                    class="material-icons">chat</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Charts<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="./fragments.html">Line Charts<i class="material-icons">show_chart</i></a>
+                            </li>
+                            <li><a class="waves-effect" href="./fragments.html">Bar Charts<i class="material-icons">equalizer</i></a>
+                            </li>
+                            <li><a class="waves-effect" href="./fragments.html">Area Charts<i class="material-icons">multiline_chart</i></a>
+                            </li>
+                            <li><a class="waves-effect" href="./fragments.html">Doughnut Charts<i
+                                    class="material-icons">pie_chart</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Financial Charts<i
+                                    class="material-icons">euro_symbol</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Interactive Charts<i
+                                    class="material-icons">touch_app</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Tables<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="./fragments.html">Fullscreen with Chart<i
+                                    class="material-icons">show_chart</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Table with Custom Elements<i
+                                    class="material-icons">settings</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Calendar<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="./fragments.html">Calendar<i
+                                    class="material-icons">cloud</i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Headers<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="./fragments.html">Tabbed<i
+                                    class="material-icons">tab</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Metrics<i
+                                    class="material-icons">web</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Search<i
+                                    class="material-icons">search</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Account<i class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="./fragments.html">Log In<i
+                                    class="material-icons">person</i></a></li>
+                            <li><a class="waves-effect" href="./fragments.html">Settings<i
+                                    class="material-icons">settings</i></a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="dropdown-content notifications" id="dropdown1">
+        <div class="notifications-title">notifications</div>
+        <div class="card">
+            <div class="card-content"><span class="card-title">Joe Smith made a purchase</span>
+                <p>Content</p>
+            </div>
+            <div class="card-action"><a href="#">view</a><a href="#">dismiss</a></div>
+        </div>
+        <div class="card">
+            <div class="card-content"><span class="card-title">Daily Traffic Update</span>
+                <p>Content</p>
+            </div>
+            <div class="card-action"><a href="#">view</a><a href="#">dismiss</a></div>
+        </div>
+        <div class="card">
+            <div class="card-content"><span class="card-title">New User Joined</span>
+                <p>Content</p>
+            </div>
+            <div class="card-action"><a href="#">view</a><a href="#">dismiss</a></div>
+        </div>
+    </div>
+    <div class="nav-content">
+        <ul class="tabs">
+            <li class="tab col s3 xl3"><a class="active" href="../../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3 disabled"><a href="../../admin/index.html"
+                                                   th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+            <li class="tab col s3 xl3"><a href="../../admin/index.html"
+                                          th:href="@{/admin}">システム管理</a></li>
+        </ul>
+    </div>
+</header>
+<main class="container">
+    <h3>用語辞書</h3>
+    <a class="waves-effect waves-light btn" href="insertForm.html" th:href="@{/glossary/insertForm}"><i
+            class="material-icons left">new_label</i>新規追加</a>
+
+    <table>
+        <tr>
+            <th>用語</th>
+            <th>かな用語</th>
+            <th>詳細</th>
+            <th>アクション</th>
+        </tr>
+        <tr th:each="form : ${formList}">
+            <td th:text="${form.word}">単語</td>
+            <td th:text="${form.kanaWord}">かな単語</td>
+            <td th:text="${form.description}">詳細</td>
+            <td>
+                <form method="post" th:action="@{glossary/delete}">
+                    <a class="waves-effect waves-light btn"
+                       th:href="@{/admin/glossary/editForm(glossaryItemId=${form.glossaryItemId})}"><i
+                            class="material-icons left">edit</i>変更</a>
+                    <input name="id" th:value="${form.getGlossaryItemId()}" type="hidden">
+                    <button class="btn waves-effect waves-light" name="action" type="submit">削除
+                        <i class="material-icons left">delete</i>
+                    </button>
+                </form>
+
+            </td>
+        </tr>
+    </table>
+</main>
+
+</body>
+<!-- Compiled and minified JavaScript -->
+<script src="../../../static/js/materialize.js"
+        th:src="@{/js/materialize.min.js}"></script>
+<script src="../../../static/js/mstepper.js" th:src="@{~/js/mstepper.min.js}"></script>
+<script src="../../../static/js/init.js" th:src="@{~/js/init.js}"></script>
+
+</html>

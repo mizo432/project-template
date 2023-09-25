@@ -1,6 +1,8 @@
 package template.modules.product.domain.model.business.entity.attribute;
 
 import org.junit.jupiter.api.Test;
+import template.modules.project.domain.model.business.entity.attribute.EntityAttribute;
+import template.modules.project.domain.model.business.entity.attribute.EntityType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

@@ -9,6 +9,7 @@ import org.jetbrains.annotations.VisibleForTesting;
 import org.seasar.doma.Column;
 import org.seasar.doma.Embeddable;
 import template.shared.entity.id.SnowflakeId;
+import template.shared.value.MultiValue;
 import template.shared.value.ValuePreconditions;
 
 import java.time.LocalDateTime;
@@ -20,7 +21,8 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 @ToString
 @Embeddable
-public class AuditInfo {
+public class AuditInfo implements MultiValue<AuditInfo> {
+    public static final AuditInfo EMPTY_VALUE = new AuditInfo();
 
     @Column(name = "created_at", insertable = false, updatable = false)
     private final WhenNoticed whenNoticed;
@@ -31,8 +33,8 @@ public class AuditInfo {
      * コンストラクター
      */
     public AuditInfo() {
-        this.whenNoticed = WhenNoticed.empty();
-        this.whoNoticed = WhoNoticed.empty();
+        this.whenNoticed = WhenNoticed.EMPTY_VALUE;
+        this.whoNoticed = WhoNoticed.EMPTY_VALUE;
     }
 
     /**
@@ -42,7 +44,7 @@ public class AuditInfo {
      * @param whoNoticed  登録者
      */
     @VisibleForTesting
-    public AuditInfo(WhenNoticed whenNoticed, WhoNoticed whoNoticed) {
+    /* default */ AuditInfo(final WhenNoticed whenNoticed, final WhoNoticed whoNoticed) {
         this.whenNoticed = whenNoticed;
         this.whoNoticed = whoNoticed;
     }
@@ -54,7 +56,7 @@ public class AuditInfo {
      * @param whoNoticed  登録者
      * @return 監査証跡
      */
-    public static AuditInfo reconstruct(LocalDateTime whenNoticed, Long whoNoticed) {
+    public static AuditInfo reconstruct(final LocalDateTime whenNoticed, final Long whoNoticed) {
         return new AuditInfo(WhenNoticed.reconstruct(whenNoticed),
                 WhoNoticed.reconstruct(whoNoticed));
 
@@ -78,18 +80,9 @@ public class AuditInfo {
      * @return 監査証跡
      */
     public static AuditInfo of(WhoNoticed whoNoticed) {
-        return new AuditInfo(WhenNoticed.now(),
+        return new AuditInfo(WhenNoticed.current(),
                 whoNoticed);
 
-    }
-
-    /**
-     * 空オブジェクトを生成する
-     *
-     * @return 監査証跡
-     */
-    public static AuditInfo empty() {
-        return new AuditInfo(WhenNoticed.empty(), WhoNoticed.empty());
     }
 
     /**
