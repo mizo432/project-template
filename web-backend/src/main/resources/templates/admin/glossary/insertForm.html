@@ -195,6 +195,12 @@
                            type="text">
                     <label for="kana_word">かな用語<span class="text-accent-1">*</span></label>
                 </div>
+                <div class="input-field outlined col xl12">
+                    <textarea class="materialize-textarea" id="description" placeholder="用語の意味を入力してください"
+                              required
+                              th:field="*{description}"></textarea>
+                    <label for="description">意味<span class="text-accent-1">*</span></label>
+                </div>
             </div>
             <input type="submit" value="送信する"/>
             <a href="list.html" th:href="@{/admin/glossary}">キャンセル</a>
