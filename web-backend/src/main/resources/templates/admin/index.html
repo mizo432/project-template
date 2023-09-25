@@ -40,7 +40,7 @@
             </div>
         </nav>
     </div>
-    <ul class="sidenav teal lighten-2" id="sidenav-left">
+    <ul class="sidenav teal lighten-2" id="sidenav-left" th:replace="/fragments/fragments::#sideView">
         <li><a class="logo-container" href="#"><i class="material-icons left">home</i>システム管理</a></li>
         <li>
             <div class="user-view" th:replace="~{/fragments/fragments :: userView}">
@@ -157,7 +157,7 @@
             <div class="card-action"><a href="#">view</a><a href="#">dismiss</a></div>
         </div>
     </div>
-    <div class="nav-content">
+    <div class="nav-content" th:replace="/fragments/fragments::navContent">
         <ul class="tabs">
             <li class="tab col s3 xl3"><a class="active" href="../admin/index.html"
                                           th:href="@{/admin}">システム管理</a></li>
