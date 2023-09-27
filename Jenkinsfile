@@ -52,6 +52,13 @@ pipeline {
                )
             }
         }
+        stage('small test'){
+            steps {
+                // 並列処理の場合はparallelメソッドを使う
+                gradlew 'test'
+                // dirメソッドでカレントディレクトリを指定できる
+            }
+        }
 
    }
 
