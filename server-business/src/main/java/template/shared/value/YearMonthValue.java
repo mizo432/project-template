@@ -5,7 +5,7 @@ import com.undecided.primitive.object.Objects2;
 
 import java.time.YearMonth;
 
-public interface YearMonthValue<T> extends SingleValue<YearMonth> {
+public interface YearMonthValue extends SingleValue<YearMonth> {
 
     @JsonIgnore
     default boolean isEmpty() {

@@ -53,8 +53,8 @@ dependencies {
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version: "${jetbrainsAnnotationsVersion}"
     testImplementation project(":common-test")
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
     annotationProcessor 'org.projectlombok:lombok'
     implementation("org.seasar.doma.boot:doma-spring-boot-starter:${domaStarterVersion}")
 
@@ -64,7 +64,7 @@ dependencies {
     annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
     implementation group: 'de.huxhorn.sulky', name: 'de.huxhorn.sulky.ulid', version: '8.3.0'
     implementation 'org.springframework.session:spring-session-data-redis'
-    implementation group: 'org.springframework.retry', name: 'spring-retry', version: '2.0.0'
+    implementation group: 'org.springframework.retry', name: 'spring-retry', version: '2.0.2'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.14.2'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.2'
     testImplementation 'ch.qos.logback:logback-core'
@@ -100,10 +100,10 @@ compileTestJava {
 }
 
 javadoc {
-//    title = "My JavaDoc"
     failOnError = false
+    options.locale = "ja_JP"
+    options.encoding = 'UTF-8'
     options.showFromProtected()
-
 }
 
 

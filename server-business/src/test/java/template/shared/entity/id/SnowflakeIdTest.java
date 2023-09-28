@@ -17,7 +17,7 @@ class SnowflakeIdTest {
     @Test
     void testToString() {
         // Arrange, Act and Assert
-        LOGGER.info(SnowflakeId.empty().toString());
+        LOGGER.info(SnowflakeId.EMPTY_VALUE.toString());
     }
 
     @Test
@@ -35,7 +35,7 @@ class SnowflakeIdTest {
     @Test
     void testAsString() {
         // Arrange, Act and Assert
-        assertNull(SnowflakeId.empty().asString());
+        assertNull(SnowflakeId.EMPTY_VALUE.asString());
     }
 
     /**

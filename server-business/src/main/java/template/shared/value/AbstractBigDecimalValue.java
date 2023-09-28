@@ -1,12 +1,14 @@
 package template.shared.value;
 
 import com.undecided.primitive.object.Objects2;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 
 /**
  * BigDecimal値の基底クラス
  */
+@Getter
 public abstract class AbstractBigDecimalValue extends AbstractValue<BigDecimal> implements
         BigDecimalValue {
 
@@ -26,10 +28,6 @@ public abstract class AbstractBigDecimalValue extends AbstractValue<BigDecimal> 
      */
     protected AbstractBigDecimalValue() {
         value = null;
-    }
-
-    public BigDecimal getValue() {
-        return value;
     }
 
     @Override

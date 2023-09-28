@@ -6,31 +6,62 @@ import lombok.Getter;
 import org.seasar.doma.Domain;
 import template.shared.value.AbstractStringValue;
 
+import java.io.Serial;
+import java.io.Serializable;
+
+/**
+ * プロジェクト名
+ */
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
-public class ProjectName extends AbstractStringValue {
+public class ProjectName extends AbstractStringValue implements Serializable {
+    /**
+     * nullオブジェクト
+     */
+    public static final ProjectName EMPTY_VALUE = new ProjectName();
+    @Serial
+    private static final long serialVersionUID = 1L;
 
-    private static final ProjectName EMPTY = new ProjectName(Strings2.EMPTY);
-
-    public ProjectName(String value) {
+    /**
+     * コンストラクター
+     *
+     * @param value 値
+     */
+    /* default */ProjectName(final String value) {
         super(value);
 
     }
 
+    /**
+     * コンストラクター
+     */
+    public ProjectName() {
+        super();
 
-    public static ProjectName empty() {
-        return EMPTY;
     }
 
-    public static ProjectName of(String value) {
+    /**
+     * ファクトリーメソッド
+     *
+     * @param value 値
+     * @return プロジェクト名
+     */
+    public static ProjectName of(final String value) {
         StringPreconditions.checkNotEmpty(value, "プロダクト名");
         return new ProjectName(value);
 
     }
 
-    public static ProjectName reconstruct(String value) {
-        if (Strings2.isEmpty(value))
-            return EMPTY;
+    /**
+     * 再生成
+     *
+     * @param value 値
+     * @return プロおジェクト名
+     */
+    public static ProjectName reconstruct(final String value) {
+        if (Strings2.isEmpty(value)) {
+            return EMPTY_VALUE;
+        }
         return new ProjectName(value);
 
 

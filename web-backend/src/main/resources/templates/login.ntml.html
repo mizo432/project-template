@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>認証画面</title>
+</head>
+<body>
+<form action="/login" method="post" th:object="loginForm">
+    <label for="username">ユーザコード</label>
+    <input id="username" name="username" th:field="username" type="text"><br>
+    <label for="password">パスワード</label>
+    <input id="password" name="password" th:field="password" type="password"><br>
+    <button type="submit">ログイン</button>
+    <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+</form>
+</body>
+</html>

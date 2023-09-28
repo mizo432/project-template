@@ -23,6 +23,7 @@ public abstract class AbstractListValue<E> implements ListValue<E> {
      * コンストラクター
      */
     protected AbstractListValue() {
+        super();
 
     }
 
@@ -31,8 +32,7 @@ public abstract class AbstractListValue<E> implements ListValue<E> {
      *
      * @param value 値
      */
-
-    protected AbstractListValue(@NotNull Collection<E> value) {
+    protected AbstractListValue(final @NotNull Collection<E> value) {
         this.value.addAll(value);
 
     }

@@ -1,7 +1,7 @@
 package template.modules.product.domain.model.business.entity;
 
 import org.junit.jupiter.api.Test;
-import template.modules.product.domain.model.business.entity.attribute.EntityName;
+import template.modules.project.domain.model.business.entity.attribute.EntityName;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

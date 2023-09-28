@@ -11,6 +11,8 @@ import template.shared.entity.id.SnowflakeId;
 import template.shared.value.AbstractListValue;
 import template.shared.value.name.Name;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -22,7 +24,9 @@ import java.util.List;
 @Table(schema = "admin", name = "holiday")
 @AllArgsConstructor
 @ToString
-public class Holiday {
+public class Holiday implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     private final SnowflakeId holidayId;
@@ -39,7 +43,7 @@ public class Holiday {
      * @param name    祝日名称
      * @return 祝日
      */
-    public static Holiday create(LocalDate holiday, String name) {
+    public static Holiday create(final LocalDate holiday, final String name) {
         return new Holiday(SnowflakeId.newInstance(), holiday, Name.of(name));
 
     }
@@ -50,8 +54,8 @@ public class Holiday {
      * @param holidayId 祝日ID
      * @return 祝日
      */
-    public static Holiday create(SnowflakeId holidayId) {
-        return new Holiday(holidayId, null, Name.empty());
+    public static Holiday create(final SnowflakeId holidayId) {
+        return new Holiday(holidayId, null, Name.EMPTY_VALUE);
     }
 
     /**
@@ -62,7 +66,7 @@ public class Holiday {
      * @param name      祝日名称
      * @return 祝日
      */
-    public static Holiday create(Long holidayId, LocalDate holiday, String name) {
+    public static Holiday create(final Long holidayId, final LocalDate holiday, final String name) {
         return new Holiday(SnowflakeId.of(holidayId), holiday, Name.of(name));
     }
 
@@ -81,15 +85,31 @@ public class Holiday {
      * 祝日ファーストクラスコレクション
      */
     public static class Holidays extends AbstractListValue<Holiday> {
-        public Holidays(List<Holiday> value) {
+        /**
+         * コンストラクター
+         *
+         * @param value 値
+         */
+        public Holidays(final List<Holiday> value) {
             super(value);
 
         }
 
-        public static Holidays reconstruct(List<Holiday> value) {
+        /**
+         * 再生成
+         *
+         * @param value 値
+         * @return 祝日ファーストクラスコレクション
+         */
+        public static Holidays reconstruct(final List<Holiday> value) {
             return new Holidays(value);
         }
 
+        /**
+         * 文字列表現を取得する
+         *
+         * @return 文字列
+         */
         @Override
         public String asString() {
             return toString();

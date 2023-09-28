@@ -28,7 +28,7 @@ public class ActorsRestController {
 
     @GetMapping("v1.0/actors/{id}")
     Project get(@PathVariable("id") SnowflakeId projectId) {
-        return Project.empty();
+        return Project.EMPTY_ENTITY;
 
     }
 
