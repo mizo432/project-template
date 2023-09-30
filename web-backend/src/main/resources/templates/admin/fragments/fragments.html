@@ -46,7 +46,7 @@
         <li>
             <div class="user-view" th:replace="~{/fragments/fragments::userView}">
                 <span class="white-text name" sec:authentication="name">John Doe</span>
-                </div>
+            </div>
             </div>
         </li>
         <li class="no-padding">
@@ -58,7 +58,8 @@
                             <li><a class="waves-effect active" href="../holiday/list.html" th:href="@{~/admin/holiday}"><i
                                     class="material-icons">calendar_month</i>祝日カレンダー</a>
                             </li>
-                            <li><a class="waves-effect active" href="../glossary/list.html" th:href="@{~/admin/glossary}"><i
+                            <li><a class="waves-effect active" href="../glossary/list.html"
+                                   th:href="@{~/admin/glossary}"><i
                                     class="material-icons">calendar_month</i>用語辞書</a>
                             </li>
                         </ul>

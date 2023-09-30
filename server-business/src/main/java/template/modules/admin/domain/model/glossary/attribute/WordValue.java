@@ -13,12 +13,12 @@ import java.io.Serializable;
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class WordValue extends AbstractStringValue implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
     /**
      * nullオブジェクト
      */
     public static final WordValue EMPTY_VALUE = new WordValue();
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     /**
      * コンストラクター

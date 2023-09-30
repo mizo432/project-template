@@ -17,13 +17,12 @@ import java.io.Serializable;
 @Embeddable
 @ToString
 public class ProjectAttribute implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
     /**
      * nullオブジェクト
      */
     public static final ProjectAttribute EMPTY_VALUE = new ProjectAttribute();
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Column(name = "project_name")
     private final ProjectName projectName;

@@ -29,7 +29,7 @@ public abstract class AbstractCodeValue extends AbstractValue<String> implements
      */
     protected AbstractCodeValue() {
         value = null;
-        
+
     }
 
     @Override

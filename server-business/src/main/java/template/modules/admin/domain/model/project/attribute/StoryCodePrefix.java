@@ -14,13 +14,12 @@ import java.io.Serializable;
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class StoryCodePrefix extends AbstractStringValue implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
     /**
      * nullオブジェクト
      */
     public static final StoryCodePrefix EMPTY_VALUE = new StoryCodePrefix();
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     /**
      * コンストラクター

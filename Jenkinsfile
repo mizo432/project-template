@@ -52,15 +52,13 @@ pipeline {
                )
             }
         }
-//       stage('test'){
-//            steps {
-//                // 並列処理の場合はparallelメソッドを使う
-//               parallel('medium test' : {
-//                   gradlew ':server-business:testMedium -Pspring.profiles.active=mediumUnit -x compileJava '
-//               }
-//               )
-//            }
-//        }
+        stage('small test'){
+            steps {
+                // 並列処理の場合はparallelメソッドを使う
+                gradlew 'test'
+                // dirメソッドでカレントディレクトリを指定できる
+            }
+        }
 
    }
 

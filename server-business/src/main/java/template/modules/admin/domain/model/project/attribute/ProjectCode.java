@@ -14,13 +14,12 @@ import java.io.Serializable;
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class ProjectCode extends AbstractStringValue implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
     /**
      * nullオブジェクト
      */
     public static final ProjectCode EMPTY_VALUE = new ProjectCode();
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     /**
      * コンストラクター

@@ -3,12 +3,12 @@ package template.modules.admin.presentation.web.glossary;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import template.modules.admin.appl.command.glossary.item.UpdateItemCommand;
 import template.modules.admin.appl.command.glossaryitem.InsertGlossaryItemCommand;
 import template.modules.admin.appl.query.glossary.GlossaryItemQuery;
+import template.modules.admin.domain.model.glossary.GlossaryItem;
+import template.shared.entity.id.SnowflakeId;
 
 import java.util.List;
 
@@ -22,6 +22,7 @@ public class AdminGlossaryController {
 
     private final GlossaryItemQuery glossaryItemQuery;
     private final InsertGlossaryItemCommand insertGlossaryItemCommand;
+    private final UpdateItemCommand updateItemCommand;
 
     /**
      * /admin/glossary GET時のエンドポイント.
@@ -60,6 +61,35 @@ public class AdminGlossaryController {
     @PostMapping(path = "/insert")
     public String insert(@ModelAttribute(name = "form") GlossaryItemForm glossaryForm) {
         insertGlossaryItemCommand.execute(glossaryForm.convertToInsertModel());
+        return "redirect:/admin/glossary";
+
+    }
+
+    /**
+     * /admin/glossary/updateForm 変更入力フォームGET時のエンドポイント.
+     *
+     * @param id    変更対象の祝日ID
+     * @param model モデル
+     * @return テンプレート
+     */
+    @GetMapping(path = "/editForm")
+    public String editForm(@RequestParam(name = "glossaryItemId") Long id, Model model) {
+        GlossaryItem glossaryItem = glossaryItemQuery.findOneById(SnowflakeId.of(id));
+        GlossaryItemForm glossaryItemForm = GlossaryItemForm.reconstruct(glossaryItem);
+        model.addAttribute("form", glossaryItemForm);
+        return "admin/glossary/editForm";
+
+    }
+
+    /**
+     * /admin/glossary/update POST時のエンドポイント.
+     *
+     * @param glossaryItemForm 入力フォーム
+     * @return テンプレート
+     */
+    @PostMapping(path = "/update")
+    public String update(@ModelAttribute(name = "form") GlossaryItemForm glossaryItemForm) {
+        updateItemCommand.execute(glossaryItemForm.convertToUpdateModel());
         return "redirect:/admin/glossary";
 
     }

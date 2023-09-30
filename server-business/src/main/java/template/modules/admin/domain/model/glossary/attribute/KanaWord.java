@@ -13,13 +13,12 @@ import java.io.Serializable;
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class KanaWord extends AbstractStringValue implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
     /**
      * nullオブジェクト
      */
     public static final KanaWord EMPTY_VALUE = new KanaWord();
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     /**
      * コンストラクター

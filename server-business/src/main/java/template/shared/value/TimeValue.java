@@ -12,5 +12,5 @@ public interface TimeValue extends SingleValue<LocalTime> {
         return Objects2.isNull(getValue());
 
     }
-    
+
 }

@@ -1,6 +1,6 @@
 package com.undecided.validator.constraintvalidators;
 
-import org.junit.jupiter.api.Test;
+import com.undecided.test.size.SmallTest;
 
 import java.lang.reflect.Constructor;
 
@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConstraintValidatorsUtilsTest {
 
-    @Test
+    @SmallTest
     public void testConstraintValidatorsUtils() throws Exception {
         // set up
         Constructor<ConstraintValidatorsUtils> constructor = ConstraintValidatorsUtils.class
@@ -20,7 +20,7 @@ public class ConstraintValidatorsUtilsTest {
 
     }
 
-    @Test
+    @SmallTest
     public void testGetPropertyValueBeanAndPropertyNameNotNull() throws Exception {
         // set up
         FooBean foo = new FooBean();
@@ -34,7 +34,7 @@ public class ConstraintValidatorsUtilsTest {
                 .isNotNull();
     }
 
-    @Test
+    @SmallTest
     public void testGetPropertyValueBeanNull() throws Exception {
         // test
         Object o = ConstraintValidatorsUtils.getPropertyValue(null, "bar");
@@ -44,7 +44,7 @@ public class ConstraintValidatorsUtilsTest {
                 .isNull();
     }
 
-    @Test
+    @SmallTest
     public void testGetPropertyValuePropertyNameNull() throws Exception {
         // test
         Object o = ConstraintValidatorsUtils.getPropertyValue(new FooBean(),
@@ -54,7 +54,7 @@ public class ConstraintValidatorsUtilsTest {
         assertThat(o).isNull();
     }
 
-    @Test
+    @SmallTest
     public void testIsEmptyValueNull() throws Exception {
         // test
         boolean b = ConstraintValidatorsUtils.isEmpty(null);
@@ -64,7 +64,7 @@ public class ConstraintValidatorsUtilsTest {
                 .isNotNull();
     }
 
-    @Test
+    @SmallTest
     public void testIsEmptyValueBlank() throws Exception {
         // test
         boolean b = ConstraintValidatorsUtils.isEmpty("");
@@ -73,7 +73,7 @@ public class ConstraintValidatorsUtilsTest {
         assertThat(b).isTrue();
     }
 
-    @Test
+    @SmallTest
     public void testIsEmptyValueNotNull() throws Exception {
         // test
         boolean b = ConstraintValidatorsUtils.isEmpty("test");
@@ -82,7 +82,7 @@ public class ConstraintValidatorsUtilsTest {
         assertThat(b).isFalse();
     }
 
-    class FooBean {
+    static class FooBean {
 
         private String bar;
 

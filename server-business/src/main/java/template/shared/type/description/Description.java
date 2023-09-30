@@ -15,9 +15,9 @@ import static com.undecided.primitive.string.Strings2.emptyToNull;
 @Getter
 @Domain(valueType = String.class, factoryMethod = "reconstruct")
 public class Description extends AbstractStringValue implements Serializable {
+    public static final Description EMPTY_VALUE = new Description();
     @Serial
     private static final long serialVersionUID = 1L;
-    public static final Description EMPTY_VALUE = new Description();
 
     /**
      * コンストラクター

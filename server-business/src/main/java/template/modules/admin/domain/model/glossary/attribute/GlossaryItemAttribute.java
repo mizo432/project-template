@@ -17,14 +17,12 @@ import java.io.Serializable;
 @Embeddable
 @ToString
 public class GlossaryItemAttribute implements MultiValue<GlossaryItemAttribute>, Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
     /**
      * nullオブジェクト
      */
     public final static GlossaryItemAttribute EMPTY_VALUE = new GlossaryItemAttribute();
-
+    @Serial
+    private static final long serialVersionUID = 1L;
     @Column(name = "word")
     private final WordValue word;
     @Column(name = "kana_word")

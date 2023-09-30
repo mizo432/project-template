@@ -1,11 +1,12 @@
 package com.undecided.validator.constraints;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.undecided.test.size.SmallTest;
 import com.undecided.validator.constraints.ByteMaxTest.ByteMaxTestForm;
-import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ByteMaxTest extends AbstractConstraintsTest<ByteMaxTestForm> {
 
@@ -19,7 +20,7 @@ public class ByteMaxTest extends AbstractConstraintsTest<ByteMaxTestForm> {
     /**
      * input null value. expected valid.
      */
-    @Test
+    @SmallTest
     public void testInputNull() {
 
         violations = validator.validate(form);
@@ -31,14 +32,16 @@ public class ByteMaxTest extends AbstractConstraintsTest<ByteMaxTestForm> {
      * specify max value. expected valid if input value encoded in UTF-8 is grater than or equal max
      * value.
      */
-    @Test
+    @SmallTest
     public void testSpecifyMaxValue() {
 
         {
             form.setStringProperty("ああa");
             violations = validator.validate(form);
-//            assertThat(violations).containsAnyElementsOf(new Const), containsInAnyOrder(hasProperty("message", is(
-//                String.format(MESSAGE_VALIDATION_ERROR, 6)))));
+/*
+            assertThat(violations).containsAnyElementsOf(new Const(), containsInAnyOrder(hasProperty("message", is(
+                String.format(MESSAGE_VALIDATION_ERROR, 6)))));
+*/
         }
 
         {
@@ -46,21 +49,21 @@ public class ByteMaxTest extends AbstractConstraintsTest<ByteMaxTestForm> {
 
             violations = validator.validate(form);
             assertThat(violations)
-                .isEmpty();
+                    .isEmpty();
         }
     }
 
     /**
      * Validation group encoding shift-jis.
      */
-    private static interface SpecifyCharset {
+    private interface SpecifyCharset {
 
     }
 
     /**
      * Validation group encoding unsupported.
      */
-    private static interface IllegalCharset {
+    private interface IllegalCharset {
 
     }
 
@@ -69,7 +72,7 @@ public class ByteMaxTest extends AbstractConstraintsTest<ByteMaxTestForm> {
     /**
      * Validation group value negative.
      */
-    private static interface NegativeValue {
+    private interface NegativeValue {
 
     }
 
@@ -78,7 +81,7 @@ public class ByteMaxTest extends AbstractConstraintsTest<ByteMaxTestForm> {
     /**
      * Validation group unexpected type.
      */
-    private static interface UnexpectedType {
+    private interface UnexpectedType {
 
     }
 
@@ -88,9 +91,9 @@ public class ByteMaxTest extends AbstractConstraintsTest<ByteMaxTestForm> {
 
         @ByteMax(6)
         @ByteMax(value = 6, charset = "shift-jis", groups = {
-            SpecifyCharset.class})
+                SpecifyCharset.class})
         @ByteMax(value = 6, charset = "illegal-charset", groups = {
-            IllegalCharset.class})
+                IllegalCharset.class})
         @ByteMax(value = -1, groups = {NegativeValue.class})
         private String stringProperty;
 
@@ -115,7 +118,7 @@ public class ByteMaxTest extends AbstractConstraintsTest<ByteMaxTestForm> {
         }
 
         public void setStringBuilderProperty(
-            StringBuilder stringBuilderProperty) {
+                StringBuilder stringBuilderProperty) {
             this.stringBuilderProperty = stringBuilderProperty;
         }
 
