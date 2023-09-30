@@ -38,8 +38,10 @@ public class ByteMaxTest extends AbstractConstraintsTest<ByteMaxTestForm> {
         {
             form.setStringProperty("ああa");
             violations = validator.validate(form);
-//            assertThat(violations).containsAnyElementsOf(new Const), containsInAnyOrder(hasProperty("message", is(
-//                String.format(MESSAGE_VALIDATION_ERROR, 6)))));
+/*
+            assertThat(violations).containsAnyElementsOf(new Const(), containsInAnyOrder(hasProperty("message", is(
+                String.format(MESSAGE_VALIDATION_ERROR, 6)))));
+*/
         }
 
         {
