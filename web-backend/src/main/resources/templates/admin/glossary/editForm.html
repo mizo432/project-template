@@ -180,7 +180,7 @@
     </div>
 </header>
 <main class="container">
-    <h3>祝日変更</h3>
+    <h3>用語変更</h3>
     <div class="row">
         <form action="#" class="col xl6" method="post" th:action="@{update}" th:object="${form}">
             <div class="row">
@@ -189,21 +189,21 @@
                            type="hidden">
                 </div>
                 <div class="input-field outlined col xl12">
-                    <input class="validate" id="word" placeholder="日付をyyy/MM/dd形式で入力してください" required
+                    <input class="validate" id="word" placeholder="用語を入力してください" required
                            th:field="*{word}" type="text">
-                    <label for="word">祝日<span class="text-accent-1">*</span></label>
+                    <label for="word">用語<span class="text-accent-1">*</span></label>
                 </div>
                 <div class="input-field outlined col xl12">
-                    <input class="validate" id="kana_word" placeholder="祝日の名称を入力してください" required
+                    <input class="validate" id="kana_word" placeholder="用語かなを入力してください" required
                            th:field="*{kanaWord}"
                            type="text">
-                    <label for="kana_word">名称<span class="text-accent-1">*</span></label>
+                    <label for="kana_word">用語かな<span class="text-accent-1">*</span></label>
                 </div>
                 <div class="input-field outlined col xl12">
-                    <input class="validate" id="description" placeholder="祝日の名称を入力してください" required
+                    <input class="validate" id="description" placeholder="用語の意味を入力してください" required
                            th:field="*{description}"
                            type="text">
-                    <label for="description">名称<span class="text-accent-1">*</span></label>
+                    <label for="description">意味<span class="text-accent-1">*</span></label>
                 </div>
             </div>
             <input type="submit" value="送信する"/>
