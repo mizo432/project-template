@@ -1,8 +1,8 @@
 package com.undecided.gfw.common.exception;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.undecided.test.size.SmallTest;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SystemExceptionTest {
 
@@ -14,11 +14,11 @@ class SystemExceptionTest {
      *   <li>{@link SystemException#getCode()}
      * </ul>
      */
-    @Test
+    @SmallTest
     void testConstructor() {
         assertEquals("Code", (new SystemException("Code", "An error occurred")).getCode());
         assertEquals("Code",
-            (new SystemException("Code", "An error occurred", new Throwable())).getCode());
+                (new SystemException("Code", "An error occurred", new Throwable())).getCode());
         assertEquals("Code", (new SystemException("Code", new Throwable())).getCode());
     }
 }
