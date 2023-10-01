@@ -1,3 +1,3 @@
 delete
-from admin.glossaly_item
-where gloaary_item_id = /* glossaryItemId */1;
+from admin.glossary_item
+where glossary_item_id = /* glossaryItemId */1;

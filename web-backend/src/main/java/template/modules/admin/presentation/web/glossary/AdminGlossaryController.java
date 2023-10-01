@@ -4,8 +4,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import template.modules.admin.appl.command.glossary.item.CreateItemCommand;
+import template.modules.admin.appl.command.glossary.item.DropItemCommand;
 import template.modules.admin.appl.command.glossary.item.UpdateItemCommand;
-import template.modules.admin.appl.command.glossaryitem.InsertGlossaryItemCommand;
 import template.modules.admin.appl.query.glossary.GlossaryItemQuery;
 import template.modules.admin.domain.model.glossary.GlossaryItem;
 import template.shared.entity.id.SnowflakeId;
@@ -21,8 +22,9 @@ import java.util.List;
 public class AdminGlossaryController {
 
     private final GlossaryItemQuery glossaryItemQuery;
-    private final InsertGlossaryItemCommand insertGlossaryItemCommand;
+    private final CreateItemCommand createItemCommand;
     private final UpdateItemCommand updateItemCommand;
+    private final DropItemCommand dropItemCommand;
 
     /**
      * /admin/glossary GET時のエンドポイント.
@@ -60,7 +62,7 @@ public class AdminGlossaryController {
      */
     @PostMapping(path = "/insert")
     public String insert(@ModelAttribute(name = "form") GlossaryItemForm glossaryForm) {
-        insertGlossaryItemCommand.execute(glossaryForm.convertToInsertModel());
+        createItemCommand.execute(glossaryForm.convertToInsertModel());
         return "redirect:/admin/glossary";
 
     }
@@ -90,6 +92,19 @@ public class AdminGlossaryController {
     @PostMapping(path = "/update")
     public String update(@ModelAttribute(name = "form") GlossaryItemForm glossaryItemForm) {
         updateItemCommand.execute(glossaryItemForm.convertToUpdateModel());
+        return "redirect:/admin/glossary";
+
+    }
+
+    /**
+     * /admin/holiday/update POST時のエンドポイント.
+     *
+     * @param id 削除したい祝日ID
+     * @return テンプレート
+     */
+    @PostMapping(path = "/delete")
+    public String delete(@RequestParam(name = "id") Long id) {
+        dropItemCommand.execute(SnowflakeId.of(id));
         return "redirect:/admin/glossary";
 
     }
