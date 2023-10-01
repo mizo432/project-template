@@ -1,4 +1,4 @@
-package template.modules.admin.appl.command.glossaryitem;
+package template.modules.admin.appl.command.glossary.item;
 
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
@@ -12,7 +12,7 @@ import template.modules.admin.domain.model.glossary.GlossaryItemRepository;
  */
 @Service
 @AllArgsConstructor
-public class InsertGlossaryItemCommand {
+public class CreateItemCommand {
 
     private final GlossaryItemRepository glossaryItemRepository;
 
