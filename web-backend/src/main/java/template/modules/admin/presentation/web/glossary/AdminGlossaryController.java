@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import template.modules.admin.appl.command.glossary.item.CreateItemCommand;
 import template.modules.admin.appl.command.glossary.item.DropItemCommand;
 import template.modules.admin.appl.command.glossary.item.UpdateItemCommand;
-import template.modules.admin.appl.query.glossary.GlossaryItemQuery;
+import template.modules.admin.appl.query.glossary.item.GlossaryItemQuery;
 import template.modules.admin.domain.model.glossary.GlossaryItem;
 import template.shared.entity.id.SnowflakeId;
 

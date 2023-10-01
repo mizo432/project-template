@@ -1,4 +1,4 @@
-package template.modules.admin.appl.query.glossary;
+package template.modules.admin.appl.query.glossary.item;
 
 import org.jetbrains.annotations.NotNull;
 import template.modules.admin.domain.model.glossary.GlossaryItem;
@@ -16,9 +16,9 @@ public interface GlossaryItemQuery {
     /**
      * 擁護辞書アイテムをキーに用語辞書アイテムを検索する
      *
-     * @param GlossaryItemId 擁護辞書アイテムID
+     * @param glossaryItemId 擁護辞書アイテムID
      * @return 用語辞書アイテム
      */
-    GlossaryItem findOneById(SnowflakeId GlossaryItemId);
+    GlossaryItem findOneById(SnowflakeId glossaryItemId);
 
 }

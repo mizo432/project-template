@@ -3,7 +3,7 @@ package template.modules.admin.infra.query.glossary.item;
 import lombok.AllArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
-import template.modules.admin.appl.query.glossary.GlossaryItemQuery;
+import template.modules.admin.appl.query.glossary.item.GlossaryItemQuery;
 import template.modules.admin.domain.model.glossary.GlossaryItem;
 import template.modules.admin.domain.model.glossary.GlossaryItem.Glossary;
 import template.modules.admin.domain.model.glossary.GlossaryItemRepository;
