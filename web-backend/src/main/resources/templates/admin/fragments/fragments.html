@@ -58,10 +58,23 @@
                             <li><a class="waves-effect active" href="../holiday/list.html" th:href="@{~/admin/holiday}"><i
                                     class="material-icons">calendar_month</i>祝日カレンダー</a>
                             </li>
-                            <li><a class="waves-effect active" href="../glossary/list.html"
+                            <li><a class="waves-effect" href="../glossary/list.html"
                                    th:href="@{~/admin/glossary}"><i
                                     class="material-icons">calendar_month</i>用語辞書</a>
                             </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header">プロジェクトメンテ<i
+                        class="material-icons chevron">chevron_left</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="../project/insertForm.html"
+                                   th:href="@{~/admin/project/insertForm}">追加<i
+                                    class="material-icons">add</i></a></li>
+                            <li><a class="waves-effect" href="../project/achievableList.html"
+                                   th:href="@{~/admin/project/achievableList}">アーカイブ<i
+                                    class="material-icons">place_item</i></a></li>
                         </ul>
                     </div>
                 </li>
