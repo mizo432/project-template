@@ -67,4 +67,8 @@ public interface ProjectRepository {
      */
     @Delete(sqlFile = true)
     int deleteById(SnowflakeId projectId);
+
+
+    @Select
+    List<Project> selectAchievable();
 }
