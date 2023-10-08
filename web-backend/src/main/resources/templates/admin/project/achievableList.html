@@ -2,7 +2,7 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>祝日カレンダー</title>
+    <title>アーカイブ可能プロジェクト一覧</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <!--Let browser know website is optimized for mobile-->
     <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -181,27 +181,21 @@
     </div>
 </header>
 <main class="container">
-    <h3>祝日カレンダー</h3>
-    <a class="waves-effect waves-light btn" href="insertForm.html" th:href="@{/admin/holiday/insertForm}"><i
-            class="material-icons left">new_label</i>新規追加</a>
-
+    <h3>アーカイブ可能プロジェクト一覧</h3>
     <table>
         <tr>
-            <th>祝日日付</th>
-            <th>祝日名称</th>
+            <th>コード</th>
+            <th>名称</th>
             <th>アクション</th>
         </tr>
         <tr th:each="form : ${formList}">
-            <td th:text="${form.holiday}">2023/01/01</td>
-            <td th:text="${form.name}">元旦</td>
+            <td th:text="${form.projectCode}">2023/01/01</td>
+            <td th:text="${form.projectName}">元旦</td>
             <td>
 
-                <form method="post" th:action="@{holiday/delete}">
-                    <a class="waves-effect waves-light btn"
-                       th:href="@{/admin/holiday/editForm(holidayId=${form.holidayId})}"><i
-                            class="material-icons left">edit</i>変更</a>
-                    <input name="id" th:value="${form.getHolidayId()}" type="hidden">
-                    <button class="btn waves-effect waves-light" name="action" type="submit">削除
+                <form method="post" th:action="@{project/archieve}">
+                    <input name="id" th:value="${form.projectId}" type="hidden">
+                    <button class="btn waves-effect waves-light" name="action" type="submit">アーカイブする
                         <i class="material-icons left">delete</i>
                     </button>
                 </form>

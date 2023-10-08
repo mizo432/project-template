@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import template.modules.admin.appl.command.project.InsertProjectCommand;
+import template.modules.admin.appl.query.project.ProjectQuery;
+
+import java.util.List;
 
 @Controller
 @AllArgsConstructor
@@ -15,6 +18,7 @@ import template.modules.admin.appl.command.project.InsertProjectCommand;
 public class AdminProjectController {
 
     private final InsertProjectCommand insertProjectCommand;
+    private final ProjectQuery projectQuery;
 
     /**
      * /admin/holiday/insertForm 新規入力フォームGET時のエンドポイント.
@@ -31,12 +35,6 @@ public class AdminProjectController {
     }
 
     /**
-     * /admin/holiday/insert POST時のエンドポイント.
-     *
-     * @param holidayForm 入力フォーム
-     * @return テンプレート
-     */
-    /**
      * /admin/project/insert POST時のエンドポイント.
      *
      * @param projectForm 入力フォーム
@@ -45,8 +43,16 @@ public class AdminProjectController {
     @PostMapping(path = "/insert")
     public String insert(@ModelAttribute(name = "form") ProjectForm projectForm) {
         insertProjectCommand.execute(projectForm.convertToInsertModel());
-        return "redirect:/admin/holiday";
+        return "redirect:/admin/project/achievableList";
 
+    }
+
+    @GetMapping(path = "/achievableList")
+    String achievableList(Model model) {
+
+        List<ProjectForm> formList = ProjectForm.convertFromProjectListToList(projectQuery.selectAchievable());
+        model.addAttribute("formList", formList);
+        return "/admin/project/achievableList";
     }
 
 }
