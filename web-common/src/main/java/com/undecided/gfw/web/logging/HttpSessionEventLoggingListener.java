@@ -1,32 +1,25 @@
 package com.undecided.gfw.web.logging;
 
-import jakarta.servlet.http.HttpSession;
-import jakarta.servlet.http.HttpSessionActivationListener;
-import jakarta.servlet.http.HttpSessionAttributeListener;
-import jakarta.servlet.http.HttpSessionBindingEvent;
-import jakarta.servlet.http.HttpSessionEvent;
-import jakarta.servlet.http.HttpSessionListener;
+import jakarta.servlet.http.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
-@Component
 public class HttpSessionEventLoggingListener implements HttpSessionListener,
-    HttpSessionAttributeListener,
-    HttpSessionActivationListener {
+        HttpSessionAttributeListener,
+        HttpSessionActivationListener {
 
     /**
      * logger
      */
     private static final Logger logger = LoggerFactory.getLogger(
-        HttpSessionEventLoggingListener.class);
+            HttpSessionEventLoggingListener.class);
 
     @Override
     public void sessionWillPassivate(HttpSessionEvent se) {
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
             logger.debug("SESSION_ID#{} sessionWillPassivate : {}", session
-                .getId(), se.getSource());
+                    .getId(), se.getSource());
         }
     }
 
@@ -35,7 +28,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
             logger.debug("SESSION_ID#{} sessionDidActivate : {}", session
-                .getId(), se.getSource());
+                    .getId(), se.getSource());
         }
     }
 
@@ -44,7 +37,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
             logger.debug("SESSION_ID#{} attributeAdded : {}={}", session.getId(),
-                se.getName(), se.getValue());
+                    se.getName(), se.getValue());
         }
     }
 
@@ -53,7 +46,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
             logger.debug("SESSION_ID#{} attributeRemoved : {}={}", session
-                .getId(), se.getName(), se.getValue());
+                    .getId(), se.getName(), se.getValue());
         }
     }
 
@@ -62,7 +55,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
         if (logger.isTraceEnabled()) {
             HttpSession session = se.getSession();
             logger.trace("SESSION_ID#{} attributeReplaced : {}={}", session
-                .getId(), se.getName(), se.getValue());
+                    .getId(), se.getName(), se.getValue());
         }
     }
 
@@ -71,7 +64,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
             logger.debug("SESSION_ID#{} sessionCreated : {}", session.getId(), se
-                .getSource());
+                    .getSource());
         }
     }
 
@@ -80,7 +73,7 @@ public class HttpSessionEventLoggingListener implements HttpSessionListener,
         if (logger.isDebugEnabled()) {
             HttpSession session = se.getSession();
             logger.debug("SESSION_ID#{} sessionDestroyed : {}", session.getId(),
-                se.getSource());
+                    se.getSource());
         }
     }
 
