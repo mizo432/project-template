@@ -1,5 +1,4 @@
 server:
-  port: 8080
   compression:
     enabled: true
     mime-types: text/html,text/css,application/javascript,application/json
@@ -33,7 +32,7 @@ spring:
       port: 6379
       database: 0
   application:
-    name: WebBackend # アプリケーション名
+    name: web-backend # アプリケーション名
   boot:
     admin:
       client:
@@ -60,6 +59,9 @@ spring:
   #    user:
   #      name: user
   #      password: user
+  config:
+    import: "optional:configserver:http://localhost:8888"
+
 logging:
   file:
     name: ./build/logs/WebBackend.log

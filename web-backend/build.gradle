@@ -39,6 +39,11 @@ idea {
         testOutputDir file('build/classes/test')
     }
 }
+ext {
+    set('springCloudVersion', "2022.0.4")
+
+}
+
 
 repositories {
     mavenCentral()
@@ -95,7 +100,16 @@ dependencies {
     implementation 'org.aspectj:aspectjweaver:1.9.20.1'
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
 
+
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
 }
 
 flyway {

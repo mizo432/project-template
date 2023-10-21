@@ -1,8 +1,3 @@
-server:
-  port: 8080
-#  servlet:
-#    context-path: /api
-
 spring:
   profiles.active: integration
   thymeleaf:
@@ -40,7 +35,7 @@ spring:
     port: 6379
     database: 0
   application:
-    name: テンプレートアプリケーション # アプリケーション名
+    name: web-backend # アプリケーション名
   boot:
     admin:
       client:
@@ -55,8 +50,6 @@ spring:
       field: any
       getter: none
       setter: none
-  profiles:
-    active: develop
   devtools:
     restart:
       exclude: static/**, public/**
